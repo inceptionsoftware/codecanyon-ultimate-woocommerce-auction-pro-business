@@ -1,0 +1,4755 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ultimate WooCommerce Auction Pro - Business\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 05:36+0000\n"
+"PO-Revision-Date: 2022-06-08 09:28+0000\n"
+"Last-Translator: wp22\n"
+"Language-Team: Magyar\n"
+"Language: hu-HU\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0"
+
+#: includes/class-uwa-front.php:692
+msgid " has been met."
+msgstr ""
+"teljesült.\n"
+
+#: includes/class-uwa-front.php:689
+msgid " has not been met."
+msgstr ""
+"nem teljesült.\n"
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:283
+msgid " Mention time left for auction to close:"
+msgstr "Az aukció zárására maradt idő megemlítése:"
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:32
+msgid " recently placed a bid on Auction - "
+msgstr " - Ön licitált az alábbi tételre: "
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:31
+msgid " won an Auction - "
+msgstr "Ön nyert -"
+
+#: ultimate-woocommerce-auction-pro.php:1196
+msgid "\" target=\"_blank\">WooCommerce</a>."
+msgstr "\" target=\"_blank\">WooCommerce</a>."
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:60
+#, php-format
+msgid "% of Winning bid."
+msgstr "A nyertes ajánlat %-a. "
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:677
+msgid "% of Winning Price."
+msgstr "%  Győztes ajánlat"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:314 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:334
+msgid "---Select---"
+msgstr "--- Válasszon ---"
+
+#: templates/woocommerce/single-product/uwa-bid.php:191
+msgid "</strong>"
+msgstr "</strong>"
+
+#: templates/woocommerce/emails/plain/auction-winner.php:240 
+#: templates/woocommerce/emails/plain/auction-winner.php:259
+#, php-format
+msgid "<a href='%s'>%s</a>."
+msgstr "<a href='%s'>%s</a>."
+
+#: includes/admin/uwa_general_setting_tab.php:432
+msgid "<b>%1$s/?ua-auction-cron=ending-soon-sms</b>"
+msgstr "<b>%1$s/?ua-auction-cron=ending-soon-sms</b>"
+
+#: includes/class-uwa-product.php:640
+msgid "<span class=\"current auction\">This auction is silent bid.</span> "
+msgstr "<span class=\"current auction\">Ajánlat tételi aukció</span> "
+
+#: includes/class-uwa-front.php:546
+#, php-format
+msgid ""
+"<span class=\"watchlist-error\">Please sign in to add auction to watchlist. "
+"</span><a href=\"%s\" class=\"button watchlist-error\">Login &rarr;</a>"
+msgstr ""
+"Kérjük, jelentkezzen be, hogy használni tudja a figyelőlistát. Bejelentkezés "
+"→"
+
+#: includes/class-uwa-product.php:646
+msgid "<span class=\"woo-ua-current auction\">Current bid</span>: "
+msgstr "<font color=\"Blue\">Jelenlegi ajánlat: </font>"
+
+#: includes/class-uwa-product.php:644
+msgid "<span class=\"woo-ua-current auction\">Starting bid</span>: "
+msgstr "Kezdő ár: "
+
+#: includes/class-uwa-product.php:612
+msgid "<span class=\"woo-ua-sold-for sold_for\">Sold for</span>: "
+msgstr "Eladva:"
+
+#: includes/class-uwa-product.php:635
+msgid "<span class=\"woo-ua-starting auction\">Starting bid</span>: "
+msgstr "Kezdő ár: "
+
+#: includes/class-uwa-product.php:627
+msgid "<span class=\"woo-ua-winned-for expired\">Auction Expired</span> "
+msgstr "Aukció véget ért"
+
+#: includes/class-uwa-product.php:620
+msgid ""
+"<span class=\"woo-ua-winned-for reserve_not_met\">Reserve price Not met!"
+"</span> "
+msgstr ""
+"Ajánlatát nem fogadtuk el!\n"
+
+#: includes/class-uwa-product.php:623
+msgid "<span class=\"woo-ua-winned-for winning_bid\">Winning Bid</span>: "
+msgstr "<span class=\"woo-ua-winned-for winning_bid\">Eladva</span>:   "
+
+#: includes/admin/uwa_manage_auctions.php:171 
+#: includes/admin/uwa_manage_user_auctions.php:166
+msgid "<strong>End: </strong>"
+msgstr "<strong>Vége: </strong>"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:204 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:125
+msgid "<strong>ERROR</strong> Please enter a postcode"
+msgstr ""
+"<strong>HIBA:</strong> Kérjük, írja be az irányítószámot\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:196 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:116
+msgid "<strong>ERROR</strong> Please enter address"
+msgstr ""
+"<strong>HIBA: </strong>Adja meg a címet\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:200 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:120
+msgid "<strong>ERROR</strong> Please enter city"
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, írja be a várost\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:184 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:108
+msgid "<strong>ERROR</strong> Please enter first name"
+msgstr ""
+"<strong>HIBA: </strong>Adja meg a keresztnevét\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:188 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:112
+msgid "<strong>ERROR</strong> Please enter last name"
+msgstr ""
+"<strong>HIBA: </strong>Adja meg a vezetéknevet\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:216 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:130
+msgid "<strong>ERROR</strong> Please enter phone number"
+msgstr ""
+"<strong>HIBA: </strong>Írja be a telefonszámot\n"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:210 
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:104
+msgid "<strong>ERROR</strong> Please select a country"
+msgstr ""
+"<strong>HIBA: </strong>Válasszon országot\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:363
+msgid "<strong>ERROR</strong>: Invalid credit card holdername."
+msgstr ""
+"<strong>HIBA: </strong>Érvénytelen hitelkártya tulajdonos neve.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:375
+msgid "<strong>ERROR</strong>: Invalid credit card."
+msgstr ""
+"<strong>HIBA: </strong>Érvénytelen hitelkártya.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:387
+msgid "<strong>ERROR</strong>: Invalid CVV code."
+msgstr ""
+"<strong>HIBA: </strong>Érvénytelen CVV-kód.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:357
+msgid "<strong>ERROR</strong>: Please enter card holdername."
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, adja meg a kártya tulajdonosának nevét.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:370
+msgid "<strong>ERROR</strong>: Please enter credit card."
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, adja meg hitelkártyáját.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:382
+msgid "<strong>ERROR</strong>: Please enter CVV code."
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, adja meg a CVV kódot.\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:393
+msgid "<strong>ERROR</strong>: Please select expiry month"
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, válassza ki a lejárati hónapot\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:398
+msgid "<strong>ERROR</strong>: Please select expiry year"
+msgstr ""
+"<strong>HIBA: </strong>Kérjük, válassza a lejárati évet\n"
+
+#: includes/admin/uwa_manage_auctions.php:170 
+#: includes/admin/uwa_manage_user_auctions.php:165
+msgid "<strong>Start: </strong>"
+msgstr "Rajt"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:227
+msgid ""
+"<strong>Your Payment Information not valid. Please check and fill correct "
+"payment information.</strong>"
+msgstr ""
+"Fizetési adatai érvénytelenek. Kérjük, ellenőrizze és töltse ki a helyes "
+"fizetési információkat."
+
+#: templates/woocommerce/emails/placed-bid.php:111 
+#: templates/woocommerce/emails/plain/placed-bid.php:83
+#, php-format
+msgid "A bid was placed on <a href=\"%s\">%s</a>."
+msgstr "Ajánlatot tettek a következőre: <a href=\"%s\">%s</a>."
+
+#: templates/woocommerce/emails/plain/watchlist.php:38
+msgid ""
+"A bid was placed on an auction product which was in your watchlist <a "
+"href=\"%s\">%s</a>."
+msgstr ""
+"Ajánlatot tettek egy aukciós termékre, amely szerepelt a figyelőlistáján <a "
+"href=\"%s\">%s</a>."
+
+#: templates/woocommerce/emails/watchlist.php:37
+msgid "A bid was placed on an auction product which was in your watchlist."
+msgstr "Ajánlatot tettek egy tételre, amit figyelőlistára tett %s."
+
+#: includes/admin/uwa_general_setting_tab.php:325
+msgid ""
+"A scheduler runs on an interval specified in this field in recurring manner."
+"It checks, if some live auction product can be expired and accordingly "
+"update their status."
+msgstr ""
+"Az ütemező az e mezőben megadott időközönként ismétlődő módon fut. Ellenőrzi,"
+" hogy lejár-e valamilyen élő aukciós termék, és ennek megfelelően frissíti "
+"állapotát."
+
+#: includes/admin/widgets/class-uwa-widget-auction-search.php:24
+msgid "A search auctions form for your store."
+msgstr "Keresési aukciós űrlap az Ön üzletéhez."
+
+#: templates/woocommerce/single-product/uwa-bid.php:158
+msgid ""
+"A silent bid auction is a type of auction process in which all bidders "
+"simultaneously submit sealed bids to the auctioneer, so that no bidder knows "
+"how much the other auction participants have bid. The highest bidder is "
+"usually declared the winner of the bidding process"
+msgstr ""
+"Ajánlat tételi aukción a licitálók vételi ajánlatokat tehetnek, amit mi "
+"szabadon elfogadhatunk, vagy vissza utasíthatunk. \n"
+"Ajánlat tételi aukción nincsenek licit lépcsők Ön tetszése szerin tehet "
+"ajánlatot."
+
+#: includes/admin/class-uwa-admin.php:421 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:253
+msgid ""
+"A Silent-Bid auction is a type of auction process in which all bidders "
+"simultaneously submit Silent bids to the auctioneer, so that no bidder knows "
+"how much the other auction participants have bid. The highest bidder is "
+"usually declared the winner of the bidding process."
+msgstr ""
+"Ajánlat tételi aukción a licitálók vételi ajánlatokat tehetnek, amit mi "
+"szabadon elfogadhatunk, vagy vissza utasíthatunk. \n"
+"Ajánlat tételi aukción nincsenek licit lépcsők Ön tetszése szerin tehet "
+"ajánlatot."
+
+#: includes/admin/uwa_general_setting_tab.php:492
+msgid ""
+"A Silent-bid auction is a type of auction process in which all bidders "
+"simultaneously submit Silent bids to the auctioneer, so that no bidder knows "
+"how much the other auction participants have bid. The highest bidder is "
+"usually declared the winner of the bidding process."
+msgstr ""
+"Ajánlat tételi aukción a licitálók vételi ajánlatokat tehetnek, amit mi "
+"szabadon elfogadhatunk, vagy vissza utasíthatunk. \n"
+"Ajánlat tételi aukción nincsenek licit lépcsők Ön tetszése szerin tehet "
+"ajánlatot."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:185
+msgid "Account SID"
+msgstr "Fiók SID"
+
+#: includes/admin/uwa_users_bids_lists.php:318 
+#: includes/admin/uwa_users_bids_lists.php:328 
+#: includes/admin/uwa_manage_auctions.php:338 
+#: includes/admin/uwa_manage_auctions.php:350 
+#: includes/admin/uwa_manage_auctions.php:361 
+#: includes/admin/uwa_bids_lists.php:205 includes/admin/uwa_bids_lists.php:215 
+#: includes/admin/class-uwa-admin.php:1983 
+#: includes/admin/uwa_manage_user_auctions.php:330 
+#: includes/admin/uwa_manage_user_auctions.php:342 
+#: includes/admin/uwa_manage_user_auctions.php:353 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:245 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:64 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:76
+msgid "Actions"
+msgstr "Műveletek"
+
+#: ultimate-woocommerce-auction-pro.php:1216
+msgid "Activate"
+msgstr "Aktiválja"
+
+#: includes/admin/uwa_auctions_dashboard.php:59
+msgid "Activate License"
+msgstr ""
+"Aktiválja a licencet\n"
+
+#: ultimate-woocommerce-auction-pro.php:1216
+msgid "Activate this plugin"
+msgstr "Aktiválja ezt a bővítményt"
+
+#: includes/admin/uwa_users_bids_lists.php:527 
+#: includes/admin/uwa_bids_lists.php:410
+msgid "Active Bids"
+msgstr ""
+"Aktív ajánlatok\n"
+
+#: includes/admin/class-uwa-admin.php:206
+msgid "Add Auction"
+msgstr "Aukció hozzáadása"
+
+#: includes/admin/uwa_auctions_add_products.php:33
+msgid "Add Auction Product"
+msgstr "Aukciós termék hozzáadása"
+
+#: includes/admin/uwa_auctions_add_products.php:14
+msgid "Add Auction Products"
+msgstr ""
+"Aukciós termékek hozzáadása\n"
+
+#: includes/admin/uwa_auctions_add_products.php:30
+msgid "Add Auction Products:"
+msgstr "Aukciós termékek hozzáadása."
+
+#: templates/woocommerce/single-product/uwa-watch.php:47
+msgid "Add to watchlist!"
+msgstr "Figyelő listába teszem!"
+
+#: includes/addons/uwa_addons_main.php:64
+msgid "Addon active successfully."
+msgstr ""
+"Az addon sikeresen aktív.\n"
+
+#: includes/addons/uwa_addons_main.php:82
+msgctxt "Addon Description"
+msgid ""
+"Charge a premium amount over and above Bid Amount for admin or auction owner."
+msgstr ""
+"Az adminisztrátor vagy az aukció tulajdonosának az ajánlati összeget "
+"meghaladó díjat kell felszámítania."
+
+#: includes/addons/uwa_addons_main.php:89
+msgctxt "Addon Description"
+msgid ""
+"Collect User Credit Card on registration and \n"
+"\t\t\t\tautomatically debit winning amount and transfer to Stripe Account of "
+"auction \n"
+"\t\t\t\towner."
+msgstr ""
+"Gyűjtse össze a felhasználói hitelkártyát a regisztráció során, és "
+"automatikusan vonja le a nyertes összeget, és utalja át az aukciós "
+"tulajdonos csíkos számlájára."
+
+#: includes/addons/uwa_addons_main.php:97
+msgctxt "Addon Description"
+msgid ""
+"Send SMS notification for bid, outbid, won and ending soon using Twilio."
+msgstr ""
+"Küldjön SMS-t az ajánlatért, túllicitálta, nyert és hamarosan véget ér a "
+"Twilio használatával."
+
+#: includes/addons/uwa_addons_main.php:81
+msgctxt "Addon Name"
+msgid "Buyer's Premium"
+msgstr "Aukciós vásárlói jutalék:"
+
+#: includes/addons/uwa_addons_main.php:88
+msgctxt "Addon Name"
+msgid "Credit Card Auto Debit"
+msgstr "Hitelkártya automatikus terhelés"
+
+#: includes/addons/uwa_addons_main.php:103
+msgctxt "Addon Name"
+msgid "Offline Dealing for Buyer & Seller"
+msgstr "Offline ügylet vevők és eladók számára"
+
+#: includes/addons/uwa_addons_main.php:96
+msgctxt "Addon Name"
+msgid "SMS Notification"
+msgstr "SMS Értesítés"
+
+#: includes/addons/uwa_addons_main.php:80
+msgctxt "Addon Slug"
+msgid "uwa_buyers_premium_addon"
+msgstr "uwa_buyers_premium_addon"
+
+#: includes/addons/uwa_addons_main.php:102
+msgctxt "Addon Slug"
+msgid "uwa_offline_dealing_addon"
+msgstr "uwa_offline_dealing_addon"
+
+#: includes/addons/uwa_addons_main.php:87
+msgctxt "Addon Slug"
+msgid "uwa_stripe_auto_debit_addon"
+msgstr "uwa_stripe_auto_debit_addon"
+
+#: includes/addons/uwa_addons_main.php:95
+msgctxt "Addon Slug"
+msgid "uwa_twilio_sms_addon"
+msgstr "uwa_twilio_sms_addon"
+
+#: includes/addons/uwa_addons_main.php:105
+msgctxt "Addon Thumbnail"
+msgid "offline_dealing.jpg"
+msgstr "offline_dealing.jpg"
+
+#: includes/addons/uwa_addons_main.php:92
+msgctxt "Addon Thumbnail"
+msgid "stripe.jpg"
+msgstr "stripe.jpg"
+
+#: includes/addons/uwa_addons_main.php:98
+msgctxt "Addon Thumbnail"
+msgid "Twilio_SMS.jpg"
+msgstr "Twilio_SMS.jpg"
+
+#: includes/addons/uwa_addons_main.php:83
+msgctxt "Addon Thumbnail"
+msgid "uwa_buyers_premium_addon.jpg"
+msgstr "uwa_buyers_premium_addon.jpg"
+
+#: includes/addons/uwa_addons_main.php:129
+msgid "Addons"
+msgstr "Kiegészítők"
+
+#: includes/admin/uwa_auctions_dashboard.php:85
+msgid "Addons for Ultimate WooCommerce Auction PRO"
+msgstr "Kiegészítők az Ultimate WooCommerce Auction PRO-hoz"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:192
+msgid "Address fields"
+msgstr "Cím mezők"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:94
+msgid "Admin"
+msgstr "Rendszergazda"
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:48
+msgid "Aelia Configuration"
+msgstr "Aelia konfiguráció"
+
+#: ultimate-woocommerce-auction-pro.php:396
+msgid "All Auctions"
+msgstr "Öszes aukció"
+
+#: includes/admin/uwa_general_setting_tab.php:613
+msgid "Allow Administrator to bid on their own auction."
+msgstr "Engedélyezze a rendszergazdának, hogy licitáljon saját aukcióján."
+
+#: includes/admin/uwa_general_setting_tab.php:621
+msgid "Allow Auction Owner (Seller/Vendor) to bid on their own auction."
+msgstr ""
+"Engedje meg, hogy az aukciótulajdonos (eladó / szállító) licitáljon saját "
+"aukcióján."
+
+#: templates/woocommerce/emails/plain/placed-bid.php:72
+msgid ""
+"An user has placed a bid which matched your maximum bid and due to this, we "
+"have placed a new bid on your behalf with an amount same as your 'Maximum "
+"Bid' and declined the other user's bid. on <a href='%s'>%s</a>."
+msgstr ""
+"Egy felhasználó olyan ajánlatot tett, amely megegyezett az Ön maximális "
+"ajánlatával, és ennek következtében új ajánlatot tettünk az Ön nevében a "
+"„Maximális ajánlattal” megegyező összeggel, és elutasítottuk a másik "
+"felhasználó ajánlatát. <a href='%s'>%s</a>."
+
+#: includes/admin/class-uwa-admin.php:259 
+#: includes/admin/class-uwa-admin.php:371 
+#: includes/admin/uwa_general_setting.php:27 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:199
+msgid "Auction"
+msgstr "Aukció"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:49
+msgid "Auction #"
+msgstr "Aukció #"
+
+#: templates/woocommerce/emails/ending-soon-bidder.php:54 
+#: templates/woocommerce/emails/plain/ending-soon-bidder.php:52
+#, php-format
+msgid "Auction <a href=\"%s\">%s</a> is going to be expire at %s."
+msgstr ""
+"Az <a href=\"%s\">%s</a> aukció végetért: %s.\n"
+
+#: templates/woocommerce/emails/ending-soon-bidder.php:63
+#, php-format
+msgid ""
+"Auction <a href=\"%s\">%s</a> is going to be expire at %s. Current bid is %s"
+msgstr "Az <a href=\"%s\">%s</a> aukció végetért: %s. A jelenlegi ajánlat %s"
+
+#: includes/admin/class-uwa-admin.php:1618
+msgid "Auction Already Live."
+msgstr "Az aukció már él."
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:176
+msgid "Auction Data"
+msgstr "Aukciós adatok"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:41
+msgid "Auction Detail"
+msgstr "Aukció részletei"
+
+#: includes/admin/uwa_display_setting_tab.php:331
+msgid "Auction Detail Page Setting"
+msgstr "Aukció részletei oldal beállítása"
+
+#: ultimate-woocommerce-auction-pro-business/includes/uwa_bid_won_csv.php:30
+msgid "Auction End Date"
+msgstr "Az aukció vége"
+
+#: includes/admin/class-uwa-admin.php:1581
+msgid "Auction ended successfully."
+msgstr "Az aukció sikeresen véget ért."
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:27 
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:28
+msgid "Auction Ending soon on {site_title}"
+msgstr "Az aukció hamarosan befejeződik a {site_title} oldalon"
+
+#: includes/countdown-short-code.php:43 includes/class-uwa-product.php:872 
+#: includes/admin/email/class-uwa-email-auction-relist.php:80 
+#: templates/woocommerce/single-product/uwa-bid.php:446 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:28
+msgid "Auction Expired because there were no bids"
+msgstr "Az aukció véget ért, a tétel nem került eladásra."
+
+#: includes/admin/class-uwa-admin.php:1915 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:182
+msgid "Auction Expired without any bids."
+msgstr "Aukció lejárt minden ajánlat nélkül."
+
+#: includes/countdown-short-code.php:47 includes/class-uwa-product.php:874 
+#: includes/admin/email/class-uwa-email-auction-relist.php:83 
+#: templates/woocommerce/single-product/uwa-bid.php:450 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:30
+msgid "Auction expired without reaching reserve price"
+msgstr "Az ajánlati aukció sikertelen a tétel nem került eladásra."
+
+#: includes/admin/class-uwa-admin.php:1919 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:186
+msgid "Auction Expired without reserve price met"
+msgstr "Az aukció lejárt, anélkül, hogy a teljes ár teljesült volna"
+
+#: includes/admin/class-uwa-admin.php:1144
+msgid "Auction filter By "
+msgstr "Aukciós szűrő By"
+
+#: includes/admin/class-uwa-admin.php:1908 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:175
+msgid "Auction has been relisted on:"
+msgstr "Az aukciót visszavonták:"
+
+#: includes/class-uwa-product.php:870 includes/admin/class-uwa-admin.php:1911 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:178 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:26
+msgid "Auction has expired"
+msgstr "Az aukció véget ért!"
+
+#: templates/woocommerce/single-product/uwa-pay.php:48
+msgid "Auction has expired and Seller details are :"
+msgstr "Az aukció lejárt, és az eladó adatai:"
+
+#: templates/woocommerce/single-product/uwa-pay.php:129
+msgid "Auction has expired and Winner details are :"
+msgstr "Az aukció lejárt, és a nyertes részletei a következők:"
+
+#: includes/admin/class-uwa-admin.php:2461
+msgid "Auction has expired with a winner chosen."
+msgstr "Az aukció lejárt, a nyertes kiválasztásával."
+
+#: includes/class-uwa-scripts.php:138
+msgid "Auction has Expired!"
+msgstr "Az aukció lejárt!"
+
+#: templates/woocommerce/single-product/uwa-bid.php:416
+msgid "Auction has not been started yet."
+msgstr "Az árverés még nem kezdődött el."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:87
+msgid "Auction is expired because user have not paid amount"
+msgstr "Az aukció lejárt, mert a felhasználó nem fizetett összeget"
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:32 
+#: includes/admin/email/class-uwa-email-auction-relist.php:33
+msgid "Auction is relisted from  {site_title}"
+msgstr "Az aukció visszavonva a {site_title} webhelyről"
+
+#: includes/admin/class-uwa-admin.php:1624
+msgid "Auction Live successfully."
+msgstr "Élő aukció sikeresen."
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:58
+msgid "Auction Overview"
+msgstr "Aukció áttekintése"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:99
+msgid "Auction Owners"
+msgstr "Aukciós tulajdonosok"
+
+#: includes/admin/class-uwa-admin.php:814 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:72 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:88
+msgid "Auction Product"
+msgstr "Aukció"
+
+#: includes/admin/widgets/class-uwa-widget-auction-search.php:26
+msgid "Auction Product Search"
+msgstr "Aukciós termékkeresés"
+
+#: includes/admin/class-uwa-admin.php:1990 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:253
+msgid "Auction relisted"
+msgstr "Az aukció újraindult"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:857
+msgid "Auction Relisted successfully."
+msgstr ""
+"Aukció sikeresen újraindult.\n"
+
+#: includes/class-uwa-product.php:941 includes/admin/class-uwa-admin.php:2023 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:297 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:100
+msgid "Auction started"
+msgstr "Aukció kezdési ideje:"
+
+#: includes/class-uwa-scripts.php:140
+msgid "Auction Started! Please refresh page."
+msgstr "Elkezdődött az aukció! Kérjük, frissítse az oldalt."
+
+#: includes/class-uwa-product.php:944 includes/admin/class-uwa-admin.php:2025 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:299 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:102
+msgid "Auction starting"
+msgstr "Aukció kezdete"
+
+#: includes/admin/class-uwa-admin.php:1720
+msgid "Auction Status"
+msgstr "Aukció állapota"
+
+#: includes/admin/uwa_users_bids_lists.php:313 
+#: includes/admin/uwa_users_bids_lists.php:323 
+#: includes/admin/uwa_users_bids_lists.php:334 
+#: includes/admin/uwa_bids_lists.php:200 includes/admin/uwa_bids_lists.php:210 
+#: includes/admin/uwa_bids_lists.php:221
+msgid "Auction Type"
+msgstr ""
+"Aukció típusa\n"
+
+#: includes/admin/class-uwa-admin.php:394 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:214
+msgid "Auction type"
+msgstr ""
+"Aukció típusa\n"
+
+#: includes/admin/class-uwa-admin.php:638
+msgid ""
+"Auction will get automatically Relist(Renew) repeat on the duration "
+"specified in Relist duration interval. Skip For Once Relist"
+msgstr ""
+"Az aukció automatikusan ismétli a Relist (Megújítás) megismétlését a Relist "
+"duration intervalban megadott időtartamon. Ugrás az egyszeri relistára\n"
+
+#: includes/class-users-bid.php:79 includes/class-users-bid.php:97 
+#: includes/admin/class-uwa-admin.php:200 
+#: includes/admin/class-uwa-admin.php:200 
+#: includes/admin/class-uwa-admin.php:204 
+#: includes/admin/class-uwa-admin.php:204 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:613 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:621
+msgid "Auctions"
+msgstr "Aukció"
+
+#: includes/admin/uwa_general_setting_tab.php:349
+msgid "auctions per request."
+msgstr "aukciónként."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:199
+msgid "Auth Token"
+msgstr "Auth Token"
+
+#: includes/class-uwa-product.php:590 includes/class-uwa-product.php:893 
+#: includes/class-uwa-product.php:927 includes/admin/class-uwa-admin.php:1982 
+#: includes/admin/class-uwa-admin.php:2002 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:244 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:265 
+#: templates/woocommerce/emails/placed-bid.php:76 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:53 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:86
+msgid "Auto"
+msgstr "Auto"
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:487
+msgid "Auto Debit Buyer's Premium."
+msgstr "Autómatikus vásárlói jutalék"
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:533
+msgid "Auto Debit For Buyer's Premium."
+msgstr "Autómatikus terhelés a vásárlói jutalékhoz."
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:538
+msgid "Auto Debit for Won Bid"
+msgstr "Automatikus terhelés a nyertes ajánlatért"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:233 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:384
+msgid "Auto Debit Options"
+msgstr "Automatikus terhelési beállítások"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:230
+msgid "Auto Debit Options for Admin Auction"
+msgstr "Automatikus terhelési lehetőségek az adminisztrációs aukción"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:312
+msgid "Auto Debit Options for Vendor Auction"
+msgstr "Automatikus terhelési opciók szállító aukcióhoz"
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:493
+msgid "Auto Debit via Credit card"
+msgstr "Automatikus terhelés hitelkártyával"
+
+#: templates/woocommerce/single-product/uwa-pay.php:224 
+#: templates/woocommerce/single-product/uwa-pay.php:335
+msgid "Auto Debit via Credit Card Details :"
+msgstr ""
+"Félelmetes plugin aukciók megrendezéséhez a WooCommerce segítségével a "
+"wordpress webhelyén, és eladhat mindent, amit csak akar."
+
+#. Description of the plugin
+msgid ""
+"Awesome plugin to host auctions with WooCommerce on your wordpress site and "
+"sell anything you want."
+msgstr ""
+"Félelmetes plugin aukciók megrendezéséhez a WooCommerce segítségével a "
+"wordpress webhelyén, és bármit eladhat, amit csak akar."
+
+#: includes/admin/uwa_display_setting_tab.php:271
+msgid "Badge image URL"
+msgstr "Jelvény kép URL-je"
+
+#: includes/admin/class-uwa-admin.php:
+msgid ""
+"Based on your selection above this field is Amount for Flat Rate or "
+"Percentage"
+msgstr "A fenti mező kiválasztása alapján az Átalányösszeg vagy a Százalék"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:132
+msgid ""
+"Based on your selection above this field is Amount for Flat Rate or "
+"Percentage."
+msgstr "A fenti mező kiválasztása alapján az Átalányösszeg vagy a Százalék."
+
+#: includes/class-uwa-product.php:892 
+#: includes/admin/uwa_users_bids_lists.php:315 
+#: includes/admin/uwa_users_bids_lists.php:325 
+#: includes/admin/uwa_users_bids_lists.php:336 
+#: includes/admin/uwa_bids_lists.php:202 includes/admin/uwa_bids_lists.php:212 
+#: includes/admin/uwa_bids_lists.php:223 
+#: includes/admin/class-uwa-admin.php:1981 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:243 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:52
+msgid "Bid"
+msgstr "Ajánlat"
+
+#: templates/woocommerce/single-product/uwa-pay.php:232 
+#: templates/woocommerce/single-product/uwa-pay.php:344
+msgid "Bid Amount : "
+msgstr "Ajánlat összege:"
+
+#: includes/admin/class-uwa-admin.php:1411 
+#: includes/admin/class-uwa-admin.php:1420 
+#: includes/admin/class-uwa-admin.php:1483 
+#: includes/admin/class-uwa-admin.php:1499
+msgid "Bid Deleted Successfully"
+msgstr "Az ajánlat sikeresen törölve"
+
+#: includes/admin/class-uwa-admin.php:1048
+msgid "Bid History"
+msgstr "Ajánlattörténet"
+
+#: includes/admin/class-uwa-admin.php:462 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:321
+msgid "Bid Increment"
+msgstr "Ajánlat növekedése"
+
+#: includes/admin/class-uwa-admin.php:1515
+msgid "Bid Not Deleted"
+msgstr "Az ajánlat nem törölve"
+
+#: includes/class-uwa-product.php:741
+msgid "Bid now"
+msgstr "Részletek"
+
+#: templates/woocommerce/emails/placed-bid.php:117
+msgid "Bid Value"
+msgstr ""
+"Ajánlati érték\n"
+
+#: templates/woocommerce/emails/plain/bid-outbided.php:39 
+#: templates/woocommerce/emails/plain/placed-bid.php:61 
+#: templates/woocommerce/emails/plain/placed-bid.php:86
+#, php-format
+msgid "Bid Value %s."
+msgstr "Ajánlati érték %s"
+
+#: includes/class-uwa-bid.php:129 includes/class-uwa-bid.php:644
+#, php-format
+msgid "Bid Value must less than %s !"
+msgstr "Az ajánlati értéknek kevesebbnek kell lennie, mint%s!"
+
+#: includes/admin/uwa_manage_auctions.php:348 
+#: includes/admin/uwa_manage_user_auctions.php:340
+msgid ""
+"Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time"
+msgstr ""
+"Ajánlattevő &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ajánlat&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximális "
+"ajánlat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Idő"
+
+#: includes/admin/uwa_manage_auctions.php:337 
+#: includes/admin/uwa_manage_user_auctions.php:329
+msgid ""
+"Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time&nbsp;&nbsp;&nbsp;"
+"&nbsp;Choose Winner"
+msgstr ""
+"Ajánlat tevő &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ajánlat&nbsp;"
+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximális "
+"ajánlat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+"Időpont&nbsp;&nbsp;&nbsp;&nbsp;Válassza a Nyertes lehetőséget\n"
+
+#: includes/class-uwa-product.php:890 includes/admin/class-uwa-admin.php:1979 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:241 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:50
+msgid "Bidder Name"
+msgstr "Ajánlattevő neve"
+
+#: templates/woocommerce/emails/auction-private-msg.php:30
+#, php-format
+msgid "Bidder Sent Private Message for Auction <a href=\"%s\">%s</a>."
+msgstr "Licitáló Elküldött privát üzenet aukcióra<a href=\"%s\">%s</a>."
+
+#: includes/admin/uwa_general_setting_tab.php:600
+msgid "Bidding Restriction:"
+msgstr "Ajánlattételi korlátozás:"
+
+#: includes/admin/class-uwa-admin.php:2193
+msgid "Bidding Status"
+msgstr "Ajánlattételi állapot"
+
+#: includes/class-uwa-product.php:891 includes/admin/class-uwa-admin.php:1980 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:242 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:51
+msgid "Bidding Time"
+msgstr "Licitálási idő"
+
+#: includes/class-uwa-front.php:403 includes/admin/class-uwa-admin.php:208 
+#: includes/admin/class-uwa-admin.php:208
+msgid "Bids"
+msgstr "Ajánlatok"
+
+#: templates/woocommerce/myaccount/uwa-users-bids.php:41
+msgid "Bids Active"
+msgstr "Aktív ajánlatok"
+
+#: includes/admin/uwa_users_bids_lists.php:529 
+#: includes/admin/uwa_bids_lists.php:412 
+#: templates/woocommerce/myaccount/uwa-users-bids.php:50
+msgid "Bids Lost"
+msgstr "Elveszett tételek"
+
+#: includes/admin/uwa_users_bids_lists.php:528 
+#: includes/admin/uwa_bids_lists.php:411 
+#: templates/woocommerce/myaccount/uwa-users-bids.php:46
+msgid "Bids Won"
+msgstr "Megynyert tételek"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:67
+msgid "Billing details"
+msgstr "Számlázási adatok"
+
+#: includes/admin/class-uwa-admin.php:2204 
+#: includes/admin/class-uwa-admin.php:2226
+msgid "Block"
+msgstr "Blokk"
+
+#: includes/admin/class-uwa-admin.php:131
+msgid "Block For Bid"
+msgstr "Letiltás az ajánlattételhez"
+
+#: includes/admin/class-uwa-admin.php:2222
+msgid "Block/Unblock User to Bid"
+msgstr "Felhasználó letiltása / feloldása az ajánlattételhez"
+
+#: includes/admin/class-uwa-admin.php:170
+#, php-format
+msgid "Blocked %s user."
+msgid_plural "Blocked %s users."
+msgstr[0] "Letiltotta %s felhasználót."
+msgstr[1] "Letiltotta %s felhasználót."
+
+#: includes/class-uwa-product.php:753
+msgid "Buy It Now"
+msgstr "Villám ár"
+
+#: includes/admin/class-uwa-admin.php:376 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:203
+msgid "Buy it now"
+msgstr "Villámáron vásárlás"
+
+#: templates/woocommerce/single-product/add-to-cart/uwa-auction.php:69
+#, php-format
+msgid "Buy Now %s"
+msgstr "Villám ár: %s"
+
+#: includes/admin/class-uwa-admin.php:585 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:288
+msgid "Buy now price"
+msgstr "Vásároljon most árat"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:197 
+#: includes/addons/buyers_premium/uwa-core-functions.php:241 
+#: includes/addons/buyers_premium/uwa-core-functions.php:251 
+#: includes/addons/buyers_premium/uwa-core-functions.php:317 
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:82
+msgid "Buyer's Premium"
+msgstr "Aukciós vásárlói jutalék:"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:666
+msgid "Buyer's Premium - "
+msgstr "Aukciós vásárlói jutalék:"
+
+#: templates/woocommerce/single-product/uwa-pay.php:238 
+#: templates/woocommerce/single-product/uwa-pay.php:350
+msgid "Buyer's Premium : "
+msgstr "Aukciós vásárlói jutalék:"
+
+#: includes/class-uwa-order.php:123
+msgid "Buyer's Premium Amount for - "
+msgstr "Aukciós jutalék összege-"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:295
+msgid "Buyer's Premium for"
+msgstr "Aukciós vásárlói jutalék:"
+
+#: templates/woocommerce/single-product/uwa-pay.php:193 
+#: templates/woocommerce/emails/auction-winner.php:94
+msgid "Buyer's premium for auction product is auto debited via stripe"
+msgstr "A vevő aukciós termékének díját automatikusan csíkkal terhelik"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:106
+msgid "Buyer's Premium Type"
+msgstr "Aukciós vásárlói jutalék típusa"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:99 
+#: includes/addons/buyers_premium/uwa-core-functions.php:174
+msgid "Buyer's Premium."
+msgstr "- (aukciós vásárlói jutalék)"
+
+#: includes/admin/uwa_general_setting_tab.php:380
+msgid ""
+"By enabling this setting, bid information will be polled every X second "
+"mentioned in below setting and bid information will be displayed without "
+"page refresh. This can be performance heavy operation on your server."
+msgstr ""
+"Ennek a beállításnak az engedélyezésével az ajánlati információkat minden X "
+"másodpercben lekérdezzük, amelyet az alábbi beállítás említ, és az "
+"ajánlattételi információk oldalfrissítés nélkül jelennek meg. Ez nagy "
+"teljesítményű műveletet jelenthet a szerveren."
+
+#: includes/admin/uwa_general_setting_tab.php:366
+msgid "By enabling this setting, bids will be placed without page refresh."
+msgstr ""
+"A beállítás engedélyezésével az ajánlatok oldalfrissítés nélkül kerülnek "
+"elhelyezésre."
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:727
+msgid "Calculated Buyer's Premium"
+msgstr "Aukciós vásárlói jutalék értéke"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:225
+msgid ""
+"Capture Billing Address of Users while registering on WooCommerce My Account "
+"Page."
+msgstr ""
+"Rögzítse a felhasználók számlázási címét, miközben regisztrál a WooCommerce "
+"Saját fiók oldalra."
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:281
+msgid "Card holdername*"
+msgstr "Kártyatulajdonos neve*"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:176
+msgid "Card Number"
+msgstr "Kártyaszám"
+
+#: includes/admin/uwa_general_setting_tab.php:321
+msgid "Check Auction Status:"
+msgstr "Ellenőrizze az aukció állapotát:"
+
+#: includes/admin/uwa_general_setting_tab.php:391
+msgid "Check Bidding Information"
+msgstr "Ellenőrizze az ajánlattételi információkat"
+
+#: includes/uwa-misc-functions.php:993
+msgid "Check Out All"
+msgstr "Összes tétel kifizetése"
+
+#: includes/admin/class-uwa-admin.php:790
+msgid "Check settings for Buyer's Premium at  "
+msgstr "Ellenőrizze az aukciós vásárlói jutalék beállításait itt:"
+
+#: includes/uwa-misc-functions.php:470 
+#: includes/admin/uwa_manage_auctions.php:223 
+#: includes/admin/uwa_manage_user_auctions.php:218 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:283
+msgid "Choose Winner"
+msgstr "Válassza a Nyertes lehetőséget"
+
+#: includes/uwa-misc-functions.php:943 includes/uwa-misc-functions.php:961 
+#: includes/uwa-misc-functions.php:1201
+msgid "Closed"
+msgstr "Zárva"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:154
+msgid "Collect contact details"
+msgstr "Gyűjtse össze az elérhetőségeket"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:152
+msgid "Collect Users mobile number during registration"
+msgstr "Gyűjtse össze a felhasználók mobilszámát a regisztráció során"
+
+#: templates/woocommerce/emails/auction-remind-to-pay.php:29 
+#: templates/woocommerce/emails/auction-winner.php:41 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:30 
+#: templates/woocommerce/emails/plain/auction-winner.php:40
+#, php-format
+msgid ""
+"Congratulations! You are the winner! of the auction product <a href=\"%s\">"
+"%s</a>."
+msgstr "Gratulálunk! Ön nyert! Aukciós termék <a href=\"%s\">%s</a>."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:28 
+#: includes/admin/email/class-uwa-email-auction-winner.php:29 
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:29 
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:30
+msgid "Congratulations! You have won an auction on {site_title}"
+msgstr "Gratulálunk! Ön nyert egy aukciót a {site_title} oldalon"
+
+#: templates/woocommerce/single-product/uwa-pay.php:44 
+#: templates/woocommerce/single-product/uwa-pay.php:147 
+#: templates/woocommerce/single-product/uwa-pay.php:215
+msgid "Congratulations! You have won this auction."
+msgstr "Gratulálunk! Ön megnyerte ezt az aukciót."
+
+#: templates/woocommerce/single-product/uwa-pay.php:95 
+#: templates/woocommerce/single-product/uwa-pay.php:309 
+#: templates/woocommerce/emails/auction-winner.php:153 
+#: templates/woocommerce/emails/auction-winner.php:204 
+#: templates/woocommerce/emails/auction-winner.php:363 
+#: templates/woocommerce/emails/plain/auction-winner.php:134 
+#: templates/woocommerce/emails/plain/auction-winner.php:185 
+#: templates/woocommerce/emails/plain/auction-winner.php:314
+msgid "Contact : "
+msgstr "Kapcsolatba lépni :"
+
+#: includes/addons/offline_dealing/class-uwa-offline-dealing-front.php:107
+msgid "Contact details"
+msgstr "Elérhetőségeit"
+
+#: includes/admin/uwa_auction_help.php:48
+msgid "Contact Support"
+msgstr "Vegye fel a kapcsolatot az ügyfélszolgálattal"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:202
+msgid "Country field"
+msgstr "Ország mező"
+
+#: includes/admin/uwa_manage_auctions.php:334 
+#: includes/admin/uwa_manage_auctions.php:345 
+#: includes/admin/uwa_manage_user_auctions.php:326 
+#: includes/admin/uwa_manage_user_auctions.php:337
+msgid "Creation & End Date"
+msgstr "Létrehozás és befejezés dátuma"
+
+#: includes/addons/twilio_sms/uwa-core-functions.php:69
+msgid "Credentials are required"
+msgstr "Hitelesítő adatok szükségesek"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:279
+msgid "Credit Card Details"
+msgstr "Bankkártya adatok"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:290
+msgid "Credit card*"
+msgstr "Hitelkártya*"
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:65
+msgid "Currency Switcher Configuration"
+msgstr "Pénzváltó konfigurációja"
+
+#: **************** aelia currency switcher addon ****************** 
+#: includes/addons/uwa_addons_main.php:109
+msgid "Currency Switcher With Aelia"
+msgstr "Pénzváltó Aelia-val"
+
+#: includes/uwa-misc-functions.php:846 includes/uwa-misc-functions.php:1117 
+#: templates/woocommerce/emails/bid-outbided.php:43
+msgid "Current bid"
+msgstr "Jelenlegi ajánlat"
+
+#: includes/admin/class-uwa-admin.php:751 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:455
+#, php-format
+msgid "Current Blog Time is %s"
+msgstr "A jelenlegi blogidő %s"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:63 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:75
+msgid "Current Price"
+msgstr "Jelenlegi ár"
+
+#: templates/woocommerce/single-product/uwa-bid.php:329 
+#: templates/woocommerce/single-product/uwa-bid.php:362
+msgid "Custom Bid"
+msgstr "Licitálok  <font color=red> (&#8505;) </font>"
+
+#: includes/admin/uwa_display_setting_tab.php:570
+msgid "Custom bid button."
+msgstr "Egyéni ajánlat gomb."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:255
+msgid "Customer Notifications SMS"
+msgstr "Ügyfél értesítések SMS"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:188
+msgid "CVV"
+msgstr "CVV"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:299
+msgid "CVV (3 or 4 digit code)*"
+msgstr "CVV (3 vagy 4 jegyű kód) *"
+
+#: includes/class-uwa-scripts.php:131
+msgid "d"
+msgstr "d"
+
+#: includes/class-uwa-scripts.php:122
+msgid "Day"
+msgstr "nap"
+
+#: includes/click/class-uat-auction-clock.php:70
+msgid "Day(s)"
+msgstr "nap"
+
+#: includes/class-uwa-scripts.php:113
+msgid "Days"
+msgstr "nap"
+
+#: includes/admin/uwa_auctions_dashboard.php:50
+msgid "Deactivate License"
+msgstr "Deaktiválja a licencet"
+
+#: includes/admin/uwa_general_setting_tab.php:605 
+#: includes/admin/uwa_display_setting_tab.php:278
+msgid "Default is"
+msgstr "Alapértelmezett:"
+
+#: includes/admin/class-uwa-admin.php:781
+msgid "Defined at System Level"
+msgstr "Rendszerszinten definiálva"
+
+#: includes/admin/uwa_users_bids_lists.php:279 
+#: includes/admin/class-uwa-admin.php:2011 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:274
+msgid "Delete"
+msgstr "Töröl"
+
+#: templates/woocommerce/emails/bid-deleted.php:36
+msgid "Deleted Bid"
+msgstr "Törölt ajánlat"
+
+#: templates/woocommerce/emails/plain/bid-deleted.php:42
+#, php-format
+msgid "Deleted Bid : %s"
+msgstr "Törölt ajánlat: %s"
+
+#: includes/admin/uwa_display_setting_tab.php:451
+msgid "Direct bid button."
+msgstr "Közvetlen ajánlat gomb."
+
+#: templates/woocommerce/single-product/uwa-bid.php:252 
+#: templates/woocommerce/single-product/uwa-bid.php:274
+msgid "Directly Bid"
+msgstr "Licitálok"
+
+#: includes/admin/uwa_general_setting_tab.php:473
+msgid "Disable Proxy Bidding to happen for amount less than Reserve Price too."
+msgstr ""
+"Tiltsa le a proxy ajánlattételt, ha a tartalékárnál kisebb összegre is sor "
+"kerül."
+
+#: includes/admin/uwa_display_setting_tab.php:365
+msgid "Disable Specific field:"
+msgstr "Specifikus mező letiltása:"
+
+#: includes/admin/uwa_general_setting_tab.php:654
+msgid "Disable the Buy It Now"
+msgstr "Tiltsa le a Vásárlás most lehetőséget"
+
+#: includes/admin/uwa_general_setting_tab.php:659 
+#: includes/admin/uwa_general_setting_tab.php:662
+msgid ""
+"Disable the Buy It Now option once bidding has reached the reserve price."
+msgstr ""
+"Kapcsolja ki a Vásárlás most opciót, ha az ajánlattétel eléri a tartalék "
+"árat."
+
+#: includes/admin/uwa_display_setting_tab.php:358
+msgid "Disable Timer on Auction Detail Page."
+msgstr "Az időzítő letiltása az aukció részleteinek oldalán."
+
+#: ultimate-woocommerce-auction-pro.php:1206
+msgid "Dismiss this notice"
+msgstr "Utasítsa el ezt az értesítést"
+
+#: includes/admin/uwa_general_setting.php:27
+msgid "Display"
+msgstr "Kijelző"
+
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:26
+msgid "Display a list of auctions user had bid."
+msgstr "A felhasználó által licitált aukciók listájának megjelenítése."
+
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:26
+msgid "Display a list of Ending Soon Auctions from your store"
+msgstr "Jelenítse meg a boltban található hamarosan véget érő aukciók listáját"
+
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:26
+msgid "Display a list of Expired Auctions from your store."
+msgstr "Jelenítse meg a lejárt aukciók listáját az üzletéből."
+
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:26
+msgid "Display a list of Future Auctions from your store."
+msgstr "Jelenítse meg a jövőbeli aukciók listáját az üzletéből."
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:26
+msgid "Display a list of Latest Auctions from your store."
+msgstr "Jelenítse meg a bolt legújabb árveréseinek listáját."
+
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:25
+msgid "Display a list of Live Auctions from your store."
+msgstr "Jelenítse meg a boltjában található Live aukciók listáját."
+
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:26
+msgid "Display a list of Recently View Auctions from your store."
+msgstr "Jelenítse meg a legutóbb megtekintett aukciók listáját az üzletéből."
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:198
+msgid "Display Buyer's Premium after bid button on auction detail page."
+msgstr ""
+"Jelenítse meg a vevő prémium után licit gombját az aukció részleteinek "
+"oldalán."
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:227
+msgid "Display contact details"
+msgstr "Kapcsolattartási adatok megjelenítése"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:248
+msgid "Display contact details in winner mail"
+msgstr "Kapcsolattartási adatok megjelenítése a nyertes levélben"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:238
+msgid "Display contact details on product detail page"
+msgstr "A kapcsolattartási adatokat jelenítse meg a termék részletes oldalán"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:161
+msgid "Display Country and Mobile number on default Wordpress Register form."
+msgstr ""
+"Az ország és a mobilszám megjelenítése az alapértelmezett Wordpress Register "
+"űrlapon."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:175
+#, php-format
+msgid ""
+"Display Country and Mobile number on WooCommerce My Account Page. Please "
+"enable <a href=\"%s\">WooCommerce My Account registration</a> first for this "
+"setting to work."
+msgstr ""
+"Ország és mobilszám megjelenítése a WooCommerce Saját fiók oldalon. A "
+"beállítás működéséhez először engedélyezze a <a href=\"%s\">WooCommerce My "
+"Account registration</a>"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:203
+msgid "Display Credit Card Details on default Wordpress Register form."
+msgstr ""
+"A hitelkártya adatainak megjelenítése az alapértelmezett Wordpress Register "
+"űrlapon."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:215
+#, php-format
+msgid ""
+"Display Credit Card Details on WooCommerce My Account Page. Please enable <a "
+"href=\"%s\">Registration on WooCommerce My Account</a> page for this setting "
+"to work."
+msgstr ""
+"Hitelkártyaadatok megjelenítése a WooCommerce Saját fiók oldalon. Kérjük, "
+"engedélyezze <a href=\"%s\">a regisztrációt a WooCommerce My Account</a> , "
+"hogy működjön ez a beállítás."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:195
+msgid "Display Settings for Credit Card"
+msgstr "A hitelkártya beállításainak megjelenítése"
+
+#: includes/admin/uwa_display_setting_tab.php:608
+msgid "Display Winner"
+msgstr "Győztes jelzés"
+
+#: includes/uwa-misc-functions.php:1250
+msgid "Display your name publicly"
+msgstr "Nyilvánosan jelenítse meg a nevét"
+
+#: templates/woocommerce/single-product/uwa-bid.php:730
+msgid "Do you really want to bid"
+msgstr "Tényleg akar licitálni"
+
+#: templates/woocommerce/single-product/uwa-bid.php:733
+msgid "Do you really want to directly place this bid"
+msgstr "Tényleg közvetlenül szeretné megtenni ezt az ajánlatot?"
+
+#: includes/admin/uwa_general_setting_tab.php:735
+msgid "Do you want to automatically generate an order for an auction product?"
+msgstr "Szeretne automatikusan megrendelést generálni egy aukciós termékre?"
+
+#: includes/admin/uwa_general_setting_tab.php:709
+msgid "Do you want to block registered user from bidding"
+msgstr "Letiltja a regisztrált felhasználókat az ajánlattételtől"
+
+#: includes/admin/uwa_general_setting_tab.php:545
+msgid "Do you want to send outbid notification."
+msgstr "Túllicitált értesítést szeretne küldeni."
+
+#: includes/admin/uwa_display_setting_tab.php:644
+msgid "Do you want to show winning/losing message to user"
+msgstr "Meg akarja mutatni a nyertes / vesztes üzenetet a felhasználónak"
+
+#: includes/admin/uwa_general_setting_tab.php:746
+msgid ""
+"Do you want users to fill their shipping address before they place their "
+"bids?"
+msgstr ""
+"Szeretné, ha a felhasználók megadnák a szállítási címüket, mielőtt ajánlatot "
+"tesznek?"
+
+#: includes/admin/uwa_importer_page.php:31
+msgid "Download Sample CSV"
+msgstr "Töltse le a CSV mintát"
+
+#: includes/admin/uwa_importer_page.php:32
+msgid "Download Sample CSV file."
+msgstr "Töltse le a CSV-fájl mintáját."
+
+#: includes/admin/uwa_manage_auctions.php:290 
+#: includes/admin/uwa_manage_user_auctions.php:283
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: templates/woocommerce/single-product/uwa-pay.php:101 
+#: templates/woocommerce/single-product/uwa-pay.php:314 
+#: templates/woocommerce/emails/auction-winner.php:159 
+#: templates/woocommerce/emails/auction-winner.php:209 
+#: templates/woocommerce/emails/auction-winner.php:368 
+#: templates/woocommerce/emails/plain/auction-winner.php:140 
+#: templates/woocommerce/emails/plain/auction-winner.php:190 
+#: templates/woocommerce/emails/plain/auction-winner.php:319
+msgid "Email : "
+msgstr "Email:"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:222
+msgid "Email address field"
+msgstr "E-mail cím mező"
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:30
+msgid "Email can be send to admin when auction is relisted"
+msgstr ""
+"Az aukció visszavonásakor e-mailt el lehet küldeni az adminisztrátornak"
+
+#: includes/admin/email/class-uwa-email-private-msg.php:28
+msgid "Email can be send to admin when bidder send Private message."
+msgstr ""
+"Az e-mailt el lehet küldeni az adminisztrátornak, amikor az ajánlattevő "
+"privát üzenetet küld."
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:136 
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:124
+msgid "Email Heading"
+msgstr "E-mail címsor"
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:29
+msgid "Email is sent to Bidder to inform their bid has been deleted."
+msgstr ""
+"E-mailt küldünk az Ajánlattevőnek, hogy tájékoztassuk az ajánlatuk "
+"törléséről."
+
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:29
+msgid "Email is sent to Bidder to outbid their bid."
+msgstr "Az ajánlattevőnek e-mailt küldünk, hogy túllicitálja az ajánlatukat."
+
+#: includes/admin/email/class-uwa-email-auction-watchlist.php:29
+msgid "Email is sent to watchlist users when a bid is placed"
+msgstr "E-mailt küldünk a figyelőlista felhasználóinak, amikor licitet tesznek"
+
+#: templates/woocommerce/emails/auction-private-msg.php:39 
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:46
+msgid "Email:"
+msgstr "Email:"
+
+#: includes/admin/uwa_general_setting_tab.php:677
+msgid "Enable an alert box for confirmation when user places a bid."
+msgstr ""
+"Engedélyezzen egy riasztási mezőt a megerősítéshez, amikor a felhasználó "
+"licitet tesz."
+
+#: includes/admin/uwa_general_setting_tab.php:669
+msgid "Enable an alert box."
+msgstr "Értesítési mező engedélyezése."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:305 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:458
+msgid "Enable automatic charge of buyer's premium."
+msgstr "Engedélyezze az aukciós vásárlói jutalék automatikus töltését."
+
+#: includes/admin/class-uwa-admin.php:624
+msgid "Enable Automatic Relist"
+msgstr "Engedélyezze az automatikus újraindítást"
+
+#: includes/admin/uwa_display_setting_tab.php:471
+msgid "Enable Bids section."
+msgstr "Ajánlatok engedélyezése szakasz."
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:170
+msgid "Enable contact fields on my account page"
+msgstr "Kapcsolat mezők engedélyezése a fiókom oldalon"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:318
+msgid "Enable Ending Soon SMS:"
+msgstr "Engedélyezze az SMS hamarosan befejezését:"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:168
+msgid "Enable for Proxy Bidding"
+msgstr "Engedélyezze a proxy ajánlattételt"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:174
+msgid "Enable for Silent Bidding"
+msgstr "Engedélyezze a csendes ajánlattételt"
+
+#: includes/admin/class-uwa-admin.php:673
+msgid "Enable if auction expired with no bids."
+msgstr "Engedélyezze, ha licit nélkül lejárt az aukció."
+
+#: includes/admin/class-uwa-admin.php:649
+msgid "Enable if winner won the auction and not paid."
+msgstr "Engedélyezze, ha a nyertes megnyerte az aukciót és nem fizetett."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:281
+msgid "Enable Outbid SMS:"
+msgstr "Túllépett SMS engedélyezése:"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:259
+msgid "Enable Place Bid SMS:"
+msgstr "Helyi ajánlat SMS engedélyezése:"
+
+#: includes/admin/uwa_general_setting_tab.php:439
+msgid "Enable Proxy Bidding"
+msgstr ""
+"Engedélyezze a proxy ajánlattételt\n"
+
+#: includes/admin/class-uwa-admin.php:409 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:236
+msgid "Enable proxy bidding"
+msgstr ""
+"Engedélyezze a proxy ajánlattételt\n"
+
+#: includes/admin/uwa_general_setting_tab.php:430
+msgid "Enable Proxy Bidding:"
+msgstr "Engedélyezze a proxy ajánlattételt:"
+
+#: includes/admin/class-uwa-admin.php:696
+msgid "Enable Relist if Reserve Price not met.."
+msgstr "Engedélyezze a Relist szolgáltatást, ha a tartalékár nem teljesül."
+
+#: includes/admin/uwa_display_setting_tab.php:464
+msgid "Enable Send Private message."
+msgstr "Engedélyezze a Privát üzenet küldése lehetőséget."
+
+#: includes/admin/uwa_general_setting_tab.php:486 
+#: includes/admin/uwa_general_setting_tab.php:495
+msgid "Enable Silent Bidding"
+msgstr "Engedélyezze az Ajánlat tétel aukciót"
+
+#: includes/admin/class-uwa-admin.php:420 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:247
+msgid "Enable Silent-Bid"
+msgstr "A Silent-Bid engedélyezése"
+
+#: includes/admin/uwa_display_setting_tab.php:351
+msgid "Enable simple format and Hide compact countdown format."
+msgstr ""
+"Engedélyezze az egyszerű formátumot és rejtse el a kompakt visszaszámláló "
+"formátumot."
+
+#: includes/admin/uwa_display_setting_tab.php:438
+msgid "Enable Specific field:"
+msgstr "Specifikus mező engedélyezése:"
+
+#: includes/admin/uwa_display_setting_tab.php:461
+msgid "Enable Specific Tabs:"
+msgstr "Specifikus lapok engedélyezése:"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:164 
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:266
+msgid "Enable this email notification"
+msgstr "Engedélyezze ezt az e-mailes értesítést"
+
+#: includes/admin/uwa_display_setting_tab.php:326
+msgid "Enable Timer."
+msgstr "Engedélyezze az időzítőt."
+
+#: includes/admin/class-uwa-admin.php:479
+msgid "Enable Variable Incremental Price."
+msgstr "Engedélyezze a változó növekményes árat."
+
+#: includes/admin/uwa_display_setting_tab.php:477
+msgid "Enable Watchlists."
+msgstr "A figyelőlisták engedélyezése."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:299
+msgid "Enable Won SMS:"
+msgstr "Nyert SMS engedélyezése:"
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:179 
+#: includes/admin/email/class-uwa-email-auction-winner.php:204 
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:160
+msgid "Enabled for Admin."
+msgstr "Engedélyezve az adminisztrátor számára."
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:270
+msgid "Enabled for all Bidders those have bid on auction"
+msgstr "Engedélyezve van minden ajánlattevő számára, aki licitált aukción"
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:210
+msgid "Enabled for Auction Owners."
+msgstr "Engedélyezve az aukciós tulajdonosok számára."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:186 
+#: includes/admin/email/class-uwa-email-auction-winner.php:216 
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:166
+msgid "Enabled for Bidder."
+msgstr "Engedélyezve az ajánlattevő számára."
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:276
+msgid "Enabled for users who have auction in their watchlist"
+msgstr ""
+"Engedélyezve azoknak a felhasználóknak, akik aukciót tartanak a "
+"figyelőlistájukon"
+
+#: includes/admin/uwa_bids_lists.php:219
+msgid "End date"
+msgstr "Befejezés dátuma"
+
+#: includes/admin/uwa_manage_auctions.php:291 
+#: includes/admin/class-uwa-admin.php:797 
+#: includes/admin/uwa_manage_user_auctions.php:284 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:150
+msgid "End Now"
+msgstr "Befejezés"
+
+#: includes/admin/class-uwa-admin.php:505 
+#: includes/admin/class-uwa-admin.php:519 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:366 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:380
+msgid "End Price"
+msgstr "Végső ár"
+
+#: includes/admin/class-uwa-admin.php:610 
+#: includes/admin/class-uwa-admin.php:776 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:125 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:311
+msgid "Ending Date"
+msgstr "Befejezés dátuma"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:62 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:74
+msgid "Ending On"
+msgstr "Aukció zárás:"
+
+#: includes/admin/uwa_display_setting_tab.php:380
+msgid "Ending On date For Live Auction and Future Auction."
+msgstr "Élő aukció és jövőbeli aukció dátuma."
+
+#: templates/woocommerce/single-product/uwa-bid.php:96 
+#: templates/woocommerce/single-product/uwa-bid.php:437
+msgid "Ending On:"
+msgstr "Aukció zárás:  "
+
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:119
+msgid "Ending Soon Auction not found"
+msgstr "Az aukció nem található"
+
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:71
+msgid "Ending Soon Auctions"
+msgstr "Hamarosan véget érnek az aukciók"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:339
+msgid "Ending Soon SMS Message:"
+msgstr "Hamarosan befejező SMS-üzenet:"
+
+#: includes/admin/uwa_general_setting_tab.php:429
+msgid "Ending soon SMS:"
+msgstr "Hamarossan véget ér SMS:"
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:28
+msgid "Enter bid in primary currency"
+msgstr "Adja meg az ajánlatot elsődleges pénznemben"
+
+#: includes/admin/uwa_display_setting_tab.php:579
+msgid "Enter label for custom bid button or left blank to set to default"
+msgstr ""
+"Írja be az egyéni ajánlat gomb címkéjét, vagy hagyja üresen az "
+"alapértelmezéshez"
+
+#: includes/admin/uwa_display_setting_tab.php:561
+msgid "Enter label for direct bid button or left blank to set to default"
+msgstr ""
+"Írja be a közvetlen ajánlat gombra a címkét, vagy hagyja üresen az "
+"alapértelmezéshez"
+
+#: templates/woocommerce/single-product/uwa-bid.php:333
+msgid "Enter less than or equal to"
+msgstr "Adjon meg kisebb vagy egyenlő"
+
+#: templates/woocommerce/single-product/uwa-bid.php:373
+msgid "Enter more than or equal to"
+msgstr "<strong>Licitáljon többet vagy egyenlő</strong>"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:292 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:445
+#, php-format
+msgid "Enter Partially amount (in %s) or percentage."
+msgstr "Adja meg Részben összeg (%s-ban) vagy százalékot."
+
+#: includes/admin/email/class-uwa-email-private-msg.php:118
+#, php-format
+msgid ""
+"Enter recipients (comma separated) for this email. For Seller(Vendor) you "
+"can use {seller}. Defaults to <code>%s</code>."
+msgstr ""
+"Írja be az e-mail címzettjeit (vesszővel elválasztva). Az Eladó (Szállító) "
+"esetében használhatja az {eladó} szót. Alapértelmezés szerint <code>%s</code>"
+"."
+
+#: includes/addons/twilio_sms/twilio_sms.php:147 
+#: includes/addons/twilio_sms/twilio_sms.php:233
+msgid "Enter something"
+msgstr "Írjon be valamit"
+
+#: includes/admin/uwa_display_setting_tab.php:673
+msgid "Enter Text for Auction Losing User."
+msgstr "Írja be az aukcióvesztő felhasználó szövegét."
+
+#: includes/admin/uwa_display_setting_tab.php:666
+msgid "Enter Text for Auction Winning User."
+msgstr "Írja be az aukció nyertes felhasználójának szövegét."
+
+#: includes/admin/uwa_display_setting_tab.php:418
+msgid "Enter Text for Proxy Auction."
+msgstr "Írja be a szöveget a proxy aukcióhoz."
+
+#: includes/admin/uwa_display_setting_tab.php:432
+msgid "Enter Text for Reverse Auction."
+msgstr "Írja be a szöveget a fordított aukcióhoz."
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:310
+msgid ""
+"Enter the Heading of the email that is sent \n"
+"                        to the bidders to reminder auction is ending soon."
+msgstr ""
+"Írja be annak az e-mailnek a címét, amelyet az ajánlattevőknek elküldenek az "
+"emlékeztető aukcióra."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:203
+#, php-format
+msgid ""
+"Enter the heading of the email that is sent to the admin when auction is "
+"relisted. Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Írja be annak az e-mailnek a fejlécét, amelyet az adminisztrátornak küld az "
+"aukció visszavonásakor. Hagyja üresen az alapértelmezett fejléc "
+"használatához: <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-private-msg.php:134
+#, php-format
+msgid ""
+"Enter the heading of the email that is sent to the auction owner when bidder "
+"send private message. Leave blank to use the default heading: <code>%s</code>"
+"."
+msgstr ""
+"Írja be az aukció tulajdonosának küldött e-mail címsorát, amikor az "
+"ajánlattevő privát üzenetet küld. Hagyja üresen az alapértelmezett fejléc "
+"használatához: <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:183
+#, php-format
+msgid ""
+"Enter the Heading of the email that is sent to the bidder after successfully "
+"placing a bid. Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Írja be az ajánlattevőnek elküldött e-mail címsorát, miután sikeresen "
+"licitált. Hagyja üresen az alapértelmezett fejléc használatához: <code>"
+"%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:232 
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:160
+#, php-format
+msgid ""
+"Enter the Heading of the email that is sent to the bidder after winning an "
+"auction. Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Adja meg annak az e-mail címsornak a címét, amelyet az aukció megnyerése "
+"után az ajánlattevőnek elküldtek. Hagyja üresen az alapértelmezett fejléc "
+"használatához: <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:191
+#, php-format
+msgid ""
+"Enter the heading of the email that is sent to the loser. Leave blank to use "
+"the default heading: <code>%s</code>."
+msgstr ""
+"Írja be a vesztesnek küldött e-mail címsorát. Hagyja üresen az "
+"alapértelmezett fejléc használatához: <code>%s</code>."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:217
+msgid ""
+"Enter the number to send SMS messages from. This must be a purchased number "
+"from Twilio."
+msgstr ""
+"Írja be a számot, ahonnan SMS-üzeneteket küldhet. Ez biztosan a Twilio "
+"cégtől vásárolt szám."
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:299
+msgid ""
+"Enter the subject of the email that is sent \n"
+"                        to the bidders to reminder auction is ending soon."
+msgstr ""
+"Írja be annak az e-mailnek a tárgyát, amelyet az ajánlattevőknek elküldenek "
+"az emlékeztető aukció hamarosan véget ér."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:271
+msgid ""
+"Enter the subject of the email that is sent to the admin after successfully "
+"placing a bid.Leave blank to use the default subject:- <code>%s</code>."
+msgstr ""
+"Adja meg az adminisztrátornak küldött e-mail tárgyát a sikeres ajánlattétel "
+"után. Hagyja üresen az alapértelmezett tárgy használatához:- <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:219
+#, php-format
+msgid ""
+"Enter the subject of the email that is sent to the admin when auction is "
+"relisted. Leave blank to use the default subject: <code>%s</code>."
+msgstr ""
+"Adja meg annak az e-mailnek a tárgyát, amelyet az adminisztrátornak küld az "
+"aukció visszavonásakor. Hagyja üresen az alapértelmezett tárgy használatához:"
+" <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-private-msg.php:126
+#, php-format
+msgid ""
+"Enter the subject of the email that is sent to the auction owner when bidder "
+"send private message. Leave blank to use the default subject: <code>%s</code>"
+"."
+msgstr ""
+"Írja be az aukció tulajdonosának küldött e-mail tárgyát, amikor az "
+"ajánlattevő privát üzenetet küld. Hagyja üresen az alapértelmezett tárgy "
+"használatához: <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:280
+msgid ""
+"Enter the subject of the email that is sent to the auction owners after "
+"successfully placing a bid.Leave blank to use the default subject:- <code>"
+"%s</code>."
+msgstr ""
+"Adja meg annak az e-mailnek a tárgyát, amelyet az aukció tulajdonosainak "
+"küldünk a sikeres ajánlattétel után. Hagyja üresen az alapértelmezett tárgy "
+"használatához:- <code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:175
+#, php-format
+msgid ""
+"Enter the subject of the email that is sent to the bidder after successfully "
+"placing a bid.Leave blank to use the default subject:- <code>%s</code>."
+msgstr ""
+"Írja be az ajánlattevőnek elküldött e-mail tárgyát, miután sikeresen "
+"licitált. Az alapértelmezett tárgy használatához hagyja üresen:-<code>"
+"%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:224 
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:152
+#, php-format
+msgid ""
+"Enter the subject of the email that is sent to the bidder after winning an "
+"auction. Leave blank to use the default subject: <code>%s</code>."
+msgstr ""
+"Adja meg annak az e-mailnek a tárgyát, amelyet az aukció megnyerése után az "
+"ajánlattevőnek küld. Hagyja üresen az alapértelmezett tárgy használatához: "
+"<code>%s</code>."
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:183
+#, php-format
+msgid ""
+"Enter the subject of the email that is sent to the loser. Leave blank to use "
+"the default subject:- <code>%s</code>."
+msgstr ""
+"Írja be a vesztesnek küldött e-mail tárgyát. Hagyja üresen az "
+"alapértelmezett tárgy használatához: - <code>%s</code>."
+
+#: includes/admin/uwa_auctions_dashboard.php:42
+msgid "Enter your license key"
+msgstr "Írja be a licenckulcsát"
+
+#: includes/admin/uwa_auctions_dashboard.php:38
+msgid ""
+"Enter your Ultimate WooCommerce Auction PRO License Key below. Your key "
+"unlocks access to automatic updates, the add-on installer, and support. You "
+"can find your key on the My Account page on the <a href=\"https:"
+"//auctionplugin.net/checkout/purchase-history/\" target=\"blanck\">"
+"auctionplugin.net</a> site."
+msgstr ""
+"Írja be alább az Ultimate WooCommerce Auction PRO licenckulcsát. A kulcs "
+"feloldja az automatikus frissítések, a kiegészítő telepítő és a támogatás "
+"hozzáférését. Kulcsát az Auctionplugin.net webhely Saját fiók oldalán "
+"találja."
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:182
+msgid "Expiration"
+msgstr "Lejárat"
+
+#: includes/class-uwa-product.php:745 includes/admin/class-uwa-admin.php:1751 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:78
+msgid "Expired"
+msgstr "Az aukció véget ért."
+
+#: includes/admin/class-uwa-admin.php:1420
+msgid "Expired Auction"
+msgstr "Lejárt aukció"
+
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:112
+msgid "Expired Auction not found"
+msgstr "Lejárt aukció nem található"
+
+#: ultimate-woocommerce-auction-pro.php:432 
+#: includes/admin/uwa_manage_auctions.php:596 
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:70
+msgid "Expired Auctions"
+msgstr ""
+"Lejárt aukciók\n"
+
+#: includes/admin/uwa_manage_user_auctions.php:611
+msgid "Expired auctions"
+msgstr ""
+"Lejárt aukciók\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:309
+msgid "Expiry month*"
+msgstr "Lejárati hónap *"
+
+#: includes/admin/uwa_manage_auctions.php:349 
+#: includes/admin/uwa_manage_user_auctions.php:341
+msgid "Expiry Reason"
+msgstr "Lejárati ok"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:329
+msgid "Expiry year*"
+msgstr "Lejárati év *"
+
+#: includes/admin/uwa_general_setting_tab.php:674
+msgid "Extend Auction"
+msgstr "Az aukció kiterjesztése"
+
+#: includes/admin/uwa_general_setting_tab.php:588
+msgid "Extend auction by following time:"
+msgstr "Hosszabbítsa az aukciót a következő idővel:"
+
+#: includes/admin/uwa_general_setting_tab.php:574
+msgid "Extend Auction in recursive manner"
+msgstr "Bővítse az aukciót rekurzív módon"
+
+#: includes/admin/uwa_general_setting_tab.php:577
+msgid "Extend Auction only once"
+msgstr "Csak egyszer terjessze ki az aukciót"
+
+#: includes/admin/uwa_general_setting_tab.php:558
+msgid "Extra Settings"
+msgstr "Extra beállítások"
+
+#: includes/admin/class-uwa-admin.php:1421
+msgid "Fail Auction"
+msgstr "Sikertelen aukció"
+
+#: includes/admin/class-uwa-admin.php:1839 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:897
+msgid "Failed Relist"
+msgstr "Nem sikerült az újra indítás"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:125
+msgid "Fee Amount"
+msgstr "Díj összegét"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:182
+msgid "First name and last name fields"
+msgstr "Keresztnév és vezetéknév mezők"
+
+#: includes/admin/class-uwa-admin.php:
+msgid "Flat"
+msgstr "Lakás"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:708
+msgid "Flat Rate"
+msgstr "Átalánydíj"
+
+#: includes/admin/uwa_importer_page.php:27
+msgid ""
+"Follow below steps to import auction products inside your WooCommerce site."
+msgstr ""
+"Kövesse az alábbi lépéseket az aukciós termékek importálásához a WooCommerce "
+"webhelyen."
+
+#: includes/admin/uwa_auction_help.php:30 
+#: includes/admin/uwa_auction_help.php:31
+msgid "Found Any Bugs?"
+msgstr "Talált hibákat?"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:213
+msgid "From Number"
+msgstr "Számtól"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:239 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:390
+msgid "Full Bid Amount"
+msgstr "Teljes ajánlati összeg"
+
+#: includes/class-uwa-product.php:749 includes/admin/class-uwa-admin.php:1747 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:74
+msgid "Future"
+msgstr "Jövő"
+
+#: includes/admin/class-uwa-admin.php:1419
+msgid "Future Auction"
+msgstr "Jövő aukció"
+
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:115
+msgid "Future auction not found"
+msgstr ""
+"A jövőbeli aukció nem található\n"
+
+#: ultimate-woocommerce-auction-pro.php:450 
+#: includes/admin/uwa_manage_auctions.php:598 
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:70
+msgid "Future Auctions"
+msgstr "Jövőbeli aukciók"
+
+#: includes/admin/uwa_manage_user_auctions.php:612
+msgid "Future auctions"
+msgstr "Jövőbeli aukciók"
+
+#: includes/admin/uwa_general_setting_tab.php:383
+msgid "Get Bid amount information instantly without page refresh."
+msgstr "Az ajánlat frissítésével azonnal megkapja az ajánlat összegét."
+
+#: includes/class-uwa-front.php:593 
+#: templates/woocommerce/single-product/uwa-pay.php:255 
+#: templates/woocommerce/loop/uwa-pay-button.php:70 
+#: templates/woocommerce/emails/auction-winner.php:236 
+#: templates/woocommerce/emails/plain/auction-winner.php:219
+msgid "Get Item"
+msgstr "Tétel letöltése"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:88
+msgid "Give Buyer's Premium to"
+msgstr "Aukciós vásárlói jutalék"
+
+#: includes/admin/class-uwa-admin.php:792
+msgid "Globally"
+msgstr "Globálisan"
+
+#: includes/admin/uwa_auctions_dashboard.php:132
+msgid "Go to addon setting page."
+msgstr "Lépjen az addon beállítási oldalra."
+
+#: includes/admin/class-uwa-admin.php:216
+msgid "Help"
+msgstr "Segítség"
+
+#: includes/admin/uwa_auction_help.php:14
+msgid "Help & Support"
+msgstr "Súgó és támogatás"
+
+#: templates/woocommerce/emails/bid-outbided.php:38 
+#: templates/woocommerce/emails/auction-remind-to-pay.php:30 
+#: templates/woocommerce/emails/placed-bid.php:66 
+#: templates/woocommerce/emails/placed-bid.php:112 
+#: templates/woocommerce/emails/bid-deleted.php:30 
+#: templates/woocommerce/emails/auction-winner.php:42 
+#: templates/woocommerce/emails/auction-winner.php:270 
+#: templates/woocommerce/emails/auction-winner.php:299 
+#: templates/woocommerce/emails/auction-private-msg.php:32 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:31 
+#: templates/woocommerce/emails/plain/bid-deleted.php:33
+msgid "Here are the details : "
+msgstr ""
+"Itt vannak a részletek:\n"
+
+#: templates/woocommerce/emails/bid-outbided.php:34 
+#: templates/woocommerce/emails/auction-remind-to-pay.php:28 
+#: templates/woocommerce/emails/placed-bid.php:62 
+#: templates/woocommerce/emails/bid-deleted.php:27 
+#: templates/woocommerce/emails/auction-winner.php:40 
+#: templates/woocommerce/emails/auction-winner.php:296 
+#: templates/woocommerce/emails/loser-bidders.php:25 
+#: templates/woocommerce/emails/plain/bid-outbided.php:34 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:29 
+#: templates/woocommerce/emails/plain/placed-bid.php:56 
+#: templates/woocommerce/emails/plain/bid-deleted.php:28 
+#: templates/woocommerce/emails/plain/auction-winner.php:38 
+#: templates/woocommerce/emails/plain/auction-winner.php:255
+#, php-format
+msgid "Hi %s,"
+msgstr "Tisztelt Ügyfelünk %s!"
+
+#: templates/woocommerce/emails/plain/auction-winner.php:236
+msgid "Hi Admin,"
+msgstr "Szia Admin!"
+
+#: templates/woocommerce/emails/auction-winner.php:267
+msgid "Hi admin,"
+msgstr "Szia Admin!"
+
+#: templates/woocommerce/emails/placed-bid.php:110 
+#: templates/woocommerce/emails/auction-private-msg.php:29 
+#: templates/woocommerce/emails/loser-bidders.php:26 
+#: templates/woocommerce/emails/plain/placed-bid.php:81 
+#: templates/woocommerce/emails/plain/loser-bidders.php:24
+msgid "Hi,"
+msgstr "Tisztelt Ügyfelünk!"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:188
+msgid "Hide Buyer's Premium tab on auction detail page."
+msgstr ""
+"Aukciós vásárlói jutalék fülének elrejtése az aukció részleteinek oldalán.\n"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:177 
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:172 
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:171 
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:172
+msgid "Hide time left"
+msgstr "Elrejtési idő maradt"
+
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:193 
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:181
+msgid "Hide timer"
+msgstr "Időzítő elrejtése"
+
+#: includes/admin/class-uwa-admin.php:1943 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:205
+msgid "Highest bid was"
+msgstr "A legmagasabb licit volt"
+
+#: includes/class-uwa-product.php:880 
+#: includes/admin/uwa_manage_auctions.php:277 
+#: includes/admin/class-uwa-admin.php:1941 
+#: includes/admin/uwa_manage_user_auctions.php:269 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:203 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:36
+msgid "Highest bidder was"
+msgstr "A legmagasabb ajánlatot tett"
+
+#: includes/class-uwa-scripts.php:123
+msgid "Hour"
+msgstr "Óra"
+
+#: includes/click/class-uat-auction-clock.php:71
+msgid "Hour(s)"
+msgstr "óra"
+
+#: includes/class-uwa-scripts.php:114 
+#: includes/admin/uwa_general_setting_tab.php:583 
+#: includes/admin/uwa_general_setting_tab.php:590
+msgid "Hours"
+msgstr "óra"
+
+#: includes/admin/class-uwa-admin.php:656 
+#: includes/admin/class-uwa-admin.php:679 
+#: includes/admin/class-uwa-admin.php:702 
+#: includes/admin/class-uwa-admin.php:714
+msgid "Hours."
+msgstr "óra"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://auctionplugin.net"
+msgstr "http://auctionplugin.net"
+
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:144
+#, php-format
+msgid ""
+"if sent numbers of mail stop mail to remind. default is <code>%s</code>."
+msgstr ""
+"ha az elküldött levelek száma megállítja a levél emlékeztetését. "
+"alapértelmezett %s."
+
+#: includes/admin/class-uwa-admin.php:626
+msgid ""
+"If there is no bid placed, Reserve price not met,if winner user not paid on "
+"this auction then the auction will get automatically Relist(Renew) for the "
+"duration specified in Relist duration interval."
+msgstr ""
+"Ha nincs licit, akkor a tartalékár nem teljesül, ha a nyertes felhasználó "
+"nem fizetett ezen az aukción, akkor az aukció automatikusan újraindul "
+"(megújul) a Relist időtartama intervallumban megadott időtartamra.\n"
+
+#: includes/admin/uwa_general_setting_tab.php:562
+msgid ""
+"If User 1 has set a specific maximum bid and if User 2 comes and places same "
+"maximum bid, then plugin will show alert message to user 2 and will place "
+"bid on behalf of User 1 of same amount as his maximum bid."
+msgstr ""
+"Ha az 1. felhasználó meghatározott maximális ajánlatot állított be, és ha a "
+"2. felhasználó érkezik, és megadja ugyanazt a maximális ajánlatot, akkor a "
+"plugin figyelmeztető üzenetet jelenít meg a 2. felhasználó számára, és "
+"ugyanolyan összegű ajánlatot tesz az 1. felhasználó nevében, mint a "
+"maximális ajánlata."
+
+#: includes/admin/uwa_general_setting_tab.php:713
+msgid ""
+"If yes, it will block all existing and new users to place bid, defaults is no"
+msgstr ""
+"Ha igen, akkor minden meglévő és új felhasználót letilt az ajánlattételben, "
+"az alapértelmezett érték nem"
+
+#: includes/admin/uwa_display_setting_tab.php:648
+msgid "If yes, it will display message on shop page and detail page"
+msgstr "Ha igen, akkor a bolt és a részletes oldal üzenetet jelenít meg"
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:53
+msgid ""
+"If you are using Aelia Currency Switcher plugin then you can enable this "
+"addon to display auction product and bid prices in multiple currencies. "
+"Please do note that this addon will only display the prices in multiple "
+"currencies and placing bids will only work in primary currency set by the "
+"admin for his website."
+msgstr ""
+"Ha Aelia Currency Switcher plugint használ, akkor engedélyezheti ezt a "
+"kiegészítőt az aukciós termékek és az ajánlattételi árak több pénznemben "
+"történő megjelenítéséhez. Felhívjuk figyelmét, hogy ez a kiegészítő csak az "
+"árakat jeleníti meg több pénznemben, és az ajánlatok csak az adminisztrátor "
+"által a webhelyére beállított elsődleges pénznemben működnek."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:285 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:439
+msgid ""
+"If you choose 'Percentage' then the this entered value is treated as "
+"percentage of the total bid amount of the product, otherwise as fixed amount."
+msgstr ""
+"Ha a „Százalék” lehetőséget választja, akkor ezt a megadott értéket a termék "
+"teljes ajánlati összegének százalékában kell kezelni, különben fix "
+"összegként."
+
+#: includes/admin/uwa_general_setting_tab.php:459
+msgid ""
+"if you enable Mask Bid for proxy bidding Bid value will add ****** and not "
+"display full Bid Value public "
+msgstr ""
+"Ha engedélyezi a maszk ajánlatot a proxy ajánlattételhez, az ajánlat értéke "
+"hozzáadja a ****** értéket, és nem jeleníti meg a teljes ajánlat értékét"
+
+#: includes/admin/uwa_general_setting_tab.php:520
+msgid ""
+"if you enable Mask Bid for silent bidding Bid value will add ****** and not "
+"display full Bid Value public "
+msgstr ""
+"Ha engedélyezi a Mask Bid lehetőséget a csendes ajánlattételhez, az ajánlat "
+"értéke hozzáadja a ****** értéket, és nem jeleníti meg a teljes ajánlat "
+"értékét"
+
+#: includes/admin/uwa_general_setting_tab.php:447
+msgid ""
+"if you enable Mask Username for proxy bidding username will add ****** and "
+"not display full Username public "
+msgstr ""
+"Ha engedélyezi a Mask felhasználónév használatát a proxy licitáláshoz, akkor "
+"a felhasználónév hozzáadja a ****** szót, és nem jeleníti meg a "
+"felhasználónév teljes nevét"
+
+#: includes/admin/uwa_general_setting_tab.php:507
+msgid ""
+"if you enable Mask Username for silent bidding username will add ****** and "
+"not display full Username public "
+msgstr ""
+"Ha engedélyezi a Mask felhasználónév használatát a néma licitáláshoz, akkor "
+"a felhasználónév hozzáadja a ****** szót, és nem jeleníti meg a teljes "
+"felhasználónévet"
+
+#: includes/admin/uwa_general_setting_tab.php:415
+msgid ""
+"if you enable Mask Username for simple bidding username will add ****** and "
+"not display full Username public "
+msgstr ""
+"Ha engedélyezi a Mask felhasználónév használatát az egyszerű licitáláshoz, "
+"akkor a felhasználónév hozzáadja a ****** szót, és nem jeleníti meg a "
+"felhasználónév teljes nevét"
+
+#: includes/admin/uwa_manage_auctions.php:550 
+#: includes/admin/uwa_bids_lists.php:365 
+#: includes/admin/uwa_general_setting.php:21 
+#: includes/admin/uwa_auctions_add_products.php:23
+msgid ""
+"If you like <a href=\"https://wordpress.org/support/plugin/ultimate-"
+"woocommerce-auction/reviews?rate=5#new-post\" target=\"_blank\"> our plugin "
+"working </a> with WooCommerce, please leave us a <a href=\"https://wordpress."
+"org/support/plugin/ultimate-woocommerce-auction/reviews?rate=5#new-post\" "
+"target=\"_blank\">★★★★★</a> rating. A huge thanks in advance!"
+msgstr ""
+"Ha tetszik a WooCommerce-vel együttműködő bővítményünk, kérjük, hagyjon "
+"nekünk egy ★★★★★ minősítést. Óriási köszönet előre!"
+
+#: templates/woocommerce/emails/bid-outbided.php:52
+msgid "If you want to bid a new amount, click here"
+msgstr "Ha új összeget szeretne ajánlani, kattintson ide"
+
+#: templates/woocommerce/emails/plain/bid-outbided.php:41
+#, php-format
+msgid "If you want to bid a new amount, click here <a href=\"%s\">%s</a>."
+msgstr ""
+"Ha új összeget szeretne ajánlani, kattintson ide:<a href=\"%s\">%s</a>."
+
+#: includes/uwa-misc-functions.php:843 includes/uwa-misc-functions.php:1115 
+#: templates/woocommerce/emails/bid-outbided.php:41 
+#: templates/woocommerce/emails/auction-remind-to-pay.php:34 
+#: templates/woocommerce/emails/placed-bid.php:69 
+#: templates/woocommerce/emails/placed-bid.php:115 
+#: templates/woocommerce/emails/bid-deleted.php:34 
+#: templates/woocommerce/emails/auction-winner.php:46 
+#: templates/woocommerce/emails/auction-winner.php:273 
+#: templates/woocommerce/emails/auction-winner.php:302 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:35
+msgid "Image"
+msgstr "Kép"
+
+#: includes/admin/class-uwa-admin.php:210
+msgid "Import"
+msgstr "Importálás"
+
+#: includes/admin/uwa_auctions_add_products.php:34
+msgid "Import Auction Product"
+msgstr "Import aukciós termék"
+
+#: includes/admin/uwa_importer_page.php:22
+msgid "Import Auction Products"
+msgstr "Import aukciós termékek"
+
+#: includes/admin/uwa_general_setting_tab.php:328 
+#: includes/admin/uwa_general_setting_tab.php:399
+msgid "In every"
+msgstr "Mindenben"
+
+#: includes/admin/uwa_display_setting_tab.php:623
+msgid "In Expired Auctions:"
+msgstr "Lejárt aukciókban:"
+
+#: includes/admin/uwa_display_setting_tab.php:612
+msgid "In Live Auctions:"
+msgstr ""
+"Élő aukciókban:\n"
+
+#: includes/admin/uwa_general_setting_tab.php:533
+msgid ""
+"In reality, Silent auctions accept single bid from each user. You can check "
+"this field to allow single bid for each user."
+msgstr ""
+"A valóságban a Néma aukciók minden felhasználótól egyetlen ajánlatot "
+"fogadnak el. Jelölheti be ezt a mezőt, hogy minden felhasználó számára "
+"engedélyezzen egy ajánlatot."
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:367 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:381 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:391 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:396
+msgid "Increment"
+msgstr "Növekedés"
+
+#: includes/admin/class-uwa-admin.php:506 
+#: includes/admin/class-uwa-admin.php:520 
+#: includes/admin/class-uwa-admin.php:530 
+#: includes/admin/class-uwa-admin.php:535
+msgid "Increment Price"
+msgstr "Licitlépcső"
+
+#: includes/admin/uwa_general_setting_tab.php:356
+msgid "Instant Bidding"
+msgstr "Licitlépcső"
+
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:133
+msgid "Interval in Days."
+msgstr "Intervallum napokban."
+
+#: includes/admin/uwa_auctions_dashboard.php:63
+msgid ""
+"Invalid or Expired Key : Please make sure you have entered the correct value "
+"and that your key is not expired."
+msgstr ""
+"Érvénytelen vagy lejárt kulcs: Kérjük, ellenőrizze, hogy a megfelelő értéket "
+"adta-e meg, és hogy a kulcs nem lejárt-e."
+
+#: includes/class-uwa-product.php:1298
+msgid "is winning..."
+msgstr "nyer ..."
+
+#: templates/woocommerce/single-product/uwa-bid.php:71
+msgid "Item condition:"
+msgstr "Áru állapota:"
+
+#: includes/admin/class-uwa-admin.php:636
+msgid "Keep repeating Relist if below conditions are met"
+msgstr ""
+"Ismételje újra a Relist alkalmazást, ha az alábbi feltételek teljesülnek"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:70
+msgid "Latest Auctions"
+msgstr "Legújabb aukciók"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:123
+msgid "Latest auctions not found"
+msgstr "A legújabb aukciók nem találhatók"
+
+#: includes/admin/class-uwa-admin.php:202 
+#: includes/admin/uwa_auctions_dashboard.php:15
+msgid "License & Addon"
+msgstr "Licenc és Addon"
+
+#: includes/admin/uwa_auctions_dashboard.php:34
+msgid "License Key"
+msgstr "Licenckulcs"
+
+#: includes/admin/uwa_auction_help.php:64
+msgid "Like The Plugin?"
+msgstr "Mint a Plugin?"
+
+#: includes/admin/class-uwa-admin.php:1744 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:71
+msgid "Live"
+msgstr "Élő"
+
+#: includes/admin/class-uwa-admin.php:1418
+msgid "Live Auction"
+msgstr "Élő aukció"
+
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:116
+msgid "Live auction not found"
+msgstr "Élő aukció nem található"
+
+#: ultimate-woocommerce-auction-pro.php:414 
+#: includes/admin/uwa_manage_auctions.php:594 
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:70
+msgid "Live Auctions"
+msgstr "Élő aukciók"
+
+#: includes/admin/uwa_manage_user_auctions.php:609
+msgid "Live auctions"
+msgstr "Élő aukciók"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:189 
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:203
+msgid "Log into your Twilio Account to find your Account SID."
+msgstr "Jelentkezzen be Twilio-fiókjába, hogy megtalálja fiókja azonosítóját."
+
+#: includes/admin/uwa_auction_help.php:53
+msgid "Looking for Something?"
+msgstr "Keresni valamit?"
+
+#: includes/class-uwa-front.php:378 includes/class-uwa-front.php:382
+msgid "Losing!"
+msgstr "Vesztes!"
+
+#: includes/admin/class-uwa-admin.php:440 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:274
+msgid "Lowest Price to Accept"
+msgstr "A legalacsonyabb elfogadható ár"
+
+#: includes/class-uwa-scripts.php:129
+msgid "m"
+msgstr "m"
+
+#: includes/admin/uwa_manage_auctions.php:311 
+#: includes/admin/class-uwa-admin.php:790 
+#: includes/admin/uwa_manage_user_auctions.php:303 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:144
+msgid "Make It Live"
+msgstr "Tedd élővé"
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:59
+msgid ""
+"Make sure you configure %sAelia Currency Switcher settings%s for this addon "
+"to work properly."
+msgstr ""
+"Győződjön meg arról, hogy konfigurálta a %s Aelia pénznemváltó beállításait "
+"(%s) ahhoz, hogy ez az kiegészítő megfelelően működjön."
+
+#: includes/admin/uwa_manage_auctions.php:543
+msgid "Manage Auctions"
+msgstr "Az aukciók kezelése"
+
+#: includes/admin/uwa_bids_lists.php:358
+msgid "Manage Bids"
+msgstr "Ajánlatok kezelése"
+
+#: includes/admin/class-uwa-admin.php:759
+msgid "Manually Relist Now"
+msgstr "ÚJRAINDÍTÁS"
+
+#: includes/admin/uwa_general_setting_tab.php:462 
+#: includes/admin/uwa_general_setting_tab.php:523
+msgid "Mask Bid Amount"
+msgstr "Ajánlat összege eltakarása"
+
+#: includes/admin/uwa_general_setting_tab.php:418 
+#: includes/admin/uwa_general_setting_tab.php:450 
+#: includes/admin/uwa_general_setting_tab.php:510
+msgid "Mask Username"
+msgstr "Felhasználónév eltakarása"
+
+#: includes/admin/uwa_users_bids_lists.php:316 
+#: includes/admin/uwa_users_bids_lists.php:326 
+#: includes/admin/uwa_users_bids_lists.php:337 
+#: includes/admin/uwa_bids_lists.php:203 includes/admin/uwa_bids_lists.php:213 
+#: includes/admin/uwa_bids_lists.php:224
+msgid "Max Bid"
+msgstr "Max ajánlat"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:697
+msgid "Maximum -"
+msgstr "Maximum -"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:253 
+#: includes/addons/buyers_premium/uwa-core-functions.php:319
+msgid "Maximum Premium"
+msgstr "Maximális prémium"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:156
+msgid "Maximum Premium Amount"
+msgstr "Maximális prémium összeg"
+
+#: includes/admin/uwa_general_setting_tab.php:582 
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:328
+msgid "Mention time left for auction to close:"
+msgstr "Az aukció zárására maradt idő megemlítése:"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:333
+msgid ""
+"Mention time left for auction to expire auction, default is 1 hour.This SMS "
+"will send to all Bidders those have bid on auction."
+msgstr ""
+"Az aukció lejártáig fennmaradó idő az aukció lejártáig, az alapértelmezett "
+"idő 1 óra. Ez az SMS elküldi mindazoknak az ajánlattevőknek, akik licitáltak "
+"aukción."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:239
+msgid "Message"
+msgstr "Üzenet"
+
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:62
+msgid "Message Detail"
+msgstr "Ide írja üzenetét..."
+
+#: templates/woocommerce/emails/auction-private-msg.php:43 
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:60
+msgid "Message:"
+msgstr "Átlagos válaszidő 10 óra."
+
+#: includes/click/class-uat-auction-clock.php:73
+msgid "Min"
+msgstr "perc"
+
+#: includes/click/class-uat-auction-clock.php:72
+msgid "Min(s)"
+msgstr "perc"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:687
+msgid "Minimum -"
+msgstr "Minimum -"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:252 
+#: includes/addons/buyers_premium/uwa-core-functions.php:318
+msgid "Minimum Premium"
+msgstr "Minimális prémium"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:139
+msgid "Minimum Premium Amount"
+msgstr "Minimális prémium összeg"
+
+#: includes/class-uwa-scripts.php:124
+msgid "Minute"
+msgstr "perc"
+
+#: includes/class-uwa-scripts.php:115 
+#: includes/admin/uwa_general_setting_tab.php:584 
+#: includes/admin/uwa_general_setting_tab.php:591
+msgid "Minutes"
+msgstr "perc"
+
+#: includes/admin/uwa_general_setting_tab.php:331
+msgid "Minutes."
+msgstr "perc"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:231
+msgid "Mobile Number"
+msgstr "Mobil szám"
+
+#: includes/class-uwa-scripts.php:120
+msgid "Month"
+msgstr "hónap"
+
+#: includes/class-uwa-scripts.php:111
+msgid "Months"
+msgstr "hónap"
+
+#: templates/woocommerce/single-product/uwa-bid.php:91
+msgid "More Details"
+msgstr "További részletek"
+
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:136
+msgid "My Auction not found"
+msgstr "Az aukcióm nem található"
+
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:70
+msgid "My Auctions"
+msgstr "Saját aukciók"
+
+#: templates/woocommerce/emails/auction-private-msg.php:35 
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:39
+msgid "Name:"
+msgstr "Név:"
+
+#: includes/admin/uwa_auction_help.php:26
+msgid "Need Any Assistance?"
+msgstr "Segítségre van szüksége?"
+
+#: includes/class-uwa-front.php:103 includes/class-uwa-product.php:47 
+#: includes/admin/class-uwa-admin.php:57 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:140
+msgid "New"
+msgstr "Új"
+
+#: includes/class-uwa-bid.php:169 includes/class-uwa-bid.php:690
+msgid "New maximum bid cannot be smaller than old maximum bid."
+msgstr ""
+"Az új maximális ajánlat nem lehet kisebb, mint a régi maximális ajánlat."
+
+#. Author of the plugin
+msgid "Nitesh Singh"
+msgstr "NS"
+
+#: includes/admin/uwa_general_setting_tab.php:722
+msgid "No"
+msgstr "Nem"
+
+#: includes/uwa-misc-functions.php:1220
+msgid "No auctions in watchlist"
+msgstr "Nincs tétel a figyelőlistán"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:252 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:405
+msgid "No Auto Debit. Collect Payment on checkout page."
+msgstr "Nincs automatikus terhelés. Gyűjtse be a fizetést a fizetés oldalon."
+
+#: includes/admin/uwa_manage_auctions.php:261 
+#: includes/admin/class-uwa-admin.php:1759 
+#: includes/admin/uwa_manage_user_auctions.php:253 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:85
+msgid "No Bid"
+msgstr "Nincs ajánlat"
+
+#: includes/uwa-misc-functions.php:1001 includes/uwa-misc-functions.php:1007 
+#: includes/uwa-misc-functions.php:1014 includes/uwa-misc-functions.php:1031
+msgid "No bids available yet."
+msgstr "Még nem érhető el ajánlat."
+
+#: includes/admin/uwa_manage_auctions.php:245 
+#: includes/admin/uwa_manage_user_auctions.php:238
+msgid "No bids placed"
+msgstr "Nincs ajánlat"
+
+#: includes/admin/uwa_general_setting_tab.php:338
+msgid "No. Of Auctions Processed"
+msgstr "Feldolgozott aukciók száma"
+
+#: includes/class-uwa-front.php:99 includes/admin/class-uwa-admin.php:60 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:138
+msgid "Normal"
+msgstr "Normál"
+
+#: includes/admin/class-uwa-admin.php:1748 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:75
+msgid "Not Started"
+msgstr "Nem kezdődött"
+
+#: includes/admin/uwa_general_setting_tab.php:764
+msgid ""
+"Note: Since user address is not available then there will be difficulty for "
+"admin to add shipping cost for the product inside its associated order."
+msgstr ""
+"Megjegyzés: Mivel a felhasználói cím nem érhető el, az adminisztrátornak "
+"nehézséget okoz a szállítási költség hozzáadásával a termékhez a kapcsolódó "
+"rendelésen belül.\n"
+
+#: includes/admin/uwa_general_setting_tab.php:754
+msgid ""
+"Note: User will have to update their shipping address inside their My "
+"Account > Addresses. This will then let admin add shipping cost to the order "
+"and taking shipping fee also."
+msgstr ""
+"Megjegyzés: A felhasználónak frissítenie kell szállítási címét a Saját fiók >"
+" Címek részben. Ekkor az adminisztrátor hozzáadja a szállítási költséget a "
+"rendeléshez, és a szállítási díjat is.\n"
+
+#: includes/admin/uwa_display_setting_tab.php:489
+msgid ""
+"Note: We have implemented react base time so, the above setting does not "
+"apply on it."
+msgstr ""
+"Megjegyzés: A reagálási bázisidőt megvalósítottuk, így a fenti beállítás nem "
+"vonatkozik rá."
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:173 
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:169 
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:189 
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:159 
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:167 
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:168 
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:177
+msgid "Number of auctions to show:"
+msgstr "Megmutatandó aukciók száma:"
+
+#: includes/admin/class-uwa-admin.php:594
+msgid "Number of next bids"
+msgstr "A következő ajánlatok száma"
+
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:141
+msgid "Number of reminder mail."
+msgstr "Az emlékeztető levelek száma."
+
+#: includes/admin/uwa_display_setting_tab.php:299
+msgid "On Product Category Page."
+msgstr "A termékkategória oldalon."
+
+#: includes/admin/uwa_display_setting_tab.php:292
+msgid "On Product Search Page."
+msgstr "A termékkeresési oldalon."
+
+#: includes/admin/uwa_display_setting_tab.php:305
+msgid "On Product Tag Page."
+msgstr "A termékcímke oldalon."
+
+#: includes/admin/uwa_display_setting_tab.php:285
+msgid "On Shop Page."
+msgstr "A Shop oldalon."
+
+#: includes/admin/uwa_importer_page.php:42
+msgid "Once your CSV file is ready, you can import here."
+msgstr "Miután elkészült a CSV-fájl, importálhatja ide."
+
+#: includes/admin/class-uwa-admin.php:529 
+#: includes/admin/class-uwa-admin.php:534 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:390 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:395
+msgid "onwards"
+msgstr "tovább"
+
+#: includes/admin/uwa_importer_page.php:37
+msgid ""
+"Open the article to see what valid values you need to enter in each field."
+msgstr ""
+"Nyissa meg a cikket, hogy megnézze, milyen érvényes értékeket kell megadnia "
+"az egyes mezőkben."
+
+#: includes/admin/uwa_manage_auctions.php:335 
+#: includes/admin/uwa_manage_user_auctions.php:327
+msgid "Opening / Current Price"
+msgstr "Kezdő ár/ aktuális ár"
+
+#: includes/admin/uwa_manage_auctions.php:346 
+#: includes/admin/uwa_manage_auctions.php:359 
+#: includes/admin/uwa_manage_user_auctions.php:338 
+#: includes/admin/uwa_manage_user_auctions.php:351
+msgid "Opening / Final Price"
+msgstr ""
+"Kezdő ár / Végleges ár\n"
+
+#: includes/admin/class-uwa-admin.php:428 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:258
+msgid "Opening Price"
+msgstr "Kezdő ár"
+
+#: templates/woocommerce/single-product/uwa-bid.php:56
+#, php-format
+msgid "Opening price is %s."
+msgstr "Kezdő ár %s."
+
+#: includes/admin/class-uwa-admin.php:1933 
+#: includes/admin/class-uwa-admin.php:1954 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:216
+msgid "Order has been made, order status is"
+msgstr "Rendelés megtörtént, a megrendelés állapota"
+
+#: includes/admin/class-uwa-admin.php:1947 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:209
+msgid "Order has been paid, order ID is"
+msgstr "A megrendelés kifizetésre került, a megrendelés azonosítója megegyezik"
+
+#: includes/admin/uwa_manage_auctions.php:272 
+#: includes/admin/uwa_manage_auctions.php:281 
+#: includes/admin/uwa_manage_user_auctions.php:264 
+#: includes/admin/uwa_manage_user_auctions.php:273
+msgid "Order ID: "
+msgstr "Rendelés azonosító:"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:466 
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:171
+msgid "Other Settings"
+msgstr ""
+"Egyéb beállitások\n"
+
+#: includes/addons/uwa_addons_main.php:110
+msgid ""
+"Our Addons show auction prices in multiple currencies using Aelia Currency "
+"Switcher plugin"
+msgstr ""
+"Kiegészítéseink többféle pénznemben mutatják be az aukciós árakat az Aelia "
+"Currency Switcher plugin segítségével"
+
+#: includes/admin/uwa_auction_help.php:27
+msgid "Our EXPERT Support Team is always ready to Help you out."
+msgstr "Szakértői csapatunk mindig készen áll arra, hogy segítsen Önnek."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:289
+msgid "Outbid SMS Message:"
+msgstr "Túlzott SMS-üzenet:"
+
+#: includes/admin/class-uwa-admin.php:1423
+msgid "Paid Auction"
+msgstr "Fizetett aukció"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:245 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:397
+msgid "Partial Bid Amount"
+msgstr "Részleges vételi összeg"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:275 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:429
+msgid "Partially bid amount type."
+msgstr "Részben ajánlattételi összeg típusa."
+
+#: includes/uwa-misc-functions.php:911 includes/uwa-misc-functions.php:1168 
+#: templates/woocommerce/single-product/uwa-pay.php:185 
+#: templates/woocommerce/loop/uwa-pay-button.php:45 
+#: templates/woocommerce/emails/auction-winner.php:76 
+#: templates/woocommerce/emails/plain/auction-winner.php:63
+msgid "Pay Buyer's Premium"
+msgstr "Aukciós vásárlói jutalék"
+
+#: includes/class-uwa-front.php:597 includes/uwa-misc-functions.php:930 
+#: includes/uwa-misc-functions.php:1187 includes/admin/uwa_bids_lists.php:179 
+#: templates/woocommerce/single-product/uwa-pay.php:262 
+#: templates/woocommerce/loop/uwa-pay-button.php:77 
+#: templates/woocommerce/emails/auction-remind-to-pay.php:47 
+#: templates/woocommerce/emails/auction-winner.php:239 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:48 
+#: templates/woocommerce/emails/plain/auction-winner.php:209
+msgid "Pay Now"
+msgstr "Tovább a fizetéshez"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:670
+msgid "Percentage"
+msgstr "Százalék"
+
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:212
+msgid "Phone field"
+msgstr "Telefon mező"
+
+#: includes/admin/uwa_general_setting_tab.php:566
+msgid ""
+"Place bid on behalf of first user if maximum bid of second user matches with "
+"first user."
+msgstr ""
+"Tegyen ajánlatot az első felhasználó nevében, ha a második felhasználó "
+"maximális ajánlata megegyezik az első felhasználóval."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:269
+msgid "Place Bid SMS Message:"
+msgstr "Licit SMS üzenet:"
+
+#: includes/admin/uwa_auction_help.php:44
+#, php-format
+msgid ""
+"Please download system report from <a href=\"%s\" >WooCommerce </a> and send "
+"it to us while reporting any issue."
+msgstr ""
+"Kérjük, töltse le a rendszerjelentést<a href=\"%s\" > a WooCommerce "
+"webhelyről, és küldje el nekünk, miközben bármilyen problémát jelent."
+
+#: includes/uwa-misc-functions.php:558
+msgid "Please enter a bid value  greater than the current bid"
+msgstr "Kérjük, adja meg az ajánlattételnél nagyobb ajánlati értéket"
+
+#: includes/class-uwa-bid.php:280 includes/class-uwa-bid.php:814
+#, php-format
+msgid ""
+"Please enter a bid value for &quot;%s&quot; greater than the current bid. "
+"Your bid must be at least %s "
+msgstr ""
+"Kérjük, adja meg a \"%s\" ajánlattételi értékét, amely nagyobb, mint a "
+"jelenlegi ajánlat. Az ajánlatának legalább %s értékűnek kell lennie"
+
+#: includes/class-uwa-bid.php:372 includes/class-uwa-bid.php:913
+#, php-format
+msgid "Please enter a bid value for &quot;%s&quot; less than the current bid"
+msgstr ""
+"Kérjük, adja meg a \"%s\" ajánlattételi értékét, amely kevesebb, mint a "
+"jelenlegi ajánlat"
+
+#: includes/class-uwa-front.php:479
+msgid "Please enter a message!"
+msgstr "Írjon be egy üzenetet!"
+
+#: includes/class-uwa-bid.php:99 includes/class-uwa-bid.php:605 
+#: includes/uwa-misc-functions.php:511
+msgid "Please enter a value greater than 0!"
+msgstr "Kérjük, adjon meg 0-nál nagyobb értéket!"
+
+#: templates/woocommerce/single-product/uwa-bid.php:542
+msgid "Please enter bid value"
+msgstr "Kérjük, adja meg az ajánlat értékét"
+
+#: templates/woocommerce/single-product/uwa-bid.php:536
+msgid "Please enter bid value greater than suggested bid"
+msgstr "Kérjük, adja meg az ajánlottnál nagyobb ajánlati értéket"
+
+#: includes/class-uwa-bid.php:573 
+#: includes/addons/twilio_sms/uwa-core-functions.php:34
+#, php-format
+msgid ""
+"Please enter Phone Number and Country details before placing the bid. <a "
+"href=\"%s\" class=\"button\" target=\"_blank\">Submit here &rarr;</a>"
+msgstr ""
+"Az ajánlattétel előtt kérjük adja meg telefonszámát és országadatait. <a "
+"href=\"%s\" class=\"button\" target=\"_blank\"> Beküldés itt → &rarr;</a>\n"
+
+#: includes/class-uwa-bid.php:558 
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:28
+#, php-format
+msgid ""
+"Please enter your credit card details before placing the bid. <a href=\"%s\" "
+"class=\"button\" target=\"_blank\">Submit here &rarr;</a>"
+msgstr ""
+"Kérjük, az ajánlat megadása előtt adja meg hitelkártyájának adatait. <a "
+"href=\"%s\" class=\"button\" target=\"_blank\">Submit here &rarr;</a>"
+
+#: includes/class-uwa-front.php:473
+msgid "Please enter your Email address!"
+msgstr "Kérjük, adja meg e-mail címét!"
+
+#: includes/class-uwa-front.php:468
+msgid "Please enter your Name!"
+msgstr "Kérem írja be a nevét!"
+
+#: includes/class-uwa-bid.php:62 includes/class-uwa-bid.php:534
+#, php-format
+msgid ""
+"Please Login/Register in to place your bid or buy the product. <a "
+"href=\"%s\"  target=\"_blank\"  class=\"button\">Login/Register &rarr;</a>"
+msgstr ""
+"Figyelem: Ajánlattételhez, vásárláshoz be kell jelentkezzen ill. "
+"regisztráció szükséges!<a href=\"%s\"  target=\"_blank\"  class=\"button\">"
+"Belépés/Regisztráció &rarr;</a>"
+
+#: includes/addons/twilio_sms/class-uwa-twilio-sms-scripts.php:52
+msgid ""
+"Please make sure you have entered a mobile phone number and test message."
+msgstr ""
+"Kérjük, ellenőrizze, hogy megadta-e a mobiltelefon számát és a tesztüzenetet."
+
+#: includes/class-uwa-front.php:614
+msgid "Please refresh page."
+msgstr "Kérjük, frissítse az oldalt."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:324
+msgid "Please set ending soon SMS cron job Else it will not work"
+msgstr ""
+"Kérjük, állítsa be, hogy hamarosan véget ér az SMS cron feladat, különben "
+"nem fog működni"
+
+#: includes/uwa-misc-functions.php:506
+msgid "Please sign in to place your bid or buy the product"
+msgstr ""
+"Kérjük, jelentkezzen be, hogy tegye az ajánlatot, vagy megvásárolja a "
+"terméket"
+
+#: includes/admin/class-uwa-admin.php:2385
+msgid "Please Try Again"
+msgstr "Kérlek próbáld újra"
+
+#: templates/woocommerce/emails/auction-remind-to-pay.php:46 
+#: templates/woocommerce/emails/auction-winner.php:80 
+#: templates/woocommerce/emails/auction-winner.php:244 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:47
+msgid "Please, proceed to checkout"
+msgstr ""
+"A tétel kifizetéséhez kérjük lépjenbe a weboldalon a pénztár oldalra, ezt "
+"elérheti a jelen email alján található linkről vagy a Saját oldal/Aukció "
+"menüben. További segítséget kaphat a fizetéshez a kezdőlap alján található "
+"leírásokban. \n"
+"A pénztárban ki választhatja s szállítás és fizetés módját, majd rögtön "
+"fizethet Bankátutalással vagy Bankkártyával, ha a pénz beérkezett mi "
+"megindítjuk a szállítást és elküldjük a vásárlásról kiállított számlát. \n"
+"Ha kívánja, kérheti, hogy küldjünk átutalási számlát, ez esetben mi "
+"összeállítunk mindent és elküldjük a fizetendő számlát."
+
+#: templates/woocommerce/emails/plain/auction-winner.php:65 
+#: templates/woocommerce/emails/plain/auction-winner.php:222
+#, php-format
+msgid "Please, proceed to checkout, <a href=\"%s\">%s</a>."
+msgstr "Kérjük, folytassa a fizetéssel<a href=\"%s\">%s</a>."
+
+#: templates/woocommerce/single-product/uwa-bid.php:146
+msgid "price has been met."
+msgstr "az ár teljesült."
+
+#: templates/woocommerce/single-product/uwa-bid.php:139
+msgid "price has not been met."
+msgstr "ár nem teljesült."
+
+#: includes/class-uwa-front.php:435
+msgid "Private message"
+msgstr "Ha kérdése van itt üzenhet:"
+
+#: includes/admin/uwa_general_setting_tab.php:346
+msgid "Process "
+msgstr "Folyamat"
+
+#: includes/uwa-misc-functions.php:844 includes/uwa-misc-functions.php:1116 
+#: templates/woocommerce/emails/bid-outbided.php:42 
+#: templates/woocommerce/emails/auction-remind-to-pay.php:35 
+#: templates/woocommerce/emails/placed-bid.php:70 
+#: templates/woocommerce/emails/placed-bid.php:116 
+#: templates/woocommerce/emails/bid-deleted.php:35 
+#: templates/woocommerce/emails/auction-winner.php:47 
+#: templates/woocommerce/emails/auction-winner.php:274 
+#: templates/woocommerce/emails/auction-winner.php:303 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:36
+msgid "Product"
+msgstr "Leírás"
+
+#: templates/woocommerce/emails/plain/bid-deleted.php:40
+#, php-format
+msgid "Product : %s"
+msgstr "Aukció: %s"
+
+#: includes/admin/class-uwa-admin.php:385 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:224
+msgid "Product Condition"
+msgstr "A termék állapota"
+
+#: includes/admin/uwa_display_setting_tab.php:617
+msgid "Product detail page"
+msgstr "Termék részletei oldal"
+
+#: includes/class-uwa-product.php:878 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:34
+msgid "Product sold for buy now price"
+msgstr "A termék eladási ár eladási áron"
+
+#: includes/admin/uwa_users_bids_lists.php:314 
+#: includes/admin/uwa_users_bids_lists.php:324 
+#: includes/admin/uwa_users_bids_lists.php:335 
+#: includes/admin/uwa_manage_auctions.php:333 
+#: includes/admin/uwa_manage_auctions.php:344 
+#: includes/admin/uwa_manage_auctions.php:357 
+#: includes/admin/uwa_bids_lists.php:201 includes/admin/uwa_bids_lists.php:211 
+#: includes/admin/uwa_bids_lists.php:222 
+#: includes/admin/uwa_manage_user_auctions.php:325 
+#: includes/admin/uwa_manage_user_auctions.php:336 
+#: includes/admin/uwa_manage_user_auctions.php:349
+msgid "Product Title"
+msgstr "Termék címe"
+
+#: includes/admin/uwa_display_setting_tab.php:368
+msgid "Product(item) Condition field."
+msgstr "Termék (item) Állapot mező."
+
+#: includes/admin/uwa_users_bids_lists.php:237 
+#: includes/admin/uwa_manage_auctions.php:153 
+#: includes/admin/uwa_bids_lists.php:140 
+#: includes/admin/uwa_manage_user_auctions.php:148
+msgid "Proxy"
+msgstr "Automata licit"
+
+#: includes/admin/uwa_general_setting_tab.php:424
+msgid "Proxy Auction Settings"
+msgstr "Autómata licit aukció beállításai"
+
+#: includes/admin/uwa_display_setting_tab.php:410
+msgid "Proxy Auction Text."
+msgstr "Autómata licit szöveg."
+
+#: includes/admin/uwa_general_setting_tab.php:435
+msgid "Proxy Bidding"
+msgstr "Autó licitálás"
+
+#: includes/admin/class-uwa-admin.php:410 
+#: includes/admin/uwa_general_setting_tab.php:436 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:242
+msgid ""
+"Proxy Bidding (also known as Automatic Bidding) - Our automatic bidding "
+"system makes bidding convenient so you don't have to keep coming back to re-"
+"bid every time someone places another bid. When you place a bid, you enter "
+"the maximum amount you're willing to pay for the item. The seller and other "
+"bidders don't know your maximum bid. We'll place bids on your behalf using "
+"the automatic bid increment amount, which is based on the current high bid. "
+"We'll bid only as much as necessary to make sure that you remain the high "
+"bidder, or to meet the reserve price, up to your maximum amount."
+msgstr ""
+"Proxy ajánlattétel (más néven automatikus ajánlattétel) - Automatikus "
+"ajánlattételi rendszerünk megkönnyíti az ajánlattételt, így nem kell "
+"folytatnia az új ajánlattételt minden alkalommal, amikor valaki újabb "
+"ajánlatot tesz. Amikor licitál, megadja azt a maximális összeget, amelyet "
+"hajlandó fizetni a tételért. Az eladó és más ajánlattevők nem tudják az Ön "
+"maximális ajánlatát. Az ajánlatokat az Ön nevében tesszük az automatikus "
+"ajánlatnövekedési összeg felhasználásával, amely a jelenlegi magas ajánlaton "
+"alapul. Csak annyit licitálunk, amennyi szükséges annak biztosításához, hogy "
+"továbbra is magas ajánlatot tegyen, vagy a maximális összegig teljesítse a "
+"tartalék árat."
+
+#: includes/admin/uwa_general_setting_tab.php:470
+msgid ""
+"Proxy Bidding is by default enabled for all bidding amounts but you can "
+"disable proxy bidding for bidding amount which are less than reserve price. "
+"This setting will help administrator who wants to have simple bidding before "
+"reserve price is reached."
+msgstr ""
+"A proxy ajánlattétel alapértelmezés szerint engedélyezve van az összes "
+"licitálási összegnél, de kikapcsolhatja a proxy ajánlattételt olyan "
+"ajánlattételi összeg esetén, amely kisebb, mint a tartalék ár. Ez a "
+"beállítás segítséget nyújt az adminisztrátornak, aki egyszerű ajánlattételt "
+"szeretne a tartalékár elérése előtt."
+
+#: **************** email new subjects ****************** 
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:30
+msgid "Recently placed a bid on {site_title}"
+msgstr "Nemrég tett egy ajánlatot a(z) {site_title} webhelyen"
+
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:77
+msgid "Recently View Auctions"
+msgstr "Legutóbb megtekintett tételek"
+
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:128
+msgid "Recently View Auctions not found"
+msgstr "A közelmúltban megtekintett aukciók nem találhatók!"
+
+#: includes/admin/uwa_manage_auctions.php:302 
+#: includes/admin/uwa_manage_user_auctions.php:294 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:107
+msgid "Relist"
+msgstr "Újraindítás"
+
+#: includes/admin/class-uwa-admin.php:694
+msgid "Relist if reserve price has not met"
+msgstr ""
+"Újra indítás, ha a minimumár nem teljesült\n"
+
+#: includes/admin/class-uwa-admin.php:671
+msgid "Relist if there are no bids in auction"
+msgstr "Újraindítás, ha nincs ajánlat"
+
+#: includes/admin/class-uwa-admin.php:647
+msgid "Relist if winner has not paid"
+msgstr "Újra índítás, ha a nyertes nem fizetett"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:135 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:136
+msgid "Relist Now"
+msgstr "Újra índítás most"
+
+#: includes/admin/uwa_general_setting_tab.php:632
+msgid "Relist Options"
+msgstr "Újra índítás lehetőségek"
+
+#: includes/admin/uwa_users_bids_lists.php:287 
+#: includes/admin/uwa_manage_auctions.php:304 
+#: includes/admin/uwa_manage_user_auctions.php:296
+msgid "Remind to Pay"
+msgstr "Emlékeztető fizetni"
+
+#: includes/admin/class-uwa-admin.php:2381
+msgid "Reminder Send Successfully."
+msgstr "Emlékeztető küldés sikeresen."
+
+#: templates/woocommerce/single-product/uwa-watch.php:27
+msgid "Remove from watchlist!"
+msgstr "Távolítsa el a figyelőlistáról!"
+
+#: includes/admin/class-uwa-admin.php:1922 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:189
+msgid "Remove Reserve Price"
+msgstr "Minimum ár eltávolítása."
+
+#: includes/admin/uwa_auction_help.php:32
+msgid "Report any Bug that you Discovered, Get Instant Solutions."
+msgstr "Jelentsen minden felfedezett hibát, kapjon azonnali megoldásokat."
+
+#: includes/admin/uwa_auction_help.php:35 
+#: includes/admin/uwa_auction_help.php:36
+msgid "Require Customization?"
+msgstr "Igényli a testreszabást?"
+
+#: templates/woocommerce/single-product/uwa-bid.php:141 
+#: templates/woocommerce/single-product/uwa-bid.php:148
+#, php-format
+msgid "Reserve %s"
+msgstr "Minimum ár %s"
+
+#: includes/admin/uwa_manage_auctions.php:265 
+#: includes/admin/class-uwa-admin.php:1764 
+#: includes/admin/uwa_manage_user_auctions.php:257 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:90
+msgid "Reserve Not Met"
+msgstr "Minimum ár nem teljesült"
+
+#: includes/admin/uwa_manage_auctions.php:336 
+#: includes/admin/uwa_manage_auctions.php:347 
+#: includes/admin/uwa_manage_auctions.php:360 
+#: includes/admin/uwa_manage_user_auctions.php:328 
+#: includes/admin/uwa_manage_user_auctions.php:339 
+#: includes/admin/uwa_manage_user_auctions.php:352 
+#: includes/admin/uwa_manage_user_auctions.php:374
+msgid "Reserve Price"
+msgstr "Minimum ár"
+
+#: templates/woocommerce/single-product/uwa-bid.php:130
+#, php-format
+msgid "Reserve price (%s) has been met."
+msgstr "Minimum ár (%s) teljesült."
+
+#: templates/woocommerce/single-product/uwa-bid.php:124
+#, php-format
+msgid "Reserve price (%s) has not been met."
+msgstr "Nem került eladásra (%s)"
+
+#: ultimate-woocommerce-auction-pro.php:855 includes/class-uwa-front.php:703
+msgid "Reserve price has been met."
+msgstr "Nem került eladásra!"
+
+#: includes/class-uwa-front.php:570
+msgid "Reserve price has not been met!"
+msgstr "Nem került eladásra!"
+
+#: ultimate-woocommerce-auction-pro.php:846 includes/class-uwa-front.php:701
+msgid "Reserve price has not been met."
+msgstr "Nem került eladásra."
+
+#: includes/admin/uwa_display_setting_tab.php:402
+msgid "Reserve Price Text."
+msgstr "Minimum ár szövege."
+
+#: includes/admin/uwa_display_setting_tab.php:441
+msgid "Reserve Price."
+msgstr "Minimumár"
+
+#: includes/admin/uwa_manage_auctions.php:382
+msgid "reserve_price"
+msgstr "reserve_price"
+
+#: includes/admin/uwa_general_setting_tab.php:677
+msgid "Reset Auction"
+msgstr ""
+"Aukció visszaállítása\n"
+
+#: includes/admin/uwa_general_setting_tab.php:536
+msgid "Restrict users to bid only one time."
+msgstr "Korlátozza a felhasználókat, hogy csak egyszer licitáljanak."
+
+#: includes/class-uwa-front.php:99 includes/admin/class-uwa-admin.php:60 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:138
+msgid "Reverse"
+msgstr "Fordított"
+
+#: includes/admin/uwa_display_setting_tab.php:425
+msgid "Reverse Auction Text."
+msgstr "Fordított aukciós szöveg."
+
+#: includes/admin/uwa_auction_help.php:70
+msgid "Review Us on WP.org"
+msgstr "Tekintse át a WP.org oldalt"
+
+#: includes/admin/uwa_general_setting_tab.php:684 
+#: includes/admin/uwa_display_setting_tab.php:486 
+#: includes/addons/offline_dealing/admin/offline_dealing_setting.php:256 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:493 
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:207 
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:356
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: includes/admin/uwa_general_setting_tab.php:343
+msgid ""
+"Scheduler processes total number of auctions mentioned in this field in one "
+"request."
+msgstr ""
+"Az ütemező egy kérelemben feldolgozza a mezőben említett aukciók teljes "
+"számát."
+
+#: includes/admin/uwa_general_setting_tab.php:316
+msgid "Scheduler Settings"
+msgstr "Ütemező beállításai"
+
+#: templates/woocommerce/uwa-auction-searchform.php:3
+msgid "Search Auctions"
+msgstr ""
+"Keresés az aukción\n"
+
+#: includes/click/class-uat-auction-clock.php:73
+msgid "Sec"
+msgstr "sec"
+
+#: includes/click/class-uat-auction-clock.php:73
+msgid "Sec(s)"
+msgstr "sec"
+
+#: includes/class-uwa-scripts.php:125
+msgid "Second"
+msgstr "mp"
+
+#: includes/admin/uwa_general_setting_tab.php:401
+msgid "Second."
+msgstr "mp"
+
+#: includes/class-uwa-scripts.php:116
+msgid "Seconds"
+msgstr "mp"
+
+#: includes/uwa-misc-functions.php:426
+msgid "See less."
+msgstr "Kevesebbet látni."
+
+#: includes/uwa-misc-functions.php:430 
+#: includes/admin/uwa_manage_auctions.php:241 
+#: includes/admin/uwa_manage_user_auctions.php:234
+msgid "See more"
+msgstr "Többet látni"
+
+#: includes/admin/uwa_importer_page.php:36
+msgid "See Valid Values"
+msgstr "Lásd: Érvényes értékek"
+
+#: includes/admin/uwa_manage_user_auctions.php:553
+msgid "Select Auction Author"
+msgstr "Válassza az Aukciós szerző lehetőséget"
+
+#: includes/admin/class-uwa-admin.php:2225
+msgid "Select Status"
+msgstr "Válassza az Állapot lehetőséget"
+
+#: templates/woocommerce/emails/auction-winner.php:110 
+#: templates/woocommerce/emails/plain/auction-winner.php:91
+msgid "Seller contact details :"
+msgstr "Az eladó elérhetőségei:"
+
+#: includes/admin/class-uwa-admin.php:369 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:196
+msgid "Selling Type"
+msgstr "Értékesítési típus"
+
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:71
+msgid "Send"
+msgstr "Üzenet elküldése"
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:162
+msgid "Send bid email notification to admin when Bidder places a bid."
+msgstr ""
+"Küldjön e-mail értesítést az ajánlatról az adminisztrátornak, amikor az "
+"ajánlattevő ajánlatot tesz."
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:168
+msgid "Send bid email notification to Bidder when Bidder places a bid."
+msgstr ""
+"Küldjön e-mail értesítést ajánlattevőnek, amikor az ajánlattevő ajánlatot "
+"tesz."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:188
+msgid ""
+"Send email notification all participate(bidders) when auction is relisted."
+msgstr ""
+"E-mail értesítés küldése az összes résztvevőről (ajánlattevőről), amikor az "
+"aukciót visszavonják."
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:181
+msgid "Send email notification to admin when auction is relisted"
+msgstr ""
+"E-mail értesítés küldése az adminisztrátornak, amikor az aukciót visszavonják"
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:272
+msgid "Send email to all Bidders"
+msgstr "E-mail küldése az összes ajánlattevőnek"
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:278
+msgid "Send email to users who has auction in their watchlist."
+msgstr ""
+"E-mail küldése azoknak a felhasználóknak, akik aukciót tartanak a "
+"figyelőlistájukon."
+
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:24
+msgid "Send Private Message"
+msgstr "A fenti tétellel kapcsolatba itt írhat kérdést, küldhet üzenetet:"
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:286
+#, php-format
+msgid "Send reminder mail intervals in hour default is <code>%s</code>."
+msgstr ""
+"Az emlékeztető üzenetküldési időközök óránkénti alapértelmezett értéke %s."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:227
+msgid "Send Test SMS"
+msgstr ""
+"Teszt SMS küldése\n"
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:206
+msgid "Send won email notification to admin when Bidder won auction."
+msgstr ""
+"Küldje el a nyertes e-mail értesítést az adminisztrátornak, amikor az "
+"ajánlattevő megnyerte az aukciót.\n"
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:212
+msgid "Send won email notification to auction owners when Bidder won auction."
+msgstr ""
+"Küldje el a nyertes e-mail értesítést az aukció tulajdonosainak, amikor az "
+"ajánlattevő megnyerte az aukciót.\n"
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:218
+msgid "Send won email notification to Bidder when Bidder won auction."
+msgstr ""
+"Küldje el a nyertes e-mail értesítést az ajánlattevőnek, amikor az "
+"ajánlattevő megnyerte az aukciót.\n"
+
+#: includes/admin/class-uwa-admin.php:464 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:328
+msgid "Set an amount from which next bid should start."
+msgstr ""
+"Állítson be egy összeget, amelytől a következő ajánlat indul.\n"
+
+#: includes/admin/class-uwa-admin.php:596
+msgid ""
+"Set an amount that how many next bids in dropdown when direct bid is enabled "
+"and maximum value is 100"
+msgstr ""
+"Állítson be egy összeget, amely hány legközelebbi ajánlatot tesz a legördülő "
+"menüben, ha a közvetlen ajánlat engedélyezve van, és a maximális értéke 100\n"
+
+#: includes/admin/uwa_general_setting_tab.php:740
+msgid "Set Bid Increment Globally:"
+msgstr ""
+"Az ajánlat növekedésének beállítása globálisan:\n"
+
+#: **************** buyers premium at product level ****************** 
+#: includes/admin/class-uwa-admin.php:764
+msgid "Set Buyer's Premium (B.P)"
+msgstr ""
+"Aukciós vásárlói jutalék: (B.P) beállítása\n"
+
+#: includes/admin/class-uwa-admin.php:782
+msgid "Set for this product"
+msgstr "Készlet ehhez a termékhez"
+
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:136
+#, php-format
+msgid "Set reminder interval in days default is <code>%s</code>."
+msgstr ""
+"Az emlékeztető intervallum beállítása a napokban alapértelmezetten% s.\n"
+
+#: includes/admin/class-uwa-admin.php:442 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:281
+msgid "Set Reserve price for your auction."
+msgstr ""
+"Állítsa be az aukció minmum árát.\n"
+
+#: includes/admin/class-uwa-admin.php:612 
+#: includes/admin/class-uwa-admin.php:778 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:130 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:317
+msgid "Set the end date for the auction"
+msgstr ""
+"Állítsa be az aukció befejezésének dátumát\n"
+
+#: includes/admin/class-uwa-admin.php:430 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:269
+msgid "Set the opening price for the auction"
+msgstr ""
+"Állítsa be az aukció kezdő árát\n"
+
+#: includes/admin/class-uwa-admin.php:365
+msgid "Set the selling type for the auction"
+msgstr ""
+"Állítsa be az aukció eladási típusát\n"
+
+#: includes/admin/class-uwa-admin.php:601 
+#: includes/admin/class-uwa-admin.php:768 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:120 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:306
+msgid "Set the Start date of Auction Product."
+msgstr ""
+"Állítsa be az aukciós termék kezdő dátumát.\n"
+
+#: includes/admin/class-uwa-admin.php:214 
+#: includes/admin/uwa_general_setting.php:15
+msgid "Settings"
+msgstr "Beállítások"
+
+#: includes/admin/uwa_display_setting_tab.php:615
+msgid "Shop page"
+msgstr ""
+"Shop oldal\n"
+
+#: includes/admin/uwa_display_setting_tab.php:268
+msgid "Shop Page Setting"
+msgstr ""
+"Bolti oldal beállítása\n"
+
+#: includes/admin/uwa_display_setting_tab.php:309
+msgid "Shop Page:"
+msgstr ""
+"Shop oldal:\n"
+
+#: includes/admin/uwa_manage_user_auctions.php:578
+msgid "Show auctions"
+msgstr "Aukciók megjelenítése"
+
+#: includes/admin/uwa_display_setting_tab.php:282
+msgid "Show Auctions on:"
+msgstr "Aukciók megjelenítése itt:"
+
+#: includes/admin/uwa_general_setting_tab.php:553
+msgid "Show Current Bid Value In outbid mail."
+msgstr ""
+"Jelenlegi ajánlati érték megjelenítése a túllépett levelekben.\n"
+
+#: includes/admin/uwa_display_setting_tab.php:312
+msgid "Show Expired Auctions."
+msgstr "Lejárt aukciók megjelenítése."
+
+#: includes/admin/uwa_display_setting_tab.php:319
+msgid "Show Future Auctions."
+msgstr "Jövőbeli aukciók megjelenítése."
+
+#: includes/addons/currency_switcher/admin/currency_switcher_setting.php:71
+msgid "Show this text below bid field"
+msgstr ""
+"Jelenítse meg ezt a szöveget az ajánlattételi mező alatt\n"
+
+#: includes/admin/uwa_users_bids_lists.php:239 
+#: includes/admin/uwa_manage_auctions.php:155 
+#: includes/admin/uwa_bids_lists.php:142 
+#: includes/admin/uwa_manage_user_auctions.php:150
+msgid "Silent"
+msgstr "Ajánlat tételi"
+
+#: includes/admin/uwa_general_setting_tab.php:480
+msgid "Silent Auction Settings"
+msgstr "Ajánlat tételi aukció beállítások"
+
+#: includes/admin/uwa_general_setting_tab.php:491
+msgid "Silent bidding"
+msgstr "Ajánlat tételi aukció"
+
+#: includes/admin/uwa_users_bids_lists.php:241 
+#: includes/admin/uwa_manage_auctions.php:157 
+#: includes/admin/uwa_bids_lists.php:144 
+#: includes/admin/uwa_manage_user_auctions.php:152
+msgid "Simple"
+msgstr "Egyszerű"
+
+#: includes/admin/uwa_general_setting_tab.php:408
+msgid "Simple Auction Settings"
+msgstr ""
+"Egyszerű aukciós beállítások\n"
+
+#: includes/admin/uwa_general_setting_tab.php:566
+msgid "Soft Close / Avoid Sniping"
+msgstr ""
+"Lágy bezárás / Kerülje a szippantást\n"
+
+#: includes/admin/uwa_manage_auctions.php:268 
+#: includes/admin/class-uwa-admin.php:1755 
+#: includes/admin/uwa_manage_user_auctions.php:260 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:81
+msgid "Sold"
+msgstr "Eladott"
+
+#: includes/admin/class-uwa-admin.php:1422
+msgid "Sold Auction"
+msgstr ""
+"Eladott aukció\n"
+
+#: includes/class-uwa-bid.php:111 includes/class-uwa-bid.php:623
+#, php-format
+msgid "Sorry, the auction for &quot;%s&quot; has not started yet"
+msgstr ""
+"Sajnos a \"%s\" árverése még nem kezdődött el\n"
+
+#: includes/uwa-misc-functions.php:523
+msgid "Sorry, the auction has not started yet"
+msgstr ""
+"Sajnos az aukció még nem kezdődött el\n"
+
+#: includes/admin/class-uwa-admin.php:2465
+msgid "Sorry, there is a problem!"
+msgstr ""
+"Sajnos, van egy probléma!\n"
+
+#: includes/addons/uwa_addons_main.php:68
+msgid "Sorry, this Addon cannot be activate. Try Again!"
+msgstr ""
+"Sajnáljuk, ez az Addon nem aktiválható. Próbáld újra!\n"
+
+#: includes/admin/class-uwa-admin.php:1586
+msgid "Sorry, this auction cannot be ended."
+msgstr "Sajnos ez az aukció nem zárható le."
+
+#: includes/class-uwa-bid.php:86 includes/class-uwa-bid.php:92 
+#: includes/class-uwa-bid.php:589 includes/class-uwa-bid.php:596
+msgid "Sorry, you can not bid on your own auction product."
+msgstr ""
+"Sajnos nem licitálhat saját aukciós termékére.\n"
+
+#: includes/class-uwa-front.php:1257 includes/uwa-misc-functions.php:264
+msgid "Sort auction by Ending Soon"
+msgstr "Hamarosan végetérő AUKCIÓ"
+
+#: includes/class-uwa-front.php:1258 includes/uwa-misc-functions.php:265
+msgid "Sort auction by Just started"
+msgstr "Legújabb AUKCIÓS tételek"
+
+#: includes/class-uwa-front.php:1259 includes/uwa-misc-functions.php:266
+msgid "Sort auction by Most Active"
+msgstr "Legnépszerűbb AUKCIÓ"
+
+#: includes/uwa-misc-functions.php:261
+msgid "Sort by buynow price: high to low"
+msgstr "Ár szerint: magas-alacsony"
+
+#: includes/uwa-misc-functions.php:260
+msgid "Sort by buynow price: low to high"
+msgstr "Ár szerint: alacsony-magas"
+
+#: includes/class-uwa-front.php:1256 includes/uwa-misc-functions.php:263
+msgid "Sort by current bid: High to low"
+msgstr "/AUKCIÓ/ ár csökkenő"
+
+#: includes/class-uwa-front.php:1255 includes/uwa-misc-functions.php:262
+msgid "Sort by current bid: Low to high"
+msgstr "/AUKCIÓ/ár növekvő"
+
+#: includes/admin/class-uwa-admin.php:655 
+#: includes/admin/class-uwa-admin.php:678 
+#: includes/admin/class-uwa-admin.php:701
+msgid "Specify no. of hours after which Relist will happen"
+msgstr "Adja meg: hány óra múlva induljon az újra indítás"
+
+#: includes/admin/class-uwa-admin.php:713
+msgid ""
+"Specify the duration in hours for which auction will be live after Relist"
+msgstr ""
+"Adja meg azt az időtartamot órákban, amely után az újra indult aukció él"
+
+#: includes/admin/class-uwa-admin.php:527 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:388
+msgid "Start"
+msgstr "Kezdés"
+
+#: includes/admin/uwa_general_setting_tab.php:637 
+#: includes/admin/uwa_general_setting_tab.php:645
+msgid "Start auction from beginning"
+msgstr ""
+"Indítsa el az aukciót az elejétől\n"
+
+#: includes/admin/uwa_general_setting_tab.php:639 
+#: includes/admin/uwa_general_setting_tab.php:646
+msgid "Start auction from where it ended."
+msgstr ""
+"Indítsa el az aukciót onnan, ahol véget ért.\n"
+
+#: includes/admin/class-uwa-admin.php:599 
+#: includes/admin/class-uwa-admin.php:766 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:115 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:300
+msgid "Start Date"
+msgstr "Kezdő dátum"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:61 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:73
+msgid "Start On"
+msgstr "Kezdés"
+
+#: includes/admin/uwa_display_setting_tab.php:387
+msgid "Start On date For Future Auction."
+msgstr ""
+"Kezdési dátum a jövőbeli aukcióhoz.\n"
+
+#: templates/woocommerce/single-product/uwa-bid.php:421
+msgid "Start On:"
+msgstr "Kezdés:"
+
+#: includes/admin/class-uwa-admin.php:504 
+#: includes/admin/class-uwa-admin.php:518 
+#: includes/admin/class-uwa-admin.php:533 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:365 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:379 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:394
+msgid "Start Price"
+msgstr "Kezdő ár"
+
+#: includes/uwa-misc-functions.php:975 includes/uwa-misc-functions.php:1204
+msgid "Started"
+msgstr "Elkezdődött"
+
+#: includes/admin/uwa_manage_auctions.php:358 
+#: includes/admin/uwa_manage_user_auctions.php:350
+msgid "Starting Date"
+msgstr "Kezdő dátum"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:115 
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:125 
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:107 
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:120 
+#: templates/woocommerce/single-product/uwa-bid.php:429
+msgid "Starting Time Left:"
+msgstr "Hátralévő kezdési idő:"
+
+#: includes/uwa-misc-functions.php:847 includes/uwa-misc-functions.php:1118
+msgid "Status"
+msgstr "Állapot"
+
+#: templates/woocommerce/single-product/uwa-pay.php:77 
+#: templates/woocommerce/emails/auction-winner.php:135 
+#: templates/woocommerce/emails/plain/auction-winner.php:116
+msgid "Store Address:"
+msgstr ""
+"Üzlet címe:\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:132
+msgid "Stripe Configuration"
+msgstr ""
+"Stripe Konfiguráció\n"
+
+#: includes/addons/stripe_auto_debit/class-uwa-stripe-front.php:172
+msgid "Stripe Credit Card Detail:"
+msgstr ""
+"Stripe Hitelkártya adatai:\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:164
+msgid "Stripe Live Mode Enable"
+msgstr ""
+"Stripe Élő mód engedélyezése\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:357
+msgid "Stripe Split Pay Live Mode Enable"
+msgstr ""
+"Stripe Split Pay Live mód engedélyezése\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:349
+msgid "Stripe Split Pay Test Mode Enable"
+msgstr ""
+"Stripe Split Pay Test Mode engedélyezése\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:157
+msgid "Stripe Test Mode Enable"
+msgstr ""
+"Stripe teszt mód engedélyezése\n"
+
+#: includes/addons/twilio_sms/uwa-core-functions.php:61
+msgid "Test message sent successfully"
+msgstr ""
+"A tesztüzenet sikeresen elküldve\n"
+
+#: includes/class-uwa-front.php:497
+msgid "Thank you for Contact."
+msgstr ""
+"Az üzenetet köszönettel megkaptuk, hamarosan válaszolunk.\n"
+
+#: templates/woocommerce/emails/auction-winner.php:269 
+#: templates/woocommerce/emails/auction-winner.php:298 
+#: templates/woocommerce/emails/plain/auction-winner.php:238 
+#: templates/woocommerce/emails/plain/auction-winner.php:257
+#, php-format
+msgid ""
+"The auction has expired and won by user. Auction url <a href='%s'>%s</a>."
+msgstr ""
+"Az aukció lejárt, és a felhasználó megnyerte. Aukciós url<a href='%s'>%s</a>."
+"\n"
+
+#: templates/woocommerce/emails/auction-relist.php:27 
+#: templates/woocommerce/emails/plain/auction-relist.php:26
+#, php-format
+msgid ""
+"The auction product for <a href=\"%s\">%s</a> has been relisted. <br>Reason "
+"to Relist: %s "
+msgstr ""
+"A(z) <a href=\"%s\">%s</a> aukciós tételt újraindítottuk. <br>Az újbóli "
+"listázás oka: %s\n"
+
+#: includes/admin/uwa_display_setting_tab.php:342
+msgid "The format for the countdown display. Default is yowdHMS"
+msgstr ""
+"A visszaszámlálás megjelenítésének formátuma. Az alapértelmezett érték a "
+"yowdHMS\n"
+
+#: includes/class-uwa-bid.php:484 includes/class-uwa-bid.php:1058
+msgid "There was no bid"
+msgstr ""
+"Nem volt licit\n"
+
+#: includes/class-uwa-bid.php:378 includes/class-uwa-bid.php:921
+msgid "There was no bid Placed."
+msgstr "Nem volt licit."
+
+#: includes/class-uwa-front.php:603
+msgid "There were no bids for this auction."
+msgstr "Erre az aukcióra nem volt ajánlat."
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:165
+msgid ""
+"This amount is maximum buyer's premium amount in unit of currency that will "
+"be applicable. If the amount calculated in percentage is above this maximum "
+"amount then this amount will be charged."
+msgstr ""
+"Ez az összeg az aukciós vásárlói jutalék, amely alkalmazandó lesz. Ha a "
+"százalékban számított összeg alacsonyabb, mint ez a minimális összeg, akkor "
+"ezt az összeget kell felszámítani.\n"
+"\n"
+
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:148
+msgid ""
+"This amount is minimum buyer's premium amount in unit of currency that will "
+"be applicable. If the amount calculated in percentage is below this minimum "
+"amount then this amount will be charged."
+msgstr ""
+"Ez az összeg az aukciós vásárlói jutalék, amely alkalmazandó lesz. Ha a "
+"százalékban számított összeg alacsonyabb, mint ez a minimális összeg, akkor "
+"ezt az összeget kell felszámítani.\n"
+
+#: includes/uwa-misc-functions.php:517
+msgid "This auction  has expired"
+msgstr ""
+"Ez az aukció Véget ért\n"
+
+#: includes/class-uwa-bid.php:105 includes/class-uwa-bid.php:614
+#, php-format
+msgid "This auction &quot;%s&quot; has expired"
+msgstr ""
+"Ez az aukció \"%s\" Véget ért\n"
+
+#: templates/woocommerce/single-product/uwa-bid.php:157
+msgid "This auction is silent-bid."
+msgstr "Ajánlat tételi aukció."
+
+#: includes/admin/class-uwa-admin.php:1928 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:195
+msgid "This Auction Product has been sold for buy now price"
+msgstr ""
+"Ezt az aukciós terméket Villám áron adták el\n"
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:130 
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:118
+#, php-format
+msgid ""
+"This controls the email subject line. Leave blank to use the default subject:"
+" <code>%s</code>."
+msgstr ""
+"Ez vezérli az e-mail tárgyát. Hagyja üresen az alapértelmezett tárgy "
+"használatához:% s.\n"
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:138 
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:126
+#, php-format
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Ez vezérli az e-mail értesítésben található fő címsort. Hagyja üresen az "
+"alapértelmezett fejléc használatához:% s.\n"
+
+#: includes/admin/uwa_general_setting_tab.php:433
+msgid ""
+"This cron job will check which auction products are going to end soon (hours "
+"setting is inside SMS). We recommend to set it to one hour"
+msgstr ""
+"Ez a cron feladat ellenőrzi, hogy mely aukciós termékek fognak hamarosan "
+"véget érni (az órák beállítása az SMS-ben). Javasoljuk, hogy állítsa be egy "
+"órára"
+
+#: includes/admin/uwa_general_setting_tab.php:361
+msgid ""
+"This option will simulate instant bidding for users. You can keep it enable."
+msgstr ""
+"Ez az opció az azonnali ajánlattételt fogja szimulálni a felhasználók "
+"számára. Engedélyezheti.\n"
+
+#: ultimate-woocommerce-auction-pro.php:573 
+#: ultimate-woocommerce-auction-pro.php:972
+msgid "This product is not Auction"
+msgstr ""
+"Ez a termék nem aukció\n"
+
+#: includes/admin/uwa_general_setting_tab.php:674
+msgid ""
+"This setting lets you enable an alert confirmation which is shown to user "
+"when they place a bid."
+msgstr ""
+"Ezzel a beállítással engedélyezheti a riasztás megerősítését, amelyet a "
+"felhasználó az ajánlat megadásakor megjelenít.\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:484
+msgid "This text will show on check out page before billing form."
+msgstr ""
+"Ez a szöveg a számlázási űrlap előtt megjelenik a fizetés oldalon.\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:474 
+#: includes/addons/buyers_premium/admin/buyers_premium_setting.php:179
+msgid "This text will shown on check out page in Your order section."
+msgstr ""
+"Ez a szöveg a megrendelés szakaszának check-out oldalán jelenik meg.\n"
+
+#: templates/woocommerce/single-product/uwa-bid.php:338 
+#: templates/woocommerce/single-product/uwa-bid.php:377
+msgid "This will set your max bid."
+msgstr ""
+"<font color=red> (&#8505;) </font>  Licitálás automata licit növeléssel. Ön "
+"megadhat nagyobb összeget, ez esetben a rendszer fog licitálni, egészen "
+"addig, amíg egy másik licitáló el nem éri a megadott értékhatárt. "
+
+#: includes/admin/uwa_general_setting_tab.php:396
+msgid ""
+"Time interval between two ajax requests in seconds (bigger intervals means "
+"less load on server)"
+msgstr ""
+"Két ajax kérés közötti időtartam másodpercben (a nagyobb intervallumok "
+"kisebb terhelést jelentenek a szerveren)\n"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:110 
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:111 
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:120 
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:109 
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:115
+msgid "Time left"
+msgstr "Hátralévő idő"
+
+#: templates/woocommerce/single-product/uwa-bid.php:83
+msgid "Time Left:"
+msgstr "Hátralévő idő:"
+
+#: includes/admin/uwa_display_setting_tab.php:335
+msgid "Timer"
+msgstr "Időzítő"
+
+#: includes/admin/uwa_display_setting_tab.php:395
+msgid "Timezone."
+msgstr "Időzóna."
+
+#: includes/admin/class-uwa-admin.php:752 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:456 
+#: templates/woocommerce/single-product/uwa-bid.php:103
+msgid "Timezone:"
+msgstr "Időzóna:  "
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:60 
+#: includes/addons/wcfm/wcfm-uwa-auctions-lists.php:72
+msgid "Title"
+msgstr "Cím"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:170 
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:166 
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:186 
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:156 
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:164 
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:165 
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:174
+msgid "Title:"
+msgstr "Cím:"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:186
+#, php-format
+msgid ""
+"To use this feature you need to install  %sWooCommerce Stripe Gateway%s. It "
+"is free. Once you have installed it, Configure your Stripe Settings in it."
+msgstr ""
+"A funkció használatához telepítenie kell a %sWooCommerce Stripe Gateway%s "
+"programot. Ingyen van. Miután telepítette, konfigurálja benne a Stripe "
+"beállításait.\n"
+
+#: templates/woocommerce/single-product/uwa-pay.php:244 
+#: templates/woocommerce/single-product/uwa-pay.php:356
+msgid "Total : "
+msgstr "Összes:"
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:543
+msgid "Total Auto Debit via Credit card."
+msgstr ""
+"Teljes automatikus terhelés hitelkártyával.\n"
+
+#: includes/admin/class-uwa-admin.php:1967 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:229 
+#: templates/woocommerce/single-product/tabs/uwa-bids-history.php:18
+msgid "Total Bids Placed:"
+msgstr "Összes leadott ajánlat:"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:140
+msgid "Total Buyer's Premium"
+msgstr "Aukciós vásárlói jutalék"
+
+#: includes/addons/stripe_auto_debit/uwa-core-functions.php:499
+msgid "Total Debit via Credit card."
+msgstr ""
+"Teljes terhelés hitelkártyával.\n"
+
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:861
+msgid "Try Again."
+msgstr ""
+"Próbáld újra.\n"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:181
+msgid "Twilio Connection"
+msgstr "Twilio kapcsolat"
+
+#: includes/admin/uwa_manage_auctions.php:332 
+#: includes/admin/uwa_manage_auctions.php:343 
+#: includes/admin/uwa_manage_auctions.php:356 
+#: includes/admin/uwa_manage_user_auctions.php:324 
+#: includes/admin/uwa_manage_user_auctions.php:335 
+#: includes/admin/uwa_manage_user_auctions.php:348
+msgid "Type"
+msgstr "Típus"
+
+#: includes/addons/buyers_premium/uwa-core-functions.php:677
+msgid "Type :"
+msgstr "Típus:"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:23
+msgid "Ultimate Auction - Auction Lost"
+msgstr "Ultimate Auction - Nem Ön nyert"
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:25
+msgid "Ultimate Auction - Auction Won"
+msgstr "Ultimate Auction - Ön nyert"
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:27
+msgid "Ultimate Auction - Bid Delete Notification"
+msgstr "Ultimate Auction - Ajánlat törlése értesítés"
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:26
+msgid "Ultimate Auction - Bid Notification"
+msgstr "Ultimate Auction - Ön licitált "
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:23
+msgid "Ultimate Auction - Ending Soon"
+msgstr "Ultimate Auction - Nemsokára vége"
+
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:27
+msgid "Ultimate Auction - Outbid Notification"
+msgstr "Ultimate Auction - Túllicitált értesítés"
+
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:25
+msgid "Ultimate Auction - Payment Reminder"
+msgstr "Ultimate Auction - Fizetési emlékeztető"
+
+#: includes/admin/email/class-uwa-email-private-msg.php:27
+msgid "Ultimate Auction - Private Message"
+msgstr "Ultimate Auction - Privát üzenet"
+
+#: includes/admin/email/class-uwa-email-auction-relist.php:27
+msgid "Ultimate Auction - Relist"
+msgstr "Ultimate Auction - Újraindítás"
+
+#: **************** watchlist mail notification ****************** 
+#: includes/admin/email/class-uwa-email-auction-watchlist.php:27
+msgid "Ultimate Auction - Watchlist"
+msgstr ""
+"Ultimate Auction - figyelőlista\n"
+
+#: includes/admin/uwa_manage_auctions.php:545 
+#: includes/admin/uwa_bids_lists.php:360 
+#: includes/admin/uwa_auction_help.php:16 
+#: includes/admin/uwa_general_setting.php:17 
+#: includes/admin/uwa_auctions_add_products.php:16
+msgid "Ultimate WooCommerce Auction PRO"
+msgstr "Ultimate Auction - "
+
+#. Name of the plugin
+msgid "Ultimate WooCommerce Auction Pro - Business"
+msgstr "Ultimate WooCommerce Auction Pro - Business"
+
+#: ultimate-woocommerce-auction-pro.php:693
+#, php-format
+msgid ""
+"Ultimate WooCommerce Auction Pro integrates with popular Vendor plugins. If "
+"you want your users to be vendor then simply install and activate any one of "
+"below plugins | <a href=\"%s\">Hide Notice</a> \n"
+"\t\t\t\t\t\t\t<ol>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://wordpress.org/plugins/wc-multivendor-"
+"marketplace/\" target=\"_blank\">WCFM Multi-Vendor Marketplace by WC Lovers "
+"(FREE)</a> </li>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://woocommerce.com/products/product-"
+"vendors/?aff=10264&cid=1129132\" target=\"_blank\">WooCommerce Product "
+"Vendors</a> </li>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://wordpress.org/plugins/dokan-lite/\" "
+"target=\"_blank\">Dokan</a></li>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n"
+"\t\t\t\t\t\t\t</ol>\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+"Az Ultimate WooCommerce Auction Pro integrálódik a népszerű Vendor beépülő "
+"modulokkal. Ha azt szeretné, hogy a felhasználók szállítói legyenek, "
+"egyszerűen telepítse és aktiválja az alábbi bővítmények bármelyikét\n"
+"<a href=\"%s\">Hide Notice</a> \n"
+"\t\t\t\t\t\t\t<ol>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://wordpress.org/plugins/wc-multivendor-"
+"marketplace/\" target=\"_blank\">WCFM Multi-Vendor Marketplace by WC Lovers "
+"(FREE)</a> </li>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://woocommerce.com/products/product-"
+"vendors/?aff=10264&cid=1129132\" target=\"_blank\">WooCommerce Product "
+"Vendors</a> </li>\n"
+"\t\t\t\t\t\t\t<li><a href=\"https://wordpress.org/plugins/dokan-lite/\" "
+"target=\"_blank\">Dokan</a></li>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n"
+"\t\t\t\t\t\t\t</ol>"
+
+#: includes/admin/class-uwa-admin.php:2202 
+#: includes/admin/class-uwa-admin.php:2227
+msgid "Unblock"
+msgstr "Feloldás"
+
+#: includes/admin/class-uwa-admin.php:179
+#, php-format
+msgid "Unblocked %s user."
+msgid_plural "Unblocked %s users."
+msgstr[0] ""
+"%s felhasználó letiltása.\n"
+msgstr[1] "%s felhasználó letiltása."
+
+#: includes/admin/class-uwa-admin.php:1932 
+#: includes/admin/class-uwa-admin.php:1953 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:215
+msgid "unknown"
+msgstr "ismeretlen"
+
+#: templates/woocommerce/loop/uwa-watch.php:27
+msgid "Unwatch"
+msgstr ""
+"Nézd meg\n"
+
+#: includes/admin/uwa_display_setting_tab.php:338
+msgid ""
+"Use the following characters (in order) to indicate which periods you want "
+"to display: 'Y' for years, 'O' for months, 'W' for weeks, 'D' for days, 'H' "
+"for hours, 'M' for minutes, 'S' for seconds.\tUse upper-case characters for "
+"mandatory periods, or the corresponding lower-case characters for optional "
+"periods, i.e. only display if non-zero. Once one optional period is shown, "
+"all the ones after that are also shown."
+msgstr ""
+"A következő karakterekkel (sorrendben) jelölje meg, mely időszakokat "
+"szeretné megjeleníteni: „é” évekig, „h” hónapokig, „h” hetekig, „n” napokig, "
+"„ó” órákig, „p” percig, 'mp' másodpercig. A kötelező periódusokhoz "
+"használjon nagybetűket, az opcionális periódusokhoz pedig a megfelelő "
+"kisbetűket, azaz csak akkor jelenítsen meg, ha nem nulla. Ha egy opcionális "
+"periódus látható, akkor az összes utána következő is megjelenik."
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:345
+msgid ""
+"Use these tags to customize \n"
+"\t\t\t\t\t\t\t\tyour message: {product_name}, {product_id}, {link}. Remember "
+"\n"
+"\t\t\t\t\t\t\t\tthat SMS messages may be limited to 160 characters or less."
+msgstr ""
+"Ezekkel a címkékkel testreszabhatja üzenetét: {product_name}, {product_id}, "
+"{link}. Ne feledje, hogy az SMS-ek legfeljebb 160 karakter hosszúak lehetnek."
+"\n"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:276 
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:294
+msgid ""
+"Use these tags to customize your message: {product_name}, {bid_value}, "
+"{product_id}, {link}. Remember that SMS messages may be limited to 160 "
+"characters or less."
+msgstr ""
+"Ezekkel a címkékkel szabhatja testre üzenetét: {product_name}, {bid_value}, "
+"{product_id}, {link}. Ne feledje, hogy az SMS-ek legfeljebb 160 karakter "
+"hosszúak lehetnek.\n"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:313
+msgid ""
+"Use these tags to customize your message: {product_name}, {product_id}, "
+"{this_pay_link}. Remember that SMS messages may be limited to 160 characters "
+"or less."
+msgstr ""
+"Ezekkel a címkékkel szabhatja testre az üzenetét: {product_name}, "
+"{product_id}, {this_pay_link}. Ne feledje, hogy az SMS-ek legfeljebb 160 "
+"karakter hosszúak lehetnek.\n"
+
+#: includes/class-uwa-front.php:103 includes/class-uwa-product.php:48 
+#: includes/admin/class-uwa-admin.php:57 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:140
+msgid "Used"
+msgstr "Használt"
+
+#: includes/admin/uwa_manage_auctions.php:563
+msgid "User Auctions"
+msgstr ""
+"Felhasználói aukciók\n"
+
+#: includes/admin/uwa_bids_lists.php:378
+msgid "User Bids"
+msgstr "Felhasználói ajánlatok"
+
+#: includes/admin/uwa_general_setting_tab.php:743
+msgid ""
+"User will have to update their shipping address inside their My Account > "
+"Addresses. This will then let admin add shipping cost to the order and "
+"taking shipping fee also."
+msgstr ""
+"A felhasználónak frissítenie kell a szállítási címét a Saját fiók > Címek "
+"részben. Ekkor az adminisztrátor hozzáadja a szállítási költséget a "
+"rendeléshez, és a szállítási díjat is."
+
+#: includes/admin/uwa_users_bids_lists.php:338
+msgid "UserName"
+msgstr ""
+"Felhasználónév\n"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:170
+msgid "Users who lost in proxy bidding"
+msgstr ""
+"Azok a felhasználók, akik veszítettek a proxy ajánlattételben\n"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:176
+msgid "Users who lost in silent bidding"
+msgstr "Azok a felhasználók, akik vesztettek Ajánlat tétel aukción"
+
+#: templates/woocommerce/single-product/uwa-bid.php:53
+msgid "UTC "
+msgstr "UTC "
+
+#: includes/admin/widgets/class-uwa-widget-ending-soon-auctions.php:29
+msgid "UWA Ending Soon Auctions"
+msgstr "Az UWA hamarosan véget ér"
+
+#: includes/admin/widgets/class-uwa-widget-expired-auctions.php:28
+msgid "UWA Expired Auctions"
+msgstr "Az UWA lejárt aukciói"
+
+#: includes/admin/widgets/class-uwa-widget-scheduled-auctions.php:28
+msgid "UWA Future Auctions"
+msgstr "UWA jövőbeli aukciók"
+
+#: includes/admin/widgets/class-uwa-widget-latest-auctions.php:28
+msgid "UWA Latest Auctions"
+msgstr "UWA legújabb aukciók"
+
+#: includes/admin/widgets/class-uwa-widget-live-auctions.php:27
+msgid "UWA Live Auctions"
+msgstr "UWA Élő aukciók"
+
+#: includes/admin/widgets/class-uwa-widget-my-aucution.php:28
+msgid "UWA My Auctions"
+msgstr ""
+"UWA Saját aukciók\n"
+
+#: includes/admin/class-uwa-admin.php:2219
+msgid "UWA Pro Block/Unblock User"
+msgstr "UWA Pro Block/Unblock User"
+
+#: includes/admin/widgets/class-uwa-widget-recently-view-auctions.php:28
+msgid "UWA Recently View Auctions"
+msgstr "Az UWA nemrégiben megtekintett aukciókat"
+
+#: includes/admin/uwa_auctions_dashboard.php:54
+msgid "Valid Key : Your license key has been successfully validated."
+msgstr "Érvényes kulcs: A licenckulcsát sikeresen érvényesítettük."
+
+#: includes/admin/class-uwa-admin.php:478 
+#: includes/admin/class-uwa-admin.php:490 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:340 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:342
+msgid "Variable Bid Increment"
+msgstr "Licitlépcsők beállítása"
+
+#: includes/admin/uwa_manage_auctions.php:546 
+#: includes/admin/uwa_bids_lists.php:361 
+#: includes/admin/uwa_auction_help.php:16 
+#: includes/admin/uwa_general_setting.php:18 
+#: includes/admin/uwa_auctions_add_products.php:17
+msgid "Version :"
+msgstr "Verzió:"
+
+#: templates/woocommerce/single-product/uwa-watch.php:29 
+#: templates/woocommerce/loop/uwa-watch.php:29
+msgid "View List"
+msgstr "Lista megtekintése"
+
+#: includes/admin/uwa_auction_help.php:59
+msgid "Visit the Plugin Documentation"
+msgstr "Látogassa meg a Plugin dokumentációt"
+
+#: includes/admin/class-uwa-admin.php:588 
+#: includes/addons/wcfm/wcfm-uwa-auctions-support.php:295
+msgid ""
+"Visitors can buy your auction by making payments via Available payment "
+"method."
+msgstr ""
+"A látogatók az Elérhető fizetési mód használatával fizethetnek az aukción."
+
+#: includes/class-uwa-scripts.php:130
+msgid "w"
+msgstr "w"
+
+#: templates/woocommerce/loop/uwa-watch.php:32
+msgid "Watch!"
+msgstr "Néz"
+
+#: templates/woocommerce/myaccount/uwa-users-bids.php:54
+msgid "Watchlist"
+msgstr "Figyelőlista"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:363
+#, php-format
+msgid ""
+"We are used  %sWCFM - WooCommerce Multivendor Marketplace%s for auto debit. "
+"you can manage here."
+msgstr ""
+"%s WCFM - WooCommerce Multivendor Marketplace %s alkalmazunk az automatikus "
+"terheléshez. itt kezelheti.\n"
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:172
+#, php-format
+msgid ""
+"We are using WooCommerce Stripe Gateway for auto debit. Please %sgo here and "
+"configure.%s"
+msgstr ""
+"A WooCommerce Stripe Gateway-t használjuk az automatikus terheléshez. Kérjük,"
+"% sgo itt, és konfigurálja. %s"
+
+#: includes/admin/uwa_auction_help.php:57
+msgid ""
+"We have detailed documentation on every aspects of Ultimate WooCommerce "
+"Auction - Pro."
+msgstr ""
+"Részletes dokumentációnk van az Ultimate WooCommerce Auction - Pro minden "
+"aspektusáról."
+
+#: includes/admin/uwa_general_setting_tab.php:671
+msgid ""
+"We provide two options. First option extending auction if bid placed meet "
+"below timing. Second option will reset auction and will send email to all "
+"bidders intimating latest bid"
+msgstr ""
+"Két lehetőséget kínálunk. Az első lehetőség az aukció meghosszabbítására, ha "
+"az ajánlat az alábbi időpontban teljesül. A második lehetőség visszaállítja "
+"az aukciót, és e-mailt küld minden licitálónak a legutóbbi ajánlatról\n"
+
+#: includes/admin/uwa_general_setting_tab.php:570
+msgid ""
+"We provide two options. First option will keep extending auction if bid "
+"placed meet below timing. Second option will extend auction only once and "
+"will send email to \n"
+"\t\t\t\t\t\t\tall bidders intimating latest bid"
+msgstr ""
+"Két lehetőséget kínálunk. Az első lehetőség továbbra is meghosszabbítja az "
+"aukciót, ha az ajánlat a megadott időn belül megfelel. A második lehetőség "
+"csak egyszer meghosszabbítja az aukciót, és e-mailt küld minden olyan "
+"ajánlattevőnek, aki a legújabb ajánlatot tervezi"
+
+#: templates/woocommerce/emails/loser-bidders.php:30 
+#: templates/woocommerce/emails/plain/loser-bidders.php:29
+#, php-format
+msgid "We regret to inform you that you have lost <a href=\"%s\">%s</a>"
+msgstr "Sajnos nem Ön nyert<a href=\"%s\">%s</a>"
+
+#: includes/admin/uwa_auction_help.php:37
+msgid "We would Love to hear your Integration and Customization Ideas."
+msgstr "Szeretnénk hallani integrációs és testreszabási ötleteit."
+
+#: includes/class-uwa-scripts.php:121
+msgid "Week"
+msgstr "hét"
+
+#: includes/class-uwa-scripts.php:112
+msgid "Weeks"
+msgstr "hét"
+
+#: includes/admin/uwa_general_setting_tab.php:730
+msgid "What notification message do you want to show to blocked users"
+msgstr ""
+"Milyen értesítési üzenetet szeretne megjeleníteni a letiltott felhasználók "
+"számára"
+
+#: includes/admin/uwa_general_setting_tab.php:723
+msgid ""
+"When an auction product will expire then WC order will be created with "
+"'pending payment' status and will have payment details (except shipping "
+"charge)."
+msgstr ""
+"Amikor egy aukciós termék lejár, a WC-rendelés 'fizetésre váró' állapottal "
+"jön létre, és a fizetési adatokkal (kivéve a szállítási költséget) szerepel."
+"\n"
+
+#: includes/admin/uwa_general_setting_tab.php:638
+msgid ""
+"When you select this option then all bids are deleted and auction starts "
+"from beginning."
+msgstr ""
+"Ha ezt a lehetőséget választja, akkor az összes ajánlat törlődik, és az "
+"aukció elölről indul."
+
+#: includes/admin/uwa_general_setting_tab.php:641
+msgid ""
+"When you select this option then auction starts from where it had ended."
+msgstr ""
+"Ha ezt a lehetőséget választja, akkor az aukció onnan indul, ahol véget ért."
+
+#: includes/admin/class-uwa-admin.php:775
+msgid "Which B.P settings do you want to apply"
+msgstr "Melyik B.P beállításokat szeretné alkalmazni"
+
+#: includes/admin/uwa_display_setting_tab.php:619
+msgid "Widgets"
+msgstr "Widgetek"
+
+#: templates/woocommerce/emails/auction-winner.php:276 
+#: templates/woocommerce/emails/auction-winner.php:305
+msgid "Winner"
+msgstr "Győztes"
+
+#: templates/woocommerce/emails/auction-winner.php:325 
+#: templates/woocommerce/emails/plain/auction-winner.php:276
+msgid "Winner contact details :"
+msgstr "Nyertes elérhetőségei:"
+
+#: templates/woocommerce/emails/auction-remind-to-pay.php:36 
+#: templates/woocommerce/emails/auction-winner.php:48 
+#: templates/woocommerce/emails/auction-winner.php:275 
+#: templates/woocommerce/emails/auction-winner.php:304 
+#: templates/woocommerce/emails/plain/auction-remind-to-pay.php:37
+msgid "Winning bid"
+msgstr "A nyertes ajánlat"
+
+#: templates/woocommerce/emails/plain/auction-winner.php:42 
+#: templates/woocommerce/emails/plain/auction-winner.php:243 
+#: templates/woocommerce/emails/plain/auction-winner.php:262
+#, php-format
+msgid "Winning bid %s."
+msgstr ""
+"A nyertes ajánlat %s.\n"
+
+#: includes/admin/uwa_users_bids_lists.php:317 
+#: includes/admin/uwa_bids_lists.php:204
+msgid "Winning Bid & User"
+msgstr "Nyert licit és felhasználó"
+
+#: includes/class-uwa-front.php:580
+#, php-format
+msgid "Winning bid is %s by %s."
+msgstr "Nyertes elérhetőségei: %s és %s"
+
+#: includes/class-uwa-front.php:374
+msgid "Winning!"
+msgstr "Nyerő!"
+
+#: includes/admin/uwa_manage_auctions.php:276 
+#: includes/admin/class-uwa-admin.php:1768 
+#: includes/admin/uwa_manage_user_auctions.php:268 
+#: includes/addons/wcfm/wcfm-uwa-auctions-detail.php:94
+msgid "Won"
+msgstr "Győztes"
+
+#: includes/admin/uwa_users_bids_lists.php:327 
+#: includes/admin/uwa_bids_lists.php:214
+msgid "Won Bid & User"
+msgstr "Nyert licit és felhasználó"
+
+#: includes/addons/twilio_sms/admin/twilio_sms_setting.php:307
+msgid "Won SMS Message:"
+msgstr ""
+"Nyert SMS-t:\n"
+
+#: includes/admin/uwa_importer_page.php:41
+msgid "WooCommerce Import Page"
+msgstr ""
+"WooCommerce Import oldal\n"
+
+#: includes/class-uwa-scripts.php:128
+msgid "y"
+msgstr "év"
+
+#: includes/class-uwa-scripts.php:119
+msgid "Year"
+msgstr "év"
+
+#: includes/class-uwa-scripts.php:110
+msgid "Years"
+msgstr "év"
+
+#: includes/admin/uwa_general_setting_tab.php:718
+msgid "Yes"
+msgstr "igen"
+
+#: includes/class-uwa-bid.php:397 includes/class-uwa-bid.php:952
+msgid "You already placed bid for this auction. "
+msgstr "Már licitált erre az aukcióra."
+
+#: includes/class-uwa-bid.php:68 includes/class-uwa-bid.php:544
+msgid "You are not allow to place bid please contact to admin."
+msgstr "Nem tehet ajánlatot, kérjük, forduljon az adminisztrátorhoz."
+
+#: templates/woocommerce/emails/bid-deleted.php:28 
+#: templates/woocommerce/emails/plain/bid-deleted.php:30
+msgid ""
+"You are receiving this email as auction owner has deleted your bid. Kindly "
+"contact admin/owner for further discussion."
+msgstr ""
+"Ezt az e-mailt azért kapja, mert korábbi ajánlatát töröltük.  \n"
+"Ha kérdése van kérjük forduljon ügyfélszolgálatunkhoz.\n"
+
+#: includes/class-uwa-front.php:324
+#, php-format
+msgid "You can not buy this \"%s\" auction because you have not won it!"
+msgstr "Nem vásárolhatja meg ezt a \"%s\" aukciót, mert nem nyerte meg!"
+
+#: includes/class-uwa-bid.php:119 includes/class-uwa-bid.php:720
+msgid ""
+"You can not place a bid on the auction, please add billing details. <a "
+"href=\"%s\"  target=\"_blank\"  class=\"button\"> ADD ADDRESS &rarr;</a>"
+msgstr ""
+"Az aukción nem tud licitálni, kérjük adja meg a számlázási adatokat. <a "
+"href=\"%s\"  target=\"_blank\"  class=\"button\"> CÍM HOZZÁADÁSA → &rarr;</a>"
+
+#: includes/admin/uwa_display_setting_tab.php:274
+msgid "You can overright Auctions Badge Image. put image url here."
+msgstr "Az aukciós jelvény képét felülírhatja. tegye ide a kép URL-jét."
+
+#: includes/admin/uwa_general_setting_tab.php:744
+msgid "You can set bid increment for every auction"
+msgstr "Minden aukcióhoz beállíthatja az ajánlat növekményét"
+
+#: includes/admin/uwa_general_setting_tab.php:603
+msgid "You can set maximum bidding amount here."
+msgstr "Itt állíthatja be a maximális ajánlattételi összeget."
+
+#: includes/uwa-misc-functions.php:529
+msgid "You cannot place a bid because the product is out of stock."
+msgstr "Nem tehet ajánlatot, mert a termék nincs raktáron."
+
+#: includes/class-uwa-bid.php:118 includes/class-uwa-bid.php:631
+#, php-format
+msgid ""
+"You cannot place a bid for &quot;%s&quot; because the product is out of "
+"stock."
+msgstr "Nem tehet ajánlatot a (z) \"%s\" árra, mert a termék nincs raktáron."
+
+#: includes/admin/email/class-uwa-email-private-msg.php:30 
+#: includes/admin/email/class-uwa-email-private-msg.php:31
+msgid "You have a private message from  {site_title}"
+msgstr "Privát üzeneted van a következőtől: {site_title}"
+
+#: templates/woocommerce/emails/bid-outbided.php:35 
+#: templates/woocommerce/emails/plain/bid-outbided.php:36
+#, php-format
+msgid "You have been outbid on the product <a href=\"%s\">%s</a>."
+msgstr "Ajánlatát túl licitálták<a href=\"%s\">%s</a>."
+
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:30 
+#: includes/admin/email/class-uwa-email-auction-bid-overbid.php:31
+msgid "You have been outbid on {site_title}"
+msgstr "{site_title} oldalon tett ajánlatát túllicitálták!"
+
+#: includes/class-uwa-bid.php:257 includes/class-uwa-bid.php:349 
+#: includes/class-uwa-bid.php:788 includes/class-uwa-bid.php:891 
+#: includes/class-uwa-scripts.php:142
+msgid "You have been outbid."
+msgstr "Túllicitálták."
+
+#: includes/class-uwa-bid.php:164 includes/class-uwa-bid.php:684
+#, php-format
+msgid "You have changed your maximum bid successfully to %s"
+msgstr "Sikeresen módosította maximális ajánlatát %s értékre"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:65 
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:66
+#, php-format
+msgid "You have lost %s"
+msgstr "%s elvesztette"
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:26 
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:27
+msgid "You have lost auction product on {site_title}"
+msgstr "Elvesztette az aukciós terméket a (z) {site_title} oldalon"
+
+#: ultimate-woocommerce-auction-pro.php:1210 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:143 
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:322
+#, php-format
+msgid ""
+"You just need to activate the <strong>%s</strong> to make it functional."
+msgstr "Csak aktiválnia kell a (z) %s funkciót."
+
+#: ultimate-woocommerce-auction-pro.php:1219
+#, php-format
+msgid "You just need to install the %sCore Plugin%s to make it functional."
+msgstr "Csak a % sCore % s plugint kell telepítenie, hogy működőképes legyen."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:376
+#, php-format
+msgid ""
+"You just need to install the %sWCFM - WooCommerce Multivendor Marketplace%s "
+"to make it functional."
+msgstr ""
+"Csak a% sWCFM - WooCommerce Multivendor Marketplace% s telepítése szükséges, "
+"hogy működőképes legyen."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:176
+#, php-format
+msgid ""
+"You need to enable the %sEnable Stripe%s and insert stripe detail to make it "
+"functional."
+msgstr ""
+"Engedélyeznie kell a (z) % sEnable Stripe % s alkalmazást, és be kell "
+"illesztenie a csík részleteit annak működéséhez."
+
+#: includes/addons/stripe_auto_debit/admin/stripe_auto_debit_setting.php:369
+#, php-format
+msgid ""
+"You need to enable the %sStripe Split Pay%s in WCFM Marketplace and insert "
+"stripe detail to make it functional."
+msgstr ""
+"Engedélyeznie kell a% sStripe Split Pay% s szolgáltatást a WCFM Marketplace-"
+"en, és be kell illesztenie a csík részleteit, hogy működőképessé váljon."
+
+#: templates/woocommerce/emails/placed-bid.php:63 
+#: templates/woocommerce/emails/plain/placed-bid.php:58
+#, php-format
+msgid "You recently placed a bid on <a href=\"%s\">%s</a>."
+msgstr "Ön licitált az alábbi tételre: <a href=\"%s\">%s</a>."
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:29 
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:30
+msgid "You recently placed a bid on {site_title}"
+msgstr "Ön licitált aukciónkon -  {site_title}"
+
+#: includes/class-uwa-bid.php:234 includes/class-uwa-bid.php:761
+msgid ""
+"Your amount matches with maximum bidding amount of an user. Kindly check new "
+"bid and enter more value."
+msgstr ""
+"Összege megegyezik a felhasználó maximális ajánlattételi összegével. Kérjük, "
+"ellenőrizze az új ajánlatot, és adjon meg nagyobb értéket.\n"
+
+#: includes/admin/uwa_manage_auctions.php:560
+msgid "Your Auctions"
+msgstr ""
+"Az Ön aukciói\n"
+
+#: includes/uwa-misc-functions.php:845 
+#: templates/woocommerce/emails/placed-bid.php:71
+msgid "Your bid"
+msgstr "Az Ön ajánlata"
+
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:31 
+#: includes/admin/email/class-uwa-email-auction-bid-delete.php:32
+msgid "Your bid has been deleted on {site_title}"
+msgstr "Ajánlatát töröltük a {site_title} oldalon"
+
+#: includes/uwa-misc-functions.php:162 includes/uwa-misc-functions.php:1318
+msgid "Your bid has been placed successfully."
+msgstr "Az ajánlatod sikeresen megtörtént."
+
+#: includes/class-uwa-bid.php:448 includes/class-uwa-bid.php:1014
+#, php-format
+msgid "Your bid is greater for &quot;%s&quot;.Your bid must be at least %s "
+msgstr ""
+"Az ajánlata magasabb a következőre: \"%s\". Ajánlatának legalább %s-nak kell "
+"lennie"
+
+#: includes/class-uwa-bid.php:466 includes/class-uwa-bid.php:1037
+#, php-format
+msgid "Your bid is higher than your previous bid %s, Please enter lower bid."
+msgstr ""
+"Az ajánlata magasabb, mint a korábbi %s ajánlata. Kérjük, adjon meg "
+"alacsonyabb ajánlatot."
+
+#: includes/class-uwa-bid.php:423 includes/class-uwa-bid.php:987
+#, php-format
+msgid "Your bid is lower than your previous bid %s, Please enter higher bid."
+msgstr ""
+"Az ajánlata alacsonyabb, mint a korábbi %s ajánlata. Kérjük, adjon meg "
+"magasabb ajánlatot."
+
+#: includes/class-uwa-bid.php:418 includes/class-uwa-bid.php:980
+#, php-format
+msgid "Your bid is same as your previous bid %s, Please enter higher bid."
+msgstr ""
+"Ajánlata megegyezik az előző %s ajánlatával. Kérjük, adjon meg magasabb "
+"ajánlatot.\n"
+
+#: includes/class-uwa-bid.php:461 includes/class-uwa-bid.php:1030
+#, php-format
+msgid "Your bid is same as your previous bid %s, Please enter lower bid."
+msgstr ""
+"Ajánlata megegyezik az előző %s ajánlatával. Kérjük, adjon meg alacsonyabb "
+"ajánlatot.\n"
+
+#: includes/class-uwa-bid.php:405 includes/class-uwa-bid.php:963
+#, php-format
+msgid "Your bid is smaller for &quot;%s&quot;.Your bid must be at least %s "
+msgstr ""
+"Ajánlata kisebb a következőre: \"%s\". Az ajánlatának legalább% s-nak kell "
+"lennie"
+
+#: includes/class-uwa-bid.php:279
+msgid ""
+"Your bid matches with maximum bid of an user. The bid of this item has been "
+"updated. Please check the latest bid and bid again."
+msgstr ""
+"Az ajánlata egyezik a felhasználó maximális ajánlatával. A tétel árajánlata "
+"frissült. Kérjük, ellenőrizze a legújabb ajánlatot, és tegyen újra ajánlatot."
+
+#: includes/uwa-misc-functions.php:146 includes/uwa-misc-functions.php:1302
+#, php-format
+msgid "Your bid of %s has been placed successfully! Your max bid is %s."
+msgstr ""
+"%s ajánlatát rögzítettük! Maximális ajánlata: %s.\n"
+
+#: includes/uwa-misc-functions.php:140 includes/uwa-misc-functions.php:153 
+#: includes/uwa-misc-functions.php:167 includes/uwa-misc-functions.php:1296 
+#: includes/uwa-misc-functions.php:1309 includes/uwa-misc-functions.php:1323
+#, php-format
+msgid "Your bid of %s has been placed successfully."
+msgstr ""
+"%s ajánlatát sikeresen elküldtük.\n"
+
+#: includes/uwa-misc-functions.php:573
+msgid "Your Bid Placed Successfully"
+msgstr "Az ajánlatát sikeresen leadta"
+
+#: includes/admin/uwa_bids_lists.php:375
+msgid "Your Bids"
+msgstr "Az Ön ajánlatai"
+
+#: ultimate-woocommerce-auction-pro.php:872 
+#: ultimate-woocommerce-auction-pro.php:956 
+#: templates/woocommerce/single-product/uwa-bid.php:49
+msgid "Your Maximum Bid is"
+msgstr "Az Ön maximális ajánlata:"
+
+#: templates/woocommerce/emails/plain/placed-bid.php:74
+#, php-format
+msgid "Your maximum bid is  %s."
+msgstr ""
+"A maximális ajánlat %s.\n"
+
+#: ultimate-woocommerce-auction-pro.php:871 
+#: ultimate-woocommerce-auction-pro.php:955 
+#: templates/woocommerce/single-product/uwa-bid.php:49
+msgid "Your Minimum Bid is"
+msgstr ""
+"Minimális ajánlata\n"
+
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:41 
+#: templates/woocommerce/single-product/tabs/uwa-private-msg.php:54
+msgid "Your Name"
+msgstr ""
+"A neved\n"
+
+#: includes/admin/uwa_auction_help.php:68
+msgid "Your Review is very important to us as it helps us to grow more."
+msgstr ""
+"Az Ön véleménye nagyon fontos számunkra, mivel ez segít abban, hogy tovább "
+"növekedjünk."
+
+#: ultimate-woocommerce-auction-pro.php:1200
+msgid "Your Ultimate WooCommerce Auction Pro is almost ready!"
+msgstr ""
+"Az Ultimate WooCommerce Auction Pro majdnem készen áll!\n"
+
+#: includes/admin/email/class-uwa-email-auction-watchlist.php:30
+msgid ""
+"{site_title} - Bid was placed on an auction product which was in your "
+"watchlist."
+msgstr "{site_title} - Ajánlatot tettek egy tételre, amit figyelőlistára tett."
+
+#: includes/admin/email/class-uwa-email-auction-place-bid.php:28
+#| msgid "Email Notification sent to Admin,Bidder when Bidder places a bid."
+msgid "Email Notification sent to Admin,Bidder when Bidder places a bid."
+msgstr ""
+"E-mail értesítést küldünk az Adminisztrátornak, az ajánlattevőnek, amikor az "
+"ajánlattevő ajánlatot tesz."
+
+#: includes/admin/email/class-uwa-email-auction-winner.php:27 
+#: includes/admin/email/class-uwa-email-auction-remind-to-pay.php:27
+#| msgid "Email Can be sent to the bidder after winning an auction"
+msgid "Email Can be sent to the bidder after winning an auction"
+msgstr "A fenti tétellel kapcsolatba itt írhat kérdést, küldhet üzenetet:"
+
+#: includes/admin/email/class-uwa-email-auction-ending-soon-bidder.php:25
+#| msgid "Email Can be sent to the bidders to reminder auction is ending soon."
+msgid "Email Can be sent to the bidders to reminder auction is ending soon."
+msgstr ""
+"E-mail küldhető az ajánlattevőknek emlékeztető aukcióra hamarosan véget ér."
+
+#: includes/admin/email/class-uwa-email-auction-loser-bidders.php:25
+msgid "Email sent to users who lost in bidding"
+msgstr ""
+"E-mailt küldtünk azoknak a felhasználóknak, akik vesztettek az "
+"ajánlattételben"
+
+#: includes/admin/uwa_general_setting_tab.php:503
+msgid "You cannot place a bid on the product yet. Please contact the administrator of the website to get it unblocked."
+msgstr "A termékre még nem tudsz licitálni. Kérjük, lépjen kapcsolatba a webhely adminisztrátorával a letiltásának feloldásához."
