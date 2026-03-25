@@ -2,10 +2,10 @@
 
 /**
  * My auctions tab list
- * 
+ *
  * @package Ultimate WooCommerce Auction PRO
- * @author Nitesh Singh 
- * @since 1.0  
+ * @author Nitesh Singh
+ * @since 1.0
  *
  */
 
@@ -13,84 +13,91 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-	$user_id  = get_current_user_id();	
-	if(isset( $_GET[ 'bid_status' ] )) {
-		$active_tab = sanitize_text_field($_GET[ 'bid_status' ]);
+	$user_id  = get_current_user_id();
 
-	} elseif( isset( $_GET[ 'display' ] )) {
-		$active_tab = sanitize_text_field($_GET[ 'display' ]);
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Read-only tab display, no data mutation.
+	if ( isset( $_GET['bid_status'] ) ) {
+		$active_tab = sanitize_text_field( wp_unslash( $_GET['bid_status'] ) );
+
+	} elseif ( isset( $_GET['display'] ) ) {
+		$active_tab = sanitize_text_field( wp_unslash( $_GET['display'] ) );
 
 	} else {
 	 	$active_tab = 'active';
-	} 
-	
+	}
+	// phpcs:enable WordPress.Security.NonceVerification.Recommended
+
 	$my_auction_page_url = wc_get_endpoint_url('uwa-auctions');
-	$active_bid_url= esc_attr(add_query_arg(array('bid_status' =>'active'), $my_auction_page_url ));
-	$active_won_url= esc_attr(add_query_arg(array('bid_status' =>'won'), $my_auction_page_url ));
-	$active_lost_url= esc_attr(add_query_arg(array('bid_status' =>'lost'), $my_auction_page_url ));
-	$active_watchlist_url= esc_attr(add_query_arg(array('display' =>'watchlist'), $my_auction_page_url ));
-	
-	
+	$active_bid_url      = esc_url( add_query_arg( array( 'bid_status' => 'active' ), $my_auction_page_url ) );
+	$active_won_url      = esc_url( add_query_arg( array( 'bid_status' => 'won' ), $my_auction_page_url ) );
+	$active_lost_url     = esc_url( add_query_arg( array( 'bid_status' => 'lost' ), $my_auction_page_url ) );
+	$active_watchlist_url = esc_url( add_query_arg( array( 'display' => 'watchlist' ), $my_auction_page_url ) );
+
+
 ?>
 
 	<ul class="uwa-user-bid-counts subsubsub">
-		
-        <li class="<?php echo $active_tab == 'active' ? 'active' : '';?>">
-			
-            <a href="<?php echo $active_bid_url;?>"> 
-                	<?php echo __( 'Bids Active', 'woo_ua' ); ?></a> (<?php echo uwa_front_user_bids_count($user_id, 'active'); ?>) |
+
+        <li class="<?php echo $active_tab === 'active' ? 'active' : ''; ?>">
+
+            <a href="<?php echo $active_bid_url; ?>">
+                	<?php esc_html_e( 'Bids Active', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'active' ) ); ?>) |
         </li>
-		<li class="<?php echo $active_tab == 'won' ? 'active' : '';?>">
-			<a href="<?php echo $active_won_url;?>"> 
-				<?php echo __( 'Bids Won', 'woo_ua' ); ?></a> (<?php echo uwa_front_user_bids_count($user_id, 'won'); ?>) |
+		<li class="<?php echo $active_tab === 'won' ? 'active' : ''; ?>">
+			<a href="<?php echo $active_won_url; ?>">
+				<?php esc_html_e( 'Bids Won', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'won' ) ); ?>) |
         </li>
-		<li class="<?php echo $active_tab == 'lost' ? 'active' : '';?>">
-		   <a href="<?php echo $active_lost_url;?>"> 
-		   		<?php echo __( 'Bids Lost', 'woo_ua' ); ?></a> (<?php echo uwa_front_user_bids_count($user_id, 'lost'); ?>) |
+		<li class="<?php echo $active_tab === 'lost' ? 'active' : ''; ?>">
+		   <a href="<?php echo $active_lost_url; ?>">
+		   		<?php esc_html_e( 'Bids Lost', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'lost' ) ); ?>) |
 		</li>
-		<li class="<?php echo $active_tab == 'watchlist' ? 'active' : '';?>">
-		   <a href="<?php echo $active_watchlist_url;?>"> 
-		   	<?php echo __( 'Watchlist', 'woo_ua' ); ?></a> (<?php echo uwa_front_user_watchlist_count($user_id); ?>) 
+		<li class="<?php echo $active_tab === 'watchlist' ? 'active' : ''; ?>">
+		   <a href="<?php echo $active_watchlist_url; ?>">
+		   	<?php esc_html_e( 'Watchlist', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_watchlist_count( $user_id ) ); ?>)
 		</li>
-		<?php 
-		/* <li class="<?php echo $active_tab == 'settings' ? 'active' : '';?>">
-		   <a href="<?php echo $my_account_page_url?>uwa-auctions?display=settings"> 
-		     <?php echo __( 'Settings', 'woo_ua' ); ?></a> 
-		</li> */
-		?>
 	</ul>
-		
-<?php 
-	
+
+<?php
+
 	if( $active_tab == 'active' ) {
 		$bid_status = 'active';
-		echo uwa_front_user_bid_list($user_id, "active");
+		echo wp_kses_post( uwa_front_user_bid_list( $user_id, 'active' ) );
 	}
 	if( $active_tab == 'won' ) {
 		$bid_status = 'won';
 
+		$csv_export_url = esc_url(
+			add_query_arg(
+				array(
+					'bid_status' => 'won',
+					'action'     => 'uwa_user_download_csv',
+					'_wpnonce'   => wp_create_nonce( 'uwa_user_download_csv' ),
+				),
+				get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) . 'uwa-auctions/'
+			)
+		);
 		?>
 
 		<div style="float:right;margin-right: 10px;">
 			<div class="ex-csv-btn">
-				<a style="border: 1px solid #2271b1;" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>uwa-auctions/?bid_status=won&action=uwa_user_download_csv&_wpnonce=<?php echo wp_create_nonce( 'uwa_user_download_csv' )?>" class="uwa-highlight-btn highlight-btn-disabled"><?php _e('Export Won Auctions CSV','woo_ua');?></a>
+				<a style="border: 1px solid #2271b1;" href="<?php echo $csv_export_url; ?>" class="uwa-highlight-btn highlight-btn-disabled"><?php esc_html_e( 'Export Won Auctions CSV', 'woo_ua' ); ?></a>
 
 			</div>
 		</div>
-		
+
 		<?php
 
-		echo uwa_front_user_bid_list($user_id, "won");
-	}	
+		echo wp_kses_post( uwa_front_user_bid_list( $user_id, 'won' ) );
+	}
 	if( $active_tab == 'lost' ) {
 		$bid_status = 'lost';
-		echo uwa_front_user_bid_list($user_id, "lost");
-	}	
+		echo wp_kses_post( uwa_front_user_bid_list( $user_id, 'lost' ) );
+	}
 
 	if( $active_tab == 'watchlist' ) {
-		echo uwa_front_user_watchlist($user_id);
+		echo wp_kses_post( uwa_front_user_watchlist( $user_id ) );
 	}
 	if( $active_tab == 'settings' ) {
-		echo uwa_front_user_auction_settings($user_id);
+		echo wp_kses_post( uwa_front_user_auction_settings( $user_id ) );
 	}
 ?>

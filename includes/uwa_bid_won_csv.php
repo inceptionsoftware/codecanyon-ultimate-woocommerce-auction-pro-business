@@ -14,16 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  */
  
-function uwa_auctions_download_csv() {	
+function uwa_auctions_download_csv() {
 
-	// Check for current user privileges 
-	if ( !current_user_can( 'manage_options' ) ) {
-		return false; 
+	// Check for current user privileges
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return false;
 	}
 
 	// Check if we are in WP-Admin
-	if ( !is_admin() ) { 
-		return false; 
+	if ( ! is_admin() ) {
+		return false;
+	}
+
+	// Verify nonce
+	if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'uwa_download_csv' ) ) {
+		wp_die( esc_html__( 'Security check failed.', 'woo_ua' ) );
 	}
 
 	if (ob_get_length() > 0) {
@@ -38,7 +43,7 @@ function uwa_auctions_download_csv() {
 		$sitename .= '-';
 	}
 		
-		$filename = $sitename . 'expiry-auctions-' . date( 'Y-m-d-H-i-s' ) . '.csv';
+		$filename = $sitename . 'expiry-auctions-' . gmdate( 'Y-m-d-H-i-s' ) . '.csv';
 		$header_row = array(						
 						__('Auction Name', 'woo_ua'),
 						__('Highest Bidder Name', 'woo_ua'),
@@ -67,7 +72,7 @@ function uwa_auctions_download_csv() {
 			'auction_arhive' => TRUE,
 		 );	
 
-		if (!empty($_REQUEST['users_auctions']) && $_REQUEST['users_auctions']=='true') {
+		if ( ! empty( $_REQUEST['users_auctions'] ) && sanitize_text_field( wp_unslash( $_REQUEST['users_auctions'] ) ) === 'true' ) {
 			$args['author__not_in'] = $curr_user_id;
 		} else {
 			$args['author'] = $curr_user_id;
@@ -90,7 +95,7 @@ function uwa_auctions_download_csv() {
 					$auction_ID = get_the_ID();
 					$ending_date = get_post_meta(get_the_ID(), 'woo_ua_auction_end_date', true);
 					$auction_name = get_the_title();
-					$highest_bid = $wpdb->get_var( 'SELECT bid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_ID .'  ORDER BY  `bid`  DESC limit 1');
+					$highest_bid = $wpdb->get_var( $wpdb->prepare( 'SELECT bid FROM %i WHERE auction_id = %d ORDER BY `bid` DESC LIMIT 1', $wpdb->prefix.'woo_ua_auction_log', $auction_ID ) );
 
 					$currency = get_option('woocommerce_currency');
 					$woocommerce_currency_symbol = get_woocommerce_currency_symbol($currency);
@@ -102,7 +107,7 @@ function uwa_auctions_download_csv() {
 						$highest_bid_value = '';
 					}
 
-					$second_highest_bid = $wpdb->get_var( 'SELECT bid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_ID .'  ORDER BY  `bid` DESC limit 1,2');
+					$second_highest_bid = $wpdb->get_var( $wpdb->prepare( 'SELECT bid FROM %i WHERE auction_id = %d ORDER BY `bid` DESC LIMIT 1,2', $wpdb->prefix.'woo_ua_auction_log', $auction_ID ) );
 
 					if ($second_highest_bid) {
 						$second_highest_bid_value = $woocommerce_currency_symbol_value . $second_highest_bid;
@@ -111,9 +116,9 @@ function uwa_auctions_download_csv() {
 					}
 
 
-					$second_highest_bidder = $wpdb->get_var( 'SELECT userid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_ID .'  ORDER BY  `bid` DESC limit 1,2');
+					$second_highest_bidder = $wpdb->get_var( $wpdb->prepare( 'SELECT userid FROM %i WHERE auction_id = %d ORDER BY `bid` DESC LIMIT 1,2', $wpdb->prefix.'woo_ua_auction_log', $auction_ID ) );
 
-					$third_highest_bid = $wpdb->get_var( 'SELECT bid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_ID .'  ORDER BY  `bid` DESC limit 2,3');
+					$third_highest_bid = $wpdb->get_var( $wpdb->prepare( 'SELECT bid FROM %i WHERE auction_id = %d ORDER BY `bid` DESC LIMIT 2,3', $wpdb->prefix.'woo_ua_auction_log', $auction_ID ) );
 
 					if ($third_highest_bid) {
 						$third_highest_bid_value = $woocommerce_currency_symbol_value . $third_highest_bid;
@@ -122,7 +127,7 @@ function uwa_auctions_download_csv() {
 					}
 
 
-					$third_highest_bidder = $wpdb->get_var( 'SELECT userid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_ID .'  ORDER BY  `bid` DESC limit 2,3');
+					$third_highest_bidder = $wpdb->get_var( $wpdb->prepare( 'SELECT userid FROM %i WHERE auction_id = %d ORDER BY `bid` DESC LIMIT 2,3', $wpdb->prefix.'woo_ua_auction_log', $auction_ID ) );
 
 					$row['expiry_reason'] = "";
 					$bidder_name = "";
@@ -226,7 +231,7 @@ function uwa_auctions_download_csv() {
     		}
 
 		} else {			
-			echo __('No Posts Found', 'woo_ua');
+			echo esc_html__( 'No Posts Found', 'woo_ua' );
 		}
 		
 	$__csvoutput = @fopen( 'php://output', 'w' );

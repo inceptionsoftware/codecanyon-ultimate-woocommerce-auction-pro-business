@@ -56,7 +56,7 @@
 
 			if ( $uwa_ending_soon['enabled'] === 'yes' ) {
 				$uwa_interval = $uwa_ending_soon['uwa_interval'];
-				$uwa_interval_time = date( 'Y-m-d H:i', current_time( 'timestamp' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );						
+				$uwa_interval_time = gmdate( 'Y-m-d H:i', current_time( 'U' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );						
 				$args = array(
 							'post_type'          => 'product',
 							'posts_per_page'     => '100', 
@@ -248,8 +248,7 @@
 					global $woocommerce, $wpdb, $post;
 
 					$uwa_interval =  get_option('uwa_twilio_sms_ending_soon_time', 1);				
-					$uwa_interval_time = date( 'Y-m-d H:i', current_time('timestamp') + 
-						($uwa_interval * HOUR_IN_SECONDS));
+					$uwa_interval_time = gmdate( 'Y-m-d H:i', current_time( 'U' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );
 
 					// get auction which are live, and then matched interval with end date
 					$args = array(
@@ -304,8 +303,7 @@
 										$message = "";
 										 //Get all participates 
 										$final_userlist = array();	
-										$ending_auction_users = $wpdb->get_results("SELECT DISTINCT userid  FROM ". 
-											$wpdb->prefix ."woo_ua_auction_log WHERE auction_id = ". $product_id, OBJECT_K); //ARRAY_A
+										$ending_auction_users = $wpdb->get_results( $wpdb->prepare( "SELECT DISTINCT userid FROM %i WHERE auction_id = %d", $wpdb->prefix . "woo_ua_auction_log", $product_id ), OBJECT_K );
 
 										if(count($ending_auction_users) > 0){
 											$arr_ending_auction_users = array_keys($ending_auction_users);

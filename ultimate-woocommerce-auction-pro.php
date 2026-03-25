@@ -25,110 +25,7 @@ $site_plugins = is_multisite() ? (array) maybe_unserialize( get_site_option('act
 
 if ( in_array( 'woocommerce/woocommerce.php', $blog_plugins ) || isset( $site_plugins['woocommerce/woocommerce.php'] ) ) {
 
-//EDD Licensing start
-// this is the URL our updater / license checker pings. This should be the URL of the site with EDD installed
-define('EDD_UWA_AUCTION_PRO_STORE_URL', 'https://auctionplugin.net/'); // you should use your own CONSTANT name, and be sure to replace it throughout this file
 
-// the name of your product. This should match the download name in EDD exactly
-define('EDD_UWA_AUCTION_PRO_ITEM_NAME', 'Ultimate Woo Auction Pro - Business - Annual'); // you should use your own CONSTANT name, and be sure to replace it throughout this file
-
-if (!class_exists('EDD_SL_Plugin_Updater')) {
-    // load our custom updater
-    include dirname(__FILE__).'/includes/EDD_SL_Plugin_Updater.php';
-}
-
-// retrieve our license key from the DB
-$license_key = trim(get_option('edd_uwa_auction_pro_license_key'));
-
-// setup the updater
-$edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__, array(
-    'version' => '2.4.4', // current version number
-    'license' => $license_key, // license key (used get_option above to retrieve from DB)
-    'item_name' => EDD_UWA_AUCTION_PRO_ITEM_NAME, // name of this plugin
-    'author' => 'Nitesh Singh', // author of this plugin
-    ));
-
-/************************************
- * the code below is just a standard
- * options page. Substitute with
- * your own.
- *************************************/
-
-    function edd_uwa_auction_pro_register_option()
-    {
-        register_setting('edd_uwa_auction_pro_license', 'edd_uwa_auction_pro_license_key', 'edd_uwa_auction_pro_sanitize_license');
-    }
-    add_action('admin_init', 'edd_uwa_auction_pro_register_option');
-
-    function edd_uwa_auction_pro_sanitize_license($new)
-    {
-        $old = get_option('edd_uwa_auction_pro_license_key');
-        if ($old && $old != $new) {
-            delete_option('edd_uwa_auction_pro_license_status');
-        }
-
-        return $new;
-    }
-
-    function edd_uwa_auction_pro_activate_license()
-    {
-        if (isset($_POST['edd_uwa_auction_pro_license_activate'])) {
-            if (!check_admin_referer('edd_uwa_auction_pro_nonce', 'edd_uwa_auction_pro_nonce')) {
-                return;
-            }
-            $license = trim(get_option('edd_uwa_auction_pro_license_key'));
-            if(empty($license)){
-				  $license = sanitize_key($_POST['edd_uwa_auction_pro_license_key']);
-			   }
-
-            $api_params = array(
-                'edd_action' => 'activate_license',
-                'license' => $license,
-                'item_name' => urlencode(EDD_UWA_AUCTION_PRO_ITEM_NAME),
-                );
-
-            $response = wp_remote_get(add_query_arg($api_params, EDD_UWA_AUCTION_PRO_STORE_URL), array('timeout' => 15, 'sslverify' => false));
-
-            if (is_wp_error($response)) {
-                return false;
-            }
-
-            $license_data = json_decode(wp_remote_retrieve_body($response));
-
-            update_option('edd_uwa_auction_pro_license_status', $license_data->license);
-        }
-    }
-    add_action('admin_init', 'edd_uwa_auction_pro_activate_license');
-
-    function edd_uwa_auction_pro_deactivate_license()
-    {
-        if (isset($_POST['edd_uwa_auction_pro_license_deactivate'])) {
-            if (!check_admin_referer('edd_uwa_auction_pro_nonce', 'edd_uwa_auction_pro_nonce')) {
-                return;
-            }
-
-            $license = trim(get_option('edd_uwa_auction_pro_license_key'));
-
-            $api_params = array(
-                'edd_action' => 'deactivate_license',
-                'license' => $license,
-                'item_name' => urlencode(EDD_UWA_AUCTION_PRO_ITEM_NAME),
-                );
-
-            $response = wp_remote_get(add_query_arg($api_params, EDD_UWA_AUCTION_PRO_STORE_URL), array('timeout' => 15, 'sslverify' => false));
-
-            if (is_wp_error($response)) {
-                return false;
-            }
-
-            $license_data = json_decode(wp_remote_retrieve_body($response));
-
-            if ($license_data->license == 'deactivated') {
-                delete_option('edd_uwa_auction_pro_license_status');
-            }
-        }
-    }
-    add_action('admin_init', 'edd_uwa_auction_pro_deactivate_license');
 
 	if ( ! class_exists( 'Ultimate_WooCommerce_Auction_Pro' ) ) {
 
@@ -265,12 +162,12 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				/* GENERATE BID CSV -  New Featur*/
 				
 				// Add action hook only if action=download_csv
-				if ( isset($_GET['action'] ) && $_GET['action'] == 'uwa_download_csv' )  {
+				if ( isset( $_GET['action'] ) && sanitize_text_field( wp_unslash( $_GET['action'] ) ) === 'uwa_download_csv' )  {
 					// Handle CSV Export	
 					add_action( 'admin_init', 'uwa_auctions_download_csv');	
 				}
 
-				if ( isset($_GET['action'] ) && $_GET['action'] == 'uwa_user_download_csv' )  {
+				if ( isset( $_GET['action'] ) && sanitize_text_field( wp_unslash( $_GET['action'] ) ) === 'uwa_user_download_csv' )  {
 					// Handle CSV Export	
 					add_action( 'init', 'uwa_won_auctions_download_csv');	
 				}
@@ -313,7 +210,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 					global $current_user;
 					$user_id = $current_user->ID;
 					/* If user clicks to ignore the notice, add that to their user meta */
-					if ( isset( $_GET['uwa_process_auction_cron_ignore_notice'] ) && '0' == $_GET['uwa_process_auction_cron_ignore_notice'] ) {
+					if ( isset( $_GET['uwa_process_auction_cron_ignore_notice'] ) && '0' === sanitize_text_field( wp_unslash( $_GET['uwa_process_auction_cron_ignore_notice'] ) ) ) {
 						add_user_meta( $user_id, 'uwa_process_auction_cron_ignore_notice', 'true', true );
 					}
 				}
@@ -359,9 +256,10 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 
 			public function uwa_pro_server_cron_setup( $url = false ) {
 
-				if(isset($_REQUEST['ua-auction-cron'])){
+				$uwa_cron_action = isset( $_REQUEST['ua-auction-cron'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) : '';
+					if ( ! empty( $uwa_cron_action ) ) {
 				
-				if ( @$_REQUEST['ua-auction-cron'] == 'process-auction' ) {
+				if ( isset( $_REQUEST['ua-auction-cron'] ) && sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) === 'process-auction' ) {
 					update_option( 'uwa_process_auction_cron', 'yes' );
 					$meta_query= array(	array('key'  => 'woo_ua_auction_closed',	'compare' => 'NOT EXISTS'),
 						array('key' => 'woo_ua_auction_has_started','compare' =>'==', 'value'=>'1'),);
@@ -392,13 +290,13 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				}
 				// http://example.com/?ua-auction-cron=ending-soon-email
 				
-				if ( @$_REQUEST['ua-auction-cron'] == 'ending-soon-email' ) {
+				if ( isset( $_REQUEST['ua-auction-cron'] ) && sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) === 'ending-soon-email' ) {
 					update_option( 'uwa_ending_soon_email_cron', 'yes' );
 					$uwa_ending_soon = get_option( 'woocommerce_woo_ua_email_auction_ending_bidders_settings' );    
         
 					if ( $uwa_ending_soon['enabled'] === 'yes' ) {
 						$uwa_interval = $uwa_ending_soon['uwa_interval'];
-						$uwa_interval_time = date( 'Y-m-d H:i', current_time( 'timestamp' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );						
+						$uwa_interval_time = gmdate( 'Y-m-d H:i', current_time( 'U' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );						
 						$args = array(
 									'post_type'          => 'product',
 									'posts_per_page'     => '100', 
@@ -455,7 +353,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				
 				/* http://example.com/?ua-auction-cron=payment-reminder-email 
 				*/
-				if ( @$_REQUEST['ua-auction-cron'] == 'payment-reminder-email' ) {
+				if ( isset( $_REQUEST['ua-auction-cron'] ) && sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) === 'payment-reminder-email' ) {
 					update_option( 'uwa_payment_reminder_email_cron', 'yes' );
 					$remind_to_payment = get_option( 'woocommerce_woo_ua_email_auction_remind_to_pay_settings' );
 	
@@ -528,7 +426,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				/* http://example.com/?ua-auction-cron=auto-relist
 				*/
 				
-				if ( @$_REQUEST['ua-auction-cron'] == 'auto-relist' ) {
+				if ( isset( $_REQUEST['ua-auction-cron'] ) && sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) === 'auto-relist' ) {
 					update_option( 'uwa_auto_relist_cron', 'yes' );
 					$args = array(
 						'post_type'          => 'product',
@@ -576,7 +474,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 					
 				}/* End Auto relist cron*/
 
-				if ( @$_REQUEST['ua-auction-cron'] == 'ending-soon-sms' ) {
+				if ( isset( $_REQUEST['ua-auction-cron'] ) && sanitize_text_field( wp_unslash( $_REQUEST['ua-auction-cron'] ) ) === 'ending-soon-sms' ) {
 					update_option('uwa_sms_ending_soon_cron', 'yes');
 
 					$addons = uwa_enabled_addons();
@@ -588,8 +486,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 							global $woocommerce, $wpdb, $post;
 
 							$uwa_interval =  get_option('uwa_twilio_sms_ending_soon_time', 1);
-							$uwa_interval_time = date( 'Y-m-d H:i', current_time('timestamp') + 
-								($uwa_interval * HOUR_IN_SECONDS));
+							$uwa_interval_time = gmdate( 'Y-m-d H:i', current_time( 'U' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );
 
 							// get auction which are live, and then matched interval with end date
 							$args = array(
@@ -645,8 +542,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 												$message = "";
 												 //Get all participates 
 												$final_userlist = array();	
-												$ending_auction_users = $wpdb->get_results("SELECT DISTINCT userid  FROM ". 
-													$wpdb->prefix ."woo_ua_auction_log WHERE auction_id = ". $product_id, OBJECT_K); //ARRAY_A
+												$ending_auction_users = $wpdb->get_results( $wpdb->prepare( "SELECT DISTINCT userid FROM %i WHERE auction_id = %d", $wpdb->prefix . "woo_ua_auction_log", $product_id ), OBJECT_K ); //ARRAY_A
 
 												if(count($ending_auction_users) > 0){
 													$arr_ending_auction_users = array_keys($ending_auction_users);
@@ -971,14 +867,14 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				if($uwa_placebid_ajax_enable  == "no" || $uwa_placebid_ajax_enable == ""){
 					
 				
-						if (empty($_REQUEST['uwa-place-bid']) || !is_numeric($_REQUEST['uwa-place-bid'])) {
+						if ( empty( $_REQUEST['uwa-place-bid'] ) || ! is_numeric( sanitize_text_field( wp_unslash( $_REQUEST['uwa-place-bid'] ) ) ) ) {
 							return;
 						}
 						
 						global $woocommerce;
 					
-						$product_id = absint($_REQUEST['uwa-place-bid']);
-						$bid = abs(round(str_replace(',', '.', $_REQUEST['uwa_bid_value']), wc_get_price_decimals()));				
+						$product_id = absint( wp_unslash( $_REQUEST['uwa-place-bid'] ) );
+						$bid = abs(round(str_replace(',', '.', isset( $_REQUEST['uwa_bid_value'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['uwa_bid_value'] ) ) : '0'), wc_get_price_decimals()));				
 						$was_place_bid = false;
 						$placed_bid = array();
 						$placing_bid = wc_get_product($product_id);
@@ -1221,7 +1117,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 					$user_id = $current_user->ID;
 
 					/* If user clicks to ignore the notice, add that to their user meta */
-					if (isset($_GET['uwa_vendor_plugin_notice_ignore']) && '0' == $_GET['uwa_vendor_plugin_notice_ignore']) {
+					if ( isset( $_GET['uwa_vendor_plugin_notice_ignore'] ) && '0' === sanitize_text_field( wp_unslash( $_GET['uwa_vendor_plugin_notice_ignore'] ) ) ) {
 					
 						update_user_meta($user_id, 'uwa_vendor_plugin_notice_disable', 'true', true);
 					}
@@ -1254,7 +1150,7 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 				$message = "";
 
 				$uwa_place_bid = absint($_REQUEST['uwa_place_bid']);
-				$uwa_bid_value = $_REQUEST['uwa_bid_value'];
+				$uwa_bid_value = isset( $_REQUEST['uwa_bid_value'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['uwa_bid_value'] ) ) : '';
 
 				if (empty($uwa_place_bid) || !is_numeric($uwa_place_bid)) {
 					return;
@@ -1665,8 +1561,8 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 						$display_alldata['auction_type'] = $uwa_auction_type;
 
 						
-						echo json_encode(array('allstatus' => 1, 'allmsg' => $message,
-							'alldata_display' => $display_alldata));
+						wp_send_json( array('allstatus' => 1, 'allmsg' => $message,
+							'alldata_display' => $display_alldata) );
 						exit;
 					}
 					elseif(!$ret['status']){					
@@ -1747,8 +1643,8 @@ $edd_updater = new EDD_SL_Plugin_Updater(EDD_UWA_AUCTION_PRO_STORE_URL, __FILE__
 
 						$display_alldata['auction_type'] = $uwa_auction_type;
 
-						echo json_encode(array('allstatus' => 0, 'allmsg' => $message,
-							'alldata_display' => $display_alldata));
+						wp_send_json( array('allstatus' => 0, 'allmsg' => $message,
+							'alldata_display' => $display_alldata) );
 
 
 						exit;
@@ -2000,27 +1896,27 @@ else {
 		
 		function uwa_install_woocommerce_admin_notice() { ?>
 			<!-- <div class="error">
-				<p>Ultimate WooCommerce Auction Pro <?php _e('is not enabled and effective without <a href="' . admin_url('plugin-install.php?tab=search&type=term&s=WooCommerce') . '" target="_blank">WooCommerce</a>.', 'woo_ua'); ?></p>	
+				<p>Ultimate WooCommerce Auction Pro <?php echo wp_kses_post( sprintf( __( 'is not enabled and effective without <a href="%s" target="_blank">WooCommerce</a>.', 'woo_ua' ), esc_url( admin_url( 'plugin-install.php?tab=search&type=term&s=WooCommerce' ) ) ) ); ?></p>	
 			</div> -->
 
 			<div class="updated" id="uwa-pro-installer-notice" style="padding: 1em; position: relative;">
-            	<h2><?php _e( 'Your Ultimate WooCommerce Auction Pro is almost ready!', 'woo_ua' ); ?></h2>
+            	<h2><?php esc_html_e( 'Your Ultimate WooCommerce Auction Pro is almost ready!', 'woo_ua' ); ?></h2>
 
 	            <?php
 	            $plugin_file      = basename( dirname( __FILE__ ) ) . '/ultimate-woocommerce-auction-pro.php';
 	            $core_plugin_file = 'woocommerce/woocommerce.php';
 	            ?>
-	            <a href="<?php echo wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s=', 'deactivate-plugin_' . $plugin_file ); ?>" class="notice-dismiss" style="text-decoration: none;" title="<?php _e( 'Dismiss this notice', 'woo_ua' ); ?>"></a>
+	            <a href="<?php echo esc_url( wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s=', 'deactivate-plugin_' . $plugin_file ) ); ?>" class="notice-dismiss" style="text-decoration: none;" title="<?php esc_attr_e( 'Dismiss this notice', 'woo_ua' ); ?>"></a>
 
 	            <?php if ( file_exists( WP_PLUGIN_DIR . '/' . $core_plugin_file ) && 
 	            	is_plugin_inactive('woocommerce' ) ): ?>
-	                <p><?php echo sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 'WooCommerce' ); ?></p>
+	                <p><?php echo wp_kses_post( sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 'WooCommerce' ) ); ?></p>
 	                <p>
 	                    <a class="button button-primary" 
 
 	                    href="<?php echo wp_nonce_url( 
 	                    	'plugins.php?action=activate&amp;plugin=' . $core_plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s&amp;_wpnonce=214569a558', 'activate-plugin_' . $core_plugin_file ); ?>"  title="<?php 
-	                    	_e( 'Activate this plugin', 'woo_ua' ); ?>"><?php _e( 'Activate', 'woo_ua' ); ?></a>
+	                    	esc_attr_e( 'Activate this plugin', 'woo_ua' ); ?>"><?php esc_html_e( 'Activate', 'woo_ua' ); ?></a>
 	                </p>
 	            <?php else: ?>
 	                <p><?php echo sprintf( __( "You just need to install the %sCore Plugin%s to make it functional.", "woo_ua" ), '<a target="_blank" 
@@ -2029,7 +1925,7 @@ else {
 	                <p>
 	                  
 	                   <a class="install-now button" data-slug="woocommerce" 
-	                   		href="<?php echo admin_url('plugin-install.php?tab=search&type=term&s=WooCommerce') ;?>" aria-label="Install WooCommerce 3.9.3 now" data-name="WooCommerce 3.9.9">Install Now</a>
+	                   		href="<?php echo esc_url( admin_url('plugin-install.php?tab=search&type=term&s=WooCommerce') );?>" aria-label="Install WooCommerce 3.9.3 now" data-name="WooCommerce 3.9.9">Install Now</a>
 	                </p>
 	            <?php endif ?>
 	        </div>

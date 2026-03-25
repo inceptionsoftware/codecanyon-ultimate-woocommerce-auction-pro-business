@@ -52,8 +52,14 @@ add_action("wp_ajax_uwa_twilio_send_test_sms", "uwa_twilio_send_test_sms_ajxa_ca
 
 function uwa_twilio_send_test_sms_ajxa_callback() {
 	global $wpdb;
-	$mobile_number = trim( $_POST['uwa_test_phone'] );
-	$uwa_test_message = sanitize_text_field( $_POST['uwa_test_message'] );
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( array( 'message' => __( 'Unauthorized.', 'woo_ua' ) ) );
+	}
+	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_twilio_nonce' ) ) {
+		wp_send_json_error( array( 'message' => __( 'Security check failed.', 'woo_ua' ) ) );
+	}
+	$mobile_number = isset( $_POST['uwa_test_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_test_phone'] ) ) : '';
+	$uwa_test_message = isset( $_POST['uwa_test_message'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_test_message'] ) ) : '';
 	$uwa_twilio_sms_sid = get_option('uwa_twilio_sms_sid');
 	$uwa_twilio_sms_token = get_option('uwa_twilio_sms_token');
 	$uwa_twilio_sms_from_number = get_option('uwa_twilio_sms_from_number');
@@ -78,8 +84,7 @@ function uwa_twilio_send_test_sms_ajxa_callback() {
 		$response['message'] = __( 'Credentials are required', 'woo_ua' );
 	}
 		
-	echo json_encode( $response );
-	exit;
+	wp_send_json( $response );
 }
 
 /**
@@ -307,7 +312,7 @@ function uwa_twilio_get_ending_soon_auctions() {
 	 
 		global $woocommerce, $wpdb;
 		$uwa_interval =  get_option('uwa_twilio_sms_ending_soon_time', 1);
-		$uwa_interval_time = date( 'Y-m-d H:i', current_time( 'timestamp' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );
+		$uwa_interval_time = gmdate( 'Y-m-d H:i', current_time( 'U' ) + ( $uwa_interval * HOUR_IN_SECONDS ) );
 		// get auction which are live, and then matched interval with end date
 	$args = array(
 				'post_type'          => 'product',
@@ -366,8 +371,7 @@ function uwa_twilio_send_sms_to_ending_soon( $product_id ) {
 		$message = "";
 		 //Get all participates 
 		$final_userlist = array();	
-		$ending_auction_users = $wpdb->get_results("SELECT DISTINCT userid  FROM ". 
-			$wpdb->prefix ."woo_ua_auction_log WHERE auction_id = ". $product_id, OBJECT_K); //ARRAY_A
+		$ending_auction_users = $wpdb->get_results( $wpdb->prepare( "SELECT DISTINCT userid FROM {$wpdb->prefix}woo_ua_auction_log WHERE auction_id = %d", $product_id ), OBJECT_K ); //ARRAY_A
 
 		if(count($ending_auction_users) > 0){
 			$arr_ending_auction_users = array_keys($ending_auction_users);

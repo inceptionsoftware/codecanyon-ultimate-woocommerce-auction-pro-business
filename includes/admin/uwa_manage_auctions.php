@@ -73,7 +73,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 		$datetimeformat = get_option('date_format').' '.get_option('time_format');	
 		$curr_user_id = get_current_user_id();	
 
-		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? $_GET['auction_status'] : 'live';		
+		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? sanitize_text_field( wp_unslash( $_GET['auction_status'] ) ) : 'live';
 		
 		$pagination = ((int)$page_number - 1) * (int)$per_page;
 		
@@ -130,19 +130,19 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 			'tax_query' => array(array('taxonomy' => 'product_type' , 'field' => 'slug', 'terms' => 'auction')),
 			'auction_arhive' => TRUE
 		);	
-		$filter_id = (isset($_REQUEST['uwa_auction_id'])) ? $_REQUEST['uwa_auction_id'] : '';	
+		$filter_id = (isset($_REQUEST['uwa_auction_id'])) ? absint( wp_unslash( $_REQUEST['uwa_auction_id'] ) ) : '';
 		if($filter_id!=""){
-			$args['p']=$filter_id;			
-		}	 
-		
+			$args['p']=$filter_id;
+		}
+
 		if (function_exists('icl_object_id') && is_object($sitepress) && method_exists($sitepress, 'get_current_language')) {
-		   
-			$args['suppress_filters']=0;	
+
+			$args['suppress_filters']=0;
 		}
 
 		/*$search = (isset($_POST['uwa_auction_search'])) ? $_POST['uwa_auction_search'] : '';*/
-		if(isset($_POST['uwa_auction_search'])){			
-			$new_search = sanitize_text_field($_POST['uwa_auction_search']);
+		if(isset($_POST['uwa_auction_search'])){
+			$new_search = sanitize_text_field( wp_unslash( $_POST['uwa_auction_search'] ) );
 			$args['s'] = $new_search;
 		}
 		
@@ -199,7 +199,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 			$row['bidders'] = '';
 			$results = array();
 			$row_bidders = '';
-			$query_bidders = 'SELECT * FROM '.$wpdb->prefix.'woo_ua_auction_log WHERE auction_id ='.$single_auction->ID.' ORDER BY id DESC LIMIT 2';
+			$query_bidders = $wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'woo_ua_auction_log WHERE auction_id = %d ORDER BY id DESC LIMIT 2', $single_auction->ID );
             $results = $wpdb->get_results($query_bidders);			
 			if (!empty($results)) {
                				
@@ -257,7 +257,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 				$row['bidders'] .= $row_bidders;				
 				$row['bidders'] .= "</table>";
 				
-				$query_bidders_count = 'SELECT * FROM '.$wpdb->prefix.'woo_ua_auction_log WHERE auction_id ='.$single_auction->ID.' ORDER BY id DESC';
+				$query_bidders_count = $wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'woo_ua_auction_log WHERE auction_id = %d ORDER BY id DESC', $single_auction->ID );
 
         		$results_count = $wpdb->get_results($query_bidders_count);	
 
@@ -364,7 +364,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
      */
     function get_columns() {
 
-		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? $_GET['auction_status'] : 'live';
+		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? sanitize_text_field( wp_unslash( $_GET['auction_status'] ) ) : 'live';
 
         $columns = array(           
             'auction_type' => __('Type', 'woo_ua'),
@@ -437,7 +437,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 		global $sitepress;	
 		
 		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? 
-			$_GET['auction_status'] : 'live';
+			sanitize_text_field( wp_unslash( $_GET['auction_status'] ) ) : 'live';
 			
 		$columns = $this->get_columns();
 		$hidden = array();
@@ -445,7 +445,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 		$current_page = '';
 		$sortable = $this->get_sortable_columns();
 		$this->_column_headers = array($columns, $hidden, $sortable);
-		$orderby = (!empty($_GET['orderby'])) ? $_GET['orderby'] : 'title';
+		$orderby = (!empty($_GET['orderby'])) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : 'title';
 		if ($orderby === 'title') {
 			$this->items = $this->uwa_auction_sort_array($this->uwa_auction_get_data($per_page, $current_page));
 		} else {
@@ -530,7 +530,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 		$search = (isset($_POST['uwa_auction_search'])) ? $_POST['uwa_auction_search'] : '';*/
 
 		if(isset($_POST['uwa_auction_search'])){			
-			$new_search = sanitize_text_field($_POST['uwa_auction_search']);
+			$new_search = sanitize_text_field( wp_unslash( $_POST['uwa_auction_search'] ) );
 			$args['s'] = $new_search;
 		}
 
@@ -555,13 +555,13 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 	public function uwa_auction_sort_array($args){
 
     	if (!empty($args)) {		
-        	$orderby = (!empty($_GET['orderby'])) ? $_GET['orderby'] : 'title';
+        	$orderby = (!empty($_GET['orderby'])) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : 'title';
 
 			if($orderby === 'create_date') {				
-	            $order = (!empty($_GET['order'])) ? $_GET['order'] : 'asc';
+	            $order = (!empty($_GET['order'])) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : 'asc';
 	        }
 			else if($orderby === 'end_date') {				
-	            $order = (!empty($_GET['order'])) ? $_GET['order'] : 'asc';
+	            $order = (!empty($_GET['order'])) ? sanitize_key( wp_unslash( $_GET['order'] ) ) : 'asc';
 	        }
 			else {
 	            $order = 'desc';
@@ -606,14 +606,14 @@ function uwa_manage_auctions_list_page_handler_display() {
 	<div class="uwa_main_setting wrap">
 	
 		<h1 class="uwa_admin_page_title">
-					<?php _e( 'Manage Auctions', 'woo_ua' ); ?>
+					<?php esc_html_e( 'Manage Auctions', 'woo_ua' ); ?>
 		</h1>
-		<h2 class="uwa_main_h2"><?php _e( 'Ultimate WooCommerce Auction PRO', 'woo_ua' ); ?>
-			<span class="uwa_version_text"><?php _e( 'Version :', 'woo_ua' ); ?> <?php echo UW_AUCTION_PRO_VERSION; ?></span>
+		<h2 class="uwa_main_h2"><?php esc_html_e( 'Ultimate WooCommerce Auction PRO', 'woo_ua' ); ?>
+			<span class="uwa_version_text"><?php esc_html_e( 'Version :', 'woo_ua' ); ?> <?php echo esc_html( UW_AUCTION_PRO_VERSION ); ?></span>
 		</h2>
 	
 		<div id="uwa-auction-banner-text">	
-			<?php _e('If you like <a href="https://wordpress.org/support/plugin/ultimate-woocommerce-auction/reviews?rate=5#new-post" target="_blank"> our plugin working </a> with WooCommerce, please leave us a <a href="https://wordpress.org/support/plugin/ultimate-woocommerce-auction/reviews?rate=5#new-post" target="_blank">★★★★★</a> rating. A huge thanks in advance!', 'woo_ua' ); ?>	 
+			<?php echo wp_kses_post( __('If you like <a href="https://wordpress.org/support/plugin/ultimate-woocommerce-auction/reviews?rate=5#new-post" target="_blank"> our plugin working </a> with WooCommerce, please leave us a <a href="https://wordpress.org/support/plugin/ultimate-woocommerce-auction/reviews?rate=5#new-post" target="_blank">★★★★★</a> rating. A huge thanks in advance!', 'woo_ua' ) ); ?>	 
     	</div>
 
 	 	<br class="clear">
@@ -623,10 +623,10 @@ function uwa_manage_auctions_list_page_handler_display() {
 				<ul class="subsubsub">
 					<li>
 						<a class="uwa-highlight-btn <?php echo isset($_GET['users_auctions'])  != 'true' ? 'highlight-btn-active' : 'highlight-btn-disabled';?>" 
-						href="?page=uwa_manage_auctions" ><?php _e('Your Auctions', 'woo_ua');?></a>
+						href="?page=uwa_manage_auctions" ><?php esc_html_e('Your Auctions', 'woo_ua');?></a>
 					</li>
 					<li>
-						<a class="uwa-highlight-btn <?php echo isset($_GET['users_auctions']) && $_GET['users_auctions'] == 'true' ? 'highlight-btn-active' : 'highlight-btn-disabled';?>"	 	href="?page=uwa_manage_auctions&users_auctions=true"><?php _e('User Auctions', 'woo_ua'); ?></a>
+						<a class="uwa-highlight-btn <?php echo isset($_GET['users_auctions']) && $_GET['users_auctions'] == 'true' ? 'highlight-btn-active' : 'highlight-btn-disabled';?>"	 	href="?page=uwa_manage_auctions&users_auctions=true"><?php esc_html_e('User Auctions', 'woo_ua'); ?></a>
 					</li>
 				</ul>
 			</div>
@@ -637,14 +637,14 @@ function uwa_manage_auctions_list_page_handler_display() {
 					<?php 
 					$export_type = '' ;
 						if (isset($_REQUEST[ 'users_auctions' ])) {
-							$export_type = sanitize_text_field($_REQUEST[ 'users_auctions' ]);
+							$export_type = sanitize_text_field( wp_unslash( $_REQUEST[ 'users_auctions' ] ) );
 						}else{
 							$export_type = 'false';
 						}
 					if($export_type=='true'){ ?>
-						<a style="border: 1px solid #2271b1;" href="<?php echo admin_url( 'admin.php?page=uwa_manage_auctions&users_auctions=true&auction_status=expired&user=otherbids' ) ?>&action=uwa_download_csv&_wpnonce=<?php echo wp_create_nonce( 'uwa_download_csv' )?>" class="uwa-highlight-btn highlight-btn-disabled"><?php _e('Export Expired Auctions CSV','woo_ua');?></a>
+						<a style="border: 1px solid #2271b1;" href="<?php echo esc_url( admin_url( 'admin.php?page=uwa_manage_auctions&users_auctions=true&auction_status=expired&user=otherbids' ) ); ?>&action=uwa_download_csv&_wpnonce=<?php echo esc_attr( wp_create_nonce( 'uwa_download_csv' ) ); ?>" class="uwa-highlight-btn highlight-btn-disabled"><?php esc_html_e('Export Expired Auctions CSV','woo_ua');?></a>
 					<?php }else{ ?>
-						<a style="border: 1px solid #2271b1;" href="<?php echo admin_url( 'admin.php?page=uwa_manage_auctions&auction_status=expired&user=yourbids' ) ?>&action=uwa_download_csv&_wpnonce=<?php echo wp_create_nonce( 'uwa_download_csv' )?>" class="uwa-highlight-btn highlight-btn-disabled"><?php _e('Export Expired Auctions CSV','woo_ua');?></a>
+						<a style="border: 1px solid #2271b1;" href="<?php echo esc_url( admin_url( 'admin.php?page=uwa_manage_auctions&auction_status=expired&user=yourbids' ) ); ?>&action=uwa_download_csv&_wpnonce=<?php echo esc_attr( wp_create_nonce( 'uwa_download_csv' ) ); ?>" class="uwa-highlight-btn highlight-btn-disabled"><?php esc_html_e('Export Expired Auctions CSV','woo_ua');?></a>
 					<?php } ?>
 				</div>
 			</div>
@@ -659,7 +659,7 @@ function uwa_manage_auctions_list_page_handler_display() {
         } else {
 	
 			if (isset($_REQUEST[ 'auction_status' ])) {
-				$manage_auction_tab = sanitize_text_field($_REQUEST[ 'auction_status' ]);
+				$manage_auction_tab = sanitize_text_field( wp_unslash( $_REQUEST[ 'auction_status' ] ) );
 			} else {
 				$manage_auction_tab = 'live';
 			}		
@@ -667,19 +667,19 @@ function uwa_manage_auctions_list_page_handler_display() {
 			?>	
 			<div class="uwa-action-container" style="float:right;margin-right: 10px;">
 				<form action="" method="POST">
-					<input type="text" name="uwa_auction_search" value="<?php echo (isset($_POST['uwa_auction_search'])) ? $_POST['uwa_auction_search'] : ''; ?>" />
+					<input type="text" name="uwa_auction_search" value="<?php echo esc_attr( isset($_POST['uwa_auction_search']) ? sanitize_text_field( wp_unslash( $_POST['uwa_auction_search'] ) ) : '' ); ?>" />
 					<input type="submit" class="button-secondary" name="uwa_auction_search_submit" value="Search" />
-					<input type="hidden" id="statusofauction" value="<?php echo $manage_auction_tab; ?>">
+					<input type="hidden" id="statusofauction" value="<?php echo esc_attr( $manage_auction_tab ); ?>">
 				</form>
         	</div>		
 
 	    	<ul class="subsubsub">
 				<li><a href="?page=uwa_manage_auctions&auction_status=live" class="<?php echo $manage_auction_tab == 'live' ? 'current' : '';
-                    ?>"><?php _e( 'Live Auctions', 'woo_ua');?></a> (<?php echo uwa_get_auctions_count('live');?>) |</li>
+                    ?>"><?php esc_html_e( 'Live Auctions', 'woo_ua');?></a> (<?php echo esc_html( uwa_get_auctions_count('live') ); ?>) |</li>
 				<li><a href="?page=uwa_manage_auctions&auction_status=expired" class="<?php echo $manage_auction_tab == 'expired' ? 'current' : '';
-                            ?>"><?php _e( 'Expired Auctions', 'woo_ua');?></a> (<?php echo uwa_get_auctions_count('expired');?>) |</li>
+                            ?>"><?php esc_html_e( 'Expired Auctions', 'woo_ua');?></a> (<?php echo esc_html( uwa_get_auctions_count('expired') ); ?>) |</li>
 
-				<li><a href="?page=uwa_manage_auctions&auction_status=scheduled" class="<?php echo $manage_auction_tab == 'scheduled' ? 'current' : ''; ?>"><?php _e( 'Future Auctions', 'woo_ua');?></a> (<?php echo uwa_get_auctions_count('scheduled');?>)</li>
+				<li><a href="?page=uwa_manage_auctions&auction_status=scheduled" class="<?php echo $manage_auction_tab == 'scheduled' ? 'current' : ''; ?>"><?php esc_html_e( 'Future Auctions', 'woo_ua');?></a> (<?php echo esc_html( uwa_get_auctions_count('scheduled') ); ?>)</li>
 	    	</ul>
 	    	<br class="clear">
 		

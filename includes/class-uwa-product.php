@@ -559,7 +559,7 @@ class WC_Product_Auction extends WC_Product {
 			$user_ID = get_current_user_id();
 		}
 
-		$bid_count = $wpdb->get_var( 'SELECT COUNT(*) 	FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' .$id .' and userid = '.$user_ID);
+		$bid_count = $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM %i WHERE auction_id = %d AND userid = %d', $wpdb->prefix.'woo_ua_auction_log', $id, $user_ID ) );
 
 		return  apply_filters('ultimate_woocommerce_auction_is_bidder_biding' ,intval($bid_count) , $this );
 
@@ -611,9 +611,9 @@ class WC_Product_Auction extends WC_Product {
 		}
 		
 		if($this->get_uwa_auction_type() == 'reverse' ){
-			$logs = $wpdb->get_results( 'SELECT * 	FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $id . $wheredatefrom.' ORDER BY  `date` desc , `bid`  asc, `id`  desc   ');
+			$logs = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM %i WHERE auction_id = %d', $wpdb->prefix.'woo_ua_auction_log', $id ) . $wheredatefrom . ' ORDER BY `date` desc, `bid` asc, `id` desc' );
 		} else {
-			$logs = $wpdb->get_results( 'SELECT * 	FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $id . $wheredatefrom.' ORDER BY  `date` desc , `bid`  desc ,`id`  desc  ');
+			$logs = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM %i WHERE auction_id = %d', $wpdb->prefix.'woo_ua_auction_log', $id ) . $wheredatefrom . ' ORDER BY `date` desc, `bid` desc, `id` desc' );
 		}
 		
 		return $logs;
@@ -629,7 +629,7 @@ class WC_Product_Auction extends WC_Product {
 		global $wpdb;
 		$datetimeformat = get_option('date_format').' '.get_option('time_format');	
 		$log_data = '';
-		$log_value = $wpdb->get_row( 'SELECT * 	FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $id .' ORDER BY  `date` desc ');
+		$log_value = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM %i WHERE auction_id = %d ORDER BY `date` desc', $wpdb->prefix.'woo_ua_auction_log', $id ) );
 
 		if($log_value){
 			$log_data = "<tr>";
@@ -857,7 +857,7 @@ class WC_Product_Auction extends WC_Product {
 			$user_ID = get_current_user_id();
 		}
 
-		$maxbid = $wpdb->get_var( 'SELECT bid FROM '.$wpdb->prefix.'woo_ua_auction_log  WHERE auction_id =' . $auction_id .' and userid = ' . $user_ID. $wheredatefrom . '  ORDER BY  `bid` desc');
+		$maxbid = $wpdb->get_var( $wpdb->prepare( 'SELECT bid FROM %i WHERE auction_id = %d AND userid = %d', $wpdb->prefix.'woo_ua_auction_log', $auction_id, $user_ID ) . $wheredatefrom . ' ORDER BY `bid` desc' );
 
 		return $maxbid;
 

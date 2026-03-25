@@ -12,86 +12,82 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
-	
-	if(isset($_POST['uwa_stripe_card_register_page']) == "1"){							
-		update_option('uwa_stripe_card_register_page', "yes");
-	}
-	else{
-		update_option('uwa_stripe_card_register_page', "no");
-	}
-	if(isset($_POST['uwa_stripe_card_myaccount_page']) == "1"){				
-		update_option('uwa_stripe_card_myaccount_page', "yes");
-	} 
-	else{
-		update_option('uwa_stripe_card_myaccount_page', "no");
-	}
-    
-	if(isset($_POST['uwa_stripe_charge_type'])){							
-		update_option('uwa_stripe_charge_type', sanitize_text_field($_POST['uwa_stripe_charge_type']));
-	}
-	if(isset($_POST['uwa_stripe_charge_type_partially_type'])){
-		update_option('uwa_stripe_charge_type_partially_type', 
-			$_POST['uwa_stripe_charge_type_partially_type']);
-	}
-	
-	if(isset($_POST['uwa_stripe_charge_type_partially_amt'])){
-		update_option('uwa_stripe_charge_type_partially_amt', 
-			$_POST['uwa_stripe_charge_type_partially_amt']);
+if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['uwa_stripe_nonce'] ) ), 'uwa_stripe_save' ) && isset( $_POST['uwa_auto_stripe_autodebit'] ) && current_user_can( 'manage_options' ) ) {
+
+	if ( isset( $_POST['uwa_stripe_card_register_page'] ) && '1' === $_POST['uwa_stripe_card_register_page'] ) {
+		update_option( 'uwa_stripe_card_register_page', 'yes' );
+	} else {
+		update_option( 'uwa_stripe_card_register_page', 'no' );
 	}
 
-		
-	if(isset($_POST['uwa_stripe_tax_enable']) == "1"){
-		update_option('uwa_stripe_tax_enable', "yes");
-	} 
-	else{
-		update_option('uwa_stripe_tax_enable', "no");
-	}			
-
-	if(isset($_POST['uwa_stripe_buyers_premium_enable']) == "1"){
-		update_option('uwa_stripe_buyers_premium_enable', "yes");
-	} 
-	else{
-		update_option('uwa_stripe_buyers_premium_enable', "no");
-	}	
-		
-	if(isset($_POST['uwa_auto_stripe_text'])){
-		update_option('uwa_auto_stripe_text', sanitize_text_field($_POST['uwa_auto_stripe_text']));
-	}
-	if(isset($_POST['uwa_auto_stripe_payment_text'])){
-		update_option('uwa_auto_stripe_payment_text', 
-			$_POST['uwa_auto_stripe_payment_text']);
-	}	
-
-	if(isset($_POST['uwa_wc_billing_myaccount_page']) == "1"){							
-		update_option('uwa_wc_billing_myaccount_page', "yes");
-	}
-	else{
-		update_option('uwa_wc_billing_myaccount_page', "no");
-	}
-		
-	/* vendor */	
-	if(isset($_POST['uwa_stripe_charge_type_vendor'])){
-		update_option('uwa_stripe_charge_type_vendor', 
-			$_POST['uwa_stripe_charge_type_vendor']);
+	if ( isset( $_POST['uwa_stripe_card_myaccount_page'] ) && '1' === $_POST['uwa_stripe_card_myaccount_page'] ) {
+		update_option( 'uwa_stripe_card_myaccount_page', 'yes' );
+	} else {
+		update_option( 'uwa_stripe_card_myaccount_page', 'no' );
 	}
 
-	if(isset($_POST['uwa_stripe_charge_type_partially_type_vendor'])){
-		update_option('uwa_stripe_charge_type_partially_type_vendor', 
-			$_POST['uwa_stripe_charge_type_partially_type_vendor']);
+	if ( isset( $_POST['uwa_stripe_charge_type'] ) ) {
+		update_option( 'uwa_stripe_charge_type', sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type'] ) ) );
 	}
-	
-	if(isset($_POST['uwa_stripe_charge_type_partially_amt_vendor'])){
-		update_option('uwa_stripe_charge_type_partially_amt_vendor', 
-			$_POST['uwa_stripe_charge_type_partially_amt_vendor']);
-	}	
-		
-	if(isset($_POST['uwa_stripe_buyers_premium_vendor_enable']) == "1"){				
-		update_option('uwa_stripe_buyers_premium_vendor_enable', "yes");
-	} 
-	else{
-		update_option('uwa_stripe_buyers_premium_vendor_enable', "no");
-	}		
+
+	if ( isset( $_POST['uwa_stripe_charge_type_partially_type'] ) ) {
+		update_option( 'uwa_stripe_charge_type_partially_type',
+			sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type_partially_type'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_stripe_charge_type_partially_amt'] ) ) {
+		update_option( 'uwa_stripe_charge_type_partially_amt',
+			sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type_partially_amt'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_stripe_tax_enable'] ) && '1' === $_POST['uwa_stripe_tax_enable'] ) {
+		update_option( 'uwa_stripe_tax_enable', 'yes' );
+	} else {
+		update_option( 'uwa_stripe_tax_enable', 'no' );
+	}
+
+	if ( isset( $_POST['uwa_stripe_buyers_premium_enable'] ) && '1' === $_POST['uwa_stripe_buyers_premium_enable'] ) {
+		update_option( 'uwa_stripe_buyers_premium_enable', 'yes' );
+	} else {
+		update_option( 'uwa_stripe_buyers_premium_enable', 'no' );
+	}
+
+	if ( isset( $_POST['uwa_auto_stripe_text'] ) ) {
+		update_option( 'uwa_auto_stripe_text', sanitize_text_field( wp_unslash( $_POST['uwa_auto_stripe_text'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_auto_stripe_payment_text'] ) ) {
+		update_option( 'uwa_auto_stripe_payment_text',
+			sanitize_text_field( wp_unslash( $_POST['uwa_auto_stripe_payment_text'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_wc_billing_myaccount_page'] ) && '1' === $_POST['uwa_wc_billing_myaccount_page'] ) {
+		update_option( 'uwa_wc_billing_myaccount_page', 'yes' );
+	} else {
+		update_option( 'uwa_wc_billing_myaccount_page', 'no' );
+	}
+
+	/* vendor */
+	if ( isset( $_POST['uwa_stripe_charge_type_vendor'] ) ) {
+		update_option( 'uwa_stripe_charge_type_vendor',
+			sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type_vendor'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_stripe_charge_type_partially_type_vendor'] ) ) {
+		update_option( 'uwa_stripe_charge_type_partially_type_vendor',
+			sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type_partially_type_vendor'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_stripe_charge_type_partially_amt_vendor'] ) ) {
+		update_option( 'uwa_stripe_charge_type_partially_amt_vendor',
+			sanitize_text_field( wp_unslash( $_POST['uwa_stripe_charge_type_partially_amt_vendor'] ) ) );
+	}
+
+	if ( isset( $_POST['uwa_stripe_buyers_premium_vendor_enable'] ) && '1' === $_POST['uwa_stripe_buyers_premium_vendor_enable'] ) {
+		update_option( 'uwa_stripe_buyers_premium_vendor_enable', 'yes' );
+	} else {
+		update_option( 'uwa_stripe_buyers_premium_vendor_enable', 'no' );
+	}
 }
 
     $uwa_stripe_charge_type_partially_amt = "";
@@ -144,7 +140,7 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 		<table class="form-table">
 			<tbody>
 			<tr class="uwa_heading">
-				<th colspan="2"><?php _e('Stripe Configuration', 'woo_ua' ); ?>
+				<th colspan="2"><?php esc_html_e( 'Stripe Configuration', 'woo_ua' ); ?>
 				</th>
 			</tr>
 			<tr>
@@ -153,9 +149,9 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 					<?php
 
 						$wc_stripe_plugin_file = 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php';
-						if ( file_exists( WP_PLUGIN_DIR . '/' . $wc_stripe_plugin_file ) && !class_exists( 'WC_Stripe' ) ) { 						
-							
-							echo sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 
+						if ( file_exists( WP_PLUGIN_DIR . '/' . $wc_stripe_plugin_file ) && !class_exists( 'WC_Stripe' ) ) {
+
+							echo sprintf( esc_html__( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ),
 								'WooCommerce Stripe Gateway' );
 							
 						} 
@@ -169,14 +165,14 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 
 									$is_testmode = $arr_stripe['testmode'];
 									if($is_testmode == 'yes'){
-										echo  __( "Stripe Test Mode Enable", "woo_ua" );
+										echo esc_html__( "Stripe Test Mode Enable", "woo_ua" );
 
 										$mode = "Test";
 										$pk_test = $arr_stripe['test_publishable_key'];		
 										$sk_test = $arr_stripe['test_secret_key'];
 									}
 									elseif ($is_testmode == 'no') {
-										echo  __( "Stripe Live Mode Enable", "woo_ua" );
+										echo esc_html__( "Stripe Live Mode Enable", "woo_ua" );
 									}
 
 									echo "<br>";
@@ -207,21 +203,21 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 				</td>
 			</tr>				
 			<tr class="uwa_heading">
-				<th colspan="2"><?php _e('Display Settings for Credit Card', 'woo_ua' ); ?>
+				<th colspan="2"><?php esc_html_e( 'Display Settings for Credit Card', 'woo_ua' ); ?>
 				</th>
 			</tr>					
 			<tr>
 				<th scope="row"></th>									 
 				<td>
-					<input <?php echo $register_chk; ?> value="1" 
+					<input <?php echo esc_attr( $register_chk ); ?> value="1" 
 						name="uwa_stripe_card_register_page" type="checkbox">
-						<?php _e( 'Display Credit Card Details on default Wordpress Register form.', 'woo_ua' ); ?>
+						<?php esc_html_e( 'Display Credit Card Details on default Wordpress Register form.', 'woo_ua' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row"></th>							 
 				<td class="uwaforminp">
-					<input <?php echo $myaccount_chk; ?> value="1" 
+					<input <?php echo esc_attr( $myaccount_chk ); ?> value="1" 
 						name="uwa_stripe_card_myaccount_page" type="checkbox">								
 					<?php 
 						$uwa_woo_acc_url = admin_url(
@@ -235,36 +231,36 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 			<tr>
 				<th scope="row"></th>
 				<td class="uwaforminp">
-					<input <?php echo $my_bill_chk; ?> value="1" 
+					<input <?php echo esc_attr( $my_bill_chk ); ?> value="1" 
 						name="uwa_wc_billing_myaccount_page" type="checkbox">								
-					<?php _e( 'Capture Billing Address of Users while registering on WooCommerce My Account Page.', 'woo_ua' ); ?>
+					<?php esc_html_e( 'Capture Billing Address of Users while registering on WooCommerce My Account Page.', 'woo_ua' ); ?>
 				</td>
 			</tr> 
 			<tr class="uwa_heading">
 				<th colspan="2">
-					<?php _e('Auto Debit Options for Auction', 'woo_ua' ); ?></th>
+					<?php esc_html_e( 'Auto Debit Options for Auction', 'woo_ua' ); ?></th>
 			</tr>
 			<tr>
-				<th scope="row"><?php _e('Auto Debit Options', 'woo_ua' ); ?></th>					 
+				<th scope="row"><?php esc_html_e( 'Auto Debit Options', 'woo_ua' ); ?></th>					 
 				<td>
 			    	<input type="radio" <?php echo ($uwa_stripe_charge_type == 
 			    		'uwa_stripe_charge_type_full') ?  "checked" : "" ;  ?> 
 			    		name="uwa_stripe_charge_type" id="uwa_stripe_charge_type_full" 
 			    		value="uwa_stripe_charge_type_full"> 
-		     		<?php _e('Full Bid Amount', 'woo_ua');  ?>
+		     		<?php esc_html_e( 'Full Bid Amount', 'woo_ua' );  ?>
 					<span style="margin-right:20px;"></span>
 
 					<input type="radio" <?php echo ($uwa_stripe_charge_type == 
 						'uwa_stripe_charge_type_partially') ?  "checked" : "" ;  ?> 
 						name="uwa_stripe_charge_type" id="uwa_stripe_charge_type_partially" value="uwa_stripe_charge_type_partially" > 
-				 	<?php _e('Partial Bid Amount', 'woo_ua');  ?>				 
+				 	<?php esc_html_e( 'Partial Bid Amount', 'woo_ua' );  ?>				 
 					<span style="margin-right:20px;"></span> 
 
 					<input type="radio" <?php echo ($uwa_stripe_charge_type == 
 						'uwa_stripe_charge_type_no') ?  "checked" : "" ;  ?> 
 						name="uwa_stripe_charge_type" id="uwa_stripe_charge_type_no" 
 						value="uwa_stripe_charge_type_no" > 
-					<?php _e('No Auto Debit. Collect Payment on checkout page.', 'woo_ua');?>
+					<?php esc_html_e( 'No Auto Debit. Collect Payment on checkout page.', 'woo_ua' );?>
 				</td>
 			</tr>
 					
@@ -275,29 +271,29 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 				}  
 			?>
 				
-			<tr class="uwa_stripe_charge_type_partially_rates" <?php echo $uwa_ctm_style;?>>
+			<tr class="uwa_stripe_charge_type_partially_rates" <?php echo esc_attr( $uwa_ctm_style );?>>
 				<th scope="row"></th>									 
 				<td>
 					<select name="uwa_stripe_charge_type_partially_type" 
 						id="uwa_stripe_charge_type_partially_type">
 						<option value="flatrate" <?php selected( 
 							$uwa_stripe_charge_type_partially_type, "flatrate" ); ?> >
-							<?php _e("Flat Rate", "woo_ua"); ?> </option>
+							<?php esc_html_e( "Flat Rate", "woo_ua" ); ?> </option>
 						<option value="percentage" <?php selected( 
 							$uwa_stripe_charge_type_partially_type, "percentage" ); ?>>
-							<?php _e("Percentage", "woo_ua"); ?></option>
+							<?php esc_html_e( "Percentage", "woo_ua" ); ?></option>
 					</select>  
-					<?php _e("Partially bid amount type.", "woo_ua"); ?>
+					<?php esc_html_e( "Partially bid amount type.", "woo_ua" ); ?>
 				</td>
 			</tr>
 
-			<tr class="uwa_stripe_charge_type_partially_rates"  <?php echo $uwa_ctm_style;?>>
+			<tr class="uwa_stripe_charge_type_partially_rates"  <?php echo esc_attr( $uwa_ctm_style );?>>
 				<th scope="row"></th>
 				<td class="uwaforminp">	
 					<a href="" class="uwa_fields_tooltip" onclick="return false">
 						<strong>?</strong>
 						<span>
-						<?php _e("If you choose 'Percentage' then the this entered value is treated as percentage of the total bid amount of the product, otherwise as fixed amount.", 'woo_ua');  ?>
+						<?php esc_html_e( "If you choose 'Percentage' then the this entered value is treated as percentage of the total bid amount of the product, otherwise as fixed amount.", 'woo_ua' );  ?>
 						</span>
 					</a>	
 					
@@ -312,15 +308,15 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 			<tr>
 				<th scope="row"></th>
 					<td class="uwaforminp">	
-						<input <?php echo $uwa_stripe_tax_chk; ?> value="1" 
+						<input <?php echo esc_attr( $uwa_stripe_tax_chk ); ?> value="1" 
 							name="uwa_stripe_tax_enable" type="checkbox">
-						<?php _e('Enable automatic debit of tax amount.', 'woo_ua'); ?>
+						<?php esc_html_e( 'Enable automatic debit of tax amount.', 'woo_ua' ); ?>
 
 						<span style="margin-left:10px">
 							<a href="" class="uwa_fields_tooltip" onclick="return false">
 								<strong>  ?</strong>
 								<span>
-								<?php _e("The tax will be automatically debited for the auction winning amount, based on the enabled settings, which can apply to either the full bid or a partial bid." , 'woo_ua');  ?>
+								<?php esc_html_e( "The tax will be automatically debited for the auction winning amount, based on the enabled settings, which can apply to either the full bid or a partial bid.", 'woo_ua' );  ?>
 								</span>
 							</a>
 						</span>	
@@ -334,9 +330,9 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 				<tr>
 					<th scope="row"></th>									 
 					<td>
-						<input <?php echo $uwa_stripe_buyers_chk; ?> value="1" 
+						<input <?php echo esc_attr( $uwa_stripe_buyers_chk ); ?> value="1" 
 						name="uwa_stripe_buyers_premium_enable" type="checkbox">
-						<?php _e( "Enable automatic charge of buyer's premium.", 'woo_ua' ); ?>
+						<?php esc_html_e( "Enable automatic charge of buyer's premium.", 'woo_ua' ); ?>
 					</td>
 				</tr>
 				<?php } 
@@ -381,16 +377,14 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 								$withdrawal_test_mode = $wcfm_withdrawal_options['test_mode'];
 								if($withdrawal_test_mode == 'yes'){								
 									if($withdrawal_test_mode == 'yes'){
-										echo  __( "Stripe Split Pay Test Mode Enable", 
-											"woo_ua" );
+										echo esc_html__( "Stripe Split Pay Test Mode Enable", "woo_ua" );
 
 										$mode = "Test";
 										$pk_test = $arr_stripe['test_publishable_key'];
 										$sk_test = $arr_stripe['test_secret_key'];
 									}
 									elseif ($is_testmode == 'no') {
-										echo  __( "Stripe Split Pay Live Mode Enable", 
-											"woo_ua" );
+										echo esc_html__( "Stripe Split Pay Live Mode Enable", "woo_ua" );
 												
 									} /* end of if - testmode */
 
@@ -498,15 +492,15 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 			?>
 				 
 			<tr class="uwa_heading">
-				<th colspan="2"><?php _e('Other Settings', 'woo_ua' ); ?></th>
+				<th colspan="2"><?php esc_html_e( 'Other Settings', 'woo_ua' ); ?></th>
 			</tr>
 
 			<tr>
 				<th scope="row"></th>
 				<td class="uwaforminp">	
 					<input type="text" name="uwa_auto_stripe_text" class="regular-text" 
-					value="<?php echo $uwa_auto_stripe_text;?>" id="uwa_auto_stripe_text">
-					<?php _e( "This text will shown on check out page in Your order section.", 'woo_ua' ); ?>											
+					value="<?php echo esc_attr( $uwa_auto_stripe_text );?>" id="uwa_auto_stripe_text">
+					<?php esc_html_e( "This text will shown on check out page in Your order section.", 'woo_ua' ); ?>											
 				</td>
 			</tr>
 				
@@ -514,10 +508,9 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 				<th scope="row"></th>
 				<td class="uwaforminp">	
 					<input type="text" name="uwa_auto_stripe_payment_text" 
-					class="regular-text" value="<?php echo $uwa_auto_stripe_payment_text;?>" 
+					class="regular-text" value="<?php echo esc_attr( $uwa_auto_stripe_payment_text );?>" 
 					id="uwa_auto_stripe_payment_text">					
-				  	<?php _e( "This text will show on check out page before billing form.", 
-				   		'woo_ua' ); ?>											
+				  	<?php esc_html_e( "This text will show on check out page before billing form.", 'woo_ua' ); ?>											
 		   		</td>
 			</tr>
 				
@@ -525,7 +518,7 @@ if (isset($_POST['uwa_auto_stripe_autodebit']) == 'Save Changes'){
 				<th colspan="2">
 					<input type="submit" id="uwa_auto_stripe_autodebit"  
 						name="uwa_auto_stripe_autodebit" class="button-primary" 
-						value="<?php _e('Save Changes','woo_ua');?>" />
+						value="<?php esc_html_e( 'Save Changes', 'woo_ua' );?>" />
 				</th>
 			</tr>
 

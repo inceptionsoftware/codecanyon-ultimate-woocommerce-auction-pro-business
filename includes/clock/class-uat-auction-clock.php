@@ -187,8 +187,8 @@ function add_id_to_script($src, $handle){
  }
 function get_auction_remaning_time(){
 ob_clean();
-    $_REQUEST['auctionid'];
-	$product_id= $_REQUEST['auctionid'];
+    // sanitized below
+	$product_id = isset( $_REQUEST['auctionid'] ) ? absint( wp_unslash( $_REQUEST['auctionid'] ) ) : 0;
 	$end_time=get_post_meta( $product_id, 'woo_ua_auction_end_date', true );
 	$date = new DateTime($end_time,  wp_timezone() );
 	$end_time_tz = $date->format('Y-m-d H:i:s');
@@ -200,8 +200,7 @@ ob_clean();
 	$minute= $diff_time->format("%i");
 	$sec= $diff_time->format("%s");	
 	$re_time=array("days"=>$days,"hours"=>$hours,"minute"=>$minute,"sec"=>$sec);	
-	echo json_encode($re_time);
- wp_die(); 
+	wp_send_json( $re_time ); 
  }
  
 add_action( 'wp_ajax_nopriv_get_auction_remaning_time', 'get_auction_remaning_time' );

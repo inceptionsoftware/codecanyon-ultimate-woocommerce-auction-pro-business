@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -405,7 +405,7 @@ class UWA_Front {
 				$current_user = wp_get_current_user();
 				
 				//$product_ids = explode( ',', intval($_GET['pay-uwa-auction']));
-				$product_ids = explode( ',', $_GET['pay-uwa-auction']);
+				$product_ids = array_map( 'absint', explode( ',', sanitize_text_field( wp_unslash( $_GET['pay-uwa-auction'] ) ) ) );
                 $count       = count( $product_ids );
 				
 				
@@ -423,7 +423,7 @@ class UWA_Front {
 						if($myaccount_page_id > 0){
 							$myaccount_page_url = get_permalink( $myaccount_page_id );
 							
-							$checkout_url = add_query_arg(array( 'pay-uwa-auction' => $_GET['pay-uwa-auction']  ), uwa_auction_get_checkout_url()); 
+							$checkout_url = add_query_arg( array( 'pay-uwa-auction' => sanitize_text_field( wp_unslash( $_GET['pay-uwa-auction'] ) ) ), uwa_auction_get_checkout_url() ); 
 							
 							$url_val = add_query_arg(
 								array('uwa-new-redirect' => urlencode($checkout_url)),  $myaccount_page_url);
@@ -471,7 +471,7 @@ class UWA_Front {
 			}else{
 				$badge_img_url = UW_AUCTION_PRO_ASSETS_URL."images/woo_ua_auction_big.png";
 			}
-			echo '<span class="uwa_auction_bage_icon" style="background:url('.$badge_img_url.') center center no-repeat;background-size: 100%;" ></span>';
+			echo '<span class="uwa_auction_bage_icon" style="background:url(' . esc_url( $badge_img_url ) . ') center center no-repeat;background-size: 100%;" ></span>';
 		}
 	}
 
@@ -581,10 +581,14 @@ class UWA_Front {
 	 */	
 	function send_private_message_process_ajax() {
 			
-		$firstname = sanitize_text_field($_POST['firstname']);
-		$email_id = sanitize_email($_POST['email']);
-		$message = sanitize_text_field($_POST['message']);
-		$product_id = absint($_POST['product_id']);
+
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_private_msg_nonce' ) ) {
+			wp_send_json_error( array( 'message' => esc_html__( 'Security check failed.', 'woo_ua' ) ) );
+		}
+		$firstname = sanitize_text_field( wp_unslash( $_POST['firstname'] ) );
+		$email_id = sanitize_email( wp_unslash( $_POST['email'] ) );
+		$message = sanitize_textarea_field( wp_unslash( $_POST['message'] ) );
+		$product_id = absint( $_POST['product_id'] );
 		$sending = 1;
 	
 			if(empty($firstname)){
@@ -621,7 +625,7 @@ class UWA_Front {
 				$response['success_message'] = __('Thank you for Contact.','woo_ua');				
 			}
 			
-		echo json_encode( $response );
+		wp_send_json( $response );
 		exit;
 	}	
 
@@ -644,7 +648,7 @@ class UWA_Front {
 		if (is_user_logged_in()) {
 
 			global $product;
-			$post_id = intval($_GET["post_id"]);
+			$post_id = absint( wp_unslash( $_GET["post_id"] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$user_ID = get_current_user_id();
 			$product = wc_get_product($post_id);
 
@@ -684,7 +688,7 @@ class UWA_Front {
 		
 		if (isset($_POST["post_id"])) {			 
 			
-				$product_data = wc_get_product( wc_clean( $_POST["post_id"] ) );
+				$product_data = wc_get_product( absint( wp_unslash( $_POST["post_id"] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 					$product_base_currency = $product_data->uwa_aelia_get_base_currency();   
   					$args = array("currency" => $product_base_currency);
@@ -698,7 +702,7 @@ class UWA_Front {
 							if (!$product_data->is_uwa_reserve_met()) {
 								
 								echo "<p class='woo_ua_auction_product_reserve_not_met'>";
-								_e("Reserve price has not been met!", 'woo_ua');
+								esc_html_e( "Reserve price has not been met!", 'woo_ua' );
 								echo "</p>";							
 								die();
 							}
@@ -755,7 +759,7 @@ class UWA_Front {
 							
 						} else {
 							echo "<p>";
-							_e("There were no bids for this auction.", 'woo_ua');
+							esc_html_e( "There were no bids for this auction.", 'woo_ua' );
 							echo "</p>";
 							die();
 						}
@@ -781,7 +785,7 @@ class UWA_Front {
 	function uwa_update_last_activity_timestamp( $data ){
 
 		$product_id = is_array($data) ? $data['product_id'] : $data;
-		$current_time = current_time('timestamp');
+		$current_time = current_time('U');
 		
 		update_option('woo_ua_auction_last_activity', $current_time);
 		update_post_meta($product_id, 'woo_ua_auction_last_activity', $current_time);
@@ -801,7 +805,8 @@ class UWA_Front {
 			
 			$last_timestamp = get_option('woo_ua_auction_last_activity','0');
 
-			if(intval($_POST['last_timestamp']) == $last_timestamp){
+		$posted_timestamp = absint( wp_unslash( $_POST['last_timestamp'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( $posted_timestamp == $last_timestamp ) {
 				wp_send_json(apply_filters('ultimate_woocommerce_auction_get_price_for_auctions',$response));
 				die();
 			} else{
@@ -815,7 +820,7 @@ class UWA_Front {
 					array(
 						'key'     => 'woo_ua_auction_last_activity',
 						'compare' => '>',
-						'value'		=> 	intval($_POST['last_timestamp']),
+						'value'		=> $posted_timestamp,
 						'type' => 'NUMERIC'
 					),
 				),						
@@ -1139,7 +1144,7 @@ class UWA_Front {
 			} 
 						
 			echo '<input type="hidden" name="redirect" 
-					value="'.$auction_url.'" >';
+					value="' . esc_attr( $auction_url ) . '" >';
 
 
 		} /* end of if - http referer */
@@ -1180,7 +1185,7 @@ class UWA_Front {
 			} 
 
 			echo '<input type="hidden" name="redirect" 
-					value="'.$auction_url.'" >';
+					value="' . esc_attr( $auction_url ) . '" >';
 
 
 		} /* end of if - http referer */
@@ -1676,7 +1681,7 @@ class UWA_Front {
 			}else{
 				$badge_img_url = UW_AUCTION_PRO_ASSETS_URL."images/woo_ua_auction_big.png";
 			}
-			echo '<span class="uwa_auction_bage_icon" style="background:url('.$badge_img_url.') center center no-repeat;background-size: 100%;" ></span>';
+			echo '<span class="uwa_auction_bage_icon" style="background:url(' . esc_url( $badge_img_url ) . ') center center no-repeat;background-size: 100%;" ></span>';
 		}
 		
 		return $output;
@@ -1973,7 +1978,7 @@ class UWA_Front {
 
 	function uwa_woo_login_redirect( $redirect, $user ) {		
 		
-		$new_redirect = isset($_GET['uwa-new-redirect']) ? $_GET['uwa-new-redirect'] : '';		
+		$new_redirect = isset( $_GET['uwa-new-redirect'] ) ? sanitize_text_field( wp_unslash( $_GET['uwa-new-redirect'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended		
 	
 		if($new_redirect){			
 			$redirect = esc_url_raw($new_redirect);			
@@ -1997,7 +2002,7 @@ class UWA_Front {
 				if($uwa_expired == TRUE){					
 					$winner_text = $product->get_uwa_winner_text();
 					if($winner_text){ ?>
-						<br><div style="color:red;font-size:20px;"><?php echo $winner_text; ?></div>
+						<br><div style="color:red;font-size:20px;"><?php echo esc_html( $winner_text ); ?></div>
 						<?php
 					}
 				}
@@ -2029,7 +2034,7 @@ class UWA_Front {
 					$winner_text = $product->get_uwa_winner_text(); 
 					//if($winner_text){ 
 					?>
-						<span style="color:green;font-size:20px;"><?php echo $winner_text; ?></span>
+						<span style="color:green;font-size:20px;"><?php echo esc_html( $winner_text ); ?></span>
 						<?php
 					//}
 					?>
@@ -2043,7 +2048,7 @@ class UWA_Front {
 				if($uwa_expired == TRUE){					
 					$winner_text = $product->get_uwa_winner_text();
 					if($winner_text){ ?>
-						<div style="color:red;font-size:20px;"><?php echo $winner_text; ?></div>
+						<div style="color:red;font-size:20px;"><?php echo esc_html( $winner_text ); ?></div>
 						<?php
 					}
 				}
@@ -2061,7 +2066,7 @@ class UWA_Front {
 		$footer_text2 = __('Ultimate Auction Pro', "woo_ua");
 		
 		// Powered by auctionplugin.net 
-		echo "<div class='footer_uwa_copyright'>".$footer_text1." "."<a href='http://auctionplugin.net' target='_blank'>".$footer_text2."</a></div>";
+		echo "<div class='footer_uwa_copyright'>" . esc_html( $footer_text1 ) . " <a href='http://auctionplugin.net' target='_blank'>" . esc_html( $footer_text2 ) . "</a></div>";
 		
 	} /* end of function */
 

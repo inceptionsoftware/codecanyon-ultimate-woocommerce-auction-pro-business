@@ -33,15 +33,15 @@ function uwa_vendor_support_add_scripts(  ){
 		array('jquery', 'dataTables_js'), '1.0.1' );	
 
 	wp_localize_script( 'wcfm_uwa_auctions_list', 'uwa_wcfm_params',
-            array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-		
+            array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'uwa_wcfm_nonce' ) ) );
+
 	wp_enqueue_script( 'wcfm_uwa_auctions_list' );
 
-	wp_register_script( 'wcfm_uwa_auctions_detail', plugin_dir_url( __FILE__ ). 'js/wcfm_uwa_auctions_detail.js', 
-		array('jquery'), '1.0.1' );	
+	wp_register_script( 'wcfm_uwa_auctions_detail', plugin_dir_url( __FILE__ ). 'js/wcfm_uwa_auctions_detail.js',
+		array('jquery'), '1.0.1' );
 
 	wp_localize_script( 'wcfm_uwa_auctions_detail', 'uwa_wcfm_params',
-            array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+            array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce( 'uwa_wcfm_nonce' ) ) );
 		
 	wp_enqueue_script( 'wcfm_uwa_auctions_detail' );
 
@@ -702,12 +702,16 @@ function uwa_wcb_wcfm_query_vars( $query_vars ) {
 	}
 	
 function wcfm_ajax_uwa_auction_callback(){
-    global $wpdb,$woocommerce, $product, $post;    
-	$datetimeformat = get_option('date_format').' '.get_option('time_format');	
-	$curr_user_id = get_current_user_id();	
+	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_wcfm_nonce' ) ) {
+		wp_send_json_error( array( 'message' => __( 'Security check failed.', 'woo_ua' ) ) );
+	}
+
+    global $wpdb,$woocommerce, $product, $post;
+	$datetimeformat = get_option('date_format').' '.get_option('time_format');
+	$curr_user_id = get_current_user_id();
 	
-	$length = $_POST['length'];
-	$offset = $_POST['start'];
+	$length = isset( $_POST['length'] ) ? absint( wp_unslash( $_POST['length'] ) ) : 10;
+	$offset = isset( $_POST['start'] ) ? absint( wp_unslash( $_POST['start'] ) ) : 0;
 	
 	/* woo_ua_auction_bid_count	*/
 		$meta_query = array(
@@ -722,7 +726,7 @@ function wcfm_ajax_uwa_auction_callback(){
 							)							
 						);
 		
-		if (isset($_POST["auctions_status"]) && $_POST["auctions_status"]=='expired') {						
+		if (isset( $_POST["auctions_status"] ) && sanitize_text_field( wp_unslash( $_POST["auctions_status"] ) ) === 'expired') {						
 			$meta_query= array(
 						'relation' => 'AND',
 							array(			     
@@ -733,7 +737,7 @@ function wcfm_ajax_uwa_auction_callback(){
 						);
 		}
 
-		if (isset($_POST["auctions_status"]) && $_POST["auctions_status"]=='scheduled') {						
+		if (isset( $_POST["auctions_status"] ) && sanitize_text_field( wp_unslash( $_POST["auctions_status"] ) ) === 'scheduled') {						
 					
 			$meta_query= array(						
 							array(			     
@@ -784,7 +788,7 @@ function wcfm_ajax_uwa_auction_callback(){
 		
 		$wcfm_uwa_auction_json = '';
 		$wcfm_uwa_auction_json = '{
-															"draw": ' . $_POST['draw'] . ',
+															"draw": ' . absint( wp_unslash( $_POST['draw'] ?? 0 ) ) . ',
 															"recordsTotal": ' . $auction_count . ',
 															"recordsFiltered": ' . $filtered_auction_count . ',
 															"data": ';
@@ -799,8 +803,8 @@ function wcfm_ajax_uwa_auction_callback(){
 				// Thumb				
 				$wcfm_uwa_auction_json_arr[$index][] =  $product_data->get_image( 'thumbnail' );
 				
-				// Title 
-				$auction_title = '<a href="'.get_permalink( $auction_product->ID ).'">'.get_the_title(  $auction_product->ID ).'</a>'; 	
+				// Title
+				$auction_title = '<a href="' . esc_url( get_permalink( $auction_product->ID ) ) . '">' . esc_html( get_the_title( $auction_product->ID ) ) . '</a>';
 				$wcfm_uwa_auction_json_arr[$index][] = $auction_title;
 				
 				//Start date 
@@ -816,12 +820,12 @@ function wcfm_ajax_uwa_auction_callback(){
 			    $wcfm_uwa_auction_json_arr[$index][] = $current_price;
 				
 				// View Link				
-				$action_view_link = '<a class="wcfm-action-icon" target="_blank" href="'.get_permalink( $auction_product->ID ).'""><span class="wcfmfa fa-eye text_tip" data-tip="View" data-hasqtip="'.$auction_product->ID.'" aria-describedby="qtip-'.$auction_product->ID.'"></span></a><br>';
+				$action_view_link = '<a class="wcfm-action-icon" target="_blank" href="' . esc_url( get_permalink( $auction_product->ID ) ) . '"><span class="wcfmfa fa-eye text_tip" data-tip="View" data-hasqtip="' . esc_attr( absint( $auction_product->ID ) ) . '" aria-describedby="qtip-' . esc_attr( absint( $auction_product->ID ) ) . '"></span></a><br>';
 				
-				$action_view_link .= '<a class="wcfm-action-icon" target="_blank" href="'.get_wcfm_edit_product_url( $auction_product->ID,$product_data ).'""><span class="wcfmfa fa-edit text_tip" data-tip="Edit" data-hasqtip="'.$auction_product->ID.'" aria-describedby="qtip-'.$auction_product->ID.'"></span></a><br>';
+				$action_view_link .= '<a class="wcfm-action-icon" target="_blank" href="' . esc_url( get_wcfm_edit_product_url( $auction_product->ID, $product_data ) ) . '"><span class="wcfmfa fa-edit text_tip" data-tip="Edit" data-hasqtip="' . esc_attr( absint( $auction_product->ID ) ) . '" aria-describedby="qtip-' . esc_attr( absint( $auction_product->ID ) ) . '"></span></a><br>';
 				
 				
-				$action_view_link .= '<a class="wcfm-action-icon" target="_blank" href="'.get_wcfm_view_auction_url( $auction_product->ID,$product_data ).'""><span class="wcfmfa fa-info text_tip" data-tip="View Details" data-hasqtip="'.$auction_product->ID.'" aria-describedby="qtip-'.$auction_product->ID.'"></span></a><br>';
+				$action_view_link .= '<a class="wcfm-action-icon" target="_blank" href="' . esc_url( get_wcfm_view_auction_url( $auction_product->ID, $product_data ) ) . '"><span class="wcfmfa fa-info text_tip" data-tip="View Details" data-hasqtip="' . esc_attr( absint( $auction_product->ID ) ) . '" aria-describedby="qtip-' . esc_attr( absint( $auction_product->ID ) ) . '"></span></a><br>';
 				
 				$wcfm_uwa_auction_json_arr[$index][] = $action_view_link;
 				
@@ -835,8 +839,9 @@ function wcfm_ajax_uwa_auction_callback(){
 		$wcfm_uwa_auction_json .= '
 													}';
 													
+		header( 'Content-Type: application/json' );
 		echo $wcfm_uwa_auction_json;
-		die();
+		wp_die();
 }
 
 add_action('wp_ajax_wcfm_ajax_uwa_auction', 'wcfm_ajax_uwa_auction_callback');
@@ -845,13 +850,20 @@ add_action('wp_ajax_nopriv_wcfm_ajax_uwa_auction', 'wcfm_ajax_uwa_auction_callba
 
 
 add_action('wp_ajax_wcfm_uwa_admin_force_uwa_relist_now', 'wcfm_uwa_admin_force_uwa_relist_now_callback');
-add_action('wp_ajax_nopriv_wcfm_uwa_admin_force_uwa_relist_now', 'wcfm_uwa_admin_force_uwa_relist_now_callback');	
 function wcfm_uwa_admin_force_uwa_relist_now_callback () {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_wcfm_nonce' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'woo_ua' ) ) );
+		}
+
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'woo_ua' ) ) );
+		}
+
 		global $wpdb;
 		if (!empty($_POST["auction_id"])) {	
 			$auction_id = absint($_POST["auction_id"]);
-			$uwa_relist_start_date = $_POST["start_date"];
-			$uwa_relist_end_date = $_POST["end_date"];			
+			$uwa_relist_start_date = isset( $_POST['start_date'] ) ? sanitize_text_field( wp_unslash( $_POST['start_date'] ) ) : '';
+			$uwa_relist_end_date = isset( $_POST['end_date'] ) ? sanitize_text_field( wp_unslash( $_POST['end_date'] ) ) : '';
 			$relisted = wcfm_uwa_manually_do_relist($auction_id, $uwa_relist_start_date, $uwa_relist_end_date);			
 		 	$response['status'] = 1;
 			$response['success_message'] = __('Auction Relisted successfully.','woo_ua');

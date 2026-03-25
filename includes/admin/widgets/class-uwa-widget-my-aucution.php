@@ -78,7 +78,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 			
 		$user_id  = get_current_user_id();
 		$auctionsids = array();
-		$userauction	 = $wpdb->get_results("SELECT  DISTINCT auction_id FROM ".$table." WHERE userid = $user_id ",ARRAY_N );
+		$userauction = $wpdb->get_results( $wpdb->prepare( "SELECT DISTINCT auction_id FROM %i WHERE userid = %d", $table, $user_id ), ARRAY_N );
 		if(isset($userauction) && !empty($userauction)){
 			foreach ($userauction as $auction) {
 				$auctionsids []= $auction[0];				
@@ -110,7 +110,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 			$auction_image = ( has_post_thumbnail() ? get_the_post_thumbnail( $uwa_query->post->ID, 'shop_thumbnail' ) : wc_placeholder_img ( 'shop_thumbnail' ) );
 			?>
 			<li>
-			<a href="<?php echo get_permalink();?>"><?php echo $auction_image;?><?php echo get_the_title();?></a>			
+			<a href="<?php echo esc_url( get_permalink() );?>"><?php echo wp_kses_post( $auction_image );?><?php echo esc_html( get_the_title() );?></a>			
 			<?php if($uwa_hide_time !=1) { ?>
 			
 			<?php if(($uwa_expired === FALSE ) and ($uwa_started  === TRUE )) {
@@ -123,7 +123,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 				$rem_arr=get_remaining_time_by_timezone($auc_end_date); 
 				?>
 			 
-			<span class="uwa_time_left"><?php _e('Time left', 'woo_ua');?></span>
+			<span class="uwa_time_left"><?php esc_html_e('Time left', 'woo_ua');?></span>
 		 
 			
 			<?php
@@ -145,7 +145,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 			?>		
 			 
 
-			<span class="uwa_time_left"><?php _e('Starting Time Left:', 'woo_ua'); ?></span>
+			<span class="uwa_time_left"><?php esc_html_e('Starting Time Left:', 'woo_ua'); ?></span>
 			 
 			
 			<?php
@@ -157,7 +157,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 					?>
 			<?php } ?>
 			<?php } ?>
-			<?php echo $product->get_price_html();
+			<?php echo wp_kses_post( $product->get_price_html() );
 
 				
 					/* display winner info in live auctions */
@@ -167,7 +167,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 								<?php
 						$winner_text = $product->get_uwa_winner_text();
 						if($winner_text){ ?>
-							<span style="color:green;font-size:20px;"><?php echo $winner_text; ?></span>
+							<span style="color:green;font-size:20px;"><?php echo wp_kses_post( $winner_text ); ?></span>
 							<?php
 						}
 						?>
@@ -181,7 +181,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 			
 		}else {
 			?>
-			<li><?php _e('My Auction not found', 'woo_ua');?></li>
+			<li><?php esc_html_e('My Auction not found', 'woo_ua');?></li>
 			
 		<?php }
 		echo '</ul>';
@@ -206,7 +206,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['number'] = (int) $new_instance['number'];
 		$instance['uwa_hide_time'] = empty( $new_instance['uwa_hide_time'] ) ? 0 : 1;		
 		$this->flush_widget_cache();
@@ -231,14 +231,14 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 			$number = 5;		
 		$uwa_hide_time = empty( $instance['uwa_hide_time'] ) ? 0 : 1;		
         ?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title:', 'woo_ua' ); ?></label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'woo_ua' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e( 'Number of auctions to show:', 'woo_ua' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php esc_html_e( 'Number of auctions to show:', 'woo_ua' ); ?></label>
 		<input id="<?php echo esc_attr( $this->get_field_id('number') ); ?>" name="<?php echo esc_attr( $this->get_field_name('number') ); ?>" type="text" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		
 		<p><input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('uwa_hide_time') ); ?>" name="<?php echo esc_attr( $this->get_field_name('uwa_hide_time') ); ?>"<?php checked( $uwa_hide_time ); ?> />
-		<label for="<?php echo $this->get_field_id('uwa_hide_time'); ?>"><?php _e( 'Hide timer', 'woo_ua' ); ?></label></p>
+		<label for="<?php echo esc_attr( $this->get_field_id('uwa_hide_time') ); ?>"><?php esc_html_e( 'Hide timer', 'woo_ua' ); ?></label></p>
 
         <?php
 	}

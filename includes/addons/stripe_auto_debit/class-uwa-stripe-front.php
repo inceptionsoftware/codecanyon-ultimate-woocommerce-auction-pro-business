@@ -94,7 +94,7 @@ class UWA_STRIPE_Front {
 	function uwa_stripe_wc_register_billing_form_fields() {
 		?>
 			<p class="form-row form-row-wide">
-				<strong><?php _e( 'Billing details', 'woo_ua' ); ?></strong>
+				<strong><?php esc_html_e( 'Billing details', 'woo_ua' ); ?></strong>
 			</p> 
 		<?php 
 
@@ -110,22 +110,28 @@ class UWA_STRIPE_Front {
 
 	function uwa_stripe_wc_register_billing_form_fields_save( $customer_id ) {
 		global $woocommerce;
-		$address = $_POST;
+		$address = array();
+		foreach ( $_POST as $key => $value ) {
+			$address[ sanitize_key( $key ) ] = sanitize_text_field( wp_unslash( $value ) );
+		}
 		foreach ($address as $key => $field){
 		
 			// Condition to add firstname and last name to user meta table
 			if($key == 'billing_first_name' || $key == 'billing_last_name'){
 				$new_key = explode('billing_', $key);
-				update_user_meta( $customer_id, $new_key[1], $_POST[$key] );
+				update_user_meta( $customer_id, sanitize_key( $new_key[1] ), sanitize_text_field( wp_unslash( $_POST[$key] ) ) );
 			}
-			update_user_meta( $customer_id, $key, $_POST[$key] );				
+			update_user_meta( $customer_id, sanitize_key( $key ), sanitize_text_field( wp_unslash( $_POST[$key] ) ) );
 		}
 	}
 
 
 	function uwa_stripe_wc_register_billing_form_validate( $errors, $username, $email ){
 		global $woocommerce;
-    	$address = $_POST;
+    	$address = array();
+    	foreach ( $_POST as $key => $raw_val ) {
+    		$address[ sanitize_key( $key ) ] = sanitize_text_field( wp_unslash( $raw_val ) );
+    	}
     	foreach ($address as $key => $field) :
         	// Validation: Required fields
        
@@ -199,23 +205,23 @@ class UWA_STRIPE_Front {
 				}
 			</style>
 			<p class="form-row form-row-wide">			
-				<strong><?php _e( 'Enter your Credit Card Details:', 'woo_ua' ); ?></strong>			
+				<strong><?php esc_html_e( 'Enter your Credit Card Details:', 'woo_ua' ); ?></strong>			
 			</p>
 
 			<p class="form-row form-row-wide">
-				<label for="card-element"><?php _e( 'Card Number', 'woo_ua' ); ?><span class="required">*</span></label>
+				<label for="card-element"><?php esc_html_e( 'Card Number', 'woo_ua' ); ?><span class="required">*</span></label>
 				<div id="uwa-card-number" class="field empty"></div>	
 				
 			</p>
 			
 			<p class="form-row form-row-wide">
-				<label for="card-element"><?php _e( 'Expiration', 'woo_ua' ); ?><span class="required">*</span></label>
+				<label for="card-element"><?php esc_html_e( 'Expiration', 'woo_ua' ); ?><span class="required">*</span></label>
 				<div id="uwa-card-expiry" class="field empty third-width"></div>	
 				
 			</p>
 			
 			<p class="form-row form-row-wide">
-				<label for="card-element"><?php _e( 'CVV', 'woo_ua' ); ?><span class="required">*</span></label>
+				<label for="card-element"><?php esc_html_e( 'CVV', 'woo_ua' ); ?><span class="required">*</span></label>
 				<div id="uwa-card-cvc" class="field empty third-width"></div>	
 				
 			</p>
@@ -258,7 +264,7 @@ class UWA_STRIPE_Front {
 	function uwa_stripe_wc_register_form_validate( $errors, $username, $email ) {
 
 
-		if ( isset( $_POST['uwa_stripe_k_id'] ) ) { 
+		if ( isset( $_POST['uwa_stripe_k_id'] ) ) { // nonce verified by WooCommerce checkout 
 			if (empty( $_POST["uwa_stripe_k_id"]) ) {
 				$errors->add( 'uwa_stripe_card_error', __( '<strong>Your Payment Information not valid. Please check and fill correct payment information.</strong>', 
 					'woo_ua' ));		
@@ -269,8 +275,8 @@ class UWA_STRIPE_Front {
 	
 	function uwa_stripe_wc_register_form_fields_save( $customer_id ) {	
 		
-		if ( isset( $_POST['uwa_stripe_k_id'] ) ) { 
-				$token = $_POST['uwa_stripe_k_id'];							
+		if ( isset( $_POST['uwa_stripe_k_id'] ) ) { // nonce verified by WooCommerce checkout 
+				$token = sanitize_text_field( wp_unslash( $_POST['uwa_stripe_k_id'] ) );							
 				require_once ( UW_AUCTION_PRO_ADDONS .'stripe_auto_debit/lib/uwa-stripe/stripe-main.php' );				
 		}
 	}
@@ -313,18 +319,18 @@ class UWA_STRIPE_Front {
 					}
 				</style>
 
-				<h3><?php _e( 'Credit Card Details', 'woo_ua' ); ?></h3><br><br>
+				<h3><?php esc_html_e( 'Credit Card Details', 'woo_ua' ); ?></h3><br><br>
 
-			    <label for="uwa_stripe_cardholder"><?php _e( 'Card holdername*', 'woo_ua' ); ?>
+			    <label for="uwa_stripe_cardholder"><?php esc_html_e( 'Card holdername*', 'woo_ua' ); ?>
 			   		<input type="text" name="uwa_stripe_cardholder" 
 			   			id="uwa_stripe_cardholder" 
 			        	class="input form-row-wide"
-			        	value="<?php echo $cardholder; ?>"  
+			        	value="<?php echo esc_attr( $cardholder ); ?>"  
 			        	required  />
 			    </label>
 			    <!-- autocomplete="",  -->
 		
-				<label for="uwa_stripe_creditcard"><?php _e( 'Credit card*', 'woo_ua' ); ?>
+				<label for="uwa_stripe_creditcard"><?php esc_html_e( 'Credit card*', 'woo_ua' ); ?>
 			   		<input type="number" name="uwa_stripe_creditcard" 
 			   			id="uwa_stripe_creditcard" 
 			        	class="input form-row-wide" 
@@ -333,7 +339,7 @@ class UWA_STRIPE_Front {
 			    </label>
 			    <!-- autocomplete="",  -->
 
-				<label for="uwa_stripe_cardcode"><?php _e( 'CVV (3 or 4 digit code)*', 
+				<label for="uwa_stripe_cardcode"><?php esc_html_e( 'CVV (3 or 4 digit code)*', 
 					'woo_ua' ); ?>
 			   		<input type="number" name="uwa_stripe_cardcode" id="uwa_stripe_cardcode" 
 			        	class="input form-row-wide"  
@@ -343,12 +349,12 @@ class UWA_STRIPE_Front {
 			    <!-- autocomplete="",  -->
 
 
-		    	<label for="uwa_stripe_card_expmonth"><?php _e( 'Expiry month*', 'woo_ua' ); ?>
+		    	<label for="uwa_stripe_card_expmonth"><?php esc_html_e( 'Expiry month*', 'woo_ua' ); ?>
 		   		<br>
 		   			<select name="uwa_stripe_card_expmonth" id="uwa_stripe_card_expmonth" 
 		   				class="uwa_inline" data-stripe="exp_month">
 							<option value="-1">
-								<?php _e( '---Select---', 'woo_ua' ); ?>							
+								<?<?php esc_html_e( '---Select---', 'woo_ua' ); ?>							
 							</option>
 
 									<?php 
@@ -356,25 +362,25 @@ class UWA_STRIPE_Front {
 										for($i=$start; $i<=$end; $i++){ 
 										?>
 
-										<option  value="<?php echo $i; ?>" ><?php _e($i, "woo_ua"); ?>	</option>
+										<option  value="<?php echo $i; ?>" ><?php echo esc_html( $i ); ?>	</option>
 
 									<?php } ?>		
 					</select>
 				</label>			
 				<br><Br>
 
-		   		<label for="uwa_stripe_card_expyear"><?php _e( 'Expiry year*', 'woo_ua' ); ?>
+		   		<label for="uwa_stripe_card_expyear"><?php esc_html_e( 'Expiry year*', 'woo_ua' ); ?>
 		   		<br>
 			  	 	<select name="uwa_stripe_card_expyear" id="uwa_stripe_card_expyear" 
 			  	 		data-stripe="exp_year">
 							<option value="-1">
-								<?php _e( '---Select---', 'woo_ua' ); ?>
+								<?<?php esc_html_e( '---Select---', 'woo_ua' ); ?>
 							</option>
 								<?php 
 									$start=2019; $end=2030;
 									for($i=$start; $i<=$end; $i++){ ?>
 									<option  value="<?php echo $i; ?>" > 
-										<?php _e($i, "woo_ua"); ?> </option>
+										<?<?php echo esc_html( $i ); ?> </option>
 								<?php } ?>
 					</select>
 	      
@@ -389,48 +395,48 @@ class UWA_STRIPE_Front {
 	function uwa_stripe_validate_wp_register_form( $errors, $sanitized_user_login, 
 		$user_email ) {
 		
-		if(trim($_POST['uwa_stripe_cardholder']) == ""){
+		if(trim(isset($_POST['uwa_stripe_cardholder']) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_cardholder'] ) ) : '') == ""){
 			$errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Please enter card holdername.', 
 	        	'woo_ua' ) );
 		}
 		/* validates for numbers too...........recheck - pending */
-		elseif ( ! preg_match('/[a-zA-Z]/', $_POST['uwa_stripe_cardholder'] ) ) {
+		elseif ( ! preg_match('/[a-zA-Z]/', isset( $_POST['uwa_stripe_cardholder'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_cardholder'] ) ) : '' ) ) {
 	        $errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Invalid credit card holdername.', 
 	        	'woo_ua' ) );
 	    }
 
 
-	    if(trim($_POST['uwa_stripe_creditcard']) == ""){
+	    if(trim(isset($_POST['uwa_stripe_creditcard']) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_creditcard'] ) ) : '') == ""){
 			$errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Please enter credit card.', 
 	        	'woo_ua' ) );
 		}
-	    elseif ( ! preg_match('/[0-9]/', $_POST['uwa_stripe_creditcard'] ) ) {
+	    elseif ( ! preg_match('/[0-9]/', isset( $_POST['uwa_stripe_creditcard'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_creditcard'] ) ) : '' ) ) {
 	        $errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Invalid credit card.', 
 	        	'woo_ua' ) );
 	    }
 
 
-	    if(trim($_POST['uwa_stripe_cardcode']) == ""){
+	    if(trim(isset($_POST['uwa_stripe_cardcode']) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_cardcode'] ) ) : '') == ""){
 			$errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Please enter CVV code.', 
 	        	'woo_ua' ) );
 		}
-	    elseif ( ! preg_match('/[0-9]/', $_POST['uwa_stripe_cardcode'] ) ) {
+	    elseif ( ! preg_match('/[0-9]/', isset( $_POST['uwa_stripe_cardcode'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_cardcode'] ) ) : '' ) ) {
 	        $errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Invalid CVV code.', 
 	        	'woo_ua' ) );
 	    }
 
-	    if ( $_POST['uwa_stripe_card_expmonth'] == "-1") {
+	    if ( ( isset( $_POST['uwa_stripe_card_expmonth'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_card_expmonth'] ) ) : '' ) == "-1") {
 	        $errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Please select expiry month', 
 	        	'woo_ua' ) );
 	    }
-	   	if ( $_POST['uwa_stripe_card_expyear'] == "-1") {
+	   	if ( ( isset( $_POST['uwa_stripe_card_expyear'] ) ? sanitize_text_field( wp_unslash( $_POST['uwa_stripe_card_expyear'] ) ) : '' ) == "-1") {
 	        $errors->add( 'uwa_stripe_error', 
 	        	__( '<strong>ERROR</strong>: Please select expiry year', 
 	        	'woo_ua' ) );

@@ -2,10 +2,10 @@
 
 /**
  * My auctions tab list
- * 
+ *
  * @package Ultimate WooCommerce Auction PRO
- * @author Nitesh Singh 
- * @since 1.0  
+ * @author Nitesh Singh
+ * @since 1.0
  *
  */
 
@@ -13,20 +13,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-    $user_id  = get_current_user_id();  
-    
-    
-    
+    $user_id  = get_current_user_id();
+
+
+
 ?>
     <div class="uwa-notification-page-my-account">
-        
-        <h2 class="uwa-notification-title"><?php _e('Notifications', 'woo_ua'); ?></h2>
-        
-        
-        <?php 
+
+        <h2 class="uwa-notification-title"><?php esc_html_e( 'Notifications', 'woo_ua' ); ?></h2>
+
+
+        <?php
             $uwa_twilio_sms_addon = "off";
-           
-      
+
+
             $uwa_enabled_addons_list = get_option('uwa_addons_options_enabled');
             if(!empty($uwa_enabled_addons_list)){
                 if(in_array('uwa_twilio_sms_addon', $uwa_enabled_addons_list)) {
@@ -34,57 +34,57 @@ if (!defined('ABSPATH')) {
                 }
             }
 
-            /*SMS Notifications globle options variables start*/ 
+            /*SMS Notifications globle options variables start*/
             $uwa_twilio_sms_placed_bid_enabled = get_option('uwa_twilio_sms_placed_bid_enabled');
             $uwa_twilio_sms_outbid_enabled = get_option('uwa_twilio_sms_outbid_enabled');
             $uwa_twilio_sms_won_enabled = get_option('uwa_twilio_sms_won_enabled');
             $uwa_twilio_sms_ending_soon_enabled = get_option('uwa_twilio_sms_ending_soon_enabled');
-            /*SMS Notifications globle options variables end*/ 
+            /*SMS Notifications globle options variables end*/
 
-             /*SMS Notifications globle options variables start*/ 
+             /*SMS Notifications globle options variables start*/
              $uwa_whatsapp_msg_outbid_enabled = get_option('uwa_whatsapp_msg_outbid_enabled');
              $uwa_whatsapp_msg_won_enabled = get_option('uwa_whatsapp_msg_won_enabled');
              $uwa_whatsapp_msg_ending_soon_enabled = get_option('uwa_whatsapp_msg_ending_soon_enabled');
              /*SMS Notifications globle options variables end*/
 
-                    if (isset($_POST['uwa-settings-submit']) == 'Save Changes') {
-                        /*SMS Notifications save start*/ 
+                    if ( isset( $_POST['uwa_notifications_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['uwa_notifications_nonce'] ) ), 'uwa_notifications_save' ) && isset( $_POST['uwa-settings-submit'] ) ) {
+                        /*SMS Notifications save start*/
                         if($uwa_twilio_sms_addon == "on"){
-                            if (isset($_POST['uwa_sms_placebid_user_enabled'])) {
+                            if ( isset( $_POST['uwa_sms_placebid_user_enabled'] ) ) {
                                 update_user_meta( $user_id, 'uwa_sms_placebid_user_enabled', "yes" );
                             } else {
                                 update_user_meta( $user_id, 'uwa_sms_placebid_user_enabled', "no");
                             }
-                            if (isset($_POST['uwa_sms_outbid_user_enabled'])) {
+                            if ( isset( $_POST['uwa_sms_outbid_user_enabled'] ) ) {
                                 update_user_meta( $user_id, 'uwa_sms_outbid_user_enabled', "yes" );
                             } else {
                                 update_user_meta( $user_id, 'uwa_sms_outbid_user_enabled', "no");
                             }
-                            if (isset($_POST['uwa_sms_won_user_enabled'])) {
+                            if ( isset( $_POST['uwa_sms_won_user_enabled'] ) ) {
                                 update_user_meta( $user_id, 'uwa_sms_won_user_enabled', "yes" );
                             } else {
                                 update_user_meta( $user_id, 'uwa_sms_won_user_enabled', "no");
                             }
-                            if (isset($_POST['uwa_sms_ending_soon_user_enabled'])) {
+                            if ( isset( $_POST['uwa_sms_ending_soon_user_enabled'] ) ) {
                                 update_user_meta( $user_id, 'uwa_sms_ending_soon_user_enabled', "yes" );
                             } else {
                                 update_user_meta( $user_id, 'uwa_sms_ending_soon_user_enabled', "no");
                             }
                         }
-                         /*SMS Notifications save end*/ 
-                        
+                         /*SMS Notifications save end*/
+
                     } /* end of if - save changes */
 
-                    
-                    
-                    
-                    /*SMS Notifications check box variables start*/ 
+
+
+
+                    /*SMS Notifications check box variables start*/
                     if($uwa_twilio_sms_addon == "on"){
                         $uwa_sms_placebid_user_enabled = get_user_meta($user_id,'uwa_sms_placebid_user_enabled', true);
                         $uwa_sms_outbid_user_enabled = get_user_meta($user_id,'uwa_sms_outbid_user_enabled', true);
                         $uwa_sms_won_user_enabled = get_user_meta($user_id,'uwa_sms_won_user_enabled', true);
                         $uwa_sms_ending_soon_user_enabled = get_user_meta($user_id,'uwa_sms_ending_soon_user_enabled', true);
-                        
+
                         $uwa_sms_placebid_checked = "checked";
                         if($uwa_sms_placebid_user_enabled == "no"){
                             $uwa_sms_placebid_checked = "";
@@ -102,90 +102,90 @@ if (!defined('ABSPATH')) {
                         if($uwa_sms_ending_soon_user_enabled == "no"){
                             $uwa_sms_ending_soon_user_checked = "";
                         }
-
-
-                        // $uwa_sms_placebid_user_enabled == "yes" ? $uwa_sms_placebid_checked = "checked" : $uwa_sms_placebid_checked = "";
-                        // $uwa_sms_outbid_user_enabled == "yes" ? $uwa_sms_outbid_user_checked = "checked" : $uwa_sms_outbid_user_checked = "";
-                        // $uwa_sms_won_user_enabled == "yes" ? $uwa_sms_won_user_checked = "checked" : $uwa_sms_won_user_checked = "";
-                        // $uwa_sms_ending_soon_user_enabled == "yes" ? $uwa_sms_ending_soon_user_checked = "checked" : $uwa_sms_ending_soon_user_checked = "";
                     }
-                    /*SMS Notifications check box variables end*/ 
-                    
+                    /*SMS Notifications check box variables end*/
+
                 ?>
 
                 <form action="" method="post">
-                
-                      <?php 
+
+                    <?php wp_nonce_field( 'uwa_notifications_save', 'uwa_notifications_nonce' ); ?>
+
+                      <?php
                         $ctm_phone = get_user_meta( $user_id, 'billing_phone', true );
                         $billing_country = get_user_meta( $user_id, 'billing_country', true );
                         if( empty($ctm_phone) || empty($billing_country) )
                         {
-                            $message =  sprintf(__("Please update your phone number and country <a href='%s'>here</a> to receive following notifications.", "ultimate-auction-theme"), get_permalink(wc_get_page_id('myaccount'))."edit-address/billing");
-                            echo '<p>'.$message.'</p>';
+                            $message = sprintf(
+                                /* translators: %s: URL to billing address edit page */
+                                __( "Please update your phone number and country <a href='%s'>here</a> to receive following notifications.", 'ultimate-auction-theme' ),
+                                esc_url( get_permalink( wc_get_page_id( 'myaccount' ) ) . 'edit-address/billing' )
+                            );
+                            echo '<p>' . wp_kses_post( $message ) . '</p>';
                         }
 
-                  
-                         /*SMS Notifications check box start*/ 
+
+                         /*SMS Notifications check box start*/
                         if($uwa_twilio_sms_addon == "on"): ?>
-                            <div class="uwa-title-sec SMS-Notifications"><?php _e('SMS Notifications', 'woo_ua'); ?></div>
-                          
-                        
+                            <div class="uwa-title-sec SMS-Notifications"><?php esc_html_e( 'SMS Notifications', 'woo_ua' ); ?></div>
+
+
                         <?php if($uwa_twilio_sms_placed_bid_enabled == "yes"): ?>
                             <div class="switch-main">
                                 <label class="switch">
-                                <input <?php echo $uwa_sms_placebid_checked; ?> class="checkbox" value="1" name="uwa_sms_placebid_user_enabled" type="checkbox" style="">
+                                <input <?php echo esc_attr( $uwa_sms_placebid_checked ); ?> class="checkbox" value="1" name="uwa_sms_placebid_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php _e('When you place a bid', 'woo_ua'); ?></span>
+                                <span class="switch-title"><?php esc_html_e( 'When you place a bid', 'woo_ua' ); ?></span>
                             </div>
-                        <?php 
-                            endif; 
+                        <?php
+                            endif;
                             if($uwa_twilio_sms_outbid_enabled == "yes"):
                         ?>
                             <div class="switch-main">
                                 <label class="switch">
-                                <input <?php echo $uwa_sms_outbid_user_checked; ?> class="checkbox" value="1" name="uwa_sms_outbid_user_enabled" type="checkbox" style="">
+                                <input <?php echo esc_attr( $uwa_sms_outbid_user_checked ); ?> class="checkbox" value="1" name="uwa_sms_outbid_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php _e('When your bid is outbid', 'woo_ua'); ?></span>
+                                <span class="switch-title"><?php esc_html_e( 'When your bid is outbid', 'woo_ua' ); ?></span>
                             </div>
-                        <?php 
-                            endif; 
+                        <?php
+                            endif;
                             if($uwa_twilio_sms_won_enabled == "yes"):
                         ?>
                             <div class="switch-main">
                                 <label class="switch">
-                                <input <?php echo $uwa_sms_won_user_checked; ?> class="checkbox" value="1" name="uwa_sms_won_user_enabled" type="checkbox" style="">
+                                <input <?php echo esc_attr( $uwa_sms_won_user_checked ); ?> class="checkbox" value="1" name="uwa_sms_won_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php _e('When you win an auction product', 'woo_ua'); ?></span>
-                                
+                                <span class="switch-title"><?php esc_html_e( 'When you win an auction product', 'woo_ua' ); ?></span>
+
                             </div>
-                        <?php 
-                            endif; 
+                        <?php
+                            endif;
                             if($uwa_twilio_sms_ending_soon_enabled == "yes"):
                         ?>
                             <div class="switch-main">
                                 <label class="switch">
-                                <input <?php echo $uwa_sms_ending_soon_user_checked; ?> class="checkbox" value="1" name="uwa_wp_sms_ending_soon_user_enabled" type="checkbox" style="">
+                                <input <?php echo esc_attr( $uwa_sms_ending_soon_user_checked ); ?> class="checkbox" value="1" name="uwa_wp_sms_ending_soon_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php _e('When the auction product is ending soon', 'woo_ua'); ?></span>
+                                <span class="switch-title"><?php esc_html_e( 'When the auction product is ending soon', 'woo_ua' ); ?></span>
                             </div>
-                    <?php endif; 
-                         endif; 
-                         /*SMS Notifications check box end*/ 
-                    
+                    <?php endif;
+                         endif;
+                         /*SMS Notifications check box end*/
+
                     ?>
                     <div class="save-btn">
-                        <input type="submit" id="uwa-settings-submit" name="uwa-settings-submit" class="woocommerce-Button woocommerce-Button--alt button alt" value="<?php _e('Save Changes', "woo_ua"); ?>" />
+                        <input type="submit" id="uwa-settings-submit" name="uwa-settings-submit" class="woocommerce-Button woocommerce-Button--alt button alt" value="<?php esc_attr_e( 'Save Changes', 'woo_ua' ); ?>" />
                     </div>
                 </form>
-                
-            
-    
+
+
+
     </div>
-    
+
 <style>
 .uwa-title-sec {
     font-weight: bold;
@@ -275,8 +275,8 @@ h2.uwa-notification-title {
     margin-left: 10px;
     font-weight: 600;
 }
-</style>        
-<?php 
-    
-    
+</style>
+<?php
+
+
 ?>

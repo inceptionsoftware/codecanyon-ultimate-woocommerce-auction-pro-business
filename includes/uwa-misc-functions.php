@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Extra Functions file
@@ -469,13 +469,13 @@ function uwa_see_more_bids_ajax_callback() {
 	if ( !isset( $_POST['ua_nonce'] ) || !wp_verify_nonce(sanitize_text_field(
 		$_POST['ua_nonce']), 'UtAajax-nonce' )) {
 
-		echo json_encode(esc_html__('Nonce verification failed', 'woo_ua'));
+		wp_send_json_error( esc_html__( 'Nonce verification failed', 'woo_ua' ) );
 		exit;
 	}
 
    if (!isset($_POST['auction_id'])) {
 
-   	echo json_encode(esc_html__('Auction id does not found', 'woo_ua'));
+   	wp_send_json_error( esc_html__( 'Auction id does not found', 'woo_ua' ) );
    	exit;
    }
 
@@ -485,7 +485,7 @@ function uwa_see_more_bids_ajax_callback() {
 
    	if ($pro_auction_id > 0) {
 
-			if (isset($_POST['show_rows']) && $_POST['show_rows'] == -1) {
+			if (isset($_POST['show_rows']) && ( isset( $_POST['show_rows'] ) && (int) wp_unslash( $_POST['show_rows'] ) === -1 )) {
 
 				 /* $query_bidders = 'SELECT * FROM '.$wpdb->prefix.'woo_ua_auction_log WHERE auction_id ='.$_POST['auction_id'].' ORDER BY date DESC'; */
 
@@ -530,7 +530,7 @@ function uwa_see_more_bids_ajax_callback() {
 						$maxbid_metakey = "woo_ua_auction_user_max_bid_" . $pro_auction_id;
 
 						$max_bid =  wc_price(get_user_meta($userid, $maxbid_metakey, true));
-						$auction_status = sanitize_text_field($_POST['auction_status']);
+						$auction_status = sanitize_text_field( wp_unslash( $_POST['auction_status'] ) );
 						$datetimeformat = get_option('date_format') . ' ' . get_option('time_format');
 
 						$bid_amt = wc_price($result->bid);
@@ -564,12 +564,12 @@ function uwa_see_more_bids_ajax_callback() {
 
 			} /* end of if */
 
-			echo json_encode( $response );
+			wp_send_json( $response );
 			exit;
 
    	} else {
 
-   		echo json_encode(esc_html__('Auction id is wrong', 'woo_ua'));
+   		wp_send_json_error( esc_html__( 'Auction id is wrong', 'woo_ua' ) );
    		exit;
    	}
 
@@ -580,14 +580,18 @@ function uwa_see_more_bids_ajax_callback() {
 
 function uwa_auction_ajax_add_bid_callback(){
 
-	if (empty($_REQUEST['bid_value']) || !is_numeric($_REQUEST['bid_value'])) {
+	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_auction_bid_nonce' ) ) {
+		wp_send_json_error( array( 'message' => esc_html__( 'Security check failed.', 'woo_ua' ) ) );
+	}
+
+	if (empty(sanitize_text_field( wp_unslash( $_REQUEST['bid_value'] ) )) || !is_numeric(sanitize_text_field( wp_unslash( $_REQUEST['bid_value'] ) ))) {
 		$response['status'] = 0;
 	}
 	
 	global $wpdb,$woocommerce, $product, $post;
 
 	$auction_id = absint($_POST['product_id']);	
-	$bid = abs(round(str_replace(',', '.', $_REQUEST['bid_value']), wc_get_price_decimals()));
+	$bid = abs(round(str_replace(',', '.', sanitize_text_field( wp_unslash( $_REQUEST['bid_value'] ) )), wc_get_price_decimals()));
 	$proxy_engine = false;		
 	$history_bid_id = false;
 	$product_data = wc_get_product( $auction_id );
@@ -658,9 +662,13 @@ function uwa_auction_ajax_add_bid_callback(){
 		if ($history_bid_id){
 			
 			$woo_ua_auction_log = $wpdb->prefix."woo_ua_auction_log";
-			$sql = "INSERT INTO $woo_ua_auction_log (userid, auction_id, bid, proxy, date) VALUES (".$current_user->ID.",".$product_id.",".$bid.",".$proxy.",".current_time('mysql').")";
+			$wpdb->insert(
+			    $wpdb->prefix . 'woo_ua_auction_log',
+			    array( 'userid' => $current_user->ID, 'auction_id' => $product_id, 'bid' => $bid, 'proxy' => $proxy, 'date' => current_time( 'mysql' ) ),
+			    array( '%d', '%d', '%f', '%d', '%s' )
+			);
 			
-			if($wpdb->query($sql)) {
+			if ( $wpdb->insert_id ) {
 				$response['msg_success'] = __('Your Bid Placed Successfully', 'woo_ua');				 
 			}
 		}
@@ -668,7 +676,7 @@ function uwa_auction_ajax_add_bid_callback(){
 	}
 
 	/* exit;	 */
-   	echo json_encode( $response );
+   	wp_send_json( $response );
 	die();
 
 }
@@ -974,13 +982,13 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 		?> 
 		<table class="shop_table shop_table_responsive tbl_bidauc_list">
 			<tr class="bidauc_heading">
-			    <th class="toptable"><?php echo __( 'Image', 'woo_ua' ); ?></th>
-			    <th class="toptable"><?php echo __( 'Product', 'woo_ua' ); ?></th>
-			    <th class="toptable"><?php echo __( 'Your bid', 'woo_ua' ); ?></th>			    
-			    <th class="toptable"><?php echo __( 'Current bid', 'woo_ua' ); ?></th>
-			    <th class="toptable"><?php echo __( 'Maximum bid', 'woo_ua' ); ?></th>
-			    <th class="toptable"><?php echo __( 'End date', 'woo_ua' ); ?></th>
-			    <th class="toptable"><?php echo __( 'Status', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'Image', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'Product', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'Your bid', 'woo_ua' ); ?></th>			    
+			    <th class="toptable"><?php echo esc_html__( 'Current bid', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'Maximum bid', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'End date', 'woo_ua' ); ?></th>
+			    <th class="toptable"><?php echo esc_html__( 'Status', 'woo_ua' ); ?></th>
 			</tr>
 			<?php	
 			foreach ( $my_auctions as $my_auction ) {		  
@@ -1024,13 +1032,13 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 									$won_bids_count++;
 				    		?>			
 							<tr class="bidauc_won">
-				            	<td class="bidauc_img"><?php echo $a;?></td>
-				            	<td class="bidauc_name"><a href="<?php echo $product_url; ?>"><?php echo $product_name ?></a></td>
+				            	<td class="bidauc_img"><?php echo esc_html( $a );?></td>
+				            	<td class="bidauc_name"><a href="<?php echo esc_url( $product_url ); ?>"><?php echo $product_name ?></a></td>
 				            	<td class="bidauc_bid"><?php echo wc_price($my_auction->max_userbid); ?></td>
-				            	<td class="bidauc_curbid"><?php echo $product->get_price_html(); ?></td>
+				            	<td class="bidauc_curbid"><?php echo esc_html( $product->get_price_html() ); ?></td>
 				            	<td class="bidauc_maxbid" style="text-align: center;"><?php echo 
 				            	  $uwa_proxy_maxbid_price; ?></td>				            	
-				            	<td class="bidauc_enddate"><?php echo $product->get_uwa_auction_end_dates(); ?></td>	
+				            	<td class="bidauc_enddate"><?php echo esc_html( $product->get_uwa_auction_end_dates() ); ?></td>	
 
 								<?php
 
@@ -1111,7 +1119,7 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 				            		<?php 
 				            	} 
 				            	else { ?>			            		
-				            		<td class="bidauc_status"><?php echo __( 'Closed', 'woo_ua' ); ?></td>
+				            		<td class="bidauc_status"><?php echo esc_html__( 'Closed', 'woo_ua' ); ?></td>
 				            		<?php
 				        		}  ?>
 
@@ -1125,14 +1133,14 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 									$lost_bids_count++;
 				    	 ?>			
 							<tr class="bidauc_lost">            
-				            	<td class="bidauc_img"><?php echo $a ;?></td>
-				            	<td class="bidauc_name"><a href="<?php echo $product_url; ?>"><?php echo $product_name ?></a></td>
+				            	<td class="bidauc_img"><?php echo esc_html( $a  );?></td>
+				            	<td class="bidauc_name"><a href="<?php echo esc_url( $product_url ); ?>"><?php echo $product_name ?></a></td>
 				            	<td class="bidauc_bid"><?php echo wc_price($my_auction->max_userbid); ?></td>
-				            	<td class="bidauc_curbid"><?php echo $product->get_price_html(); ?></td>
+				            	<td class="bidauc_curbid"><?php echo esc_html( $product->get_price_html() ); ?></td>
 				            	<td class="bidauc_maxbid" style="text-align: center;"><?php echo 
 				            	  $uwa_proxy_maxbid_price; ?></td>
-				            	<td class="bidauc_enddate"><?php echo $product->get_uwa_auction_end_dates(); ?></td>
-				            	<td class="bidauc_status"><?php echo __( 'Closed', 'woo_ua' ); ?></td>	                	
+				            	<td class="bidauc_enddate"><?php echo esc_html( $product->get_uwa_auction_end_dates() ); ?></td>
+				            	<td class="bidauc_status"><?php echo esc_html__( 'Closed', 'woo_ua' ); ?></td>	                	
 								</tr> 	
 				     	<?php } /* end of if of lost */
 
@@ -1142,14 +1150,14 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 				     			$active_bids_count++;
 				     		?>
 				     		<tr class="bidauc_active">            
-				            	<td class="bidauc_img"><?php echo $a ;?></td>
-				            	<td class="bidauc_name"><a href="<?php echo $product_url; ?>"><?php echo $product_name ?></a></td>
+				            	<td class="bidauc_img"><?php echo esc_html( $a  );?></td>
+				            	<td class="bidauc_name"><a href="<?php echo esc_url( $product_url ); ?>"><?php echo $product_name ?></a></td>
 				            	<td class="bidauc_bid"><?php echo wc_price($my_auction->max_userbid); ?></td>
-				            	<td class="bidauc_curbid"><?php echo $product->get_price_html(); ?></td>
+				            	<td class="bidauc_curbid"><?php echo esc_html( $product->get_price_html() ); ?></td>
 				            	<td class="bidauc_maxbid" style="text-align: center;"><?php echo 
 				            	  $uwa_proxy_maxbid_price; ?></td>				            	
-				            	<td class="bidauc_enddate"><?php echo $product->get_uwa_auction_end_dates(); ?></td>
-				            	<td class="bidauc_status"><?php echo __( 'Started', 'woo_ua' ); ?></td>	                	
+				            	<td class="bidauc_enddate"><?php echo esc_html( $product->get_uwa_auction_end_dates() ); ?></td>
+				            	<td class="bidauc_status"><?php echo esc_html__( 'Started', 'woo_ua' ); ?></td>	                	
 								</tr> 	
 								<?php
 				     	}
@@ -1190,20 +1198,20 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 			elseif($bid_status == "won" && $won_bids_count == 0){ ?>
 
 				<tr class="bidauc_msg"><td colspan="6"><div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">		
-				  <?php _e( 'No bids available yet.' , 'woo_ua' ) ?>
+				  <?php esc_html_e( 'No bids available yet.', 'woo_ua' ) ?>
 				</div></td></tr>
 			 <?php	
 			}elseif($bid_status == "lost" && $lost_bids_count == 0){ ?>
 
 				<tr class="bidauc_msg"><td colspan="6"><div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">		
-				  <?php _e( 'No bids available yet.' , 'woo_ua' ) ?>
+				  <?php esc_html_e( 'No bids available yet.', 'woo_ua' ) ?>
 				</div></td></tr>
 				
 			 <?php
 			}elseif($bid_status == "active" && $active_bids_count == 0){ ?>
 
 				<tr class="bidauc_msg"><td colspan="6"><div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">		
-				  <?php _e( 'No bids available yet.' , 'woo_ua' ) ?>
+				  <?php esc_html_e( 'No bids available yet.', 'woo_ua' ) ?>
 				</div></td></tr>
 
 				 <?php	
@@ -1219,8 +1227,8 @@ function uwa_front_user_bid_list( $user_id , $bid_status ) {
 		?>  
 		<div class="woocommerce-message woocommerce-message--info woocommerce-Message 	
 			woocommerce-Message--info woocommerce-info">		
-			  <a class="woocommerce-Button button" href="<?php echo $shop_page_url;?>">
-				<?php _e( 'Go shop' , 'woocommerce' ) ?>		</a> <?php _e( 'No bids available yet.' , 'woo_ua' ) ?>
+			  <a class="woocommerce-Button button" href="<?php echo esc_url( $shop_page_url );?>">
+				<?php esc_html_e( 'Go shop', 'woocommerce' ) ?>		</a> <?php esc_html_e( 'No bids available yet.', 'woo_ua' ) ?>
 		</div>
 	                 
 	<?php } /* end of else */
@@ -1315,10 +1323,10 @@ function uwa_front_user_watchlist( $user_id ){
 	?>
 	<table class="shop_table shop_table_responsive tbl_watchauc_list">
 	    <tr class="watchauc_heading">
-	        <th class="toptable"><?php echo __( 'Image', 'woo_ua' ); ?></td>
-	        <th class="toptable"><?php echo __( 'Product', 'woo_ua' ); ?></td>       
-	        <th class="toptable"><?php echo __( 'Current bid', 'woo_ua' ); ?></td>
-	        <th class="toptable"><?php echo __( 'Status', 'woo_ua' ); ?></td>
+	        <th class="toptable"><?php echo esc_html__( 'Image', 'woo_ua' ); ?></td>
+	        <th class="toptable"><?php echo esc_html__( 'Product', 'woo_ua' ); ?></td>       
+	        <th class="toptable"><?php echo esc_html__( 'Current bid', 'woo_ua' ); ?></td>
+	        <th class="toptable"><?php echo esc_html__( 'Status', 'woo_ua' ); ?></td>
 	        <th class="toptable"></td>
 	    </tr>
 	    <?php
@@ -1351,9 +1359,9 @@ function uwa_front_user_watchlist( $user_id ){
 					
 		        ?>
 		        <tr class="watchauc_list">
-		            <td class="watchauc_img"><?php echo $a ?></td>
-		            <td class="watchauc_name"><a href="<?php echo $product_url; ?>"><?php echo $product_name ?></a></td>           
-		            <td class="watchauc_curbid"><?php echo $product->get_price_html(); ?></td>
+		            <td class="watchauc_img"><?php echo esc_html( $a ?></td>
+		            <td class="watchauc_name"><a href="<?php echo $product_url ); ?>"><?php echo esc_html( $product_name ); ?></a></td>           
+		            <td class="watchauc_curbid"><?php echo esc_html( $product->get_price_html() ); ?></td>
 		            <?php
 
 		            /* -----  Pay now button for winner ----- */
@@ -1418,15 +1426,15 @@ function uwa_front_user_watchlist( $user_id ){
 		            	<?php  
 		        	} elseif ( $product->is_uwa_expired() ){ ?> 
 					
-					<td class="watchauc_status"><?php echo __( 'Closed', 'woo_ua' ); ?></td>
+					<td class="watchauc_status"><?php echo esc_html__( 'Closed', 'woo_ua' ); ?></td>
 
 				<?php 
 				} elseif( $product->is_uwa_live() ) { ?>		
 
-					<td class="watchauc_status"><?php echo __( 'Started', 'woo_ua' ); ?></td>		   
+					<td class="watchauc_status"><?php echo esc_html__( 'Started', 'woo_ua' ); ?></td>		   
 				<?php } else { ?>
 
-		                	<td class="watchauc_status"><?php echo __( 'Not Started', 'woo_ua' ); ?></td>
+		                	<td class="watchauc_status"><?php echo esc_html__( 'Not Started', 'woo_ua' ); ?></td>
 
 		                <?php
 		            }
@@ -1449,7 +1457,7 @@ function uwa_front_user_watchlist( $user_id ){
 	   
 	   	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info watchauc_msg">
 			
-			   <?php _e( 'No auctions in watchlist' , 'woo_ua' ) ?>
+			   <?php esc_html_e( 'No auctions in watchlist', 'woo_ua' ) ?>
 		</div>
 	                 
 	<?php }
