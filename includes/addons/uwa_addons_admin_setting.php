@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$uwa_addons_default_setting_tabs);
 		$uwa_enabled_addons_list = uwa_enabled_addons();
 		$active_addon_tab = isset( $_GET['uwa_addons_tab'] ) ? sanitize_text_field( wp_unslash( $_GET['uwa_addons_tab'] ) ) :
-			$uwa_enabled_addons_list[0];
+			( ! empty( $uwa_enabled_addons_list ) ? $uwa_enabled_addons_list[0] : '' );
 		$i = 0;
 		$addons_len = count($uwa_enabled_addons_list);
 		if($addons_len > 0 ){

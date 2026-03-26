@@ -163,7 +163,8 @@ function getKeyByValue(object, value) {
 		var data = {
 					action: 	'uwa_auction_ajax_add_bid',
 					product_id: auctionid,
-					bid_value: 	bid_value,				
+					bid_value: 	bid_value,
+					ua_nonce:   WooUa.ua_nonce,
 				}
 
 		$.post( Uwa_ajax_url, data, function(response) {	

@@ -580,7 +580,7 @@ function uwa_see_more_bids_ajax_callback() {
 
 function uwa_auction_ajax_add_bid_callback(){
 
-	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'uwa_auction_bid_nonce' ) ) {
+	if ( ! isset( $_POST['ua_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ua_nonce'] ) ), 'UtAajax-nonce' ) ) {
 		wp_send_json_error( array( 'message' => esc_html__( 'Security check failed.', 'woo_ua' ) ) );
 	}
 
