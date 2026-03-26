@@ -1359,8 +1359,8 @@ function uwa_front_user_watchlist( $user_id ){
 					
 		        ?>
 		        <tr class="watchauc_list">
-		            <td class="watchauc_img"><?php echo esc_html( $a ?></td>
-		            <td class="watchauc_name"><a href="<?php echo $product_url ); ?>"><?php echo esc_html( $product_name ); ?></a></td>           
+		            <td class="watchauc_img"><?php echo $a; ?></td>
+		            <td class="watchauc_name"><a href="<?php echo esc_url( $product_url ); ?>"><?php echo esc_html( $product_name ); ?></a></td>
 		            <td class="watchauc_curbid"><?php echo esc_html( $product->get_price_html() ); ?></td>
 		            <?php
 
