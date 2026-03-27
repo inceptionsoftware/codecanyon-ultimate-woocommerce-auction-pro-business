@@ -281,19 +281,19 @@ if ( isset( $_POST['uwa_buyers_premium_nonce'] ) && wp_verify_nonce( sanitize_te
 
 
 				if(!p_rate){
-					alert("Please enter premium fee amount.");
+					alert("<?php echo esc_js( __( 'Please enter premium fee amount.', 'woo_ua' ) ); ?>");
 					$("#uwa_buyers_premium_rate").focus();
 					return false;
 				}
 
 				if(isNaN(p_rate)){
-					alert("Please enter only numeric values for premium fee amount");
+					alert("<?php echo esc_js( __( 'Please enter only numeric values for premium fee amount.', 'woo_ua' ) ); ?>");
 					$("#uwa_buyers_premium_rate").focus();
 					return false;
 				}
 
 				if(p_rate <= 0){
-					alert("Please enter values more than 0");
+					alert("<?php echo esc_js( __( 'Please enter values more than 0.', 'woo_ua' ) ); ?>");
 					$("#uwa_buyers_premium_rate").focus();
 					return false;
 				}
@@ -304,14 +304,14 @@ if ( isset( $_POST['uwa_buyers_premium_nonce'] ) && wp_verify_nonce( sanitize_te
 					var max_val = $("#uwa_buyers_max_premium").val();
 
 					if(p_rate > 100){
-						alert("In premium fee amount more than 100 is not allowed");
+						alert("<?php echo esc_js( __( 'In premium fee amount more than 100 is not allowed.', 'woo_ua' ) ); ?>");
 						$("#uwa_buyers_max_premium").val("");
 						return false;
 					}
 
 					if(max_val != ""){
 						if(parseInt(min_val) >= parseInt(max_val)){
-							alert("Maximum premium must be greater than Minimum premium");
+							alert("<?php echo esc_js( __( 'Maximum premium must be greater than minimum premium.', 'woo_ua' ) ); ?>");
 							$("#uwa_buyers_max_premium").focus();
 							return false;
 						}

@@ -189,7 +189,7 @@ if ( isset( $_POST['uwa_offline_nonce'] ) && wp_verify_nonce( sanitize_text_fiel
 						</tr>
 
 						<tr>
-							<th scope="row">Enable Contact fields:</th>
+							<th scope="row"><?php esc_html_e( 'Enable Contact Fields:', 'woo_ua' ); ?></th>
 							<td>
 								<input <?php echo esc_attr( $offline_dealing_field_firstlast_name_checked ); ?> value="1" type="checkbox"
 									name="offline_dealing_field_firstlast_name">

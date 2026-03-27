@@ -145,7 +145,7 @@ function uwa_bid_place_message( $product_id ) {
 	else {
 		
 		if($product_data->get_uwa_auction_proxy() =="yes"){
-			$message = sprintf(__( "Your bid has been placed successfully.", 'woo_ua'));
+			$message = __( 'Your bid has been placed successfully.', 'woo_ua' );
 		}
 		else {
 			
@@ -182,7 +182,7 @@ function uwa_bid_place_message( $product_id ) {
 	else {
 		
 		if($product_data->get_uwa_auction_proxy() =="yes"){
-			$message = sprintf(__( "Your bid has been placed successfully.", 'woo_ua'));
+			$message = __( 'Your bid has been placed successfully.', 'woo_ua' );
 		}
 		else {
 			
@@ -282,13 +282,13 @@ function uwa_woocommerce_auctions_ordering() {
         $catalog_orderby_options = array(
                                 'menu_order'       => __( 'Default sorting', 'woocommerce' ),
                                 'date'             => __( 'Sort by latest', 'woocommerce' ),
-                                'price'            => __( 'Sort by buynow price: low to high', 'woo_ua' ),
-                                'price-desc'       => __( 'Sort by buynow price: high to low', 'woo_ua' ),
+                                'price'            => __( 'Sort by Buy Now price: low to high', 'woo_ua' ),
+                                'price-desc'       => __( 'Sort by Buy Now price: high to low', 'woo_ua' ),
                                /* 'uwa_bid_asc'          => __( 'Sort by current bid: Low to high', 'woo_ua' ),
                                 'uwa_bid_desc'         => __( 'Sort by current bid: High to low', 'woo_ua' ),*/
-                                'uwa_ending'      => __( 'Sort auction by Ending Soon', 'woo_ua' ),
-                                'uwa_started'  => __( 'Sort auction by Just started', 'woo_ua' ),
-                                'uwa_active' => __( 'Sort auction by Most Active', 'woo_ua' ),
+                                'uwa_ending'      => __( 'Sort by Ending Soon', 'woo_ua' ),
+                                'uwa_started'  => __( 'Sort by Just Started', 'woo_ua' ),
+                                'uwa_active' => __( 'Sort by Most Active', 'woo_ua' ),
         );
 
         if ( ! $show_default_orderby ) {
@@ -475,7 +475,7 @@ function uwa_see_more_bids_ajax_callback() {
 
    if (!isset($_POST['auction_id'])) {
 
-   	wp_send_json_error( esc_html__( 'Auction id does not found', 'woo_ua' ) );
+   	wp_send_json_error( esc_html__( 'Auction ID not found.', 'woo_ua' ) );
    	exit;
    }
 
@@ -569,7 +569,7 @@ function uwa_see_more_bids_ajax_callback() {
 
    	} else {
 
-   		wp_send_json_error( esc_html__( 'Auction id is wrong', 'woo_ua' ) );
+   		wp_send_json_error( esc_html__( 'Invalid auction ID.', 'woo_ua' ) );
    		exit;
    	}
 
@@ -598,24 +598,24 @@ function uwa_auction_ajax_add_bid_callback(){
 	$response['status'] = 1;
 
 	if (!is_user_logged_in()) {		
-		$response['msg_error'] = __('Please sign in to place your bid or buy the product','woo_ua');
+		$response['msg_error'] = __( 'Please sign in to place your bid.', 'woo_ua' );
 		$response['status'] = 0;	
 	}
 
 	if ($bid <= 0) {
-		$response['msg_error'] = __('Please enter a value greater than 0!','woo_ua');
+		$response['msg_error'] = __( 'Please enter a value greater than 0!', 'woo_ua' );
 		$response['status'] = 0;		
 	}
 		
 	/* Check if auction product expired */
 	if ($product_data -> is_uwa_expired()) {		
-		$response['msg_error'] = __('This auction  has expired', 'woo_ua' );
+		$response['msg_error'] = __( 'This auction has expired.', 'woo_ua' );
 		$response['status'] = 0;		
 	}
 
 	/* Check if auction product Live or schedule */
 	if (!$product_data -> is_uwa_live()) {		
-		$response['msg_error'] = __('Sorry, the auction has not started yet', 'woo_ua' );
+		$response['msg_error'] = __( 'Sorry, this auction has not started yet.', 'woo_ua' );
 		$response['status'] = 0;	
 	}
 	
@@ -669,7 +669,7 @@ function uwa_auction_ajax_add_bid_callback(){
 			);
 			
 			if ( $wpdb->insert_id ) {
-				$response['msg_success'] = __('Your Bid Placed Successfully', 'woo_ua');				 
+				$response['msg_success'] = __( 'Your bid has been placed successfully.', 'woo_ua' );				 
 			}
 		}
 		   
@@ -1559,7 +1559,7 @@ function ajax_uwa_bid_place_message( $product_id ) {
 	else {
 		
 		if($product_data->get_uwa_auction_proxy() =="yes"){
-			$message = sprintf(__( "Your bid has been placed successfully.", 'woo_ua'));
+			$message = __( 'Your bid has been placed successfully.', 'woo_ua' );
 		}
 		else {
 			

@@ -319,7 +319,7 @@ if ( ($user_id == $product->get_uwa_auction_current_bider() && $product->get_uwa
 
 				?>
 				<p>
-					<a href="<?php echo $checkout_url; ?>" class="button alt uwa_pay_now">
+					<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt uwa_pay_now">
 					<?php echo esc_html( apply_filters( 'ultimate_woocommerce_auction_pay_now_button_text', __( "Pay Buyer's Premium", 'woo_ua' ), $product ) ); ?></a></p>
 				<?php
 
@@ -507,7 +507,7 @@ if ( ($user_id == $product->get_uwa_auction_current_bider() && $product->get_uwa
 
 						?>
 
-			    	<a href="<?php echo $checkout_url; ?>" class="button alt uwa_pay_now">
+			    	<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt uwa_pay_now">
 						<?php echo esc_html( apply_filters( 'ultimate_woocommerce_auction_pay_now_button_text', __( 'Get Item', 'woo_ua' ), $product ) ); ?></a>
 
 					<?php
@@ -517,7 +517,7 @@ if ( ($user_id == $product->get_uwa_auction_current_bider() && $product->get_uwa
 						do_action('ultimate_woocommerce_auction_before_pay_now_button', $product);
 
 					?>
-			    	<a href="<?php echo $checkout_url; ?>" class="button alt uwa_pay_now">
+			    	<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt uwa_pay_now">
 						<?php echo esc_html( apply_filters( 'ultimate_woocommerce_auction_pay_now_button_text', __( 'Pay Now', 'woo_ua' ), $product ) ); ?></a>
 					<?php
 				}

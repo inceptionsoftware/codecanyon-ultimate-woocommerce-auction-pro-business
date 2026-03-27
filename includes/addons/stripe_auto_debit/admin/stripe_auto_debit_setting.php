@@ -113,9 +113,8 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 	$is_uwa_stripe_buyers_premium == "yes" ? $uwa_stripe_buyers_chk = "checked" : 
 		$uwa_stripe_buyers_chk = "";
 	
-	$uwa_auto_stripe_text = get_option('uwa_auto_stripe_text',"Auto Debit Via Stripe");
-	$uwa_auto_stripe_payment_text = get_option('uwa_auto_stripe_payment_text',
-		"Your payment is already done!! please place the order");	
+	$uwa_auto_stripe_text = get_option( 'uwa_auto_stripe_text', __( 'Auto Debit Via Stripe', 'woo_ua' ) );
+	$uwa_auto_stripe_payment_text = get_option( 'uwa_auto_stripe_payment_text', __( 'Your payment is already done!! Please place the order.', 'woo_ua' ) );
 	
 	$is_billing_myaccount_page = get_option('uwa_wc_billing_myaccount_page', "no");
 	$is_billing_myaccount_page == "yes" ? $my_bill_chk = "checked": $my_bill_chk = "";
@@ -151,8 +150,7 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 						$wc_stripe_plugin_file = 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php';
 						if ( file_exists( WP_PLUGIN_DIR . '/' . $wc_stripe_plugin_file ) && !class_exists( 'WC_Stripe' ) ) {
 
-							echo sprintf( esc_html__( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ),
-								'WooCommerce Stripe Gateway' );
+							echo wp_kses_post( sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 'WooCommerce Stripe Gateway' ) );
 							
 						} 
 						elseif( class_exists( 'WC_Stripe' )){
@@ -180,13 +178,11 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 										"woo_ua" ), '<a target="_blank" 
 										href="admin.php?page=wc-settings&tab=checkout&section=stripe">', '</a>' ); */
 										
-									echo sprintf( __( "We are using WooCommerce Stripe Gateway for auto debit. Please %sgo here and configure.%s", "woo_ua" ), '<a target="_blank"  href="admin.php?page=wc-settings&tab=checkout&section=stripe">', '</a>' );	
+									echo wp_kses_post( sprintf( __( "We are using WooCommerce Stripe Gateway for auto debit. Please %sgo here and configure.%s", "woo_ua" ), '<a target="_blank"  href="admin.php?page=wc-settings&tab=checkout&section=stripe">', '</a>' ) );
 												
 								} /* end of if - is_enabled = yes */ 
 								else {
-									echo sprintf( __( "You need to enable the %sEnable Stripe%s and insert stripe detail to make it functional.", 
-										"woo_ua" ), '<a target="_blank" 
-										href="admin.php?page=wc-settings&tab=checkout&section=stripe">', '</a>' );
+									echo wp_kses_post( sprintf( __( "You need to enable the %sEnable Stripe%s and insert stripe detail to make it functional.", "woo_ua" ), '<a target="_blank" href="admin.php?page=wc-settings&tab=checkout&section=stripe">', '</a>' ) );
 
 								} /* end of else */
 									
@@ -194,7 +190,7 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 						} 
 						else {	
 							
-							echo sprintf( __( "To use this feature you need to install  %sWooCommerce Stripe Gateway%s. It is free. Once you have installed it, Configure your Stripe Settings in it.", "woo_ua" ),'<a target="_blank" href="https://wordpress.org/plugins/woocommerce-gateway-stripe/">', '</a>' );
+							echo wp_kses_post( sprintf( __( "To use this feature you need to install %sWooCommerce Stripe Gateway%s. It is free. Once you have installed it, configure your Stripe Settings in it.", "woo_ua" ), '<a target="_blank" href="https://wordpress.org/plugins/woocommerce-gateway-stripe/">', '</a>' ) );
 							
 						} /* end of else */
 						
@@ -223,8 +219,7 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 						$uwa_woo_acc_url = admin_url(
 							'admin.php?page=wc-settings&tab=account');
 
-						printf( __( 'Display Credit Card Details on WooCommerce My Account Page. Please enable <a href="%s">Registration on WooCommerce My Account</a> page for this setting to work.', 'woo_ua' ), 
-							$uwa_woo_acc_url); 
+						echo wp_kses_post( sprintf( __( 'Display Credit card details on WooCommerce My Account page. Please enable <a href="%s">Registration on WooCommerce My Account</a> page for this setting to work.', 'woo_ua' ), esc_url( $uwa_woo_acc_url ) ) ); 
 					?>	
 				</td>
 			</tr> 					
@@ -260,7 +255,7 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 						'uwa_stripe_charge_type_no') ?  "checked" : "" ;  ?> 
 						name="uwa_stripe_charge_type" id="uwa_stripe_charge_type_no" 
 						value="uwa_stripe_charge_type_no" > 
-					<?php esc_html_e( 'No Auto Debit. Collect Payment on checkout page.', 'woo_ua' );?>
+					<?php esc_html_e( 'No auto debit. Collect payment on checkout page.', 'woo_ua' );?>
 				</td>
 			</tr>
 					
@@ -298,9 +293,8 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 					</a>	
 					
 					<input name="uwa_stripe_charge_type_partially_amt"  type="number" 
-						id="uwa_stripe_charge_type_partially_amt" value="<?php echo 
-						$uwa_stripe_charge_type_partially_amt;?>" size="14"><?php printf( 
-						__( "Enter Partially amount (in %s) or percentage.", 'woo_ua' ),
+						id="uwa_stripe_charge_type_partially_amt" value="<?php echo esc_attr( $uwa_stripe_charge_type_partially_amt ); ?>" size="14"><?php printf( 
+						esc_html__( "Enter partial amount (in %s) or percentage.", 'woo_ua' ),
 						get_woocommerce_currency_symbol()); ?>
 				</td>
 			</tr>
@@ -345,13 +339,12 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 			<tr>
 				<th scope="row"></th>
 				<td>
-					<span>For Vendor :</span>
+					<span><?php esc_html_e( 'For Vendor:', 'woo_ua' ); ?></span>
 					<?php
 						$wc_stripe_plugin_file = 'wc-multivendor-marketplace/wc-multivendor-marketplace.php';
 						if ( file_exists( WP_PLUGIN_DIR . '/' . $wc_stripe_plugin_file ) && !class_exists( 'WCFMmp' ) ) { 
 					
-							echo sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 
-								'WCFM - WooCommerce Multivendor Marketplace' );
+							echo wp_kses_post( sprintf( __( 'You just need to activate the <strong>%s</strong> to make it functional.', 'woo_ua' ), 'WCFM - WooCommerce Multivendor Marketplace' ) );
 					
 						} 
 						elseif( class_exists( 'WCFMmp' ) ){
@@ -389,20 +382,19 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 									} /* end of if - testmode */
 
 									echo "<br>";								
-									echo sprintf( __( "We are used  %sWCFM - WooCommerce Multivendor Marketplace%s for auto debit. you can manage here.", "woo_ua" ), '<a target="_blank" href="'.$store_url_setting.'">', '</a>' );	
+									echo wp_kses_post( sprintf( __( "We are using %sWCFM - WooCommerce Multivendor Marketplace%s for auto debit. You can manage here.", "woo_ua" ), '<a target="_blank" href="' . esc_url( $store_url_setting ) . '">', '</a>' );	
 										
 								} /* end of if - withdrawal_test_mode */ 								
 							} /* end of if - stripe_split */ 					
 							else {
 									
-								echo sprintf( __( "You need to enable the %sStripe Split Pay%s in WCFM Marketplace and insert stripe detail to make it functional.", "woo_ua" ), '<a target="_blank" href="'.$store_url_setting.'">', 
-									'</a>' );
+								echo wp_kses_post( sprintf( __( "You need to enable the %sStripe Split Pay%s in WCFM Marketplace and insert stripe detail to make it functional.", "woo_ua" ), '<a target="_blank" href="' . esc_url( $store_url_setting ) . '">', '</a>' ) );
 							}
 					
 						} /* end of elseif */
 						else {
 					
-							echo sprintf( __( "You just need to install the %sWCFM - WooCommerce Multivendor Marketplace%s to make it functional.", "woo_ua" ), '<a target="_blank" href="https://wordpress.org/plugins/wc-multivendor-marketplace/">', '</a>' );
+							echo wp_kses_post( sprintf( __( "You just need to install the %sWCFM - WooCommerce Multivendor Marketplace%s to make it functional.", "woo_ua" ), '<a target="_blank" href="https://wordpress.org/plugins/wc-multivendor-marketplace/">', '</a>' ) );
 						}
 					
 					?>
@@ -561,23 +553,23 @@ if ( isset( $_POST['uwa_stripe_nonce'] ) && wp_verify_nonce( sanitize_text_field
 				var premium_type = $('#uwa_stripe_charge_type_partially_type').val();
 
 				if(!p_rate){
-					alert("Please Enter Partially amount or percentage.");
+					alert("<?php echo esc_js( __( 'Please enter partial amount or percentage.', 'woo_ua' ) ); ?>");
 					return false;
 				}
 
 				if(isNaN(p_rate)){
-					alert("Please enter only numeric values in Partially amount");
+					alert("<?php echo esc_js( __( 'Please enter only numeric values in partial amount.', 'woo_ua' ) ); ?>");
 					return false;
 				}
 
 				if(p_rate <= 0){
-					alert("Please enter values more than 0 in Partially amount");
+					alert("<?php echo esc_js( __( 'Please enter values more than 0 in partial amount.', 'woo_ua' ) ); ?>");
 					return false;
 				}
 				
 				if(premium_type == "percentage"){
 					if(p_rate > 100){
-						alert("In Partially rate More than 100 is not allowed");
+						alert("<?php echo esc_js( __( 'In partial rate, more than 100 is not allowed.', 'woo_ua' ) ); ?>");
 						$("#uwa_stripe_charge_type_partially_amt").val("");
 						return false;
 					}

@@ -372,14 +372,14 @@ class UWA_Admin {
 					?>
 								
 						<p class="form-field"> 									
-								<label><?php _e('Selling Type', 'woo_ua'); ?></label>									
+								<label><?php esc_html_e( 'Selling Type', 'woo_ua' ); ?></label>									
 								<input type="checkbox" id="uwa_auction_selling_type_auction" name="uwa_auction_selling_type_auction"	
-									<?php echo $auction_checked; ?> /> <?php _e('Auction', 'woo_ua'); ?> 										  
+									<?php echo $auction_checked; ?> /> <?php esc_html_e( 'Auction', 'woo_ua' ); ?> 										  
 									
 								<span style="margin-right:25px"> </span>  
 								
 								<input type="checkbox" id="uwa_auction_selling_type_buyitnow" name="uwa_auction_selling_type_buyitnow"	
-									<?php echo $buyitnow_checked; ?> />  <?php _e('Buy it now', 'woo_ua'); ?>
+									<?php echo $buyitnow_checked; ?> />  <?php esc_html_e( 'Buy it now', 'woo_ua' ); ?>
 										
 									<?php echo wc_help_tip($selling_type_desc); ?>
 						</p>
@@ -521,7 +521,7 @@ class UWA_Admin {
 						<span id="uwa_custom_field_add_remove"> 
 							<!-- Don't 	remove -->
 
-							<label><?php _e('Variable Bid Increment', 'woo_ua'); ?><?php echo '(' . get_woocommerce_currency_symbol() . ')';?></label>
+							<label><?php esc_html_e( 'Variable Bid Increment', 'woo_ua' ); ?><?php echo '(' . get_woocommerce_currency_symbol() . ')';?></label>
 
 							<input type="button" id="plus_field" class="button button-secondary" value="Add New" />
 
@@ -535,9 +535,9 @@ class UWA_Admin {
 									
 									if($key !== 'onwards' ){ ?>											
 									<span id="uwa_custom_field_<?php echo $i; ?>" class="uwa_custom_field_main">
-										<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_<?php echo $i; ?>" data-startid="<?php echo $i; ?>" name="uwa_var_inc_val[<?php echo $i; ?>][start]" value="<?php echo $variable_val['start']; ?>" placeholder="<?php _e('Start Price', 'woo_ua'); ?>"/>
-										<input type="number" class="uwa_auction_price_fields end_valid" id="end_val_<?php echo $i; ?>" data-endid="<?php echo $i; ?>"  name="uwa_var_inc_val[<?php echo $i; ?>][end]" value="<?php echo $variable_val['end']; ?>" placeholder="<?php _e('End Price', 'woo_ua'); ?>"/>
-										<input type="number" class="uwa_auction_price_fields" id="inc_val_<?php echo $i; ?>" name="uwa_var_inc_val[<?php echo $i; ?>][inc_val]" value="<?php echo $variable_val['inc_val']; ?>" placeholder="<?php _e('Increment Price', 'woo_ua'); ?>"/>
+										<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_<?php echo $i; ?>" data-startid="<?php echo $i; ?>" name="uwa_var_inc_val[<?php echo $i; ?>][start]" value="<?php echo $variable_val['start']; ?>" placeholder="<?php esc_html_e( 'Start Price', 'woo_ua' ); ?>"/>
+										<input type="number" class="uwa_auction_price_fields end_valid" id="end_val_<?php echo $i; ?>" data-endid="<?php echo $i; ?>"  name="uwa_var_inc_val[<?php echo $i; ?>][end]" value="<?php echo $variable_val['end']; ?>" placeholder="<?php esc_html_e( 'End Price', 'woo_ua' ); ?>"/>
+										<input type="number" class="uwa_auction_price_fields" id="inc_val_<?php echo $i; ?>" name="uwa_var_inc_val[<?php echo $i; ?>][inc_val]" value="<?php echo $variable_val['inc_val']; ?>" placeholder="<?php esc_html_e( 'Increment Price', 'woo_ua' ); ?>"/>
 										<?php
 							              if($i!=1){ ?>
 										<input type="button" class="button button-secondary minus_field" value="-" data-custom="<?php echo $i; ?>" />
@@ -549,24 +549,24 @@ class UWA_Admin {
 								}
 							} else { ?>
 							<span id="uwa_custom_field_0" class="uwa_custom_field_main">
-								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_0" data-startid="0" name="uwa_var_inc_val[0][start]" value="" placeholder="<?php _e('Start Price', 'woo_ua'); ?>"/>
-								<input type="number" class="uwa_auction_price_fields end_valid" id="end_val_0" data-endid="0"  name="uwa_var_inc_val[0][end]" value="" placeholder="<?php _e('End Price', 'woo_ua'); ?>"/>
-								<input type="number" class="uwa_auction_price_fields" id="inc_val_0" name="uwa_var_inc_val[0][inc_val]" value="" placeholder="<?php _e('Increment Price', 'woo_ua'); ?>"/>
+								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_0" data-startid="0" name="uwa_var_inc_val[0][start]" value="" placeholder="<?php esc_html_e( 'Start Price', 'woo_ua' ); ?>"/>
+								<input type="number" class="uwa_auction_price_fields end_valid" id="end_val_0" data-endid="0"  name="uwa_var_inc_val[0][end]" value="" placeholder="<?php esc_html_e( 'End Price', 'woo_ua' ); ?>"/>
+								<input type="number" class="uwa_auction_price_fields" id="inc_val_0" name="uwa_var_inc_val[0][inc_val]" value="" placeholder="<?php esc_html_e( 'Increment Price', 'woo_ua' ); ?>"/>
 							</span>
 							<?php } ?>
 
 
 					<?php if(!empty($uwa_var_inc_data) && $uwa_var_inc_data['onwards']['end'] == 'onwards' ){ ?>
 							    <div id="uwa_custom_field_onwards" class="uwa_custom_field_onwards_main">
-								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_onwards" name="uwa_var_inc_val[onwards][start]" value="<?php echo $uwa_var_inc_data['onwards']['start']; ?>" placeholder="<?php _e('Start', 'woo_ua'); ?>"/>
+								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_onwards" name="uwa_var_inc_val[onwards][start]" value="<?php echo $uwa_var_inc_data['onwards']['start']; ?>" placeholder="<?php esc_html_e( 'Start', 'woo_ua' ); ?>"/>
 								<input type="text" class="uwa_auction_price_fields end_valid" id="end_val_onwards" name="uwa_var_inc_val[onwards][end]"
-								value="onwards" placeholder="<?php _e('onwards', 'woo_ua'); ?>" readonly />
-								<input type="number" class="uwa_auction_price_fields" id="inc_val_onwards" name="uwa_var_inc_val[onwards][inc_val]" value="<?php echo $uwa_var_inc_data['onwards']['inc_val']; ?>" placeholder="<?php _e('Increment Price', 'woo_ua'); ?>"/></div>
+								value="onwards" placeholder="<?php esc_html_e( 'onwards', 'woo_ua' ); ?>" readonly />
+								<input type="number" class="uwa_auction_price_fields" id="inc_val_onwards" name="uwa_var_inc_val[onwards][inc_val]" value="<?php echo $uwa_var_inc_data['onwards']['inc_val']; ?>" placeholder="<?php esc_html_e( 'Increment Price', 'woo_ua' ); ?>"/></div>
 					<?php }  else { ?>					
 						        <div id="uwa_custom_field_onwards" class="uwa_custom_field_onwards_main">
-								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_onwards" name="uwa_var_inc_val[onwards][start]" value="" placeholder="<?php _e('Start Price', 'woo_ua'); ?>"/>
-								<input type="text" class="uwa_auction_price_fields end_valid" id="end_val_onwards" name="uwa_var_inc_val[onwards][end]" value="onwards" placeholder="<?php _e('onwards', 'woo_ua'); ?>" readonly />
-								<input type="number" class="uwa_auction_price_fields" id="inc_val_onwards" name="uwa_var_inc_val[onwards][inc_val]" value="" placeholder="<?php _e('Increment Price', 'woo_ua'); ?>"/></div>
+								<input type="number" class="uwa_auction_price_fields start_valid" id="start_val_onwards" name="uwa_var_inc_val[onwards][start]" value="" placeholder="<?php esc_html_e( 'Start Price', 'woo_ua' ); ?>"/>
+								<input type="text" class="uwa_auction_price_fields end_valid" id="end_val_onwards" name="uwa_var_inc_val[onwards][end]" value="onwards" placeholder="<?php esc_html_e( 'onwards', 'woo_ua' ); ?>" readonly />
+								<input type="number" class="uwa_auction_price_fields" id="inc_val_onwards" name="uwa_var_inc_val[onwards][inc_val]" value="" placeholder="<?php esc_html_e( 'Increment Price', 'woo_ua' ); ?>"/></div>
 						<?php } ?>					
 
 
@@ -815,7 +815,7 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 			<div class="uwa_auction_buyers_heading"
 				style="margin-top:15px;margin-bottom:10px;padding-left:12px;font-size:15px;">
 				<strong><u><i>
-				<?php echo __( "Set Buyer's Premium (B.P)", 'woo_ua' ); ?>
+				<?php echo esc_html__( "Set Buyer's Premium (B.P)", 'woo_ua' ); ?>
 				</i></u></strong>						
 			</div>
 
@@ -841,9 +841,9 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 				
 			<div class="uwa_auction_buyers_globally" style="margin-top:20px;margin-bottom:60px;padding-left:12px;">
 					<strong>
-					<?php echo __( "Check settings for Buyer's Premium at  ", 'woo_ua' ); ?>				
+					<?php echo esc_html__( "Check settings for Buyer's Premium at  ", 'woo_ua' ); ?>				
 					<a href="<?php echo admin_url('admin.php?page=uwa_general_setting&setting_section=uwa_addons_setting');
-						?>"  target="_blank"><?php _e('Globally', 'woo_ua'); ?></a>
+						?>"  target="_blank"><?php esc_html_e( 'Globally', 'woo_ua' ); ?></a>
 					</strong>						
 			</div>				
 
@@ -972,14 +972,14 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 						<div class="uwa_admin_current_time">
 								<?php											
 								printf(__('Current Blog Time is %s', 'woo_ua'), '<strong>'.get_uwa_now_date().'</strong> ');
-								echo __('Timezone:', 'woo_ua').' <strong>'.wp_timezone_string().'</strong>';
-								echo __('<a href="'.admin_url('options-general.php?#timezone_string').'" target="_blank">'.' '.__('Change', 'woo_ua').'</a>');?>								
+								echo esc_html__( 'Timezone:', 'woo_ua' ) . ' <strong>' . esc_html( wp_timezone_string() ) . '</strong>';
+								echo '<a href="' . esc_url( admin_url( 'options-general.php?#timezone_string' ) ) . '" target="_blank"> ' . esc_html__( 'Change', 'woo_ua' ) . '</a>';?>								
 						</div>
 						<?php
 						if ((method_exists( $product, 'get_type') && $product->get_type() == 'auction') && $product->get_uwa_auction_expired() && !$product->get_uwa_auction_payed()) { ?>
 						
 							<p class="form-field uwa_relist_dates_fields" id="uwa_relist_dates_fields">
-								<a href="#" class="button uwa_force_relist" data-auction_id="<?php echo $post->ID;?>"><?php _e('Manually Relist Now', 'woo_ua'); ?></a>
+								<a href="#" class="button uwa_force_relist" data-auction_id="<?php echo $post->ID;?>"><?php esc_html_e( 'Manually Relist Now', 'woo_ua' ); ?></a>
 							</p>
 						
 							<div  class="uwa_auction_relist_date_field">
@@ -1010,14 +1010,14 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 						if ((method_exists( $product, 'get_type') && $product->get_type() == 'auction') and ($product->is_uwa_live()  === FALSE )) { ?>
 							
 							<p class="form-field uwa_admin_uwa_make_live">
-							<a href="#" class="button uwa_force_make_live" data-auction_id="<?php echo $post->ID;?>"><?php _e('Make It Live', 'woo_ua'); ?></a>
+							<a href="#" class="button uwa_force_make_live" data-auction_id="<?php echo $post->ID;?>"><?php esc_html_e( 'Make It Live', 'woo_ua' ); ?></a>
 							</p> <?php  
 						}
 						
 						if ((method_exists( $product, 'get_type') && $product->get_type() == 'auction') && $product->is_uwa_expired() === FALSE && ($product->is_uwa_live()  === TRUE )) {   ?>
 							
 							<p class="form-field uwa_admin_uwa_force_end_now">
-							<a href="#" class="button uwa_force_end_now" data-auction_id="<?php echo $post->ID;?>"><?php _e('End Now', 'woo_ua'); ?></a>
+							<a href="#" class="button uwa_force_end_now" data-auction_id="<?php echo $post->ID;?>"><?php esc_html_e( 'End Now', 'woo_ua' ); ?></a>
 							</p>  <?php  											
 							
 						} ?>
@@ -1463,7 +1463,7 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 			);
 			?>
 	        <select name="uwa_filter">
-	        	<option value=""><?php _e('Auction filter By ', 'woo_ua');?></option>
+	        	<option value=""><?php esc_html_e( 'Auction filter by', 'woo_ua' ); ?></option>
 	        	<?php
                 $current_filter = isset($_GET['uwa_filter']) ? $_GET['uwa_filter'] : '';
                 foreach ($filter_values as $label => $value) {
@@ -2167,31 +2167,31 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 				$started = $product_data->is_uwa_live();
 				$failed = $product_data->get_uwa_auction_fail_reason();
 				if($closed === FALSE && $started === TRUE){ ?>				
-						<span style="color:#7ad03a;font-size:18px"><?php _e('Live', 'woo_ua')?></span>
+						<span style="color:#7ad03a;font-size:18px"><?php esc_html_e( 'Live', 'woo_ua' ); ?></span>
 					<?php 
 				} elseif($closed === FALSE && $started === FALSE){ ?>					
-						<span style="color:orange;font-size:18px"><?php _e('Future', 'woo_ua')?></span>
-						</br><span style="color:#0073aa;font-size:10px"><?php _e('Not Started', 'woo_ua')?></span>
+						<span style="color:orange;font-size:18px"><?php esc_html_e( 'Future', 'woo_ua' ); ?></span>
+						</br><span style="color:#0073aa;font-size:10px"><?php esc_html_e( 'Not Started', 'woo_ua' ); ?></span>
 					<?php 
 				} else { ?>				
-					   <span style="color:red;font-size:18px"><?php _e('Expired', 'woo_ua')?></span>
+					   <span style="color:red;font-size:18px"><?php esc_html_e( 'Expired', 'woo_ua' ); ?></span>
 					   
 						<?php if ($product_data->get_uwa_auction_expired() == '3') { ?>
 						
-							</br><span style="color:#0073aa;font-size:10px"><?php _e('Sold', 'woo_ua')?></span>
+							</br><span style="color:#0073aa;font-size:10px"><?php esc_html_e( 'Sold', 'woo_ua' ); ?></span>
 							<?php 
 						} elseif ($product_data->get_uwa_auction_fail_reason() == '1') { ?>
 						
-							</br><span style="color:#0073aa;font-size:10px"><?php _e('No Bid', 'woo_ua')?></span>
+							</br><span style="color:#0073aa;font-size:10px"><?php esc_html_e( 'No Bid', 'woo_ua' ); ?></span>
 					
 				    		<?php 
 						} elseif ($product_data->get_uwa_auction_fail_reason() == '2') { ?>
 				
-							</br><span style="color:#0073aa;font-size:10px"><?php _e('Reserve Not Met', 'woo_ua')?></span>
+							</br><span style="color:#0073aa;font-size:10px"><?php esc_html_e( 'Reserve Not Met', 'woo_ua' ); ?></span>
 					
 							<?php 
 						} else { ?>				
-							</br><span style="color:#0073aa;font-size:10px"><?php _e('Won', 'woo_ua')?></span>			
+							</br><span style="color:#0073aa;font-size:10px"><?php esc_html_e( 'Won', 'woo_ua' ); ?></span>			
 							<?php
 						
 						} /* end of else */
@@ -2212,7 +2212,7 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 				$products_page_url = admin_url('edit.php?post_type=product'); ?>	
 		    
 				<div class="notice notice-warning is-dismissible">
-		      		<p><?php _e( 'You can Manage All Auctions via Products List <a href="'.$products_page_url.'" target="blank" >  Click Here.</a>', 'woo' ); ?></p>  
+		      		<p><?php echo wp_kses_post( sprintf( __( 'You can manage all auctions via products list <a href="%s" target="blank">Click Here.</a>', 'woo_ua' ), esc_url( $products_page_url ) ) ); ?></p>  
 			  	</div>
 		    	<?php  	
 		    }
@@ -2382,32 +2382,32 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 			$uwa_auction_relisted = $product_data->get_uwa_auction_relisted();
 			if ( ! empty( $uwa_auction_relisted ) ) {
 			?>
-			<p><?php _e( 'Auction has been relisted on:', 'woo_ua' ); ?> <?php echo mysql2date($datetimeformat ,$uwa_auction_relisted)?> </p>
+			<p><?php esc_html_e( 'Auction has been relisted on:', 'woo_ua' ); ?> <?php echo mysql2date($datetimeformat ,$uwa_auction_relisted)?> </p>
 			<?php } ?>
 		<?php if (($product_data->is_uwa_expired() === TRUE) and ($product_data->is_uwa_live() === TRUE)): ?>				
-				<p><?php _e('Auction has expired', 'woo_ua')?></p>
+				<p><?php esc_html_e( 'Auction has expired', 'woo_ua' ); ?></p>
 				
 				<?php if ($product_data->get_uwa_auction_fail_reason() == '1') { ?>
 				
-						<p><?php _e('Auction Expired without any bids.', 'woo_ua')?></p>
+						<p><?php esc_html_e( 'Auction expired without any bids.', 'woo_ua' ); ?></p>
 					
 				<?php } elseif ($product_data->get_uwa_auction_fail_reason() == '2') { ?>
 				
-						<p><?php _e('Auction Expired without reserve price met', 'woo_ua')?></p>
+						<p><?php esc_html_e( 'Auction expired without reserve price met.', 'woo_ua' ); ?></p>
 							
 						<!--<a class="removereserve" href="#" data-postid="<?php echo $post->ID;?>">
-						<?php _e('Remove Reserve Price', 'woo_ua'); ?> </a>	-->
+						<?php esc_html_e( 'Remove Reserve Price', 'woo_ua' ); ?> </a>	-->
 					
 				<?php }
 				
 				if ($product_data->get_uwa_auction_expired() == '3') {?>
 				
-					<p><?php _e('This Auction Product has been sold for buy now price', 'woo_ua')?>: <span><?php echo wc_price($product_data->get_regular_price()) ?></span></p>
+					<p><?php esc_html_e( 'This auction product has been sold for buy now price', 'woo_ua' ); ?>: <span><?php echo wc_price($product_data->get_regular_price()) ?></span></p>
 					<?php 
 					$order = wc_get_order( $product_data->get_uwa_order_id() );
 								if ( $order ){
 									$order_status = $order->get_status() ? $order->get_status() : __('unknown', 'woo_ua');?>
-									<p><?php _e('Order has been made, order status is', 'woo_ua')?>: <a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $order_status ?></a><span>
+									<p><?php esc_html_e( 'Order has been made, order status is', 'woo_ua' ); ?>: <a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $order_status ?></a><span>
 								<?php }
 				  } elseif ($product_data->get_uwa_auction_current_bider()) {?>
 				
@@ -2415,38 +2415,38 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 							$current_bidder = $product_data->get_uwa_auction_current_bider();
 						?>
 
-						<p><?php _e('Highest bidder was', 'woo_ua')?>: <span class="maxbider"><a href='<?php echo get_edit_user_link($current_bidder)?>'><?php   echo uwa_user_display_name($current_bidder); ?></a></span></p>
+						<p><?php esc_html_e( 'Highest bidder was', 'woo_ua' ); ?>: <span class="maxbider"><a href='<?php echo get_edit_user_link($current_bidder)?>'><?php   echo uwa_user_display_name($current_bidder); ?></a></span></p>
 						
-						<p><?php _e('Highest bid was', 'woo_ua')?>: <span class="maxbid" ><?php echo wc_price($product_data->get_uwa_current_bid()) ?></span></p>
+						<p><?php esc_html_e( 'Highest bid was', 'woo_ua' ); ?>: <span class="maxbid" ><?php echo wc_price($product_data->get_uwa_current_bid()) ?></span></p>
 
 						<?php if ($product_data->get_uwa_auction_payed()) {?>
 					
-							<p><?php _e('Order has been paid, order ID is', 'woo_ua')?>: <span><a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $product_data->get_uwa_order_id() ?></a></span></p>
+							<p><?php esc_html_e( 'Order has been paid, order ID is', 'woo_ua' ); ?>: <span><a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $product_data->get_uwa_order_id() ?></a></span></p>
 							
 						<?php } elseif ($product_data->get_uwa_order_id()) {
 						
 								$order = wc_get_order( $product_data->get_uwa_order_id() );
 								if ( $order ){
 									$order_status = $order->get_status() ? $order->get_status() : __('unknown', 'woo_ua');?>
-									<p><?php _e('Order has been made, order status is', 'woo_ua')?>: <a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $order_status ?></a><span>
+									<p><?php esc_html_e( 'Order has been made, order status is', 'woo_ua' ); ?>: <a href='post.php?&action=edit&post=<?php echo $product_data->get_uwa_order_id() ?>'><?php echo $order_status ?></a><span>
 								<?php }
 						}?>
 						
 							
 							<?php if ($product_data->get_uwa_stripe_auto_debit_bid_amt()) {?>					
 							
-								<p><?php _e('Bid won auto debit amount', 'woo_ua')?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_bid_amt()) ?></p>	
+								<p><?php esc_html_e( 'Bid won auto debit amount', 'woo_ua' ); ?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_bid_amt()) ?></p>	
 								
 							<?php }?>
 							
 							<?php if ($product_data->get_uwa_stripe_auto_debit_bpm_amt()) {?>					
 							
-								<p><?php _e("Buyer's Premium Auto Debit", 'woo_ua')?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_bpm_amt()) ?></p>									
+								<p><?php esc_html_e( "Buyer's Premium Auto Debit", 'woo_ua' ); ?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_bpm_amt()) ?></p>									
 							<?php }?>
 							
 							<?php if ($product_data->get_uwa_stripe_auto_debit_total_amt()) {?>					
 							
-								<p><?php _e('Total Auto Debit', 'woo_ua')?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_total_amt()) ?></p>	
+								<p><?php esc_html_e( 'Total Auto Debit', 'woo_ua' ); ?> : <?php echo wc_price($product_data->get_uwa_stripe_auto_debit_total_amt()) ?></p>	
 								
 							<?php }?>
 							
@@ -2472,18 +2472,18 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 							if ( !empty($uwa_auction_log_history)  ): ?>
 							
 								<tr>
-									<th><?php _e('Bidder Name', 'woo_ua')?></th>
-									<th><?php _e('Bidding Time', 'woo_ua')?></th>
-									<th><?php _e('Bid', 'woo_ua')?></th>								
-									<th><?php _e('Auto', 'woo_ua')?></th>								
-									<th class="actions"><?php _e('Actions', 'woo_ua')?></th>
+									<th><?php esc_html_e( 'Bidder Name', 'woo_ua' ); ?></th>
+									<th><?php esc_html_e( 'Bidding Time', 'woo_ua' ); ?></th>
+									<th><?php esc_html_e( 'Bid', 'woo_ua' ); ?></th>								
+									<th><?php esc_html_e( 'Auto', 'woo_ua' ); ?></th>								
+									<th class="actions"><?php esc_html_e( 'Actions', 'woo_ua' ); ?></th>
 								</tr>
 								<?php foreach ($uwa_auction_log_history as $history_value) { 
 								$start_date = $product_data->get_uwa_auction_start_time();								
 								if ( $history_value->date < $product_data->get_uwa_auction_relisted() && ! isset( $uwa_relisted )) {
 							    ?>
 									<tr>
-									<td><?php echo __( 'Auction relisted', 'woo_ua' );?></td>
+									<td><?php echo esc_html__( 'Auction relisted', 'woo_ua' ); ?></td>
 									<td colspan="4"  class="bid_date"><?php echo mysql2date($datetimeformat,$start_date)?></td>
 									</tr>							
 								<?php $uwa_relisted = true; 
@@ -2495,7 +2495,7 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 										<td class="bid_price"><?php echo wc_price($history_value->bid)?></td>
 										<?php 
 											if ($history_value->proxy == 1) { ?>
-												<td class="proxy"><?php _e('Auto', 'woo_ua');?></td>
+												<td class="proxy"><?php esc_html_e( 'Auto', 'woo_ua' ); ?></td>
 											<?php } else { ?>
 												<td class="proxy"></td>
 										<?php } ?>
@@ -2505,7 +2505,7 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 											/*if ($product_data->get_uwa_auction_expired() != '2') { */ ?>
 											<?php if(!$product_data->get_uwa_auction_payed()){ ?>
 												<a href='#' data-id=<?php echo $history_value->id;?> 
-												data-postid=<?php echo $post->ID;?>  ><?php echo __('Delete', 'woo_ua');?></a>
+												data-postid=<?php echo $post->ID;?>  ><?php echo esc_html__( 'Delete', 'woo_ua' ); ?></a>
 											<?php } ?>
 										</td>
 									</tr>
@@ -2517,9 +2517,9 @@ if(is_array($addons) && in_array('uwa_buyers_premium_addon', $addons)){
 									<?php 
 									$start_date = $product_data->get_uwa_auction_start_time();
 									 if ($product_data->is_uwa_live() === TRUE) { ?>
-									<td class="started"><?php echo __('Auction started', 'woo_ua');?>
+									<td class="started"><?php echo esc_html__( 'Auction started', 'woo_ua' ); ?>
 										<?php }   else { ?>									
-									<td  class="started"><?php echo __('Auction starting', 'woo_ua');?>		
+									<td  class="started"><?php echo esc_html__( 'Auction starting', 'woo_ua' ); ?>		
 										<?php } ?></td>	
 										
 									<td colspan="4"  class="bid_date"><?php echo mysql2date($datetimeformat,$start_date)?></td>
@@ -2707,15 +2707,15 @@ public function uwa_block_unblock_user_modify_user_table_row( $val, $column_name
 	public function uwa_block_unblock_user_to_bid_profile_fields ( $user ) {	
 		$user_status = get_the_author_meta( 'uwa_block_user_status', $user->ID,true );
 		?>
-		<h3><?php _e('UWA Pro Block/Unblock User', 'woo_ua'); ?></h3>
+		<h3><?php esc_html_e( 'UWA Pro Block/Unblock User', 'woo_ua' ); ?></h3>
 		<table class="form-table">
    	 <tr>
-   		 <th><label for="uwa_block_user_status"><?php _e('Block/Unblock User to Bid', 'woo_ua'); ?></label></th>
+   		 <th><label for="uwa_block_user_status"><?php esc_html_e( 'Block/Unblock User to Bid', 'woo_ua' ); ?></label></th>
    		 <td>
    			 <select id="uwa_block_user_status" name="uwa_block_user_status">
-			  <option value=""><?php _e('Select Status', 'woo_ua'); ?> </option>
-			 <option value="uwa_block_user_to_bid" <?php selected( $user_status , 'uwa_block_user_to_bid'); ?>><?php _e('Block', 'woo_ua'); ?> </option>
-             <option value="uwa_unblock_user_to_bid" <?php selected( $user_status, 'uwa_unblock_user_to_bid'); ?>> <?php _e('Unblock', 'woo_ua'); ?></option>			 
+			  <option value=""><?php esc_html_e( 'Select Status', 'woo_ua' ); ?> </option>
+			 <option value="uwa_block_user_to_bid" <?php selected( $user_status , 'uwa_block_user_to_bid'); ?>><?php esc_html_e( 'Block', 'woo_ua' ); ?> </option>
+             <option value="uwa_unblock_user_to_bid" <?php selected( $user_status, 'uwa_unblock_user_to_bid'); ?>> <?php esc_html_e( 'Unblock', 'woo_ua' ); ?></option>			 
 			 </select>
    			 
    		 </td>

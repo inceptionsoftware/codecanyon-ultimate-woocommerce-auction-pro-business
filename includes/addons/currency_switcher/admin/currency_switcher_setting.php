@@ -28,8 +28,7 @@ if ( isset( $_POST['uwa_cs_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp
 
 	//var_dump($get_aelia_text);
 	if ($get_aelia_text === false){
-		//$aelia_cs_text = __("Enter bid in primary currency", "woo_ua");
-		$aelia_cs_text = "Enter bid in primary currency";
+		$aelia_cs_text = __( 'Enter bid in primary currency', 'woo_ua' );
 	}
 	elseif(empty($get_aelia_text)){
 		$aelia_cs_text = "";

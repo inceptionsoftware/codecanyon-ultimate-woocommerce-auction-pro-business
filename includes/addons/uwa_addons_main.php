@@ -475,7 +475,7 @@ function uwa_stripe_auto_debit_woocommerce_hidden_order_itemmeta( $array ) {
 /*  Display order item meta in admin side */
 add_action( 'woocommerce_admin_order_item_headers','uwa_stripe_auto_debit_action_woocommerce_admin_order_item_headers', 10, 3 );
 function uwa_stripe_auto_debit_action_woocommerce_admin_order_item_headers( $order ) {
-    echo '<th class="item_buyercost sortable" data-sort="float" style="text-align: right;">Auto Debit</th>';
+    echo '<th class="item_buyercost sortable" data-sort="float" style="text-align: right;">' . esc_html__( 'Auto Debit', 'woo_ua' ) . '</th>';
 }
 
 /* Display order item meta in admin side */
@@ -490,7 +490,7 @@ function uwa_stripe_auto_debit_action_woocommerce_admin_order_item_values( $null
     	<td class="item_buyercost" data-sort-value="<?php echo $total_auto_debit_amt; ?>">
         <div class="view" style="text-align: right; padding-right: 10px;">
 			<?php   
-				if($auto_debit_buyer_amt > 0){ ?>Buyer's Premium :
+				if($auto_debit_buyer_amt > 0){ echo esc_html__( "Buyer's Premium", 'woo_ua' ) . ' :'; ?>
 				<?php  
 
 					/* --aelia-- */
@@ -500,7 +500,7 @@ function uwa_stripe_auto_debit_action_woocommerce_admin_order_item_values( $null
 
 					echo wc_price($auto_debit_buyer_amt) ; ?> </br> <?php }   ?>
 	        <?php   
-	         	if($auto_debit_amt > 0){ ?> Won Bid :
+	         	if($auto_debit_amt > 0){ echo ' ' . esc_html__( 'Won Bid', 'woo_ua' ) . ' :'; ?>
 	         	<?php  
 
 	         		/* --aelia-- */
@@ -510,7 +510,7 @@ function uwa_stripe_auto_debit_action_woocommerce_admin_order_item_values( $null
 
 	         		echo wc_price ($auto_debit_amt) ; ?>  </br><?php }  ?>
 		    <?php   
-		    	if($total_auto_debit_amt > 0){ ?> Total :
+		    	if($total_auto_debit_amt > 0){ echo ' ' . esc_html__( 'Total', 'woo_ua' ) . ' :'; ?>
 		    	<?php  
 
 		    		/* --aelia-- */

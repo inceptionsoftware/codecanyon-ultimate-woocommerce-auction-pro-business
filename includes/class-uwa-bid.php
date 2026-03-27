@@ -64,7 +64,7 @@ class UWA_Bid {
 		do_action('ultimate_woocommerce_auction_before_place_bid', $product_id, $bid, $product_data);
 
 		if (!is_user_logged_in()) {
-			wc_add_notice(sprintf(__('Please Login/Register in to place your bid or buy the product. <a href="%s"  target="_blank"  class="button">Login/Register &rarr;</a>', 'woo_ua'), get_permalink(wc_get_page_id('myaccount'))), 'error');
+			wc_add_notice(sprintf(__('Please login or register to place your bid. <a href="%s"  target="_blank"  class="button">Login / Register &rarr;</a>', 'woo_ua'), get_permalink(wc_get_page_id('myaccount'))), 'error');
 			return false;
 		}
 
@@ -75,10 +75,10 @@ class UWA_Bid {
 		if ($user_status == "uwa_block_user_to_bid") {
 			$get_block_user_text = get_option('uwa_block_user_text');
 			if ($get_block_user_text != "") {
-				wc_add_notice(sprintf(__($get_block_user_text, 'woo_ua')), 'error');
+				wc_add_notice( __( $get_block_user_text, 'woo_ua' ), 'error' );
 			}
 			else {
-				wc_add_notice(sprintf(__('You are not allow to place bid please contact to admin.', 'woo_ua')), 'error');
+				wc_add_notice( __( 'You are not allowed to place a bid. Please contact the admin.', 'woo_ua' ), 'error' );
 			}
 			return false;
 		}
@@ -92,13 +92,13 @@ class UWA_Bid {
 			/* for administrator role only */
 			if (current_user_can('administrator')) {
 				if ($uwa_allow_admin_to_bid == "no" && $current_user->ID == $post_author) {
-					wc_add_notice(sprintf(__('Sorry, you can not bid on your own auction product.', 'woo_ua')), 'error');
+					wc_add_notice( __( 'Sorry, you cannot bid on your own auction product.', 'woo_ua' ), 'error' );
 					return false;			
 				}
 			}
 			else { /* for seller/vendor/other role  */
 				if ($uwa_allow_owner_to_bid == "no" && $current_user->ID == $post_author) {
-					wc_add_notice(sprintf(__('Sorry, you can not bid on your own auction product.', 'woo_ua')), 'error');
+					wc_add_notice( __( 'Sorry, you cannot bid on your own auction product.', 'woo_ua' ), 'error' );
 					return false;
 				}
 			}
@@ -177,7 +177,7 @@ class UWA_Bid {
 
 						$myaccount_link = wc_get_endpoint_url('edit-address', 'billing', get_permalink(wc_get_page_id('myaccount')));
 
-						wc_add_notice(sprintf(__('You can not place a bid on the auction, please add billing details. <a href="%s"  target="_blank"  class="button"> ADD ADDRESS &rarr;</a>', "woo_ua"), $myaccount_link ), 'error');
+						wc_add_notice(sprintf(__('You cannot place a bid on the auction. Please add your billing details first. <a href="%s" target="_blank" class="button">Add Address &rarr;</a>', "woo_ua"), $myaccount_link ), 'error');
 
 						return false;
 					}
@@ -188,7 +188,7 @@ class UWA_Bid {
 
 		
 		if ($bid <= 0) {
-			wc_add_notice(sprintf(__('Please enter a value greater than 0!', 'woo_ua'), get_permalink(wc_get_page_id('myaccount'))), 'error');
+			wc_add_notice( __( 'Please enter a value greater than 0!', 'woo_ua' ), 'error' );
 			return false;
 		}
 		
@@ -218,7 +218,7 @@ class UWA_Bid {
 		}
 		
 		if ($bid >= $max_bid_amt) {
-			wc_add_notice(sprintf(__('Bid Value must less than %s !', 'woo_ua'), wc_price($max_bid_amt, $args)), 'error');
+			wc_add_notice(sprintf(__('Bid value must be less than %s.', 'woo_ua'), wc_price($max_bid_amt, $args)), 'error');
 			return false;
 		}
 		
@@ -260,13 +260,13 @@ class UWA_Bid {
 						update_user_meta($current_user->ID, $maxbid_metakey, 
 							$bid);
 
-					wc_add_notice(sprintf(__('You have changed your maximum bid successfully to %s', 'woo_ua'),wc_price(
+					wc_add_notice(sprintf(__('You have changed your maximum bid successfully to %s.', 'woo_ua'),wc_price(
 						$bid, $args)));
 
 					return false;
 				}
 				elseif($bid < (float) $auction_high_bid && $auction_current_bider == $current_user->ID ){			  				
-					wc_add_notice(sprintf(__('New maximum bid cannot be smaller than old maximum bid.', 'woo_ua'),wc_price($bid, $args)),'error');				
+					wc_add_notice( sprintf( __( 'New maximum bid cannot be smaller than old maximum bid.', 'woo_ua' ), wc_price( $bid, $args ) ), 'error' );				
 					return false;
 				} 	
 				else {
@@ -363,8 +363,7 @@ class UWA_Bid {
 							update_user_meta($current_user->ID, "uwa_samemaxbid_bidmsg_display", "no"); 
 							update_user_meta($current_user->ID, "uwa_samemaxbid_bidmsg_auction", $product_id);
 
-							wc_add_notice(sprintf(__('Your bid matches with maximum bid of an user. The bid of this item has been updated. Please check the latest bid and bid again.', 'woo_ua'), 
-								wc_price($bid, $args)), 'error');
+							wc_add_notice( __( 'Your bid matches the maximum bid of another user. The bid for this item has been updated. Please check the latest bid and bid again.', 'woo_ua' ), 'error' );
 
 							/*return true;*/
 						}
@@ -372,7 +371,7 @@ class UWA_Bid {
 
 							/* default */
 
-							wc_add_notice(sprintf(__('Your amount matches with maximum bidding amount of an user. Kindly check new bid and enter more value.', 'woo_ua'), wc_price($bid, $args)), 'error');
+							wc_add_notice( __( 'Your bid amount matches the maximum bid of another user. Please check the current bid and enter a higher value.', 'woo_ua' ), 'error' );
 							return false;
 						}
 
@@ -397,7 +396,7 @@ class UWA_Bid {
 					update_post_meta($product_id, 'woo_ua_auction_current_bider', $auction_high_current_bider);
 					update_post_meta($product_id, 'woo_ua_auction_bid_count',(int)$auction_bid_count + 2);					
 					$history_bid_id = $this -> history_bid($product_id, $proxy_bid, get_userdata($auction_high_current_bider), 1);					
-					wc_add_notice(sprintf(__('You have been outbid.', 'woo_ua'), $product_data -> get_title()),'error');
+					wc_add_notice( __( 'You have been outbid.', 'woo_ua' ), 'error' );
 						WC()->mailer();
 						$outbiddeduser = $current_user->ID;					
 						do_action( 'uwa_pro_outbid_bid_email', $outbiddeduser, $product_data);
@@ -490,7 +489,7 @@ class UWA_Bid {
 						update_post_meta($product_id, 'woo_ua_auction_current_bider', $auction_high_current_bider);					
 						update_post_meta($product_id, 'woo_ua_auction_bid_count',(int)$auction_bid_count + 2);
 						$history_bid_id = $this -> history_bid($product_id, $proxy_bid, get_userdata($auction_high_current_bider), 1);
-						wc_add_notice(sprintf(__('You have been outbid.', 'woo_ua'), $product_data -> get_title()),'error');
+						wc_add_notice( __( 'You have been outbid.', 'woo_ua' ), 'error' );
 							WC()->mailer();
 							$outbiddeduser = $current_user->ID;					
 							do_action( 'uwa_pro_outbid_bid_email', $outbiddeduser, $product_data);
@@ -519,7 +518,7 @@ class UWA_Bid {
 
 			 
 		} else {
-			wc_add_notice(sprintf(__('There was no bid Placed.', 'woo_ua'), $product_data -> get_title()),'error');
+			wc_add_notice( __( 'There was no bid placed.', 'woo_ua' ), 'error' );
 			return false;
 		}
 		do_action('ultimate_woocommerce_auction_place_bid', array( 'product_id' => $product_id ,'log_id' => $history_bid_id ));
@@ -542,7 +541,7 @@ class UWA_Bid {
 
 		
 		if ( ($product_data -> is_uwa_user_biding($current_user->ID) > 0 ) && get_option( 'uwa_restrict_bidder_enable') == 'yes') {	
-			wc_add_notice(sprintf(__('You already placed bid for this auction. ', 'woo_ua'), $product_data -> get_title()),'error');
+			wc_add_notice( __( 'You have already placed a bid for this auction.', 'woo_ua' ), 'error' );
 			return false;
 		}
 			
@@ -550,7 +549,7 @@ class UWA_Bid {
 			if ( !empty($product_data->get_uwa_auction_start_price())) {
 
 				if ($product_data->get_uwa_auction_start_price()  > $bid)  {
-			    	wc_add_notice(sprintf(__('Your bid is smaller for &quot;%s&quot;.Your bid must be at least %s ', 'woo_ua'), $product_data -> get_title(),
+			    	wc_add_notice(sprintf(__('Your bid is too small for &quot;%s&quot;. Your bid must be at least %s.', 'woo_ua'), $product_data -> get_title(),
 						wc_price($product_data->get_uwa_auction_start_price(), $args )),'error');
 					return false;
 				} 
@@ -593,7 +592,7 @@ class UWA_Bid {
 
 				if ($product_data->get_uwa_auction_start_price() < $bid)  {
 					
-					wc_add_notice(sprintf(__('Your bid is greater for &quot;%s&quot;.Your bid must be at least %s ', 'woo_ua'), $product_data -> get_title(),
+					wc_add_notice(sprintf(__('Your bid is too high for &quot;%s&quot;. Your bid must be at most %s.', 'woo_ua'), $product_data -> get_title(),
 						wc_price($product_data->get_uwa_auction_start_price(), $args )),'error');
 					return false;
 				} 
@@ -629,7 +628,7 @@ class UWA_Bid {
 			
 
 		} else{
-			wc_add_notice(sprintf(__('There was no bid', 'woo_ua'), $product_data -> get_title()),'error');
+			wc_add_notice( __( 'There was no bid placed.', 'woo_ua' ), 'error' );
 			return false;
 
 		}
@@ -686,7 +685,7 @@ class UWA_Bid {
 
 		if (!is_user_logged_in()) {
 			
-			$ret_arr1['error'] = sprintf(__('Please Login/Register in to place your bid or buy the product. <a href="%s"  target="_blank"  class="button">Login/Register &rarr;</a>', 
+			$ret_arr1['error'] = sprintf(__('Please login or register to place your bid. <a href="%s" target="_blank" class="button">Login / Register &rarr;</a>', 
 				'woo_ua'), get_permalink(wc_get_page_id('myaccount')));
 			$ret_arr1['status'] = false;
 			return $ret_arr1;
@@ -700,10 +699,10 @@ class UWA_Bid {
 			
 			$get_block_user_text = get_option('uwa_block_user_text');
 			if($get_block_user_text != ""){
-				$ret_arr7['error'] = sprintf(__($get_block_user_text, 'woo_ua'));
+				$ret_arr7['error'] = __( $get_block_user_text, 'woo_ua' );
 			}
 			else{				
-				$ret_arr7['error'] = sprintf(__('You are not allow to place bid please contact to admin.', 'woo_ua'));
+				$ret_arr7['error'] = __( 'You are not allowed to place a bid. Please contact the admin.', 'woo_ua' );
 			}
 			
 			$ret_arr7['status'] = false;
@@ -719,14 +718,14 @@ class UWA_Bid {
 			/* for administrator role only */
 			if(current_user_can('administrator')){
 				if($uwa_allow_admin_to_bid == "no" && $current_user->ID == $post_author){
-					$ret_arr14['error'] = sprintf(__('Sorry, you can not bid on your own auction product.', 'woo_ua'));
+					$ret_arr14['error'] = __( 'Sorry, you cannot bid on your own auction product.', 'woo_ua' );
 					$ret_arr14['status'] = false;
 					return $ret_arr14;
 				}
 			}
 			else{ /* for seller/vendor/other role  */
 				if($uwa_allow_owner_to_bid == "no" && $current_user->ID == $post_author){
-					$ret_arr15['error'] = sprintf(__('Sorry, you can not bid on your own auction product.', 'woo_ua'));
+					$ret_arr15['error'] = __( 'Sorry, you cannot bid on your own auction product.', 'woo_ua' );
 					$ret_arr15['status'] = false;
 					return $ret_arr15;
 				}
@@ -815,7 +814,7 @@ class UWA_Bid {
 
 						$myaccount_link = wc_get_endpoint_url('edit-address', 'billing', get_permalink(wc_get_page_id('myaccount')));
 
-						$ret_arr16['error'] = sprintf(__('You can not place a bid on the auction, please add billing details. <a href="%s"  target="_blank"  class="button"> ADD ADDRESS &rarr;</a>', "woo_ua"), $myaccount_link);
+						$ret_arr16['error'] = sprintf(__('You cannot place a bid on the auction. Please add your billing details first. <a href="%s" target="_blank" class="button">Add Address &rarr;</a>', "woo_ua"), $myaccount_link);
 
 						$ret_arr16['status'] = false;
 						return $ret_arr16;
@@ -827,7 +826,7 @@ class UWA_Bid {
 
 		if ($bid <= 0) {
 		
-			$ret_arr2['error'] = sprintf(__('Please enter a value greater than 0!', 'woo_ua'), get_permalink(wc_get_page_id('myaccount')));
+			$ret_arr2['error'] = __( 'Please enter a value greater than 0!', 'woo_ua' );
 
 			$ret_arr2['status'] = false;
 			return $ret_arr2;
@@ -866,7 +865,7 @@ class UWA_Bid {
 		
 		if ($bid >= $max_bid_amt) {
 		
-			$ret_arr6['error'] = sprintf(__('Bid Value must less than %s !', 'woo_ua'), wc_price($max_bid_amt, $args));
+			$ret_arr6['error'] = sprintf(__('Bid value must be less than %s.', 'woo_ua'), wc_price($max_bid_amt, $args));
 			$ret_arr6['status'] = false;
 			return $ret_arr6;
 		}
@@ -917,7 +916,7 @@ class UWA_Bid {
 							$bid);
 
 				
-					$ret_arr7['success'] = sprintf(__('You have changed your maximum bid successfully to %s', 'woo_ua'), wc_price($bid, $args));
+					$ret_arr7['success'] = sprintf(__('You have changed your maximum bid successfully to %s.', 'woo_ua'), wc_price($bid, $args));
 					$ret_arr7['status'] = false;
 					return $ret_arr7;
 				}
@@ -995,7 +994,7 @@ class UWA_Bid {
 					elseif($bid  == (float)$auction_high_bid){
 
 
-						/*$ret_arr9['error'] = sprintf(__('Your amount matches with maximum bidding amount of an user. Kindly check new bid and enter more value.', 'woo_ua'), wc_price($bid, $args));*/
+						/*$ret_arr9['error'] = __( 'Your bid amount matches the maximum bid of another user. Please check the current bid and enter a higher value.', 'woo_ua' );*/
 						
 
 						$get_proxy_same_maxbid = get_option('uwa_proxy_same_maxbid');
@@ -1026,8 +1025,7 @@ class UWA_Bid {
 							update_user_meta($current_user->ID, "uwa_samemaxbid_bidmsg_auction", $product_id);
 							
 
-							$ret_arr['error'] = sprintf(__('Your bid matches with maximum bid of an user. The bid of this item has been updated. Please check the latest bid and bid again.', 'woo_ua'), 
-								wc_price($bid, $args));
+							$ret_arr['error'] = __( 'Your bid matches the maximum bid of another user. The bid for this item has been updated. Please check the latest bid and bid again.', 'woo_ua' );
 
 							/*$ret_arr9['status'] = true;*/
 							/*return $ret_arr9;*/
@@ -1036,8 +1034,8 @@ class UWA_Bid {
 
 							/* default */	
 
-							$ret_arr9['error'] = sprintf(__('Your amount matches with maximum bidding amount of an user. Kindly check new bid and enter more value.', 'woo_ua'), wc_price($bid, $args));					
-							$ret_arr9['status'] = false;
+							$ret_arr9['error'] = __( 'Your bid amount matches the maximum bid of another user. Please check the current bid and enter a higher value.', 'woo_ua' );
+										$ret_arr9['status'] = false;
 							return $ret_arr9;
 						}			
 						
@@ -1066,8 +1064,7 @@ class UWA_Bid {
 					$history_bid_id = $this->history_bid($product_id, $proxy_bid, get_userdata($auction_high_current_bider), 1);					
 					/*_notice(sprintf(__('You have been outbid.', 'woo_ua'), $product_data -> get_title()),'error');*/
 
-					$ret_arr['error'] = sprintf(__('You have been outbid.', 'woo_ua'), 
-						$product_data->get_title());
+					$ret_arr['error'] = __( 'You have been outbid.', 'woo_ua' );
 
 						WC()->mailer();
 						$outbiddeduser = $current_user->ID;					
@@ -1169,7 +1166,7 @@ class UWA_Bid {
 						$history_bid_id = $this -> history_bid($product_id, $proxy_bid, get_userdata($auction_high_current_bider), 1);
 
 
-						$ret_arr['error'] = sprintf(__('You have been outbid.', 'woo_ua'), $product_data -> get_title());
+						$ret_arr['error'] = __( 'You have been outbid.', 'woo_ua' );
 
 							WC()->mailer();
 							$outbiddeduser = $current_user->ID;					
@@ -1199,7 +1196,7 @@ class UWA_Bid {
 			 
 		} else {
 		
-			$ret_arr12['error'] = sprintf(__('There was no bid Placed.', 'woo_ua'), $product_data -> get_title());
+			$ret_arr12['error'] = __( 'There was no bid placed.', 'woo_ua' );
 			$ret_arr12['status'] = false;
 			return $ret_arr12;
 			
@@ -1234,8 +1231,7 @@ class UWA_Bid {
 		if ( ($product_data -> is_uwa_user_biding($current_user->ID) > 0 ) && 
 			get_option( 'uwa_restrict_bidder_enable') == 'yes') {
 			
-			$sret_arr1['error'] = sprintf(__('You already placed bid for this auction. ', 
-				'woo_ua'), $product_data -> get_title());
+			$sret_arr1['error'] = __( 'You have already placed a bid for this auction.', 'woo_ua' );
 			$sret_arr1['status'] = false;
 			return $sret_arr1;
 		}
@@ -1245,7 +1241,7 @@ class UWA_Bid {
 
 				if ($product_data->get_uwa_auction_start_price()  > $bid)  {
 			    	
-			    	$sret_arr2['error'] = sprintf(__('Your bid is smaller for &quot;%s&quot;.Your bid must be at least %s ', 'woo_ua'), 
+			    	$sret_arr2['error'] = sprintf(__('Your bid is too small for &quot;%s&quot;. Your bid must be at least %s.', 'woo_ua'), 
 			    		$product_data->get_title(),
 						wc_price($product_data->get_uwa_auction_start_price(), $args ));
 					$sret_arr2['status'] = false;
@@ -1296,7 +1292,7 @@ class UWA_Bid {
 
 				if ($product_data->get_uwa_auction_start_price() < $bid)  {
 					
-					$sret_arr5['error'] = sprintf(__('Your bid is greater for &quot;%s&quot;.Your bid must be at least %s ', 'woo_ua'), $product_data -> get_title(),
+					$sret_arr5['error'] = sprintf(__('Your bid is too high for &quot;%s&quot;. Your bid must be at most %s.', 'woo_ua'), $product_data -> get_title(),
 						wc_price($product_data->get_uwa_auction_start_price(), $args ));
 					$sret_arr5['status'] = false;					
 					return $sret_arr5;
@@ -1340,7 +1336,7 @@ class UWA_Bid {
 
 		} else{
 			
-			$sret_arr8['error'] = sprintf(__('There was no bid', 'woo_ua'), $product_data -> get_title());
+			$sret_arr8['error'] = __( 'There was no bid placed.', 'woo_ua' );
 			$sret_arr8['status'] = false;
 			return $sret_arr8;
 

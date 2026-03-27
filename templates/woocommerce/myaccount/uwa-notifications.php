@@ -158,7 +158,7 @@ if (!defined('ABSPATH')) {
                                 <input <?php echo esc_attr( $uwa_sms_won_user_checked ); ?> class="checkbox" value="1" name="uwa_sms_won_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php esc_html_e( 'When you win an auction product', 'woo_ua' ); ?></span>
+                                <span class="switch-title"><?php esc_html_e( 'When you win an auction', 'woo_ua' ); ?></span>
 
                             </div>
                         <?php
@@ -170,7 +170,7 @@ if (!defined('ABSPATH')) {
                                 <input <?php echo esc_attr( $uwa_sms_ending_soon_user_checked ); ?> class="checkbox" value="1" name="uwa_wp_sms_ending_soon_user_enabled" type="checkbox" style="">
                                 <span class="slider round"></span>
                                 </label>
-                                <span class="switch-title"><?php esc_html_e( 'When the auction product is ending soon', 'woo_ua' ); ?></span>
+                                <span class="switch-title"><?php esc_html_e( 'When the auction is ending soon', 'woo_ua' ); ?></span>
                             </div>
                     <?php endif;
                          endif;

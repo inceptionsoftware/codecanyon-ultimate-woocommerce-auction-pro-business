@@ -234,7 +234,7 @@ class UWA_Widget_My_Auctions extends WP_Widget {
 		<p><label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'woo_ua' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php esc_html_e( 'Number of auctions to show:', 'woo_ua' ); ?></label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id('number') ); ?>"><?php esc_html_e( 'Number of auctions to show:', 'woo_ua' ); ?></label>
 		<input id="<?php echo esc_attr( $this->get_field_id('number') ); ?>" name="<?php echo esc_attr( $this->get_field_name('number') ); ?>" type="text" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		
 		<p><input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('uwa_hide_time') ); ?>" name="<?php echo esc_attr( $this->get_field_name('uwa_hide_time') ); ?>"<?php checked( $uwa_hide_time ); ?> />

@@ -157,11 +157,11 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 			$auction_silent = get_post_meta($auction_ID, 'uwa_auction_silent', true);
 			$row['auction_type'] = '';	
 			if($auction_proxy =="yes"){
-				$auction_type = __('Proxy', 'woo_ua');
+				$auction_type = esc_html__('Proxy', 'woo_ua');
 			}elseif($auction_silent =="yes"){
-				$auction_type = __('Silent', 'woo_ua');
+				$auction_type = esc_html__('Silent', 'woo_ua');
 			}else{
-				$auction_type = __('Simple', 'woo_ua');
+				$auction_type = esc_html__('Simple', 'woo_ua');
 			}
 			/* Auction Type column */			
 			$row['auction_type'] = $auction_type;  
@@ -245,7 +245,7 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 							data-bid_id=".$bid_ID." 
 							data-bid_user_id=".$bid_user_ID." 
 							data-bid_amount=".$bid_amount." 
-							data-auction_id=".$auction_ID." >".__('Choose Winner', 'woo_ua')."</a></td>";
+							data-auction_id=".$auction_ID." >".esc_html__('Choose Winner', 'woo_ua')."</a></td>";
 					}
 
 					$row_bidders .= "</tr>";
@@ -263,11 +263,11 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 
 				if (count($results_count) > 2) {						
                         $row['bidders'] .= "
-                            <a href='#' class='uwa-see-more show-all'  rel='".$auction_ID."' >".__('See more', 'woo_ua').'</a>';
+                            <a href='#' class='uwa-see-more show-all'  rel='".$auction_ID."' >".esc_html__('See more', 'woo_ua').'</a>';
                 }
 
 			} else {				
-				$row['bidders'] = __('No bids placed', 'woo_ua');	
+				$row['bidders'] = esc_html__('No bids placed', 'woo_ua');	
 			}
 
 			if ($this->auction_status == 'expired') {
@@ -293,27 +293,27 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 
 				if($fail_reason == 1){	
 				
-					$row['expiry_reason'] ='<span style="color:red;font-size:13px">'.__('No Bid', 'woo_ua').'</span>';
+					$row['expiry_reason'] ='<span style="color:red;font-size:13px">'.esc_html__('No Bid', 'woo_ua').'</span>';
 					
 				} elseif($fail_reason == 2) {
 					
-					$row['expiry_reason'] = '<span style="color:red;font-size:13px">'.__('Reserve Not Met', 'woo_ua').'</span>';
+					$row['expiry_reason'] = '<span style="color:red;font-size:13px">'.esc_html__('Reserve Not Met', 'woo_ua').'</span>';
 				}elseif($reason_closed == 3){
 
-					$row['expiry_reason'] = '<span style="color:#7ad03a;font-size:13px">'.__('Sold', 'woo_ua').'</span>';									
+					$row['expiry_reason'] = '<span style="color:#7ad03a;font-size:13px">'.esc_html__('Sold', 'woo_ua').'</span>';									
 					if ( $order_id ){						
 						$row['expiry_reason'] .='<br>';
 						$row['expiry_reason'] .='<span style="font-size:13px">
-						<a href="post.php?&action=edit&post='.$order_id.'">'.__('Order ID: ', 'woo_ua').$order_id.'</a></span>';
+						<a href="post.php?&action=edit&post='.$order_id.'">'.esc_html__('Order ID: ', 'woo_ua').$order_id.'</a></span>';
 					}
 				}else {
 
-					$row['expiry_reason'] ='<span style="color:#7ad03a;font-size:13px">'.__('Won', 'woo_ua').'</span><br>';
-					$row['expiry_reason'] .='<span style="font-size:13px">'.__('Highest bidder was', 'woo_ua').'</span><br>';
+					$row['expiry_reason'] ='<span style="color:#7ad03a;font-size:13px">'.esc_html__('Won', 'woo_ua').'</span><br>';
+					$row['expiry_reason'] .='<span style="font-size:13px">'.esc_html__('Highest Bidder Was', 'woo_ua').'</span><br>';
 					$row['expiry_reason'] .='<span style="font-size:13px"><a href='.get_edit_user_link($current_bidder).'>'.$user_name.'</a></span><br>';					
 					if ( $order_id ){
 						$row['expiry_reason'] .='<span style="font-size:13px">
-						<a href="post.php?&action=edit&post='.$order_id.'">'.__('Order ID: ', 'woo_ua').$order_id.'</a></span><br>';
+						<a href="post.php?&action=edit&post='.$order_id.'">'.esc_html__('Order ID: ', 'woo_ua').$order_id.'</a></span><br>';
 					}
 				}
 			    
@@ -322,8 +322,8 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 			$row_action = "";
 			if ($this->auction_status == 'live') {
 				$auction_edit_url = get_edit_post_link($auction_ID);
-				$row_action = "<a href=".$auction_edit_url." class='button'>".__('Edit', 'woo_ua')."</a> <br /><br />"	;		
-				$row_action .= "<a href='#' class='button uwa_force_end_now' data-auction_id=".$auction_ID." >".__('End Now', 'woo_ua')."</a>";	
+				$row_action = "<a href=".$auction_edit_url." class='button'>".esc_html__('Edit', 'woo_ua')."</a> <br /><br />"	;		
+				$row_action .= "<a href='#' class='button uwa_force_end_now' data-auction_id=".$auction_ID." >".esc_html__('End Now', 'woo_ua')."</a>";	
 			}
 
 		    if ($this->auction_status == 'expired') {				
@@ -334,16 +334,16 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 				
 					$auction_edit_url = get_edit_post_link($auction_ID);
 					$auction_relist_url = $auction_edit_url."&relist=true";
-				    $row_action = "<a href=".$auction_relist_url." class='button'>".__('Relist', 'woo_ua')."</a><br />";			
+				    $row_action = "<a href=".$auction_relist_url." class='button'>".esc_html__('Relist', 'woo_ua')."</a><br />";			
 					if($reason_closed == 2){
-						$row_action .= "<a href='#' data-postid=".$auction_ID."  class='button uwa_force_remind_to_pay button' >". __('Remind to Pay', 'woo_ua')."</a>";
+						$row_action .= "<a href='#' data-postid=".$auction_ID."  class='button uwa_force_remind_to_pay button' >". esc_html__('Remind to Pay', 'woo_ua')."</a>";
 					}
 			  	}				
 			}
 
 			if ($this->auction_status == 'scheduled') {
 				
-				$row_action = "<a href='#' class='button uwa_force_make_live' data-auction_id=".$auction_ID." >".__('Make It Live', 'woo_ua')."</a>";
+				$row_action = "<a href='#' class='button uwa_force_make_live' data-auction_id=".$auction_ID." >".esc_html__('Make It Live', 'woo_ua')."</a>";
 			}
 
 			$row['uwa_action'] = $row_action;			
@@ -367,39 +367,39 @@ class Uwa_Manage_Auctions_List_Table extends WP_List_Table {
 		$this->auction_status = (isset($_GET['auction_status']) && !empty($_GET['auction_status'])) ? sanitize_text_field( wp_unslash( $_GET['auction_status'] ) ) : 'live';
 
         $columns = array(           
-            'auction_type' => __('Type', 'woo_ua'),
-            'title' => __('Product Title', 'woo_ua'),
-            'create_date' => __('Start Date', 'woo_ua'),
-            'end_date' => __('End Date', 'woo_ua'),
-            'opening_price' => __('Opening / Current Price', 'woo_ua'),
-            'reserve_price' => __('Reserve Price', 'woo_ua'),
-            'bidders' => __('Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;Choose Winner','woo_ua'),                    
-			'uwa_action' => __('Actions', 'woo_ua'),
+            'auction_type' => esc_html__('Type', 'woo_ua'),
+            'title' => esc_html__('Product Title', 'woo_ua'),
+            'create_date' => esc_html__('Start Date', 'woo_ua'),
+            'end_date' => esc_html__('End Date', 'woo_ua'),
+            'opening_price' => esc_html__('Opening / Current Price', 'woo_ua'),
+            'reserve_price' => esc_html__('Reserve Price', 'woo_ua'),
+            'bidders' => esc_html__('Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;Choose Winner','woo_ua'),                    
+			'uwa_action' => esc_html__('Actions', 'woo_ua'),
         );
 		
 		if ($this->auction_status == 'expired') {
 			$columns = array(
-				'auction_type' => __('Type', 'woo_ua'),
-				'title' => __('Product Title', 'woo_ua'),
-				'create_date' => __('Start Date', 'woo_ua'),
-				'end_date' => __('End Date', 'woo_ua'),				
-				'opening_price' => __('Opening / Final Price', 'woo_ua'),
-				'reserve_price' => __('Reserve Price', 'woo_ua'),
-				'bidders' => __('Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time','woo_ua'),                   
-				'expiry_reason' => __('Expiry Reason', 'woo_ua'),                    
-				'uwa_action' => __('Actions', 'woo_ua'),                    			   
+				'auction_type' => esc_html__('Type', 'woo_ua'),
+				'title' => esc_html__('Product Title', 'woo_ua'),
+				'create_date' => esc_html__('Start Date', 'woo_ua'),
+				'end_date' => esc_html__('End Date', 'woo_ua'),				
+				'opening_price' => esc_html__('Opening / Final Price', 'woo_ua'),
+				'reserve_price' => esc_html__('Reserve Price', 'woo_ua'),
+				'bidders' => esc_html__('Bidder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Bid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time','woo_ua'),                   
+				'expiry_reason' => esc_html__('Expiry Reason', 'woo_ua'),                    
+				'uwa_action' => esc_html__('Actions', 'woo_ua'),                    			   
 			);
 		}
 		
 		if ($this->auction_status == 'scheduled') {
 			 $columns = array(       
-				'auction_type' => __('Type', 'woo_ua'),
-				'title' => __('Product Title', 'woo_ua'),				
-				'create_date' => __('Starting Date', 'woo_ua'),								
-				'end_date' => __('End Date', 'woo_ua'),
-				'opening_price' => __('Opening / Final Price', 'woo_ua'),
-				'reserve_price' => __('Reserve Price', 'woo_ua'),
-				'uwa_action' => __('Actions', 'woo_ua'),				       
+				'auction_type' => esc_html__('Type', 'woo_ua'),
+				'title' => esc_html__('Product Title', 'woo_ua'),				
+				'create_date' => esc_html__('Starting Date', 'woo_ua'),								
+				'end_date' => esc_html__('End Date', 'woo_ua'),
+				'opening_price' => esc_html__('Opening / Final Price', 'woo_ua'),
+				'reserve_price' => esc_html__('Reserve Price', 'woo_ua'),
+				'uwa_action' => esc_html__('Actions', 'woo_ua'),				       
 			);
 		}		
         return $columns;
@@ -668,7 +668,7 @@ function uwa_manage_auctions_list_page_handler_display() {
 			<div class="uwa-action-container" style="float:right;margin-right: 10px;">
 				<form action="" method="POST">
 					<input type="text" name="uwa_auction_search" value="<?php echo esc_attr( isset($_POST['uwa_auction_search']) ? sanitize_text_field( wp_unslash( $_POST['uwa_auction_search'] ) ) : '' ); ?>" />
-					<input type="submit" class="button-secondary" name="uwa_auction_search_submit" value="Search" />
+					<input type="submit" class="button-secondary" name="uwa_auction_search_submit" value="<?php echo esc_attr__( 'Search', 'woo_ua' ); ?>" />
 					<input type="hidden" id="statusofauction" value="<?php echo esc_attr( $manage_auction_tab ); ?>">
 				</form>
         	</div>		

@@ -67,7 +67,7 @@ $user_login = isset( $user->data->user_login ) ? $user->data->user_login : '';
 				<tr>
 					<td>
 					<button id="uwa_private_send" class="button alt uwa_private_send">
-					<?php esc_html_e( 'Send', 'woo_ua' ); ?>
+					<?php esc_html_e( 'Send Message', 'woo_ua' ); ?>
 					</button>
 					</td>
 					<td></td>

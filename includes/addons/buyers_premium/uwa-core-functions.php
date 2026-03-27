@@ -449,8 +449,8 @@ function uwa_buyers_premium_order_meta_customized_display( $item_id, $item, $pro
 			$buyer_premium_in_amt);
 
 
-    	_e("Buyer's Premium", "woo_ua");
-        echo " : ".wc_price($buyer_premium_in_amt);
+    	esc_html_e( "Buyer's Premium", "woo_ua" );
+        echo ' : ' . wc_price( $buyer_premium_in_amt );
 	}
 }
 
@@ -459,7 +459,7 @@ add_action( 'woocommerce_admin_order_item_headers',
 	'uwa_buyers_premium_action_woocommerce_admin_order_item_headers', 10, 3 );
 
 function uwa_buyers_premium_action_woocommerce_admin_order_item_headers( $order ) {
-    echo '<th class="item_buyercost sortable" data-sort="float" style="text-align: right;">Buyers Premium</th>';
+    echo '<th class="item_buyercost sortable" data-sort="float" style="text-align: right;">' . esc_html__( 'Buyers Premium', 'woo_ua' ) . '</th>';
 }
 
 /* Display order item meta in admin side */

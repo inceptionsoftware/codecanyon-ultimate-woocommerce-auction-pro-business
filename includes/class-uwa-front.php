@@ -445,7 +445,7 @@ class UWA_Front {
 						WC()->cart->add_to_cart($product_id);
 					
 				  	} else {
-					  wc_add_notice(sprintf(__('You can not buy this "%s" auction because you have not won it!', 'woo_ua'), $product_data->get_title()), 'error');
+					  wc_add_notice( sprintf( __( 'You cannot buy this &quot;%s&quot; auction because you have not won it.', 'woo_ua' ), $product_data->get_title() ), 'error' );
 				  	}			   
 				
 				}
@@ -593,18 +593,18 @@ class UWA_Front {
 	
 			if(empty($firstname)){
 				$response['status'] = 0;				
-				$response['error_name'] = __('Please enter your Name!','woo_ua');
+				$response['error_name'] = __( 'Please enter your name.', 'woo_ua' );
 				$sending = 0;
 			} 
 			if(!is_email($email_id) || empty($email_id)){
 				$response['status'] = 0;
-				$response['error_email'] = __('Please enter your Email address!','woo_ua');
+				$response['error_email'] = __( 'Please enter a valid email address.', 'woo_ua' );
 				$sending = 0;
 			}
 			
 			if(empty($message)){
 				$response['status'] = 0;
-				$response['error_message'] = __('Please enter a message!','woo_ua');
+				$response['error_message'] = __( 'Please enter a message.', 'woo_ua' );
 				$sending = 0;
 			}
 			
@@ -622,7 +622,7 @@ class UWA_Front {
 				 do_action('uwa_private_msg_email_admin',$user_args);
 				
 				$response['status'] = 1;
-				$response['success_message'] = __('Thank you for Contact.','woo_ua');				
+				$response['success_message'] = __( 'Thank you for contacting us.', 'woo_ua' );				
 			}
 			
 		wp_send_json( $response );
@@ -671,7 +671,7 @@ class UWA_Front {
 
 			echo "<div class='watchlist-notice'>";
 			
-			printf(__('<span class="watchlist-error">Please sign in to add auction to watchlist. </span><a href="%s" class="button watchlist-error">Login &rarr;</a>', 'woo_ua'), get_permalink(wc_get_page_id('myaccount')));
+			printf( __( '<span class="watchlist-error">Please sign in to add this auction to your watchlist.</span><a href="%s" class="button watchlist-error">Login &rarr;</a>', 'woo_ua' ), get_permalink( wc_get_page_id( 'myaccount' ) ) );
 			echo "</div>";
 		}
 
@@ -712,7 +712,7 @@ class UWA_Front {
 						
 						if ($current_bidder) {
 							
-							printf(__("Winning bid is %s by %s.", 'woo_ua'), wc_price($product_data->get_uwa_current_bid(),  $args), uwa_user_display_name($current_bidder));
+							printf( __( "Winning bid: %s by %s.", 'woo_ua' ), wc_price( $product_data->get_uwa_current_bid(), $args ), esc_html( uwa_user_display_name( $current_bidder ) ) );
 							echo "</p>";
 							if ( get_current_user_id() == $current_bidder ){
 								
@@ -770,7 +770,7 @@ class UWA_Front {
 
 					echo "<div>";
 					
-					printf(__("Please refresh page.", 'woo_ua'));
+					echo esc_html__( "Please refresh the page.", 'woo_ua' );
 
 					echo "</div>";
 				}
@@ -1035,10 +1035,10 @@ class UWA_Front {
 							if(get_option('uwa_show_reserve_price', 'no') == 'yes'){
 							$reserve_price = (wc_price($product_data->get_uwa_auction_reserved_price(), $args));
 								if ($product_data->is_uwa_reserve_met() === FALSE) {
-									$not_met_txt = __("Reserve price ".$reserve_price." has not been met.", 'woo_ua');
+									$not_met_txt = sprintf( __( "Reserve price %s has not been met.", 'woo_ua' ), $reserve_price );
 									$response[$posts_id]['wua_reserve'] = $not_met_txt;
 								} elseif ($product_data->is_uwa_reserve_met() === TRUE) {
-									$met_txt = __("Reserve price ".$reserve_price." has been met.", 'woo_ua');
+									$met_txt = sprintf( __( "Reserve price %s has been met.", 'woo_ua' ), $reserve_price );
 									$response[$posts_id]['wua_reserve'] =$met_txt;
 								}
 								
@@ -1047,9 +1047,9 @@ class UWA_Front {
 						if(get_option('uwa_hide_reserve_field', 'no') == 'no' && get_option('uwa_show_reserve_price', 'no') == 'no'){
 						
 							if ($product_data->is_uwa_reserve_met() === FALSE) {
-								$response[$posts_id]['wua_reserve'] = __("Reserve price has not been met.", 'woo_ua');
+								$response[$posts_id]['wua_reserve'] = __( 'Reserve price has not been met.', 'woo_ua' );
 							} elseif ($product_data->is_uwa_reserve_met() === TRUE) {
-								$response[$posts_id]['wua_reserve'] =__("Reserve price has been met.", 'woo_ua');
+								$response[$posts_id]['wua_reserve'] = __( 'Reserve price has been met.', 'woo_ua' );
 							}
 						}
 					}
@@ -1622,9 +1622,9 @@ class UWA_Front {
 
 			/*$data['uwa_bid_asc'] = __( 'Sort by current bid: Low to high', 'woo_ua' );
 			$data['uwa_bid_desc'] = __( 'Sort by current bid: High to low', 'woo_ua' );*/
-			$data['uwa_ending'] = __( 'Sort auction by Ending Soon', 'woo_ua' );
-			$data['uwa_started'] = __( 'Sort auction by Just started', 'woo_ua' );
-			$data['uwa_active'] = __( 'Sort auction by Most Active', 'woo_ua' );
+			$data['uwa_ending'] = __( 'Sort by Ending Soon', 'woo_ua' );
+			$data['uwa_started'] = __( 'Sort by Just Started', 'woo_ua' );
+			$data['uwa_active'] = __( 'Sort by Most Active', 'woo_ua' );
 					
 					
 			return $data;

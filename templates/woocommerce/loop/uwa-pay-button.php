@@ -52,7 +52,7 @@ if(!(method_exists( $product, 'get_type') && $product->get_type() == 'auction'))
 			elseif(in_array('uwa_buyers_premium_addon', $addons) &&
 				!in_array('uwa_stripe_auto_debit_addon', $addons)){
 				?>
-					<a href="<?php echo $checkout_url; ?>" class="button alt">
+					<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt">
 						<?php echo esc_html( apply_filters( 'ultimate_woocommerce_auction_pay_now_button_text',
 							__( "Pay Buyer's Premium", 'woo_ua' ), $product ) ); ?></a>
 
@@ -76,7 +76,7 @@ if(!(method_exists( $product, 'get_type') && $product->get_type() == 'auction'))
 
 			if($get_charged_for_winner == $w_product_price || $get_charged_for_winner > $w_product_price ){ ?>
 
-		    	<a href="<?php echo $checkout_url; ?>" class="button alt uwa_pay_now">
+		    	<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt uwa_pay_now">
 					<?php echo esc_html( apply_filters(
 						'ultimate_woocommerce_auction_pay_now_button_text',
 						__( 'Get Item', 'woo_ua' ), $product ) ); ?></a>
@@ -84,7 +84,7 @@ if(!(method_exists( $product, 'get_type') && $product->get_type() == 'auction'))
 				<?php
 			}
 			else { ?>
-		    	<a href="<?php echo $checkout_url; ?>" class="button alt uwa_pay_now">
+		    	<a href="<?php echo esc_url( $checkout_url ); ?>" class="button alt uwa_pay_now">
 					<?php echo esc_html( apply_filters( 'ultimate_woocommerce_auction_pay_now_button_text',
 						 __( 'Pay Now', 'woo_ua' ), $product ) ); ?></a>
 				<?php

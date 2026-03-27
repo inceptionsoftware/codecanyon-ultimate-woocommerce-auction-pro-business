@@ -41,15 +41,15 @@ if (!defined('ABSPATH')) {
         <li class="<?php echo $active_tab === 'active' ? 'active' : ''; ?>">
 
             <a href="<?php echo $active_bid_url; ?>">
-                	<?php esc_html_e( 'Bids Active', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'active' ) ); ?>) |
+                	<?php esc_html_e( 'Active Bids', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'active' ) ); ?>) |
         </li>
 		<li class="<?php echo $active_tab === 'won' ? 'active' : ''; ?>">
 			<a href="<?php echo $active_won_url; ?>">
-				<?php esc_html_e( 'Bids Won', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'won' ) ); ?>) |
+				<?php esc_html_e( 'Won Bids', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'won' ) ); ?>) |
         </li>
 		<li class="<?php echo $active_tab === 'lost' ? 'active' : ''; ?>">
 		   <a href="<?php echo $active_lost_url; ?>">
-		   		<?php esc_html_e( 'Bids Lost', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'lost' ) ); ?>) |
+		   		<?php esc_html_e( 'Lost Bids', 'woo_ua' ); ?></a> (<?php echo absint( uwa_front_user_bids_count( $user_id, 'lost' ) ); ?>) |
 		</li>
 		<li class="<?php echo $active_tab === 'watchlist' ? 'active' : ''; ?>">
 		   <a href="<?php echo $active_watchlist_url; ?>">
