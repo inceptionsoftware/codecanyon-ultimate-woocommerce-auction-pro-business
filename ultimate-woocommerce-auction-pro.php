@@ -177,8 +177,12 @@ if ( in_array( 'woocommerce/woocommerce.php', $blog_plugins ) || isset( $site_pl
 				
 				
 				require_once ( UW_AUCTION_PRO_DIR . '/includes/clock/class-uat-auction-clock.php' );
-				
-				
+
+				// License system.
+				require_once UW_AUCTION_PRO_DIR . '/includes/class-uwa-license.php';
+				UWA_License::instance();
+
+
 				/* place bid using page load */
 				add_action('init', array( $this,'ultimate_woocommerce_auction_place_bid'));	
 				
@@ -1882,7 +1886,24 @@ if ( in_array( 'woocommerce/woocommerce.php', $blog_plugins ) || isset( $site_pl
 	$uwa_auctions = new Ultimate_WooCommerce_Auction_Pro();
 	register_activation_hook( __FILE__, array( $uwa_auctions, 'uwa_pro_install' ) );
 	register_deactivation_hook( __FILE__, array( $uwa_auctions, 'uwa_pro_deactivation' ) );
-							
+
+	register_activation_hook( __FILE__, 'uwa_schedule_license_cron' );
+	register_deactivation_hook( __FILE__, 'uwa_clear_license_cron' );
+
+	if ( ! function_exists( 'uwa_schedule_license_cron' ) ) {
+		function uwa_schedule_license_cron() {
+			if ( ! wp_next_scheduled( 'uwa_daily_license_check' ) ) {
+				wp_schedule_event( time(), 'daily', 'uwa_daily_license_check' );
+			}
+		}
+	}
+
+	if ( ! function_exists( 'uwa_clear_license_cron' ) ) {
+		function uwa_clear_license_cron() {
+			wp_clear_scheduled_hook( 'uwa_daily_license_check' );
+		}
+	}
+
 } 
 else {
 

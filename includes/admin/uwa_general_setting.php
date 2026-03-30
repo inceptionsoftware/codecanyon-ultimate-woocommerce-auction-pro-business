@@ -26,7 +26,7 @@
 		<?php
 		
 		/*$uwa_default_setting_tabs = array(array( 'slug' => 'uwa_auction_setting', 'label' => __('Auction', 'woo_ua')),array( 'slug' => 'uwa_display_setting', 'label' => __('Display', 'woo_ua')),array( 'slug' => 'uwa_cron_setting', 'label' => __('Cron Setting', 'woo_ua')));*/ 
-		$uwa_default_setting_tabs = array(array( 'slug' => 'uwa_auction_setting', 'label' => __('Auction', 'woo_ua')),array( 'slug' => 'uwa_display_setting', 'label' => __('Display', 'woo_ua')));
+		$uwa_default_setting_tabs = array(array( 'slug' => 'uwa_auction_setting', 'label' => __('Auction', 'woo_ua')),array( 'slug' => 'uwa_display_setting', 'label' => __('Display', 'woo_ua')),array( 'slug' => 'uwa_license_setting', 'label' => __('License', 'woo_ua')));
 			
 		$uwa_setting_tabs = apply_filters('uwa_admin_default_setting_tabs', $uwa_default_setting_tabs);	
 		$active_tab = isset($_GET['setting_section']) ? $_GET['setting_section'] : 'uwa_auction_setting'; 
@@ -51,7 +51,11 @@
 	if( $active_tab == 'uwa_cron_setting' ) {
 		include_once( UW_AUCTION_PRO_ADMIN . '/uwa_cron_setting_tab.php');
 	}
-	
+
+	if( $active_tab == 'uwa_license_setting' ) {
+		include_once( UW_AUCTION_PRO_ADMIN . '/uwa-license-page.php');
+	}
+
 	do_action( 'uwa_admin_after_default_setting_tabs',$active_tab );
 	
 	

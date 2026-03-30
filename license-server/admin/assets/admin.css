@@ -1,0 +1,557 @@
+/**
+ * UWA License Server – Admin Styles
+ *
+ * Extends WordPress admin styles with plugin-specific UI components.
+ * Primary colour: #2271b1 (WP admin blue)
+ */
+
+/* ============================================================
+   Layout
+   ============================================================ */
+
+.uls-wrap {
+	max-width: 1200px;
+}
+
+.uls-wrap h1 .dashicons {
+	font-size: 1.4em;
+	width: 1.4em;
+	height: 1.4em;
+	vertical-align: middle;
+	margin-right: 4px;
+	color: #2271b1;
+}
+
+/* ============================================================
+   Stats grid
+   ============================================================ */
+
+.uls-stats-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin: 20px 0;
+}
+
+.uls-stat-card {
+	flex: 1 1 200px;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-left: 4px solid #2271b1;
+	border-radius: 4px;
+	padding: 16px 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	gap: 14px;
+}
+
+.uls-stat-active    { border-left-color: #00a32a; }
+.uls-stat-total     { border-left-color: #2271b1; }
+.uls-stat-activations { border-left-color: #8c5a00; }
+.uls-stat-banned    { border-left-color: #d63638; }
+
+.uls-stat-icon .dashicons {
+	font-size: 36px;
+	width: 36px;
+	height: 36px;
+	color: #c3c4c7;
+}
+
+.uls-stat-active .uls-stat-icon .dashicons    { color: #00a32a; }
+.uls-stat-total .uls-stat-icon .dashicons     { color: #2271b1; }
+.uls-stat-activations .uls-stat-icon .dashicons { color: #8c5a00; }
+.uls-stat-banned .uls-stat-icon .dashicons    { color: #d63638; }
+
+.uls-stat-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.uls-stat-number {
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1;
+	color: #1d2327;
+}
+
+.uls-stat-label {
+	font-size: 12px;
+	color: #646970;
+	margin-top: 4px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   Dashboard columns
+   ============================================================ */
+
+.uls-dashboard-columns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 20px 0;
+}
+
+.uls-dashboard-col {
+	flex: 1 1 460px;
+	min-width: 0;
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+
+.uls-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.uls-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 20px;
+	border-bottom: 1px solid #dcdcde;
+	background: #f6f7f7;
+	border-radius: 4px 4px 0 0;
+}
+
+.uls-card-header h2 {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	color: #1d2327;
+}
+
+.uls-card-body {
+	padding: 16px 20px;
+}
+
+.uls-card-footer {
+	padding: 14px 20px;
+	border-top: 1px solid #dcdcde;
+	background: #f6f7f7;
+	border-radius: 0 0 4px 4px;
+	display: flex;
+	gap: 8px;
+}
+
+/* ============================================================
+   Status badges
+   ============================================================ */
+
+.uls-badge {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 20px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	white-space: nowrap;
+}
+
+.uls-badge-active {
+	background-color: #edfaef;
+	color: #00a32a;
+	border: 1px solid #a7e8b3;
+}
+
+.uls-badge-inactive {
+	background-color: #f6f7f7;
+	color: #646970;
+	border: 1px solid #dcdcde;
+}
+
+.uls-badge-expired {
+	background-color: #fcf9e8;
+	color: #8c5a00;
+	border: 1px solid #f5d87b;
+}
+
+.uls-badge-banned {
+	background-color: #fce8e8;
+	color: #d63638;
+	border: 1px solid #f5a3a5;
+}
+
+/* ============================================================
+   License type indicators
+   ============================================================ */
+
+.uls-license-type-regular {
+	color: #2271b1;
+	font-weight: 500;
+}
+
+.uls-license-type-extended {
+	color: #8c5a00;
+	font-weight: 600;
+}
+
+/* Envato verified checkmark */
+.uls-verified-badge {
+	display: inline-block;
+	color: #00a32a;
+	font-weight: 700;
+	margin-left: 4px;
+	cursor: help;
+}
+
+/* Domain slot usage */
+.uls-domains-full {
+	color: #d63638;
+	font-weight: 600;
+}
+
+/* Support expiry classes */
+.uls-support-expired {
+	color: #d63638;
+}
+
+.uls-support-expiring {
+	color: #8c5a00;
+}
+
+/* ============================================================
+   Licenses table
+   ============================================================ */
+
+.uls-licenses-table .column-id      { width: 40px; }
+.uls-licenses-table .column-code    { width: 140px; }
+.uls-licenses-table .column-type    { width: 100px; }
+.uls-licenses-table .column-domains { width: 80px; }
+.uls-licenses-table .column-status  { width: 90px; }
+.uls-licenses-table .column-purchase-date { width: 100px; }
+.uls-licenses-table .column-support { width: 100px; }
+.uls-licenses-table .column-actions { width: 180px; }
+
+.uls-code-masked,
+.uls-code-small {
+	font-family: Consolas, 'Courier New', monospace;
+	font-size: 12px;
+	background: #f6f7f7;
+	padding: 1px 5px;
+	border-radius: 2px;
+	border: 1px solid #dcdcde;
+	cursor: help;
+}
+
+/* Row action links */
+.uls-row-actions .row-actions {
+	position: static;
+	visibility: visible;
+	opacity: 1;
+}
+
+.uls-action-link {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.uls-action-link:hover {
+	text-decoration: underline;
+}
+
+.uls-delete-license,
+.uls-ban-license {
+	color: #d63638 !important;
+}
+
+.uls-delete-license:hover,
+.uls-ban-license:hover {
+	color: #b32d2e !important;
+}
+
+/* ============================================================
+   Forms (Add License & Settings)
+   ============================================================ */
+
+.uls-form-wrap {
+	max-width: 760px;
+}
+
+.uls-field-row {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 18px;
+	align-items: flex-start;
+}
+
+.uls-field-row > label {
+	flex: 0 0 180px;
+	font-weight: 600;
+	padding-top: 6px;
+	font-size: 13px;
+}
+
+.uls-field-row > label .required {
+	color: #d63638;
+	margin-left: 2px;
+}
+
+.uls-field-input {
+	flex: 1;
+}
+
+.uls-field-input .description {
+	margin-top: 6px !important;
+	color: #646970;
+}
+
+.uls-field-input .button {
+	margin-left: 6px;
+}
+
+.uls-input-group {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.uls-input-group .regular-text {
+	flex: 1;
+}
+
+.uls-field-unit {
+	margin-left: 8px;
+	color: #646970;
+	font-size: 13px;
+}
+
+.uls-field-error {
+	color: #d63638;
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+.uls-toggle-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+/* ============================================================
+   Settings page
+   ============================================================ */
+
+.uls-form-actions {
+	margin: 20px 0;
+}
+
+/* ============================================================
+   Danger Zone
+   ============================================================ */
+
+.uls-danger-zone .uls-card-header {
+	border-left: 4px solid #d63638;
+	background: #fff5f5;
+}
+
+.uls-danger-zone .uls-card-header h2 {
+	color: #d63638;
+}
+
+.uls-danger-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.uls-danger-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #f5a3a5;
+	border-radius: 4px;
+}
+
+.uls-danger-desc strong {
+	display: block;
+	margin-bottom: 4px;
+}
+
+.uls-danger-desc p {
+	margin: 0;
+	font-size: 12px;
+	color: #646970;
+}
+
+.uls-btn-danger {
+	color: #d63638 !important;
+	border-color: #d63638 !important;
+	flex-shrink: 0;
+}
+
+.uls-btn-danger:hover {
+	background: #fce8e8 !important;
+}
+
+/* ============================================================
+   Quick actions & API info
+   ============================================================ */
+
+.uls-quick-actions .uls-card-body {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.uls-quick-actions .button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+
+.uls-api-info {
+	margin-left: auto;
+	font-size: 12px;
+}
+
+.uls-api-info strong {
+	display: block;
+	margin-bottom: 6px;
+	color: #1d2327;
+}
+
+.uls-api-info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.uls-api-info li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 4px;
+}
+
+.uls-api-info code {
+	font-size: 11px;
+	background: #f6f7f7;
+	padding: 2px 6px;
+	border-radius: 2px;
+	border: 1px solid #dcdcde;
+}
+
+.uls-method-badge {
+	background: #2271b1;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	padding: 1px 5px;
+	border-radius: 2px;
+}
+
+/* ============================================================
+   Empty state
+   ============================================================ */
+
+.uls-empty-state {
+	text-align: center;
+	color: #646970;
+	padding: 24px 0;
+	font-style: italic;
+}
+
+/* ============================================================
+   Tables (general)
+   ============================================================ */
+
+.uls-table td,
+.uls-table th {
+	vertical-align: middle;
+}
+
+/* ============================================================
+   Spinner / loading states
+   ============================================================ */
+
+.uls-spinner {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #dcdcde;
+	border-top-color: #2271b1;
+	border-radius: 50%;
+	animation: uls-spin 0.6s linear infinite;
+	vertical-align: middle;
+	margin-left: 6px;
+}
+
+@keyframes uls-spin {
+	to { transform: rotate(360deg); }
+}
+
+.uls-inline-notice {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+.uls-inline-notice.success { color: #00a32a; }
+.uls-inline-notice.error   { color: #d63638; }
+
+/* ============================================================
+   Responsive adjustments
+   ============================================================ */
+
+@media screen and (max-width: 900px) {
+	.uls-stats-grid {
+		flex-wrap: wrap;
+	}
+
+	.uls-stat-card {
+		flex: 1 1 calc(50% - 8px);
+	}
+
+	.uls-dashboard-columns {
+		flex-direction: column;
+	}
+
+	.uls-dashboard-col {
+		flex: none;
+		width: 100%;
+	}
+
+	.uls-field-row {
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.uls-field-row > label {
+		flex: none;
+		padding-top: 0;
+	}
+
+	.uls-danger-item {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.uls-stat-card {
+		flex: 1 1 100%;
+	}
+
+	.uls-api-info {
+		margin-left: 0;
+		width: 100%;
+	}
+}
